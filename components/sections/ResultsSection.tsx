@@ -25,7 +25,7 @@ const outcomes = [
 const CUSTOMERS = [
   {
     nr: "01",
-    company: "Energaia Labs UG",
+    company: "Kelorina",
     result: "200.000 €",
     type: "Fördermittel gesichert",
     program: "Energie & Klimaschutz",
@@ -35,7 +35,7 @@ const CUSTOMERS = [
   },
   {
     nr: "02",
-    company: "Zerox Research",
+    company: "Green Island",
     result: "300.000 €",
     type: "Energieforschung",
     program: "F&E-Förderung",
@@ -45,7 +45,7 @@ const CUSTOMERS = [
   },
   {
     nr: "03",
-    company: "Gemino AI",
+    company: "Kiyora",
     result: "CSRD-Compliance",
     type: "Nachhaltigkeitsberatung",
     program: "CSRD / VSME",
