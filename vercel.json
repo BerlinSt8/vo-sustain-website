@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "app/api/quick-check/route.ts": {
+      "maxDuration": 30
+    }
+  }
+}
