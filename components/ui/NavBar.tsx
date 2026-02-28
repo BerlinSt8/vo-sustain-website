@@ -30,7 +30,7 @@ export default function NavBar() {
       }}
     >
       {/* Logo */}
-      <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
+      <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
         <img
           src="/vo-logo.jpg"
           alt="VO Sustain Logo"
@@ -63,6 +63,14 @@ export default function NavBar() {
           onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
         >
           Über uns
+        </a>
+        <a
+          href="/aktuell"
+          style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.7)", textDecoration: "none", transition: "color 0.2s", letterSpacing: "0.02em" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
+        >
+          Aktuell
         </a>
         <a
           href="#quick-check"

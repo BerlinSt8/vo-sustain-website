@@ -35,3 +35,26 @@ export interface QuickCheckResult {
   recommended_vo_package: string;
   disclaimer: string;
 }
+
+// ── Aktuell / News ──────────────────────────────────────────
+export type ArtikelKategorie = "Förderaufruf" | "CSRD-News" | "Marktinfo" | "Erfolg";
+
+export interface ArtikelFakt {
+  label: string;
+  value: string;
+  icon?: string; // Emoji-Icon optional
+}
+
+export interface Artikel {
+  id: string;
+  slug: string;
+  title: string;
+  category: ArtikelKategorie;
+  date: string;          // ISO-Date "2026-02-20"
+  deadline: string | null; // ISO-Date für Countdown, oder null
+  teaser: string;
+  content: string[];     // Array von Absätzen
+  facts?: ArtikelFakt[]; // Key-Facts als Kacheln
+  tags: string[];
+  source: string | null;
+}
