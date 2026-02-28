@@ -145,10 +145,14 @@ export default async function ArtikelDetailPage({
           </p>
         </div>
 
-        <WaveDivider fromColor="#080F1A" toColor="#F8F9FA" />
+        {/* Kein Wave — durchgehend navy */}
 
         {/* Article Body */}
-        <div style={{ background: "var(--off-white)", padding: "0 0 5rem" }}>
+        <div style={{
+          background: "var(--navy)",
+          padding: "0 0 5rem",
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+        }}>
           <div
             style={{
               maxWidth: "760px",
@@ -161,8 +165,8 @@ export default async function ArtikelDetailPage({
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 200px), 1fr))",
-                  gap: "12px",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 190px), 1fr))",
+                  gap: "10px",
                   marginBottom: "2.5rem",
                 }}
               >
@@ -170,19 +174,20 @@ export default async function ArtikelDetailPage({
                   <div
                     key={i}
                     style={{
-                      background: "white",
-                      border: "1px solid var(--border)",
-                      borderRadius: "10px",
-                      padding: "1rem 1.25rem",
+                      background: "rgba(13,27,42,0.7)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderLeft: "3px solid rgba(39,174,96,0.5)",
+                      borderRadius: "8px",
+                      padding: "0.9rem 1.1rem",
                     }}
                   >
                     <p
                       style={{
                         fontFamily: "'Roboto Mono', monospace",
-                        fontSize: "0.6rem",
+                        fontSize: "0.58rem",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
-                        color: "var(--grey-mid)",
+                        color: "rgba(255,255,255,0.35)",
                         marginBottom: "0.35rem",
                       }}
                     >
@@ -193,8 +198,8 @@ export default async function ArtikelDetailPage({
                       style={{
                         fontFamily: "Montserrat, sans-serif",
                         fontWeight: 700,
-                        fontSize: "0.92rem",
-                        color: "var(--navy)",
+                        fontSize: "0.9rem",
+                        color: "rgba(255,255,255,0.9)",
                         lineHeight: 1.35,
                       }}
                     >
@@ -267,8 +272,8 @@ export default async function ArtikelDetailPage({
                 style={{
                   fontFamily: "'Open Sans', sans-serif",
                   fontSize: "1rem",
-                  color: "#333",
-                  lineHeight: 1.85,
+                  color: "rgba(255,255,255,0.72)",
+                  lineHeight: 1.9,
                   marginBottom: "1.5rem",
                 }}
               >
@@ -280,7 +285,7 @@ export default async function ArtikelDetailPage({
             <hr
               style={{
                 border: "none",
-                borderTop: "1px solid var(--border)",
+                borderTop: "1px solid rgba(255,255,255,0.08)",
                 margin: "2.5rem 0",
               }}
             />
@@ -292,11 +297,12 @@ export default async function ArtikelDetailPage({
                   key={tag}
                   style={{
                     fontFamily: "'Roboto Mono', monospace",
-                    fontSize: "0.65rem",
-                    background: "var(--grey-subtle)",
-                    color: "var(--grey-mid)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "4px",
+                    fontSize: "0.62rem",
+                    letterSpacing: "0.06em",
+                    background: "rgba(255,255,255,0.05)",
+                    color: "rgba(255,255,255,0.35)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    borderRadius: "3px",
                     padding: "3px 10px",
                   }}
                 >
@@ -311,7 +317,7 @@ export default async function ArtikelDetailPage({
                 style={{
                   fontFamily: "'Open Sans', sans-serif",
                   fontSize: "0.8rem",
-                  color: "var(--grey-mid)",
+                  color: "rgba(255,255,255,0.25)",
                 }}
               >
                 Quelle:{" "}
@@ -319,7 +325,7 @@ export default async function ArtikelDetailPage({
                   href={artikel.source}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "var(--verde-dark)", textDecoration: "underline" }}
+                  style={{ color: "var(--verde-bright)", textDecoration: "none", borderBottom: "1px solid rgba(46,204,113,0.35)" }}
                 >
                   {artikel.source}
                 </a>
@@ -330,8 +336,9 @@ export default async function ArtikelDetailPage({
             <div
               style={{
                 marginTop: "3rem",
-                background: "white",
-                border: "1px solid var(--border)",
+                background: "rgba(39,174,96,0.07)",
+                border: "1px solid rgba(39,174,96,0.2)",
+                borderLeft: "3px solid var(--verde)",
                 borderRadius: "12px",
                 padding: "2rem 2.5rem",
                 display: "flex",
@@ -347,7 +354,7 @@ export default async function ArtikelDetailPage({
                     fontFamily: "Montserrat, sans-serif",
                     fontWeight: 800,
                     fontSize: "1.05rem",
-                    color: "var(--navy)",
+                    color: "white",
                     marginBottom: "0.4rem",
                   }}
                 >
@@ -357,7 +364,7 @@ export default async function ArtikelDetailPage({
                   style={{
                     fontFamily: "'Open Sans', sans-serif",
                     fontSize: "0.88rem",
-                    color: "#666",
+                    color: "rgba(255,255,255,0.5)",
                     lineHeight: 1.6,
                   }}
                 >
@@ -385,7 +392,6 @@ export default async function ArtikelDetailPage({
           </div>
         </div>
 
-        <WaveDivider fromColor="#F8F9FA" toColor="#080F1A" />
       </main>
 
       <FooterSection />

@@ -64,14 +64,16 @@ export default function AktuellPage() {
           </p>
         </div>
 
-        <WaveDivider fromColor="#080F1A" toColor="#F8F9FA" />
+        {/* Kein Wave-Divider nötig — bleibt navy */}
 
-        {/* Content */}
-        <div style={{ background: "var(--off-white)", minHeight: "60vh" }}>
+        {/* Content — durchgehend navy für CI-Konsistenz */}
+        <div style={{
+          background: "var(--navy)",
+          minHeight: "60vh",
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+        }}>
           <AktuellClient articles={articles} />
         </div>
-
-        <WaveDivider fromColor="#F8F9FA" toColor="#080F1A" />
       </main>
 
       <FooterSection />
