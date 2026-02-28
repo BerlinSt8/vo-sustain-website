@@ -55,7 +55,7 @@ export default function SolutionSection() {
         <p style={{
           fontFamily: "'Open Sans', sans-serif",
           fontSize: "1.05rem",
-          color: "rgba(255,255,255,0.55)",
+          color: "rgba(255,255,255,0.78)",
           lineHeight: 1.7,
           maxWidth: "520px",
           marginBottom: "4rem",
@@ -101,7 +101,7 @@ export default function SolutionSection() {
               }}>
                 {c.title}
               </h3>
-              <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.65, marginBottom: "1.5rem" }}>
+              <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.65, marginBottom: "1.5rem" }}>
                 {c.desc}
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
@@ -111,9 +111,9 @@ export default function SolutionSection() {
                     style={{
                       fontFamily: "'Roboto Mono', monospace",
                       fontSize: "0.62rem",
-                      color: "rgba(255,255,255,0.45)",
-                      background: "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      color: "rgba(255,255,255,0.65)",
+                      background: "rgba(255,255,255,0.07)",
+                      border: "1px solid rgba(255,255,255,0.14)",
                       padding: "2px 8px",
                       borderRadius: "2px",
                       letterSpacing: "0.06em",

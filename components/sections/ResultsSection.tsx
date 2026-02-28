@@ -143,7 +143,7 @@ function StackCard({
               <span style={{
                 fontFamily: "'Roboto Mono', monospace",
                 fontSize: "0.62rem",
-                color: "rgba(255,255,255,0.3)",
+                color: "rgba(255,255,255,0.62)",
                 letterSpacing: "0.1em",
               }}>
                 {customer.program}
@@ -164,7 +164,7 @@ function StackCard({
             <p style={{
               fontFamily: "'Open Sans', sans-serif",
               fontSize: "1rem",
-              color: "rgba(255,255,255,0.6)",
+              color: "rgba(255,255,255,0.78)",
               lineHeight: 1.75,
               marginBottom: "2rem",
               maxWidth: "420px",
@@ -177,9 +177,9 @@ function StackCard({
                 <span key={tag} style={{
                   fontFamily: "'Roboto Mono', monospace",
                   fontSize: "0.62rem",
-                  color: "rgba(255,255,255,0.4)",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.65)",
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.14)",
                   padding: "4px 10px",
                   borderRadius: "2px",
                   letterSpacing: "0.06em",
@@ -195,7 +195,7 @@ function StackCard({
             <div style={{
               fontFamily: "'Roboto Mono', monospace",
               fontSize: "0.62rem",
-              color: "rgba(255,255,255,0.3)",
+              color: "rgba(255,255,255,0.62)",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               marginBottom: "1rem",
@@ -305,7 +305,7 @@ export default function ResultsSection() {
               fontFamily: "'Roboto Mono', monospace",
               fontSize: "0.62rem",
               letterSpacing: "0.18em",
-              color: "rgba(255,255,255,0.3)",
+              color: "rgba(255,255,255,0.55)",
               textTransform: "uppercase",
               whiteSpace: "nowrap",
             }}>

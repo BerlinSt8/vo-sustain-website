@@ -89,7 +89,7 @@ export default function AboutSection() {
                   <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.6rem", fontWeight: 900, color: "var(--verde-bright)", lineHeight: 1 }}>
                     {c.label}
                   </div>
-                  <div style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.45)", marginTop: "4px" }}>
+                  <div style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.65)", marginTop: "4px" }}>
                     {c.sub}
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export default function AboutSection() {
             <p style={{
               fontFamily: "'Open Sans', sans-serif",
               fontSize: "0.9rem",
-              color: "rgba(255,255,255,0.6)",
+              color: "rgba(255,255,255,0.78)",
               lineHeight: 1.75,
               marginBottom: "2rem",
               maxWidth: "560px",
@@ -114,9 +114,9 @@ export default function AboutSection() {
                 <span key={p} style={{
                   fontFamily: "'Roboto Mono', monospace",
                   fontSize: "0.68rem",
-                  color: "rgba(255,255,255,0.5)",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.68)",
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.14)",
                   padding: "4px 10px",
                   borderRadius: "2px",
                   letterSpacing: "0.06em",
