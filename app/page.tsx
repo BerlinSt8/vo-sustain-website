@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
 import ResultsSection from "@/components/sections/ResultsSection";
+import LogoTickerSection from "@/components/sections/LogoTickerSection";
 import QuickCheckSection from "@/components/sections/QuickCheckSection";
 import AboutSection from "@/components/sections/AboutSection";
 import FooterSection from "@/components/sections/FooterSection";
@@ -34,10 +35,13 @@ export default function Home() {
         {/* 4 – Results: Referenzen */}
         <ResultsSection />
 
+        {/* 5 – Logo-Ticker: Förderprogramme */}
+        <LogoTickerSection />
+
         {/* off-white → navy-muted */}
         <WaveDivider fromColor="#F8F9FA" toColor="#1A3252" />
 
-        {/* 5 – Quick-Check: eingebettetes Formular */}
+        {/* 6 – Quick-Check: eingebettetes Formular */}
         <QuickCheckSection />
 
         {/* navy-muted → navy */}
