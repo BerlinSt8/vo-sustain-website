@@ -26,6 +26,7 @@ const CUSTOMERS = [
   {
     nr: "01",
     company: "Kelorina",
+    logo: "/logos/kunden/kelorina.png",
     result: "200.000 €",
     type: "Fördermittel gesichert",
     program: "Energie & Klimaschutz",
@@ -36,6 +37,7 @@ const CUSTOMERS = [
   {
     nr: "02",
     company: "Green Island",
+    logo: "/logos/kunden/green-island.png",
     result: "300.000 €",
     type: "Energieforschung",
     program: "F&E-Förderung",
@@ -46,6 +48,7 @@ const CUSTOMERS = [
   {
     nr: "03",
     company: "Kiyora",
+    logo: "/logos/kunden/kiyora.png",
     result: "CSRD-Compliance",
     type: "Nachhaltigkeitsberatung",
     program: "CSRD / VSME",
@@ -194,16 +197,42 @@ function StackCard({
               </span>
             </div>
 
-            <h3 style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: isMobile ? "1.6rem" : "clamp(1.6rem, 3vw, 2.4rem)",
-              fontWeight: 900,
-              color: "white",
-              lineHeight: 1.1,
-              marginBottom: "1rem",
-            }}>
-              {customer.company}
-            </h3>
+            {/* Company logo + name */}
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
+              <div style={{
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                borderRadius: "8px",
+                padding: isMobile ? "6px 10px" : "8px 14px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}>
+                <img
+                  src={customer.logo}
+                  alt={`${customer.company} Logo`}
+                  style={{
+                    height: isMobile ? "28px" : "36px",
+                    width: "auto",
+                    maxWidth: isMobile ? "90px" : "120px",
+                    objectFit: "contain",
+                    display: "block",
+                    filter: "brightness(1.1)",
+                  }}
+                />
+              </div>
+              <h3 style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: isMobile ? "1.4rem" : "clamp(1.6rem, 3vw, 2.4rem)",
+                fontWeight: 900,
+                color: "white",
+                lineHeight: 1.1,
+                margin: 0,
+              }}>
+                {customer.company}
+              </h3>
+            </div>
 
             <p style={{
               fontFamily: "'Open Sans', sans-serif",
