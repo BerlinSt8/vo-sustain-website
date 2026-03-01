@@ -1,24 +1,12 @@
 "use client";
 
-const problems = [
-  {
-    icon: "⊛",
-    title: "CSRD-Druck",
-    desc: "Neue Vorgaben wie CSRD und VSME machen ESG-Berichterstattung für immer mehr KMU verpflichtend – mit wenig Vorlauf und hohem Aufwand.",
-  },
-  {
-    icon: "◌",
-    title: "Förder-Chaos",
-    desc: "Undurchsichtige Förderlogiken, Haushaltssperren und Antragsfristen: Die meisten KMU lassen bares Geld liegen, weil der Überblick fehlt.",
-  },
-  {
-    icon: "△",
-    title: "Ressourcenmangel",
-    desc: "Zwischen Tagesgeschäft und Förderbürokratie fehlt intern die Kapazität – Nachhaltigkeit bleibt Absichtserklärung statt Realität.",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+const ICONS = ["⊛", "◌", "△"];
 
 export default function ProblemSection() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="problem"
@@ -34,7 +22,7 @@ export default function ProblemSection() {
             color: "var(--verde-dark)",
             textTransform: "uppercase",
           }}>
-            Die Ausgangslage
+            {t.problem.label}
           </span>
         </div>
 
@@ -48,7 +36,7 @@ export default function ProblemSection() {
           marginBottom: "1.25rem",
           maxWidth: "700px",
         }}>
-          Der Theorie-Nebel.
+          {t.problem.headline}
         </h2>
         <p style={{
           fontFamily: "'Open Sans', sans-serif",
@@ -58,12 +46,12 @@ export default function ProblemSection() {
           maxWidth: "580px",
           marginBottom: "4rem",
         }}>
-          Viele KMU erleben Nachhaltigkeit als lähmende Komplexität. Wir kennen das. Und wir lösen es – mit Klarheit, Strategie und finanzierter Umsetzung.
+          {t.problem.body}
         </p>
 
         {/* Problem cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-          {problems.map((p, i) => (
+          {t.problem.cards.map((p, i) => (
             <div
               key={i}
               style={{
@@ -77,7 +65,7 @@ export default function ProblemSection() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "var(--shadow-md)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "var(--shadow-sm)"; }}
             >
-              <div style={{ fontSize: "1.4rem", color: "var(--verde)", marginBottom: "1rem" }}>{p.icon}</div>
+              <div style={{ fontSize: "1.4rem", color: "var(--verde)", marginBottom: "1rem" }}>{ICONS[i]}</div>
               <h3 style={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontSize: "0.95rem",

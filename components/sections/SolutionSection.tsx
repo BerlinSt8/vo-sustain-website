@@ -1,27 +1,10 @@
 "use client";
 
-const channels = [
-  {
-    label: "01",
-    title: "Fördermittel-management",
-    desc: "Von der Erstprüfung bis zum Verwendungsnachweis. ZIM · BAFA · EFRE · SAB · TAB · Horizon Europe.",
-    tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW"],
-  },
-  {
-    label: "02",
-    title: "CSRD-Beratung",
-    desc: "ESG-Reporting nach CSRD und VSME-Standard – mit valider Datenbasis und pragmatischer Umsetzung.",
-    tags: ["CSRD", "VSME", "ESG", "Reporting"],
-  },
-  {
-    label: "03",
-    title: "Nachhaltigkeits-strategie",
-    desc: "Roadmaps, die priorisieren statt überfordern. Klare Schritte, messbare Wirkung, finanzierbare Maßnahmen.",
-    tags: ["Roadmap", "Strategie", "THG-Reduktion"],
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function SolutionSection() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="leistungen"
@@ -37,7 +20,7 @@ export default function SolutionSection() {
             color: "var(--verde-bright)",
             textTransform: "uppercase",
           }}>
-            Was wir tun
+            {t.solution.label}
           </span>
         </div>
 
@@ -50,7 +33,7 @@ export default function SolutionSection() {
           marginBottom: "1.25rem",
           maxWidth: "700px",
         }}>
-          Die drei Kanäle<br />von VO Sustain.
+          {t.solution.headline1}<br />{t.solution.headline2}
         </h2>
         <p style={{
           fontFamily: "'Open Sans', sans-serif",
@@ -60,12 +43,12 @@ export default function SolutionSection() {
           maxWidth: "520px",
           marginBottom: "4rem",
         }}>
-          Schlüsselfertige Lösungen – von der Förderstrategie bis zur audit-sicheren Abwicklung.
+          {t.solution.body}
         </p>
 
         {/* Channel cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-          {channels.map((c, i) => (
+          {t.solution.channels.map((c, i) => (
             <div
               key={i}
               style={{

@@ -1,6 +1,9 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 export default function FooterSection() {
+  const { t } = useLanguage();
   const year = 2026;
 
   return (
@@ -22,25 +25,21 @@ export default function FooterSection() {
               </div>
             </div>
             <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.875rem", color: "rgba(255,255,255,0.4)", lineHeight: 1.7, maxWidth: "320px" }}>
-              Förderberatung für deutsche KMU. Fördermittelmanagement · CSRD · Nachhaltigkeitsstrategie.
+              {t.footer.tagline}
             </p>
             <p style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.7rem", color: "rgba(255,255,255,0.25)", marginTop: "1rem", letterSpacing: "0.06em" }}>
-              Berlin, Deutschland
+              {t.footer.location}
             </p>
           </div>
 
-          {/* Links */}
+          {/* Navigation */}
           <div>
             <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1.25rem" }}>
-              Navigation
+              {t.footer.navLabel}
             </div>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {[
-                { label: "Leistungen", href: "#leistungen" },
-                { label: "Quick-Check", href: "#quick-check" },
-                { label: "Über uns", href: "#ueber-uns" },
-              ].map((l) => (
-                <li key={l.label}>
+              {t.footer.navLinks.map((l) => (
+                <li key={l.href}>
                   <a
                     href={l.href}
                     style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.875rem", color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.2s" }}
@@ -57,7 +56,7 @@ export default function FooterSection() {
           {/* Kontakt */}
           <div>
             <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1.25rem" }}>
-              Kontakt
+              {t.footer.contactLabel}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               <a
@@ -96,9 +95,12 @@ export default function FooterSection() {
             © {year} VO Sustain · Denis Jänicke
           </p>
           <div style={{ display: "flex", gap: "1.5rem" }}>
-            {[{ label: "Impressum", href: "/impressum" }, { label: "Datenschutz", href: "/datenschutz" }].map((l) => (
+            {[
+              { label: t.footer.impressum, href: "/impressum" },
+              { label: t.footer.datenschutz, href: "/datenschutz" },
+            ].map((l) => (
               <a
-                key={l.label}
+                key={l.href}
                 href={l.href}
                 style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.2)", textDecoration: "none", letterSpacing: "0.06em", transition: "color 0.2s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}

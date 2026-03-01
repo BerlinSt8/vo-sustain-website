@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function NavBar() {
+  const { t, lang, setLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,17 +22,43 @@ export default function NavBar() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Close menu on route change / scroll
+  // Close menu on scroll
   useEffect(() => {
     if (menuOpen) setMenuOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrolled]);
 
   const navLinks = [
-    { href: "/#leistungen", label: "Leistungen" },
-    { href: "/#ueber-uns", label: "Über uns" },
-    { href: "/aktuell", label: "Aktuell" },
+    { href: "/#leistungen", label: t.nav.leistungen },
+    { href: "/#ueber-uns", label: t.nav.ueberUns },
+    { href: "/aktuell", label: t.nav.aktuell },
   ];
+
+  const langToggle = (
+    <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+      {(["de", "en"] as const).map((l) => (
+        <button
+          key={l}
+          onClick={() => setLang(l)}
+          style={{
+            background: lang === l ? "rgba(39,174,96,0.15)" : "transparent",
+            border: `1px solid ${lang === l ? "rgba(39,174,96,0.4)" : "rgba(255,255,255,0.15)"}`,
+            color: lang === l ? "#2ECC71" : "rgba(255,255,255,0.5)",
+            borderRadius: "3px",
+            padding: "2px 7px",
+            cursor: "pointer",
+            fontFamily: "'Roboto Mono', monospace",
+            fontSize: "0.58rem",
+            letterSpacing: "0.12em",
+            fontWeight: lang === l ? 700 : 400,
+            transition: "all 0.2s",
+          }}
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
 
   return (
     <>
@@ -68,7 +96,7 @@ export default function NavBar() {
           </div>
         </a>
 
-        {/* Desktop Links */}
+        {/* Desktop Links + Lang Toggle */}
         {!isMobile && (
           <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
             {navLinks.map((link) => (
@@ -82,6 +110,7 @@ export default function NavBar() {
                 {link.label}
               </a>
             ))}
+            {langToggle}
             <a
               href="/#quick-check"
               style={{
@@ -99,14 +128,15 @@ export default function NavBar() {
               onMouseEnter={(e) => (e.currentTarget.style.background = "var(--verde-dark)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "var(--verde)")}
             >
-              Quick-Check starten
+              {t.nav.quickCheck}
             </a>
           </div>
         )}
 
-        {/* Mobile: CTA + Hamburger */}
+        {/* Mobile: Lang + CTA + Hamburger */}
         {isMobile && (
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            {langToggle}
             <a
               href="/#quick-check"
               onClick={() => setMenuOpen(false)}
@@ -123,12 +153,12 @@ export default function NavBar() {
                 whiteSpace: "nowrap",
               }}
             >
-              Quick-Check
+              {t.nav.quickCheckMobile}
             </a>
-            {/* Hamburger button */}
+            {/* Hamburger */}
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              aria-label="Menü öffnen"
+              aria-label={t.nav.menuOpen}
               style={{
                 background: "none",
                 border: "none",
@@ -140,36 +170,9 @@ export default function NavBar() {
                 justifyContent: "center",
               }}
             >
-              <span
-                style={{
-                  display: "block",
-                  width: "22px",
-                  height: "2px",
-                  background: "white",
-                  transition: "transform 0.25s, opacity 0.25s",
-                  transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
-                }}
-              />
-              <span
-                style={{
-                  display: "block",
-                  width: "22px",
-                  height: "2px",
-                  background: "white",
-                  transition: "opacity 0.25s",
-                  opacity: menuOpen ? 0 : 1,
-                }}
-              />
-              <span
-                style={{
-                  display: "block",
-                  width: "22px",
-                  height: "2px",
-                  background: "white",
-                  transition: "transform 0.25s, opacity 0.25s",
-                  transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
-                }}
-              />
+              <span style={{ display: "block", width: "22px", height: "2px", background: "white", transition: "transform 0.25s, opacity 0.25s", transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
+              <span style={{ display: "block", width: "22px", height: "2px", background: "white", transition: "opacity 0.25s", opacity: menuOpen ? 0 : 1 }} />
+              <span style={{ display: "block", width: "22px", height: "2px", background: "white", transition: "transform 0.25s, opacity 0.25s", transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
             </button>
           </div>
         )}

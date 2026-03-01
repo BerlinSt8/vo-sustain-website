@@ -4,8 +4,10 @@ import { useState } from "react";
 import QuickCheckForm from "@/components/quickcheck/QuickCheckForm";
 import ResultsView from "@/components/quickcheck/ResultsView";
 import type { QuickCheckInput, QuickCheckResult } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function QuickCheckSection() {
+  const { t } = useLanguage();
   const [result, setResult] = useState<QuickCheckResult | null>(null);
   const [input, setInput] = useState<QuickCheckInput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +29,7 @@ export default function QuickCheckSection() {
       const json: QuickCheckResult = await res.json();
       setResult(json);
     } catch {
-      setError("Die Analyse konnte nicht abgeschlossen werden. Bitte versuche es erneut.");
+      setError(t.quickCheck.error);
     } finally {
       setIsLoading(false);
     }
@@ -56,7 +58,7 @@ export default function QuickCheckSection() {
                 color: "var(--verde-bright)",
                 textTransform: "uppercase",
               }}>
-                Kostenloser Schnellcheck
+                {t.quickCheck.label}
               </span>
             </div>
             <h2 style={{
@@ -67,7 +69,7 @@ export default function QuickCheckSection() {
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}>
-              Ihr Förderpotenzial<br />in 3 Minuten.
+              {t.quickCheck.headline1}<br />{t.quickCheck.headline2}
             </h2>
             <p style={{
               fontFamily: "'Open Sans', sans-serif",
@@ -76,7 +78,7 @@ export default function QuickCheckSection() {
               lineHeight: 1.7,
               maxWidth: "500px",
             }}>
-              Finden Sie in 3 Minuten Ihre Förderprogramme. Präzise, kostenlos.
+              {t.quickCheck.body}
             </p>
           </div>
         )}
@@ -108,10 +110,10 @@ export default function QuickCheckSection() {
           }}>
             <div className="spinner" style={{ width: "36px", height: "36px", margin: "0 auto 1.5rem" }} />
             <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1rem", fontWeight: 700, color: "white", marginBottom: "0.5rem" }}>
-              Analyse läuft…
+              {t.quickCheck.loading}
             </p>
             <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.45)" }}>
-              Förderprogramme werden gematcht. Einen Moment.
+              {t.quickCheck.loadingSub}
             </p>
           </div>
         )}

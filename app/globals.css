@@ -35,6 +35,16 @@
   --shadow-md:   0 4px 12px rgba(13,27,42,0.08), 0 2px 4px rgba(13,27,42,0.05);
   --shadow-lg:   0 8px 24px rgba(13,27,42,0.1), 0 4px 8px rgba(13,27,42,0.06);
   --radius:      6px;
+
+  /* ─── Kontrast-Standard (einmalig festgelegt – nie wieder manuell anpassen) ───
+     Gilt für alle Dark-Backgrounds (Navy, Navy-Dark).
+     Alle Text-Elemente auf dunklem Hintergrund MÜSSEN eine dieser Variablen verwenden.
+     WCAG 2.1 AA: --ct1 und --ct2 ✓ AAA, --ct3 ✓ AA, --ct4 nur für Dekoration.        */
+  --ct1:  #F0F2F4;   /* Haupttext      – fast weiß    · WCAG AAA ≥ 7:1  */
+  --ct2:  #C8D0D8;   /* Sekundärtext   – hell grau    · WCAG AAA ≥ 7:1  */
+  --ct3:  #8E9BAA;   /* Labels / Tags  – mittel grau  · WCAG AA  ≥ 4.5:1 */
+  --ct4:  #5A6470;   /* Dezente Hints  – dunkel grau  · nur Deko, nie Fließtext */
+  --ct-accent: var(--verde-bright); /* Akzent-Grün auf Navy: #2ECC71   */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -82,7 +92,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 input::placeholder, textarea::placeholder {
-  color: rgba(255,255,255,0.35);
+  color: var(--ct4);
 }
 
 select option {

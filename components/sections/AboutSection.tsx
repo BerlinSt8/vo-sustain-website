@@ -1,12 +1,12 @@
-const credentials = [
-  { label: "EU–Bund–Land", sub: "Vollständige Förderebenen" },
-  { label: "12+", sub: "Partner im ZIM-Netzwerk" },
-  { label: "~95%", sub: "Förderquote SEAWEED-Projekt" },
-];
+"use client";
+
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const programs = ["ZIM", "BAFA", "SAB", "TAB", "EFRE", "Horizon Europe", "LIFE", "BMWK"];
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="ueber-uns"
@@ -22,7 +22,7 @@ export default function AboutSection() {
             color: "var(--verde-bright)",
             textTransform: "uppercase",
           }}>
-            Wer steckt dahinter
+            {t.about.label}
           </span>
         </div>
 
@@ -39,7 +39,7 @@ export default function AboutSection() {
             }}>
               <img
                 src="/denis.png"
-                alt="Denis Jänicke – Inhaber VO Sustain"
+                alt={t.about.imgAlt}
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
               />
             </div>
@@ -55,7 +55,7 @@ export default function AboutSection() {
               lineHeight: 1.05,
               marginBottom: "0.5rem",
             }}>
-              Denis Jänicke
+              {t.about.headline}
             </h2>
             <p style={{
               fontFamily: "'Roboto Mono', monospace",
@@ -64,7 +64,7 @@ export default function AboutSection() {
               letterSpacing: "0.1em",
               marginBottom: "2rem",
             }}>
-              Inhaber & Gründer · VO Sustain · Berlin
+              {t.about.subtitle}
             </p>
 
             {/* Quote */}
@@ -79,12 +79,12 @@ export default function AboutSection() {
               marginBottom: "2.5rem",
               fontStyle: "italic",
             }}>
-              „Ich verbinde technisches Förderwissen mit pragmatischer Umsetzung – damit Ihre Nachhaltigkeitsinvestition nicht am Schreibtisch stecken bleibt."
+              „{t.about.quote}"
             </blockquote>
 
             {/* Metrics */}
             <div style={{ display: "flex", gap: "2.5rem", marginBottom: "2.5rem", flexWrap: "wrap" }}>
-              {credentials.map((c, i) => (
+              {t.about.credentials.map((c, i) => (
                 <div key={i}>
                   <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.6rem", fontWeight: 900, color: "var(--verde-bright)", lineHeight: 1 }}>
                     {c.label}
@@ -105,7 +105,7 @@ export default function AboutSection() {
               marginBottom: "2rem",
               maxWidth: "560px",
             }}>
-              Senior Grant & Programme Operations Lead mit Spezialisierung auf EU-Förderung und Konsortialmanagement. ZIM-Netzwerkmanager für das SEAWEED DECARBON POLYMER-Projekt (12+ Partner). Audit-sichere Prozessgestaltung, Verwendungsnachweis und CSRD-Implementierung.
+              {t.about.bio}
             </p>
 
             {/* Program tags */}
