@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const outcomes = [
@@ -66,6 +66,14 @@ function StackCard({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isLast = index === total - 1;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -89,8 +97,9 @@ function StackCard({
       ref={ref}
       style={{
         position: "sticky",
-        top: "80px",
-        height: "100vh",
+        top: "56px",
+        height: isMobile ? "auto" : "100vh",
+        minHeight: isMobile ? "auto" : undefined,
         paddingBottom: "2rem",
         zIndex: index + 1,
       }}
@@ -99,7 +108,7 @@ function StackCard({
         style={{
           scale,
           transformOrigin: "top center",
-          height: "calc(100% - 2rem)",
+          height: isMobile ? "auto" : "calc(100% - 2rem)",
           position: "relative",
           borderRadius: "12px",
           overflow: "hidden",
@@ -109,7 +118,7 @@ function StackCard({
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: "4rem 8vw",
+          padding: isMobile ? "2rem 1.5rem" : "4rem 8vw",
         }}
       >
         {/* Subtle accent glow */}
@@ -126,10 +135,45 @@ function StackCard({
         />
 
         {/* Card content */}
-        <div style={{ maxWidth: "1100px", margin: "0 auto", width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+        <div style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          gap: isMobile ? "1.5rem" : "4rem",
+          alignItems: "center",
+        }}>
+          {/* Mobile: Result first (big number at top, stacked) */}
+          {isMobile && (
+            <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: "1.25rem" }}>
+              <div style={{
+                fontFamily: "'Roboto Mono', monospace",
+                fontSize: "0.55rem",
+                color: "rgba(255,255,255,0.45)",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                marginBottom: "0.4rem",
+              }}>
+                {customer.type}
+              </div>
+              <div style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "clamp(2rem, 9vw, 2.8rem)",
+                fontWeight: 900,
+                color: customer.accent,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+                whiteSpace: "nowrap",
+              }}>
+                {customer.result}
+              </div>
+            </div>
+          )}
+
           {/* Left */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: isMobile ? "1rem" : "2rem" }}>
               <span style={{
                 fontFamily: "'Roboto Mono', monospace",
                 fontSize: "0.65rem",
@@ -152,21 +196,21 @@ function StackCard({
 
             <h3 style={{
               fontFamily: "'Montserrat', sans-serif",
-              fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+              fontSize: isMobile ? "1.6rem" : "clamp(1.6rem, 3vw, 2.4rem)",
               fontWeight: 900,
               color: "white",
               lineHeight: 1.1,
-              marginBottom: "1.25rem",
+              marginBottom: "1rem",
             }}>
               {customer.company}
             </h3>
 
             <p style={{
               fontFamily: "'Open Sans', sans-serif",
-              fontSize: "1rem",
+              fontSize: isMobile ? "0.9rem" : "1rem",
               color: "rgba(255,255,255,0.78)",
               lineHeight: 1.75,
-              marginBottom: "2rem",
+              marginBottom: "1.25rem",
               maxWidth: "420px",
             }}>
               {customer.desc}
@@ -190,29 +234,31 @@ function StackCard({
             </div>
           </div>
 
-          {/* Right – Result */}
-          <div style={{ textAlign: "right" }}>
-            <div style={{
-              fontFamily: "'Roboto Mono', monospace",
-              fontSize: "0.62rem",
-              color: "rgba(255,255,255,0.62)",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              marginBottom: "1rem",
-            }}>
-              {customer.type}
+          {/* Right – Result (desktop only) */}
+          {!isMobile && (
+            <div style={{ textAlign: "right" }}>
+              <div style={{
+                fontFamily: "'Roboto Mono', monospace",
+                fontSize: "0.62rem",
+                color: "rgba(255,255,255,0.62)",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                marginBottom: "1rem",
+              }}>
+                {customer.type}
+              </div>
+              <div style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontWeight: 900,
+                color: customer.accent,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+              }}>
+                {customer.result}
+              </div>
             </div>
-            <div style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              fontWeight: 900,
-              color: customer.accent,
-              lineHeight: 1,
-              letterSpacing: "-0.02em",
-            }}>
-              {customer.result}
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Dimming overlay when next card comes in */}
