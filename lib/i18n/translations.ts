@@ -96,7 +96,7 @@ export const translations = {
         {
           nr: "01",
           company: "Kelorina",
-          result: "200.000 €",
+          result: "55 % Zuschuss",
           type: "Fördermittel gesichert",
           program: "Energie & Klimaschutz",
           desc: "Vollständige Förderantragstellung und erfolgreiche Bewilligung im Bereich erneuerbare Energien – von der ersten Programmprüfung bis zur Bewilligungsmitteilung.",
@@ -105,7 +105,7 @@ export const translations = {
         {
           nr: "02",
           company: "Green Island",
-          result: "300.000 €",
+          result: "60 % Zuschuss",
           type: "Energieforschung",
           program: "F&E-Förderung",
           desc: "Förderstrategie, Programmauswahl und vollständige Antragsstellung im Bereich Energieforschung und Prozesseffizienz.",
@@ -344,7 +344,7 @@ export const translations = {
         {
           nr: "01",
           company: "Kelorina",
-          result: "€200,000",
+          result: "55% Grant",
           type: "Funding Secured",
           program: "Energy & Climate",
           desc: "Full grant application and successful approval in renewable energy – from initial programme screening to funding notification.",
@@ -353,7 +353,7 @@ export const translations = {
         {
           nr: "02",
           company: "Green Island",
-          result: "€300,000",
+          result: "60% Grant",
           type: "Energy Research",
           program: "R&D Funding",
           desc: "Funding strategy, programme selection and complete application in energy research and process efficiency.",
