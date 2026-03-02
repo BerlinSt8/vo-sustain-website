@@ -1,6 +1,7 @@
 "use client";
 
 import type { FoerderprogrammResult } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface Props {
   program: FoerderprogrammResult;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export default function ProgramCard({ program, index }: Props) {
+  const { t } = useLanguage();
   const staggerClass = `stagger-${Math.min(index + 1, 8)}`;
 
   return (
@@ -17,7 +19,7 @@ export default function ProgramCard({ program, index }: Props) {
           <div style={{ display: "flex", gap: "6px", marginBottom: "6px", flexWrap: "wrap" }}>
             <span className="tag tag-authority">{program.authority}</span>
             <span className={`tag ${program.confidence === "Verifiziert" ? "tag-verified" : "tag-check"}`}>
-              {program.confidence === "Verifiziert" ? "✓ Verifiziert" : "⚠ Bitte prüfen"}
+              {program.confidence === "Verifiziert" ? t.programCard.verified : t.programCard.pleaseCheck}
             </span>
           </div>
           <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1rem", fontWeight: 700, color: "white", lineHeight: 1.3 }}>
@@ -43,7 +45,7 @@ export default function ProgramCard({ program, index }: Props) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
         <div>
           <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>
-            Voraussetzungen
+            {t.programCard.requirements}
           </div>
           <ul style={{ listStyle: "none", padding: 0 }}>
             {program.key_requirements.map((req, i) => (
@@ -56,7 +58,7 @@ export default function ProgramCard({ program, index }: Props) {
         </div>
         <div>
           <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>
-            Nächste Schritte
+            {t.programCard.nextSteps}
           </div>
           <ol style={{ listStyle: "none", padding: 0 }}>
             {program.next_steps.map((step, i) => (

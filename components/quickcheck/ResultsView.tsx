@@ -2,6 +2,7 @@
 
 import type { QuickCheckResult, QuickCheckInput, FoerderdatenbankResponse } from "@/lib/types";
 import ProgramCard from "./ProgramCard";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface Props {
   result: QuickCheckResult;
@@ -11,31 +12,33 @@ interface Props {
   fdbLoading?: boolean;
 }
 
-const RECOMMENDATION_CONFIG = {
-  GO: {
-    label: "GO",
-    badgeClass: "badge-go",
-    icon: "↑",
-    description: "Förderung empfohlen",
-    accentColor: "var(--verde)",
-  },
-  "NO-GO": {
-    label: "NO-GO",
-    badgeClass: "badge-nogo",
-    icon: "✕",
-    description: "Kein passendes Programm",
-    accentColor: "#e57373",
-  },
-  CONDITIONAL: {
-    label: "BEDINGT",
-    badgeClass: "badge-conditional",
-    icon: "◐",
-    description: "Prüfung erforderlich",
-    accentColor: "#f5a623",
-  },
-};
-
 export default function ResultsView({ result, input, onReset, fdbResults, fdbLoading }: Props) {
+  const { t } = useLanguage();
+
+  const RECOMMENDATION_CONFIG = {
+    GO: {
+      label: "GO",
+      badgeClass: "badge-go",
+      icon: "↑",
+      description: t.resultsView.goDesc,
+      accentColor: "var(--verde)",
+    },
+    "NO-GO": {
+      label: "NO-GO",
+      badgeClass: "badge-nogo",
+      icon: "✕",
+      description: t.resultsView.nogoDesc,
+      accentColor: "#e57373",
+    },
+    CONDITIONAL: {
+      label: t.resultsView.conditionalLabel,
+      badgeClass: "badge-conditional",
+      icon: "◐",
+      description: t.resultsView.conditionalDesc,
+      accentColor: "#f5a623",
+    },
+  };
+
   const config = RECOMMENDATION_CONFIG[result.recommendation];
 
   return (
@@ -52,7 +55,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
           </div>
           <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.7rem", color: "rgba(255,255,255,0.5)", letterSpacing: "0.04em" }}>
             {config.description}
-            {result.matching_programs.length > 0 && ` · ${result.matching_programs.length} Programm${result.matching_programs.length !== 1 ? "e" : ""} identifiziert`}
+            {result.matching_programs.length > 0 && ` · ${result.matching_programs.length} ${t.resultsView.programsIdentified}`}
           </span>
         </div>
 
@@ -72,7 +75,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
       {result.red_flags.length > 0 && (
         <div className="stagger-2" style={{ background: "rgba(245,166,35,0.08)", border: "1px solid rgba(245,166,35,0.25)", borderRadius: "var(--radius)", padding: "1.25rem 1.5rem", marginBottom: "1.5rem" }}>
           <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "#f5a623", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "10px", fontWeight: 500 }}>
-            ⚠ Risiken & Hinweise
+            ⚠ {t.resultsView.risksLabel}
           </div>
           <ul style={{ listStyle: "none", padding: 0 }}>
             {result.red_flags.map((flag, i) => (
@@ -90,7 +93,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
         <>
           <div className="stagger-3" style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1rem" }}>
             <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
-              Passende Programme
+              {t.resultsView.matchingPrograms}
             </span>
             <div className="divider" style={{ flex: 1 }} />
             <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.8rem", fontWeight: 800, color: "var(--verde-bright)" }}>
@@ -109,12 +112,12 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
       <div style={{ marginTop: "2rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1rem" }}>
           <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
-            Förderdatenbank.de
+            {t.resultsView.fdbLabel}
           </span>
           <div className="divider" style={{ flex: 1 }} />
           {fdbLoading && (
             <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.68rem", color: "rgba(255,255,255,0.4)" }}>
-              wird geprüft…
+              {t.resultsView.fdbChecking}
             </span>
           )}
           {fdbResults && !fdbLoading && (
@@ -202,7 +205,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
                   textDecoration: "none",
                 }}
               >
-                ↗ Alle Ergebnisse auf foerderdatenbank.de
+                {t.resultsView.fdbAllResults}
               </a>
             )}
           </div>
@@ -217,7 +220,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
             fontSize: "0.82rem",
             color: "rgba(255,255,255,0.35)",
           }}>
-            Keine zusätzlichen Treffer auf foerderdatenbank.de
+            {t.resultsView.fdbNoResults}
           </div>
         )}
       </div>
@@ -226,7 +229,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
       {result.recommended_vo_package && (
         <div className="stagger-7" style={{ marginTop: "2rem", background: "var(--verde)", borderRadius: "var(--radius)", padding: "1.5rem 2rem" }}>
           <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>
-            Empfohlenes VO Sustain Angebot
+            {t.resultsView.recommendedPackage}
           </div>
           <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1rem", fontWeight: 700, color: "white", lineHeight: 1.4 }}>
             {result.recommended_vo_package}
@@ -247,7 +250,7 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
           onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--verde)"; e.currentTarget.style.color = "var(--verde-bright)"; }}
           onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
         >
-          ← Neue Anfrage
+          {t.resultsView.newRequest}
         </button>
       </div>
     </div>

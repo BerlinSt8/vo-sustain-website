@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import type { Artikel, ArtikelKategorie } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const KATEGORIE: Record<ArtikelKategorie, { accent: string; glow: string; label: string }> = {
   "Förderaufruf": { accent: "#27AE60", glow: "rgba(39,174,96,0.18)",   label: "Förderaufruf" },
@@ -19,6 +20,7 @@ function formatDate(iso: string) {
 // ── Deadline Countdown ─────────────────────────────────────────────────────────
 function DeadlineCountdown({ deadline }: { deadline: string }) {
   const [days, setDays] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setDays(Math.ceil((new Date(deadline).getTime() - Date.now()) / 86400000));
@@ -41,7 +43,7 @@ function DeadlineCountdown({ deadline }: { deadline: string }) {
         letterSpacing: "0.06em", fontWeight: 600,
         color: expired ? "#999" : urgent ? "#C0392B" : "#1E8449",
       }}>
-        {expired ? "Abgelaufen" : days === 0 ? "Heute!" : days === 1 ? "Morgen!" : `${days} Tage`}
+        {expired ? t.aktuell.expired : days === 0 ? t.aktuell.today : days === 1 ? t.aktuell.tomorrow : `${days} ${t.aktuell.daysLeft}`}
       </span>
     </div>
   );
@@ -54,6 +56,7 @@ function ArtikelKarte({ artikel }: { artikel: Artikel }) {
   const [visible, setVisible] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
+  const { t } = useLanguage();
 
   // Scroll-In via IntersectionObserver
   useEffect(() => {
@@ -164,7 +167,7 @@ function ArtikelKarte({ artikel }: { artikel: Artikel }) {
                 letterSpacing: "0.04em", transition: "color 0.2s",
                 fontWeight: hovered ? 600 : 400,
               }}>
-                Lesen →
+                {t.aktuell.readMore}
               </span>
             </div>
           </div>
@@ -202,6 +205,7 @@ function FilterTab({ label, active, onClick, accentColor }: {
 
 // ── Main Export ────────────────────────────────────────────────────────────────
 export default function AktuellClient({ articles }: { articles: Artikel[] }) {
+  const { t } = useLanguage();
   const [aktiveKategorie, setAktiveKategorie] = useState<ArtikelKategorie | null>(null);
   const [filterSticky, setFilterSticky] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
@@ -241,7 +245,7 @@ export default function AktuellClient({ articles }: { articles: Artikel[] }) {
         boxShadow: filterSticky ? "0 2px 16px rgba(0,0,0,0.06)" : "none",
       }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
-          <FilterTab label="Alle" active={aktiveKategorie === null} onClick={() => setAktiveKategorie(null)} accentColor="#27AE60" />
+          <FilterTab label={t.aktuell.filterAll} active={aktiveKategorie === null} onClick={() => setAktiveKategorie(null)} accentColor="#27AE60" />
           {ALLE_KATEGORIEN.map((kat) => (
             <FilterTab key={kat} label={kat} active={aktiveKategorie === kat} onClick={() => setAktiveKategorie(kat)} accentColor={KATEGORIE[kat].accent} />
           ))}
@@ -250,7 +254,7 @@ export default function AktuellClient({ articles }: { articles: Artikel[] }) {
             fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem",
             letterSpacing: "0.1em", color: "#bbb",
           }}>
-            {gefiltert.length} Beiträge
+            {gefiltert.length} {t.aktuell.articlesCount}
           </span>
         </div>
       </div>
@@ -262,7 +266,7 @@ export default function AktuellClient({ articles }: { articles: Artikel[] }) {
             fontFamily: "'Open Sans', sans-serif", color: "#aaa",
             fontStyle: "italic", textAlign: "center", padding: "4rem 0",
           }}>
-            Keine Beiträge in dieser Kategorie.
+            {t.aktuell.noArticles}
           </p>
         ) : (
           <div style={{

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Artikel, ArtikelKategorie } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const KATEGORIE_ACCENT: Record<ArtikelKategorie, string> = {
   "Förderaufruf": "#27AE60",
@@ -21,6 +22,7 @@ interface ArtikelHeroProps {
 export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
   const [scrollY, setScrollY] = useState(0);
   const accent = KATEGORIE_ACCENT[artikel.category];
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -67,7 +69,7 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
           onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
           onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
         >
-          ← Zurück zu Aktuell
+          {t.aktuell.backToNews}
         </a>
 
         {/* Kategorie + Datum */}

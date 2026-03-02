@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function AktuellHero() {
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -55,7 +57,7 @@ export default function AktuellHero() {
             marginBottom: "1.2rem",
           }}
         >
-          NEWS & UPDATES
+          {t.aktuell.heroLabel}
         </p>
         <h1
           className="animate-fade-up"
@@ -69,7 +71,7 @@ export default function AktuellHero() {
             animationDelay: "0.05s",
           }}
         >
-          Aktuell.
+          {t.aktuell.heroHeadline}
         </h1>
         <p
           className="animate-fade-up"
@@ -82,7 +84,7 @@ export default function AktuellHero() {
             animationDelay: "0.1s",
           }}
         >
-          Förderaufrufe mit Fristen, CSRD-Updates und Neuigkeiten aus der deutschen Förderlandschaft — wöchentlich aktualisiert.
+          {t.aktuell.heroBody}
         </p>
       </div>
 
@@ -107,7 +109,7 @@ export default function AktuellHero() {
           textTransform: "uppercase",
           color: "rgba(255,255,255,0.45)",
         }}>
-          Scroll
+          {t.aktuell.scroll}
         </span>
         <div className="scroll-blink" style={{
           width: "1px",

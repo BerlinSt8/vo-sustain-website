@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { QuickCheckInput } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface Props {
   onSubmit: (data: QuickCheckInput) => void;
@@ -84,6 +85,7 @@ const fieldGroupStyle: React.CSSProperties = {
 };
 
 export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
+  const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<QuickCheckInput>({
     unternehmensname: "",
@@ -163,7 +165,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               {step > s ? "✓" : s}
             </div>
             <span style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.78rem", color: step === s ? "white" : "rgba(255,255,255,0.35)", fontWeight: step === s ? 600 : 400 }}>
-              {s === 1 ? "Unternehmen" : "Projekt"}
+              {s === 1 ? t.quickCheckForm.stepCompany : t.quickCheckForm.stepProject}
             </span>
             {s < 2 && <span style={{ color: "rgba(255,255,255,0.15)", margin: "0 8px" }}>—</span>}
           </div>
@@ -179,24 +181,24 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
       {step === 1 && (
         <>
           <div className="stagger-1" style={fieldGroupStyle}>
-            <label style={labelStyle}>Unternehmensname *</label>
-            <input type="text" placeholder="z.B. Müller GmbH" value={form.unternehmensname} onChange={(e) => set("unternehmensname", e.target.value)} />
+            <label style={labelStyle}>{t.quickCheckForm.companyName}</label>
+            <input type="text" placeholder={t.quickCheckForm.companyNamePlaceholder} value={form.unternehmensname} onChange={(e) => set("unternehmensname", e.target.value)} />
           </div>
 
           <div className="stagger-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.25rem" }}>
             <div>
-              <label style={labelStyle}>Bundesland *</label>
+              <label style={labelStyle}>{t.quickCheckForm.state}</label>
               <select value={form.bundesland} onChange={(e) => set("bundesland", e.target.value)}>
-                <option value="">Bundesland wählen</option>
+                <option value="">{t.quickCheckForm.statePlaceholder}</option>
                 {BUNDESLAENDER.map((b) => (
                   <option key={b} value={b.replace(" ★", "")}>{b}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label style={labelStyle}>Unternehmensform *</label>
+              <label style={labelStyle}>{t.quickCheckForm.legalForm}</label>
               <select value={form.unternehmensform} onChange={(e) => set("unternehmensform", e.target.value)}>
-                <option value="">Form wählen</option>
+                <option value="">{t.quickCheckForm.legalFormPlaceholder}</option>
                 {UNTERNEHMENSFORMEN.map((f) => (
                   <option key={f} value={f}>{f}</option>
                 ))}
@@ -205,34 +207,34 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
           </div>
 
           <div className="stagger-3" style={{ marginBottom: "1.25rem" }}>
-            <label style={labelStyle}>Unternehmensgröße *</label>
+            <label style={labelStyle}>{t.quickCheckForm.companySize}</label>
             <select value={form.mitarbeiterzahl} onChange={(e) => set("mitarbeiterzahl", e.target.value)}>
-              <option value="">Größe wählen</option>
+              <option value="">{t.quickCheckForm.companySizePlaceholder}</option>
               {MITARBEITERZAHL_OPTIONEN.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
             <p style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.28)", marginTop: "6px", letterSpacing: "0.06em" }}>
-              Gem. EU-KMU-Definition (keine genauen Zahlen nötig)
+              {t.quickCheckForm.companySizeHint}
             </p>
           </div>
 
           <div className="stagger-4" style={{ marginBottom: "1.25rem" }}>
-            <label style={labelStyle}>Jahresumsatz (Größenordnung) *</label>
+            <label style={labelStyle}>{t.quickCheckForm.revenue}</label>
             <select value={form.jahresumsatz} onChange={(e) => set("jahresumsatz", e.target.value)}>
-              <option value="">Umsatzklasse wählen</option>
+              <option value="">{t.quickCheckForm.revenuePlaceholder}</option>
               {UMSATZ_OPTIONEN.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
             <p style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.28)", marginTop: "6px", letterSpacing: "0.06em" }}>
-              Nur zur Förderfähigkeitsprüfung – keine genauen Zahlen nötig
+              {t.quickCheckForm.revenueHint}
             </p>
           </div>
 
           <div className="stagger-5" style={fieldGroupStyle}>
-            <label style={labelStyle}>Branche *</label>
-            <input type="text" placeholder="z.B. Metallverarbeitung, Bäckerei, IT-Dienstleister..." value={form.branche} onChange={(e) => set("branche", e.target.value)} />
+            <label style={labelStyle}>{t.quickCheckForm.industry}</label>
+            <input type="text" placeholder={t.quickCheckForm.industryPlaceholder} value={form.branche} onChange={(e) => set("branche", e.target.value)} />
           </div>
 
           <div className="stagger-6">
@@ -243,7 +245,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               onMouseEnter={(e) => { if (step1Valid) (e.currentTarget as HTMLButtonElement).style.background = "var(--verde-dark)"; }}
               onMouseLeave={(e) => { if (step1Valid) (e.currentTarget as HTMLButtonElement).style.background = "var(--verde)"; }}
             >
-              Weiter zu Projektdetails →
+              {t.quickCheckForm.nextStep}
             </button>
           </div>
         </>
@@ -253,7 +255,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
       {step === 2 && (
         <>
           <div className="stagger-1" style={fieldGroupStyle}>
-            <label style={labelStyle}>Projektkategorien * (Mehrfachauswahl)</label>
+            <label style={labelStyle}>{t.quickCheckForm.categories}</label>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
               {PROJEKTKATEGORIEN.map((k) => {
                 const checked = form.projektkategorien.includes(k.value);
@@ -281,14 +283,14 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
 
           <div className="stagger-2" style={fieldGroupStyle}>
             <label style={labelStyle}>
-              Projektbeschreibung *{" "}
+              {t.quickCheckForm.description}{" "}
               <span style={{ color: form.projektbeschreibung.length >= 50 ? "var(--verde-bright)" : "rgba(255,255,255,0.3)" }}>
-                ({form.projektbeschreibung.length}/50 min.)
+                ({form.projektbeschreibung.length}/50 {t.quickCheckForm.descriptionMin})
               </span>
             </label>
             <textarea
               rows={4}
-              placeholder="Beschreibe das Projekt konkret: Was soll gebaut/implementiert werden? Wo? Welches Ziel?"
+              placeholder={t.quickCheckForm.descriptionPlaceholder}
               value={form.projektbeschreibung}
               onChange={(e) => set("projektbeschreibung", e.target.value)}
               style={{ resize: "vertical" }}
@@ -297,18 +299,18 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
 
           <div className="stagger-3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.25rem" }}>
             <div>
-              <label style={labelStyle}>Investitionssumme *</label>
+              <label style={labelStyle}>{t.quickCheckForm.investmentSum}</label>
               <select value={form.investitionssumme} onChange={(e) => set("investitionssumme", e.target.value)}>
-                <option value="">Summe wählen</option>
+                <option value="">{t.quickCheckForm.investmentPlaceholder}</option>
                 {INVESTITION_OPTIONEN.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label style={labelStyle}>Geplanter Start *</label>
+              <label style={labelStyle}>{t.quickCheckForm.plannedStart}</label>
               <select value={form.projektstart} onChange={(e) => set("projektstart", e.target.value)}>
-                <option value="">Start wählen</option>
+                <option value="">{t.quickCheckForm.startPlaceholder}</option>
                 {PROJEKTSTART_OPTIONEN.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>
                 ))}
@@ -317,9 +319,9 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
           </div>
 
           <div className="stagger-4" style={fieldGroupStyle}>
-            <label style={labelStyle}>De-minimis-Beihilfen in letzten 3 Jahren erhalten? *</label>
+            <label style={labelStyle}>{t.quickCheckForm.deMinimis}</label>
             <select value={form.deminimisErhalten} onChange={(e) => set("deminimisErhalten", e.target.value)}>
-              <option value="">Bitte wählen</option>
+              <option value="">{t.quickCheckForm.deMinimisPlaceholder}</option>
               {DEMINIMIS_OPTIONEN.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
@@ -333,7 +335,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; e.currentTarget.style.color = "white"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
             >
-              ← Zurück
+              {t.quickCheckForm.back}
             </button>
             <button
               onClick={() => { if (step2Valid) onSubmit(form); }}
@@ -345,10 +347,10 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               {isLoading ? (
                 <>
                   <span className="spinner" style={{ width: "16px", height: "16px", borderWidth: "2px" }} />
-                  Analysiert…
+                  {t.quickCheckForm.analyzing}
                 </>
               ) : (
-                "Analyse starten →"
+                t.quickCheckForm.analyze
               )}
             </button>
           </div>
