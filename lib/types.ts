@@ -36,6 +36,20 @@ export interface QuickCheckResult {
   disclaimer: string;
 }
 
+// ── Förderdatenbank.de Live-Ergebnisse ──────────────────────
+export interface FoerderdatenbankResult {
+  name: string;
+  authority: string;
+  description: string;
+  url: string;
+}
+
+export interface FoerderdatenbankResponse {
+  results: FoerderdatenbankResult[];
+  searchUrl: string;
+  error?: string;
+}
+
 // ── Aktuell / News ──────────────────────────────────────────
 export type ArtikelKategorie = "Förderaufruf" | "CSRD-News" | "Marktinfo" | "Erfolg";
 

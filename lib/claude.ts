@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { FOERDEREXPERTE_SYSTEM_PROMPT } from "./prompts/foerderexperte";
+import { buildSystemPrompt } from "./prompts/foerderexperte";
 import type { QuickCheckInput, QuickCheckResult } from "./types";
 
 // xAI Grok – OpenAI-kompatible API
@@ -11,6 +11,12 @@ const client = new OpenAI({
 export async function runQuickCheck(
   input: QuickCheckInput
 ): Promise<QuickCheckResult> {
+  // Dynamischen Prompt bauen: nur relevante Programme für Bundesland + Themen
+  const systemPrompt = buildSystemPrompt(
+    input.bundesland,
+    input.projektkategorien
+  );
+
   const userMessage = `
 Analysiere folgendes KMU für einen Förder-Quick-Check:
 
@@ -36,7 +42,7 @@ Führe eine vollständige Analyse durch und antworte ausschließlich als valides
     model: "grok-3",
     max_tokens: 4096,
     messages: [
-      { role: "system", content: FOERDEREXPERTE_SYSTEM_PROMPT },
+      { role: "system", content: systemPrompt },
       { role: "user", content: userMessage },
     ],
   });

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import QuickCheckForm from "@/components/quickcheck/QuickCheckForm";
 import ResultsView from "@/components/quickcheck/ResultsView";
-import type { QuickCheckInput, QuickCheckResult } from "@/lib/types";
+import type { QuickCheckInput, QuickCheckResult, FoerderdatenbankResponse } from "@/lib/types";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function QuickCheckSection() {
@@ -12,11 +12,14 @@ export default function QuickCheckSection() {
   const [input, setInput] = useState<QuickCheckInput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fdbResults, setFdbResults] = useState<FoerderdatenbankResponse | null>(null);
+  const [fdbLoading, setFdbLoading] = useState(false);
 
   const handleSubmit = async (data: QuickCheckInput) => {
     setIsLoading(true);
     setError(null);
     setInput(data);
+    setFdbResults(null);
 
     try {
       const res = await fetch("/api/quick-check", {
@@ -28,6 +31,18 @@ export default function QuickCheckSection() {
       if (!res.ok) throw new Error("Analyse fehlgeschlagen");
       const json: QuickCheckResult = await res.json();
       setResult(json);
+
+      // Förderdatenbank.de async nachladen
+      setFdbLoading(true);
+      fetch("/api/foerderdatenbank", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bundesland: data.bundesland }),
+      })
+        .then((r) => r.json())
+        .then((fdb: FoerderdatenbankResponse) => setFdbResults(fdb))
+        .catch(() => setFdbResults({ results: [], searchUrl: "", error: "Nicht verfügbar" }))
+        .finally(() => setFdbLoading(false));
     } catch {
       setError(t.quickCheck.error);
     } finally {
@@ -39,6 +54,8 @@ export default function QuickCheckSection() {
     setResult(null);
     setInput(null);
     setError(null);
+    setFdbResults(null);
+    setFdbLoading(false);
   };
 
   return (
@@ -132,7 +149,13 @@ export default function QuickCheckSection() {
 
         {/* Results */}
         {!isLoading && result && input && (
-          <ResultsView result={result} input={input} onReset={handleReset} />
+          <ResultsView
+            result={result}
+            input={input}
+            onReset={handleReset}
+            fdbResults={fdbResults}
+            fdbLoading={fdbLoading}
+          />
         )}
       </div>
     </section>

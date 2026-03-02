@@ -1,12 +1,14 @@
 "use client";
 
-import type { QuickCheckResult, QuickCheckInput } from "@/lib/types";
+import type { QuickCheckResult, QuickCheckInput, FoerderdatenbankResponse } from "@/lib/types";
 import ProgramCard from "./ProgramCard";
 
 interface Props {
   result: QuickCheckResult;
   input: QuickCheckInput;
   onReset: () => void;
+  fdbResults?: FoerderdatenbankResponse | null;
+  fdbLoading?: boolean;
 }
 
 const RECOMMENDATION_CONFIG = {
@@ -33,7 +35,7 @@ const RECOMMENDATION_CONFIG = {
   },
 };
 
-export default function ResultsView({ result, input, onReset }: Props) {
+export default function ResultsView({ result, input, onReset, fdbResults, fdbLoading }: Props) {
   const config = RECOMMENDATION_CONFIG[result.recommendation];
 
   return (
@@ -102,6 +104,123 @@ export default function ResultsView({ result, input, onReset }: Props) {
           </div>
         </>
       )}
+
+      {/* Förderdatenbank.de Live-Ergebnisse */}
+      <div style={{ marginTop: "2rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1rem" }}>
+          <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+            Förderdatenbank.de
+          </span>
+          <div className="divider" style={{ flex: 1 }} />
+          {fdbLoading && (
+            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.68rem", color: "rgba(255,255,255,0.4)" }}>
+              wird geprüft…
+            </span>
+          )}
+          {fdbResults && !fdbLoading && (
+            <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.8rem", fontWeight: 800, color: "var(--verde-bright)" }}>
+              {fdbResults.results.length}
+            </span>
+          )}
+        </div>
+
+        {fdbLoading && (
+          <div style={{
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            borderRadius: "var(--radius)",
+            padding: "1.5rem",
+          }}>
+            {/* Skeleton Loading */}
+            {[1, 2, 3].map((i) => (
+              <div key={i} style={{ marginBottom: i < 3 ? "1rem" : 0 }}>
+                <div style={{
+                  height: "14px",
+                  width: `${60 + i * 10}%`,
+                  background: "rgba(255,255,255,0.06)",
+                  borderRadius: "3px",
+                  marginBottom: "8px",
+                  animation: "pulse 1.5s ease-in-out infinite",
+                }} />
+                <div style={{
+                  height: "10px",
+                  width: `${40 + i * 8}%`,
+                  background: "rgba(255,255,255,0.03)",
+                  borderRadius: "3px",
+                  animation: "pulse 1.5s ease-in-out infinite",
+                  animationDelay: "0.2s",
+                }} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {fdbResults && !fdbLoading && fdbResults.results.length > 0 && (
+          <div style={{
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(255,255,255,0.06)",
+            borderRadius: "var(--radius)",
+            padding: "1.25rem 1.5rem",
+          }}>
+            {fdbResults.results.map((item, i) => (
+              <a
+                key={i}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  padding: "0.75rem 0",
+                  borderBottom: i < fdbResults.results.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                  textDecoration: "none",
+                  transition: "opacity 0.15s",
+                }}
+              >
+                <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "rgba(255,255,255,0.85)", marginBottom: "4px", fontFamily: "'Open Sans', sans-serif" }}>
+                  {item.name}
+                </div>
+                {item.authority && (
+                  <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "rgba(255,255,255,0.4)" }}>
+                    {item.authority}
+                  </span>
+                )}
+              </a>
+            ))}
+            {fdbResults.searchUrl && (
+              <a
+                href={fdbResults.searchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "block",
+                  marginTop: "1rem",
+                  paddingTop: "0.75rem",
+                  borderTop: "1px solid rgba(255,255,255,0.08)",
+                  fontFamily: "'Roboto Mono', monospace",
+                  fontSize: "0.68rem",
+                  color: "var(--verde-bright)",
+                  textDecoration: "none",
+                }}
+              >
+                ↗ Alle Ergebnisse auf foerderdatenbank.de
+              </a>
+            )}
+          </div>
+        )}
+
+        {fdbResults && !fdbLoading && fdbResults.results.length === 0 && !fdbResults.error && (
+          <div style={{
+            background: "rgba(255,255,255,0.02)",
+            borderRadius: "var(--radius)",
+            padding: "1rem 1.5rem",
+            fontFamily: "'Open Sans', sans-serif",
+            fontSize: "0.82rem",
+            color: "rgba(255,255,255,0.35)",
+          }}>
+            Keine zusätzlichen Treffer auf foerderdatenbank.de
+          </div>
+        )}
+      </div>
 
       {/* Recommended Package */}
       {result.recommended_vo_package && (
