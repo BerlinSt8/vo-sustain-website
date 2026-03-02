@@ -60,7 +60,7 @@
     "teaser": "Omnibus I hat die CSRD-Schwellen massiv angehoben: 1.000 MA und 450 Mio. EUR Umsatz. Die meisten KMU sind NICHT berichtspflichtig — aber Lieferketten-Anfragen kommen trotzdem. Der VSME-Standard und der Value Chain Cap schützen KMU dabei.",
     "facts": [
       { "label": "Richtlinie",     "value": "Omnibus I (EU 2026/470)",         "icon": "📜" },
-      { "label": "Neue Schwelle",  "value": ">1.000 MA + >450 Mio. EUR",      "icon": "📊" },
+      { "label": "Neue Schwelle",  "value": ">1.000 MA UND >450 Mio. EUR",      "icon": "📊" },
       { "label": "Reduktion",      "value": "80% weniger betroffene Firmen",   "icon": "📉" },
       { "label": "KMU-Schutz",     "value": "Value Chain Cap (Art. 29c/29d)",  "icon": "🛡️" },
       { "label": "Standard",       "value": "VSME Basic (B1–B11)",            "icon": "📋" },

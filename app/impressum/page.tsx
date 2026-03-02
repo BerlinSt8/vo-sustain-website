@@ -13,7 +13,7 @@ export default function ImpressumPage() {
 
         <Section title="Angaben gemäß § 5 TMG">
           <p>VO Sustain</p>
-          <p>Inhaber: Denis Jänicke</p>
+          <p>Denis Jänicke</p>
           <p>Sadowastr. 22</p>
           <p>12623 Berlin</p>
         </Section>
