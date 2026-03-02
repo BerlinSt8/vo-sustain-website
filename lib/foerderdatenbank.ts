@@ -1,9 +1,15 @@
 import { FirecrawlClient } from "@mendable/firecrawl-js";
 import type { FoerderdatenbankResult } from "./types";
 
-const firecrawl = new FirecrawlClient({
-  apiKey: process.env.FIRECRAWL_API_KEY!,
-});
+let _firecrawl: FirecrawlClient | null = null;
+function getFirecrawl() {
+  if (!_firecrawl) {
+    _firecrawl = new FirecrawlClient({
+      apiKey: process.env.FIRECRAWL_API_KEY!,
+    });
+  }
+  return _firecrawl;
+}
 
 // Bundesland → Förderdatenbank.de Foerdergebiet-Param
 const BUNDESLAND_MAP: Record<string, string> = {
@@ -47,7 +53,7 @@ export async function searchFoerderdatenbank(
   const searchUrl = buildSearchUrl(bundesland);
 
   try {
-    const scrapeResult = await firecrawl.scrape(searchUrl, {
+    const scrapeResult = await getFirecrawl().scrape(searchUrl, {
       formats: ["markdown"],
       onlyMainContent: true,
       waitFor: 3000,

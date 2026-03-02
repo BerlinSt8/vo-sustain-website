@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 /* eslint-disable @next/next/no-img-element */
 // Reihe 1: Bundesebene – Kernprogramme
 const ROW_1 = [
@@ -87,6 +88,7 @@ function TickerRow({
 }
 
 export default function LogoTickerSection() {
+  const { t } = useLanguage();
   return (
     <section
       style={{
@@ -107,7 +109,7 @@ export default function LogoTickerSection() {
             marginBottom: "12px",
           }}
         >
-          FÖRDERLANDSCHAFT
+          {t.logoTicker.label}
         </p>
         <h2
           style={{
@@ -118,7 +120,7 @@ export default function LogoTickerSection() {
             margin: "0 0 12px",
           }}
         >
-          Eine Auswahl der Programme
+          {t.logoTicker.headline}
         </h2>
         <p
           style={{
@@ -130,7 +132,7 @@ export default function LogoTickerSection() {
             lineHeight: 1.6,
           }}
         >
-          Bundesweit, regional, europäisch — wir navigieren die gesamte Förderlandschaft für Ihr KMU.
+          {t.logoTicker.body}
         </p>
       </div>
 

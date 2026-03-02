@@ -149,6 +149,13 @@ export const translations = {
       imgAlt: "Denis Jänicke – Inhaber VO Sustain",
     },
 
+    // ─── LogoTickerSection ───
+    logoTicker: {
+      label: "FÖRDERLANDSCHAFT",
+      headline: "Eine Auswahl der Programme",
+      body: "Bundesweit, regional, europäisch — wir navigieren die gesamte Förderlandschaft für Ihr KMU.",
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Förderberatung für deutsche KMU. Fördermittelmanagement · CSRD · Nachhaltigkeitsstrategie.",
@@ -312,6 +319,13 @@ export const translations = {
       ],
       bio: "Senior Grant & Programme Operations Lead specialising in EU funding and consortium management. ZIM Network Manager for the SEAWEED DECARBON POLYMER project (12+ partners). Audit-proof process design, financial reporting, and CSRD implementation.",
       imgAlt: "Denis Jänicke – Founder VO Sustain",
+    },
+
+    // ─── LogoTickerSection ───
+    logoTicker: {
+      label: "FUNDING LANDSCAPE",
+      headline: "A Selection of Programmes",
+      body: "Federal, regional, European — we navigate the entire funding landscape for your SME.",
     },
 
     // ─── FooterSection ───
