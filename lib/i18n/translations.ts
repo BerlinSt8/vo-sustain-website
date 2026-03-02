@@ -30,8 +30,8 @@ export const translations = {
       body: "Viele KMU erleben Nachhaltigkeit als lähmende Komplexität. Wir kennen das. Und wir lösen es – mit Klarheit, Strategie und finanzierter Umsetzung.",
       cards: [
         {
-          title: "CSRD-Druck",
-          desc: "Neue Vorgaben wie CSRD und VSME machen ESG-Berichterstattung für immer mehr KMU verpflichtend – mit wenig Vorlauf und hohem Aufwand.",
+          title: "Lieferketten-Druck",
+          desc: "Die meisten KMU sind nicht direkt CSRD-pflichtig — aber Großkunden fordern zunehmend ESG-Daten über die Lieferkette. Ohne Vorbereitung drohen Auftrags- und Kreditrisiken.",
         },
         {
           title: "Förder-Chaos",
@@ -60,7 +60,7 @@ export const translations = {
         {
           label: "02",
           title: "CSRD-Beratung",
-          desc: "ESG-Reporting nach CSRD und VSME-Standard – mit valider Datenbasis und pragmatischer Umsetzung.",
+          desc: "ESG-Daten für Lieferketten-Anfragen nach VSME-Standard — pragmatisch, proportional und mit Value-Chain-Cap-Schutz.",
           tags: ["CSRD", "VSME", "ESG", "Reporting"],
         },
         {
@@ -85,7 +85,7 @@ export const translations = {
         },
         {
           title: "Wirkung",
-          desc: "Messbar verbesserte Nachhaltigkeits-KPIs. THG-Reduktion, Energieeffizienz, CSRD-Compliance.",
+          desc: "Messbar verbesserte Nachhaltigkeits-KPIs. THG-Reduktion, Energieeffizienz, ESG-Readiness.",
         },
         {
           title: "Investitionskraft",
@@ -114,11 +114,11 @@ export const translations = {
         {
           nr: "03",
           company: "Kiyora",
-          result: "CSRD-Compliance",
+          result: "ESG-Ready",
           type: "Nachhaltigkeitsberatung",
-          program: "CSRD / VSME",
-          desc: "ESG-Reporting-Strategie und CSRD-Implementierungsplan nach VSME-Standard – prüfbereit und zukunftssicher.",
-          tags: ["CSRD", "VSME", "ESG", "Reporting"],
+          program: "VSME-Standard",
+          desc: "ESG-Datenstrategie nach VSME-Standard — lieferkettenfähig, proportional und mit Value-Chain-Cap-Schutz.",
+          tags: ["VSME", "ESG", "Lieferkette", "Value Chain Cap"],
         },
       ],
     },
@@ -278,8 +278,8 @@ export const translations = {
       body: "Many SMEs experience sustainability as paralyzing complexity. We know that feeling. And we solve it – with clarity, strategy, and funded implementation.",
       cards: [
         {
-          title: "CSRD Pressure",
-          desc: "New regulations like CSRD and VSME make ESG reporting mandatory for more and more SMEs – with little lead time and high effort.",
+          title: "Supply Chain Pressure",
+          desc: "Most SMEs are not directly subject to CSRD — but large customers increasingly demand ESG data through the supply chain. Without preparation, contract and credit risks arise.",
         },
         {
           title: "Funding Chaos",
@@ -308,7 +308,7 @@ export const translations = {
         {
           label: "02",
           title: "CSRD Advisory",
-          desc: "ESG reporting under CSRD and VSME standards – with a solid data foundation and pragmatic implementation.",
+          desc: "ESG data for supply chain requests under the VSME standard — pragmatic, proportionate, and with Value Chain Cap protection.",
           tags: ["CSRD", "VSME", "ESG", "Reporting"],
         },
         {
@@ -333,7 +333,7 @@ export const translations = {
         },
         {
           title: "Impact",
-          desc: "Measurably improved sustainability KPIs. GHG reduction, energy efficiency, CSRD compliance.",
+          desc: "Measurably improved sustainability KPIs. GHG reduction, energy efficiency, ESG readiness.",
         },
         {
           title: "Investment Power",
@@ -362,11 +362,11 @@ export const translations = {
         {
           nr: "03",
           company: "Kiyora",
-          result: "CSRD Compliance",
+          result: "ESG-Ready",
           type: "Sustainability Advisory",
-          program: "CSRD / VSME",
-          desc: "ESG reporting strategy and CSRD implementation plan under VSME standard – audit-ready and future-proof.",
-          tags: ["CSRD", "VSME", "ESG", "Reporting"],
+          program: "VSME Standard",
+          desc: "ESG data strategy under the VSME standard — supply-chain-ready, proportionate, and with Value Chain Cap protection.",
+          tags: ["VSME", "ESG", "Supply Chain", "Value Chain Cap"],
         },
       ],
     },

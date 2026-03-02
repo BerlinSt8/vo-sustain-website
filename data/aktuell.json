@@ -51,28 +51,53 @@
     "source": "https://www.bafa.de/DE/Energie/Energieeffizienz/energieeffizienz_node.html"
   },
   {
+    "id": "006",
+    "slug": "csrd-omnibus-i-kmu-maerz-2026",
+    "title": "CSRD & KMU: Was nach Omnibus I wirklich gilt (März 2026)",
+    "category": "CSRD-News",
+    "date": "2026-03-02",
+    "deadline": null,
+    "teaser": "Omnibus I hat die CSRD-Schwellen massiv angehoben: 1.000 MA und 450 Mio. EUR Umsatz. Die meisten KMU sind NICHT berichtspflichtig — aber Lieferketten-Anfragen kommen trotzdem. Der VSME-Standard und der Value Chain Cap schützen KMU dabei.",
+    "facts": [
+      { "label": "Richtlinie",     "value": "Omnibus I (EU 2026/470)",         "icon": "📜" },
+      { "label": "Neue Schwelle",  "value": ">1.000 MA + >450 Mio. EUR",      "icon": "📊" },
+      { "label": "Reduktion",      "value": "80% weniger betroffene Firmen",   "icon": "📉" },
+      { "label": "KMU-Schutz",     "value": "Value Chain Cap (Art. 29c/29d)",  "icon": "🛡️" },
+      { "label": "Standard",       "value": "VSME Basic (B1–B11)",            "icon": "📋" },
+      { "label": "Veröffentlicht", "value": "26. Februar 2026",               "icon": "📅" }
+    ],
+    "content": [
+      "Am 26. Februar 2026 wurde die Omnibus-I-Richtlinie (EU 2026/470) veröffentlicht — und sie verändert die CSRD-Landschaft grundlegend. Die neuen Schwellen: Nur noch Unternehmen mit mehr als 1.000 Mitarbeitenden UND mehr als 450 Mio. EUR Umsatz fallen unter die CSRD-Berichtspflicht. Die Zahl der betroffenen Unternehmen sinkt von ca. 50.000 auf rund 10.000 — eine Reduktion um 80%.",
+      "Was bedeutet das für KMU? Die große Mehrheit der KMU (unter 1.000 MA) ist NICHT direkt CSRD-berichtspflichtig. Aber: Großkunden, die selbst CSRD-pflichtig sind, fragen zunehmend ESG-Daten über die Lieferkette ab. Hier kommt der VSME-Standard ins Spiel — ein freiwilliger, schlanker Berichtsstandard des EFRAG mit nur 11 Basis-Datenpunkten (B1–B11): Energie, Emissionen (Scope 1+2), Abfall, Wasser, Belegschaft, Gesundheit, Vergütung, Weiterbildung, Governance.",
+      "Neu und entscheidend: Der Value Chain Information Cap (Art. 29c/29d). Großunternehmen dürfen von KMU-Zulieferern mit unter 1.000 MA NICHT mehr Daten verlangen als der VSME-Standard vorsieht. KMU haben ein gesetzliches Ablehnungsrecht für darüber hinausgehende Anfragen — und der Großkunde muss auf dieses Recht sogar hinweisen.",
+      "So handeln KMU richtig: 1) Mitarbeiterzahl dokumentieren (unter 1.000 = geschütztes Unternehmen). 2) VSME-Basismodul kennenlernen. 3) Selbstauskunft vorbereiten. 4) Über-VSME-Anfragen höflich ablehnen. 5) Lieferverträge um Value-Chain-Cap-Verweis ergänzen. VO Sustain begleitet KMU bei der Umsetzung — und verknüpft ESG-Investitionen mit passenden Förderprogrammen."
+    ],
+    "tags": ["CSRD", "Omnibus I", "VSME", "Value Chain Cap", "KMU", "ESG"],
+    "source": "https://eur-lex.europa.eu/eli/dir/2026/470"
+  },
+  {
     "id": "002",
     "slug": "csrd-vsme-kmu-2026",
-    "title": "CSRD für KMU: Was der VSME-Standard jetzt bedeutet",
+    "title": "VSME-Standard: Der pragmatische Rahmen für KMU-Nachhaltigkeitsdaten",
     "category": "CSRD-News",
     "date": "2026-02-15",
     "deadline": null,
-    "teaser": "Die Corporate Sustainability Reporting Directive tritt 2026 für viele Unternehmen in Kraft. Mit dem VSME-Standard gibt es erstmals einen praxistauglichen Rahmen speziell für KMU.",
+    "teaser": "KMU sind meist nicht direkt CSRD-pflichtig — aber Großkunden fragen ESG-Daten ab. Der VSME-Standard bietet einen schlanken, proportionalen Rahmen mit nur 11 Basis-Datenpunkten.",
     "facts": [
-      { "label": "Richtlinie",   "value": "CSRD (EU 2022/2464)",              "icon": "📜" },
-      { "label": "Standard",     "value": "VSME (EFRAG)",                     "icon": "📋" },
-      { "label": "Gilt ab",      "value": "2026 für mittelgroße Unternehmen", "icon": "📅" },
-      { "label": "Aufwand",      "value": "Basismodul: ~3–5 Datenpunkte",    "icon": "📊" },
-      { "label": "Zielgruppe",   "value": "KMU <250 MA / <50 Mio. € Umsatz", "icon": "🏢" },
+      { "label": "Standard",     "value": "VSME (EFRAG, Jan. 2026)",          "icon": "📋" },
+      { "label": "Datenpunkte",  "value": "11 im Basismodul (B1–B11)",        "icon": "📊" },
+      { "label": "Pflicht?",     "value": "Nein — freiwillig für KMU",        "icon": "✅" },
+      { "label": "Prüfung",      "value": "Selbstdeklaration reicht",         "icon": "🔓" },
+      { "label": "Schutz",       "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
       { "label": "Vorteil",      "value": "Wettbewerbsvorteil + Kreditfähigkeit", "icon": "🚀" }
     ],
     "content": [
-      "Die Corporate Sustainability Reporting Directive (CSRD) verpflichtet ab 2026 auch mittelgroße Unternehmen zur strukturierten Nachhaltigkeitsberichterstattung. Was viele KMU noch nicht wissen: Mit dem Voluntary Sustainability Reporting Standard for SMEs (VSME) des EFRAG gibt es einen maßgeschneiderten Standard, der deutlich schlanker ist als die vollständigen ESRS.",
-      "Der VSME-Standard ist in zwei Module aufgeteilt: Das Basismodul (Pflicht-Datenpunkte: Energie, Emissionen, Soziales) und das erweiterte Modul für KMU in Lieferketten börsennotierter Konzerne. Für viele KMU reicht das Basismodul.",
-      "Warum jetzt handeln? Erstens: Banken und Versicherungen fragen Nachhaltigkeitsdaten zunehmend für Kreditvergaben ab. Zweitens: Größere Auftraggeber leiten CSRD-Anforderungen über die Lieferkette weiter. Drittens: Wer früh berichtet, hat einen Wettbewerbsvorteil bei der Kundenakquise.",
-      "VO Sustain begleitet KMU bei der Ersterhebung der relevanten Datenpunkte, der Auswahl des richtigen Berichtsrahmens und der Verknüpfung mit passenden Förderprogrammen — denn Nachhaltigkeitsinvestitionen sind oft förderfähig."
+      "KMU unter 1.000 Mitarbeitenden sind nach Omnibus I (Februar 2026) NICHT direkt CSRD-berichtspflichtig. Aber: Großkunden, Banken und Versicherungen fragen zunehmend Nachhaltigkeitsdaten über die Lieferkette ab. Der VSME-Standard des EFRAG bietet dafür einen maßgeschneiderten, schlanken Rahmen.",
+      "Der VSME ist in Module aufgeteilt: Das Basismodul (B1–B11) deckt Energie, Scope-1/2-Emissionen, Abfall, Wasser, Belegschaft und Governance ab — ohne Scope 3, ohne Doppelte Wesentlichkeitsanalyse. Das erweiterte Business-Partner-Modul ist nur nötig, wenn Großkunden explizit mehr Daten anfordern.",
+      "Wichtig: Der Value Chain Information Cap (Art. 29c/29d der Omnibus-I-Richtlinie) schützt KMU gesetzlich. Großunternehmen dürfen von Zulieferern mit unter 1.000 MA nicht mehr verlangen als der VSME vorsieht. KMU können über-VSME-Anfragen ablehnen — und eine Selbstdeklaration ohne externe Prüfung reicht aus.",
+      "Warum trotzdem handeln? Erstens: Wer VSME-Daten vorbereitet hat, beantwortet Lieferketten-Fragebögen in Stunden statt Wochen. Zweitens: Banken bewerten ESG-Readiness zunehmend bei Kreditvergaben. Drittens: Nachhaltigkeitsinvestitionen (z.B. Energieeffizienz) sind oft förderfähig — VO Sustain verbindet beides."
     ],
-    "tags": ["CSRD", "VSME", "ESG", "Reporting", "Nachhaltigkeit"],
+    "tags": ["VSME", "ESG", "Value Chain Cap", "Nachhaltigkeit", "Lieferkette"],
     "source": "https://www.efrag.org/Activities/2010191062456827/VSME"
   },
   {
