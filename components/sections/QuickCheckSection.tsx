@@ -137,13 +137,31 @@ export default function QuickCheckSection() {
 
         {/* Form */}
         {!isLoading && !result && (
-          <div style={{
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "var(--radius)",
-            padding: "2.5rem",
-          }}>
-            <QuickCheckForm onSubmit={handleSubmit} isLoading={isLoading} />
+          <div style={{ position: "relative" }}>
+            {/* Verde glow backdrop */}
+            <div style={{
+              position: "absolute",
+              top: "-40px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "70%",
+              height: "120px",
+              background: "radial-gradient(ellipse at center, rgba(39,174,96,0.08) 0%, transparent 70%)",
+              pointerEvents: "none",
+              zIndex: 0,
+            }} />
+            <div style={{
+              position: "relative",
+              zIndex: 1,
+              background: "rgba(255,255,255,0.03)",
+              borderRadius: "var(--radius)",
+              padding: "2.5rem",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderTop: "1px solid rgba(39,174,96,0.25)",
+              backgroundImage: "linear-gradient(to bottom, rgba(39,174,96,0.04) 0%, transparent 120px)",
+            }}>
+              <QuickCheckForm onSubmit={handleSubmit} isLoading={isLoading} />
+            </div>
           </div>
         )}
 

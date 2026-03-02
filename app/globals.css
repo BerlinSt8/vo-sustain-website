@@ -79,7 +79,7 @@ input, select, textarea {
   color: white;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   outline: none;
   width: 100%;
   padding: 0.75rem 1rem;
@@ -88,7 +88,8 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   border-color: var(--verde);
-  box-shadow: 0 0 0 3px rgba(39,174,96,0.15);
+  box-shadow: 0 0 0 4px rgba(39,174,96,0.12), 0 0 20px rgba(39,174,96,0.06);
+  background: rgba(255,255,255,0.07);
 }
 
 input::placeholder, textarea::placeholder {
@@ -120,18 +121,26 @@ select option {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.2; }
 }
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes stepFadeIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
 .animate-fade-up { animation: fadeUp 0.5s ease forwards; }
 .animate-fade-in { animation: fadeIn 0.4s ease forwards; }
 
-.stagger-1 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.05s; opacity: 0; }
-.stagger-2 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.1s;  opacity: 0; }
-.stagger-3 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.15s; opacity: 0; }
-.stagger-4 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.2s;  opacity: 0; }
-.stagger-5 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.25s; opacity: 0; }
-.stagger-6 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.3s;  opacity: 0; }
-.stagger-7 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.35s; opacity: 0; }
-.stagger-8 { animation: fadeUp 0.5s ease forwards; animation-delay: 0.4s;  opacity: 0; }
+.stagger-1 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.05s; opacity: 0; }
+.stagger-2 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.1s;  opacity: 0; }
+.stagger-3 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.15s; opacity: 0; }
+.stagger-4 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.2s;  opacity: 0; }
+.stagger-5 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.25s; opacity: 0; }
+.stagger-6 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.3s;  opacity: 0; }
+.stagger-7 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.35s; opacity: 0; }
+.stagger-8 { animation: fadeSlideUp 0.45s ease forwards; animation-delay: 0.4s;  opacity: 0; }
 
 /* ---- Recommendation Badges ---- */
 .badge-go {

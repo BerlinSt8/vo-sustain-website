@@ -130,11 +130,12 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
     letterSpacing: "0.06em",
     borderRadius: "var(--radius)",
     cursor: "pointer",
-    transition: "background 0.2s",
+    transition: "background 0.2s, box-shadow 0.2s, transform 0.15s",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     gap: "8px",
+    boxShadow: "0 4px 20px rgba(39,174,96,0.25)",
   };
 
   const btnDisabled: React.CSSProperties = {
@@ -142,6 +143,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
     background: "rgba(255,255,255,0.08)",
     color: "rgba(255,255,255,0.3)",
     cursor: "not-allowed",
+    boxShadow: "none",
   };
 
   return (
@@ -158,16 +160,28 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem",
                 color: step > s ? "white" : step === s ? "var(--verde-bright)" : "rgba(255,255,255,0.3)",
-                fontWeight: 600, cursor: s < step ? "pointer" : "default", transition: "all 0.2s",
+                fontWeight: 600, cursor: s < step ? "pointer" : "default",
+                transition: "all 0.3s ease",
+                animation: step === s ? "pulse-verde 2.5s ease-in-out infinite" : "none",
               }}
               onClick={() => s < step && setStep(s)}
             >
               {step > s ? "✓" : s}
             </div>
-            <span style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.78rem", color: step === s ? "white" : "rgba(255,255,255,0.35)", fontWeight: step === s ? 600 : 400 }}>
+            <span style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.78rem", color: step === s ? "white" : "rgba(255,255,255,0.35)", fontWeight: step === s ? 600 : 400, transition: "color 0.3s, font-weight 0.3s" }}>
               {s === 1 ? t.quickCheckForm.stepCompany : t.quickCheckForm.stepProject}
             </span>
-            {s < 2 && <span style={{ color: "rgba(255,255,255,0.15)", margin: "0 8px" }}>—</span>}
+            {s < 2 && (
+              <div style={{ width: "32px", height: "2px", margin: "0 8px", background: "rgba(255,255,255,0.1)", borderRadius: "1px", overflow: "hidden", position: "relative" }}>
+                <div style={{
+                  position: "absolute", top: 0, left: 0, height: "100%",
+                  width: step > 1 ? "100%" : "0%",
+                  background: "var(--verde)",
+                  transition: "width 0.4s ease",
+                  borderRadius: "1px",
+                }} />
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -179,7 +193,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
 
       {/* STEP 1 */}
       {step === 1 && (
-        <>
+        <div key="step1" style={{ animation: "stepFadeIn 0.3s ease forwards" }}>
           <div className="stagger-1" style={fieldGroupStyle}>
             <label style={labelStyle}>{t.quickCheckForm.companyName}</label>
             <input type="text" placeholder={t.quickCheckForm.companyNamePlaceholder} value={form.unternehmensname} onChange={(e) => set("unternehmensname", e.target.value)} />
@@ -242,18 +256,18 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               onClick={() => setStep(2)}
               disabled={!step1Valid}
               style={step1Valid ? btnPrimary : btnDisabled}
-              onMouseEnter={(e) => { if (step1Valid) (e.currentTarget as HTMLButtonElement).style.background = "var(--verde-dark)"; }}
-              onMouseLeave={(e) => { if (step1Valid) (e.currentTarget as HTMLButtonElement).style.background = "var(--verde)"; }}
+              onMouseEnter={(e) => { if (step1Valid) { e.currentTarget.style.background = "var(--verde-dark)"; e.currentTarget.style.boxShadow = "0 6px 28px rgba(39,174,96,0.35)"; e.currentTarget.style.transform = "scale(1.01)"; } }}
+              onMouseLeave={(e) => { if (step1Valid) { e.currentTarget.style.background = "var(--verde)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(39,174,96,0.25)"; e.currentTarget.style.transform = "scale(1)"; } }}
             >
               {t.quickCheckForm.nextStep}
             </button>
           </div>
-        </>
+        </div>
       )}
 
       {/* STEP 2 */}
       {step === 2 && (
-        <>
+        <div key="step2" style={{ animation: "stepFadeIn 0.3s ease forwards" }}>
           <div className="stagger-1" style={fieldGroupStyle}>
             <label style={labelStyle}>{t.quickCheckForm.categories}</label>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
@@ -267,8 +281,12 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
                       padding: "10px 12px",
                       background: checked ? "rgba(39,174,96,0.1)" : "rgba(255,255,255,0.03)",
                       border: `1px solid ${checked ? "var(--verde)" : "rgba(255,255,255,0.1)"}`,
-                      borderRadius: "var(--radius)", cursor: "pointer", transition: "all 0.15s",
+                      borderRadius: "var(--radius)", cursor: "pointer",
+                      transition: "all 0.15s",
+                      boxShadow: checked ? "0 0 12px rgba(39,174,96,0.1)" : "none",
                     }}
+                    onMouseEnter={(e) => { if (!checked) { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; } }}
+                    onMouseLeave={(e) => { if (!checked) { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; } }}
                   >
                     <input type="checkbox" className="checkbox-custom" checked={checked} onChange={() => toggleKategorie(k.value)} />
                     <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", flexShrink: 0 }}>{k.icon}</span>
@@ -341,8 +359,8 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               onClick={() => { if (step2Valid) onSubmit(form); }}
               disabled={!step2Valid || isLoading}
               style={step2Valid && !isLoading ? { ...btnPrimary, flex: 1 } : { ...btnDisabled, flex: 1 }}
-              onMouseEnter={(e) => { if (step2Valid && !isLoading) (e.currentTarget as HTMLButtonElement).style.background = "var(--verde-dark)"; }}
-              onMouseLeave={(e) => { if (step2Valid && !isLoading) (e.currentTarget as HTMLButtonElement).style.background = "var(--verde)"; }}
+              onMouseEnter={(e) => { if (step2Valid && !isLoading) { e.currentTarget.style.background = "var(--verde-dark)"; e.currentTarget.style.boxShadow = "0 6px 28px rgba(39,174,96,0.35)"; e.currentTarget.style.transform = "scale(1.01)"; } }}
+              onMouseLeave={(e) => { if (step2Valid && !isLoading) { e.currentTarget.style.background = "var(--verde)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(39,174,96,0.25)"; e.currentTarget.style.transform = "scale(1)"; } }}
             >
               {isLoading ? (
                 <>
@@ -354,7 +372,7 @@ export default function QuickCheckForm({ onSubmit, isLoading }: Props) {
               )}
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
