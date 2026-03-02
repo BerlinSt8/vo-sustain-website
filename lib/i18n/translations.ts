@@ -55,7 +55,7 @@ export const translations = {
           label: "01",
           title: "Fördermittel-management",
           desc: "Von der Erstprüfung bis zum Verwendungsnachweis – schlüsselfertig und audit-sicher.",
-          tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW", "Horizon Europe"],
+          tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW", "EU HORIZON"],
         },
         {
           label: "02",
@@ -220,7 +220,7 @@ export const translations = {
           label: "01",
           title: "Grant Management",
           desc: "From initial screening to final reporting – turnkey and audit-proof.",
-          tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW", "Horizon Europe"],
+          tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW", "EU HORIZON"],
         },
         {
           label: "02",
