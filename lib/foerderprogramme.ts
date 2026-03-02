@@ -37,9 +37,14 @@ export function getProgrammeByState(bundesland: string): Foerderprogramm[] {
 
 /** Programme nach Fokus-Themen filtern */
 export function getProgrammeByFocus(themen: string[]): Foerderprogramm[] {
-  const lower = themen.map((t) => t.toLowerCase());
+  const tags = themen.flatMap((t) =>
+    t.toLowerCase().split(/[/,]/).map((x) => x.trim()).filter(Boolean)
+  );
   return programme.filter((p) =>
-    p.focus.some((f) => lower.some((t) => f.toLowerCase().includes(t)))
+    p.focus.some((f) => {
+      const fl = f.toLowerCase();
+      return tags.some((t) => fl.includes(t) || t.includes(fl));
+    })
   );
 }
 
@@ -51,9 +56,14 @@ export function getProgrammeForQuickCheck(
   const byState = getProgrammeByState(bundesland);
   if (themen.length === 0) return byState;
 
-  const lower = themen.map((t) => t.toLowerCase());
+  const tags = themen.flatMap((t) =>
+    t.toLowerCase().split(/[/,]/).map((x) => x.trim()).filter(Boolean)
+  );
   return byState.filter((p) =>
-    p.focus.some((f) => lower.some((t) => f.toLowerCase().includes(t)))
+    p.focus.some((f) => {
+      const fl = f.toLowerCase();
+      return tags.some((t) => fl.includes(t) || t.includes(fl));
+    })
   );
 }
 
