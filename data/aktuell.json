@@ -128,13 +128,13 @@
   {
     "id": "004",
     "slug": "referenz-300000-euro-energieforschung",
-    "title": "Referenz: 300.000 € Förderung für Energieforschungsprojekt erfolgreich bewilligt",
+    "title": "Referenz: Sechsstellige Förderung für Energieforschungsprojekt erfolgreich bewilligt",
     "category": "Erfolg",
     "date": "2026-01-28",
     "deadline": null,
-    "teaser": "Ein Forschungsunternehmen aus dem Bereich Energietechnologie erhielt 300.000 € Fördermittel für ein innovatives Dekarbonisierungsprojekt — begleitet von VO Sustain von der Konzeption bis zur Bewilligung.",
+    "teaser": "Ein Forschungsunternehmen aus dem Bereich Energietechnologie erhielt eine sechsstellige Fördersumme für ein innovatives Dekarbonisierungsprojekt — begleitet von VO Sustain von der Konzeption bis zur Bewilligung.",
     "facts": [
-      { "label": "Fördersumme",        "value": "300.000 €",                  "icon": "🏆" },
+      { "label": "Fördersumme",        "value": "sechsstellig",               "icon": "🏆" },
       { "label": "Bearbeitungszeit",   "value": "14 Wochen",                  "icon": "⚡" },
       { "label": "Bewilligungsrunde",  "value": "1. Antragsrunde (sofort)",   "icon": "✅" },
       { "label": "Förderlaufzeit",     "value": "24 Monate",                  "icon": "📅" },
@@ -142,12 +142,12 @@
       { "label": "Nachforderungen",    "value": "Keine",                      "icon": "🎯" }
     ],
     "content": [
-      "Ein spezialisiertes Forschungsunternehmen aus dem Energiesektor hat für sein Projekt zur innovativen Energiespeicherung eine Förderung in Höhe von 300.000 € erhalten. VO Sustain hat das Unternehmen von der ersten Potenzialanalyse bis zur Bewilligung des Antrags begleitet.",
+      "Ein spezialisiertes Forschungsunternehmen aus dem Energiesektor hat für sein Projekt zur innovativen Energiespeicherung eine sechsstellige Förderung erhalten. VO Sustain hat das Unternehmen von der ersten Potenzialanalyse bis zur Bewilligung des Antrags begleitet.",
       "Herausforderung: Das Projekt lag an der Schnittstelle zwischen Grundlagenforschung und industrieller Anwendung — eine Abgrenzung, die bei der Programmwahl entscheidend ist. VO Sustain identifizierte das passende Bundesförderprogramm und strukturierte den Antrag so, dass die Innovationshöhe klar nachgewiesen werden konnte.",
       "Ergebnis: Bewilligung in der ersten Antragsrunde, keine Nachforderungen, Förderlaufzeit 24 Monate. Die gesamte Bearbeitungszeit vom Erstgespräch bis zur Bewilligungsmitteilung betrug 14 Wochen.",
       "Dieses Beispiel zeigt: Der entscheidende Erfolgsfaktor ist nicht das Projekt selbst, sondern die richtige Positionierung im Fördersystem. Wenn Sie ein Innovations- oder Energieprojekt planen, sprechen Sie uns frühzeitig an."
     ],
-    "tags": ["Referenz", "Energieforschung", "Dekarbonisierung", "Erfolg", "300.000 €"],
+    "tags": ["Referenz", "Energieforschung", "Dekarbonisierung", "Erfolg"],
     "source": null
   }
 ]
