@@ -218,8 +218,8 @@ export const translations = {
       quote: "Ich verbinde technisches Förderwissen mit pragmatischer Umsetzung – damit Ihre Nachhaltigkeitsinvestition nicht am Schreibtisch stecken bleibt.",
       credentials: [
         { label: "EU–Bund–Land", sub: "Vollständige Förderebenen" },
-        { label: "12+", sub: "Partner im ZIM-Netzwerk" },
-        { label: "~95%", sub: "Förderquote SEAWEED-Projekt" },
+        { label: "End-to-End", sub: "Konzept bis Verwendungsnachweis" },
+        { label: "DE · EU · Asien", sub: "Projektregionen" },
       ],
       bio: "Senior Grant & Programme Operations Lead mit Spezialisierung auf EU-Förderung und Konsortialmanagement. ZIM-Netzwerkmanager für das SEAWEED DECARBON POLYMER-Projekt (12+ Partner). Audit-sichere Prozessgestaltung, Verwendungsnachweis und CSRD-Umsetzungsbegleitung.",
       imgAlt: "Denis Jänicke – Inhaber VO Sustain",
@@ -466,8 +466,8 @@ export const translations = {
       quote: "I combine technical grant expertise with pragmatic implementation – so your sustainability investment doesn't get stuck at a desk.",
       credentials: [
         { label: "EU–Federal–State", sub: "Full funding coverage" },
-        { label: "12+", sub: "Partners in ZIM network" },
-        { label: "~95%", sub: "Funding rate SEAWEED project" },
+        { label: "End-to-End", sub: "Concept to final reporting" },
+        { label: "DE · EU · Asia", sub: "Project regions" },
       ],
       bio: "Senior Grant & Programme Operations Lead specialising in EU funding and consortium management. ZIM Network Manager for the SEAWEED DECARBON POLYMER project (12+ partners). Audit-proof process design, financial reporting, and CSRD compliance support.",
       imgAlt: "Denis Jänicke – Founder VO Sustain",
