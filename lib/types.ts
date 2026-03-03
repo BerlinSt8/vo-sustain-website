@@ -67,6 +67,7 @@ export interface Artikel {
   date: string;          // ISO-Date "2026-02-20"
   deadline: string | null; // ISO-Date für Countdown, oder null
   teaser: string;
+  image?: string | null;  // Pfad zum Header-Bild (relativ zu /public)
   content: string[];     // Array von Absätzen
   facts?: ArtikelFakt[]; // Key-Facts als Kacheln
   tags: string[];

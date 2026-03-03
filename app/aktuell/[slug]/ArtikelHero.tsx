@@ -117,6 +117,32 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
           {artikel.teaser}
         </p>
       </div>
+
+      {/* Header-Bild */}
+      {artikel.image && (
+        <div
+          className="animate-fade-up"
+          style={{
+            position: "relative",
+            maxWidth: "920px",
+            margin: "2.5rem auto 0",
+            borderRadius: "12px",
+            overflow: "hidden",
+            boxShadow: "0 8px 40px rgba(0,0,0,0.35)",
+            animationDelay: "0.18s",
+          }}
+        >
+          <img
+            src={artikel.image}
+            alt={artikel.title}
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
