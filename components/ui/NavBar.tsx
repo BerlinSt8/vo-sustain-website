@@ -82,7 +82,7 @@ export default function NavBar() {
         {/* Logo */}
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <img
-            src="/vo-logo.jpg"
+            src="/vo-iv.png"
             alt="VO Sustain Logo"
             style={{ height: "32px", width: "auto", display: "block", borderRadius: "3px" }}
           />
