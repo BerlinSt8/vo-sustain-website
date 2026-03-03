@@ -14,8 +14,8 @@ export const translations = {
 
     // ─── HeroSection ───
     hero: {
-      tag: "Förderberatung · Berlin · Deutschland",
-      headline: "VO Sustain.",
+      tag: "VO SUSTAIN · Berlin · Deutschland",
+      headline: "Förderberatung für KMU.",
       sub: "Die Grüne Welle der Transformation.",
       body: "Wir verwandeln den Theorie-Nebel in greifbare Strategie – und Strategie in finanzierte Umsetzung.",
       ctaPrimary: "Quick-Check starten →",
@@ -249,6 +249,38 @@ export const translations = {
       body: "Bundesweit, regional, europäisch — wir navigieren die gesamte Förderlandschaft für Ihr KMU.",
     },
 
+    // ─── FaqSection ───
+    faq: {
+      label: "FAQ",
+      headline: "Häufige Fragen.",
+      items: [
+        {
+          q: "Welche Förderprogramme gibt es für KMU?",
+          a: "Es gibt über 2.000 Förderprogramme in Deutschland – von bundesweiten Programmen wie ZIM (bis 600.000 € für F&E-Projekte) und BAFA EEW (bis 55 % für Energieeffizienz) bis zu Landesförderungen über SAB (Sachsen), TAB (Thüringen) oder IBB (Berlin). Für nachhaltige Investitionen sind außerdem KfW-Kredite und EU-Programme wie Horizon Europe relevant.",
+        },
+        {
+          q: "Sind KMU direkt CSRD-pflichtig?",
+          a: "Die meisten KMU sind durch Omnibus I (2026) nicht mehr direkt CSRD-pflichtig — die neuen Schwellen liegen bei 1.000 Mitarbeitenden und 450 Mio. € Umsatz. Allerdings fordern Großkunden und Banken zunehmend ESG-Daten aus der Lieferkette. Der freiwillige VSME-Standard bietet KMU einen proportionalen Rahmen mit nur 11 Basis-Datenpunkten.",
+        },
+        {
+          q: "Was kostet Förderberatung?",
+          a: "VO Sustain arbeitet erfolgsbasiert: Der Quick-Check ist kostenlos. Bei vollständiger Antragsbegleitung gilt eine Staffelgebühr, die erst bei Bewilligung fällig wird. Sie tragen kein finanzielles Risiko, bevor Fördergelder fließen.",
+        },
+        {
+          q: "Wie lange dauert ein ZIM-Antrag?",
+          a: "Ein vollständiger ZIM-Antrag benötigt in der Regel 4–8 Wochen Vorbereitungszeit. Die Bearbeitungszeit beim Projektträger beträgt erfahrungsgemäß 3–6 Monate. VO Sustain übernimmt den gesamten Prozess – von der Projektbeschreibung über die Kalkulation bis zur Einreichung.",
+        },
+        {
+          q: "Welche Voraussetzungen hat ZIM-Förderung?",
+          a: "ZIM (Zentrales Innovationsprogramm Mittelstand) richtet sich an KMU mit bis zu 499 Mitarbeitenden und weniger als 100 Mio. € Umsatz. Das Projekt muss F&E-Charakter haben, ein technisches Risiko enthalten und auf ein neues Produkt oder Verfahren abzielen. Fördersatz: 25–55 % je nach Unternehmensgröße und Bundesland.",
+        },
+        {
+          q: "Was ist der Unterschied zwischen Zuschuss und Darlehen?",
+          a: "Zuschüsse (z.B. ZIM, BAFA) müssen nicht zurückgezahlt werden – sie sind echter Kapitalzufluss. Darlehen (z.B. KfW) sind zinsgünstige Kredite, die zurückgezahlt werden müssen, aber deutlich bessere Konditionen als Bankdarlehen bieten. VO Sustain identifiziert für jedes Projekt den optimalen Mix.",
+        },
+      ],
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Förderberatung für deutsche KMU. Fördermittelmanagement · CSRD · Nachhaltigkeitsstrategie.",
@@ -279,8 +311,8 @@ export const translations = {
 
     // ─── HeroSection ───
     hero: {
-      tag: "Grant Advisory · Berlin · Germany",
-      headline: "VO Sustain.",
+      tag: "VO SUSTAIN · Berlin · Germany",
+      headline: "Grant Advisory for SMEs.",
       sub: "The Green Wave of Transformation.",
       body: "We turn the fog of theory into tangible strategy – and strategy into funded action.",
       ctaPrimary: "Start Quick-Check →",
@@ -512,6 +544,38 @@ export const translations = {
       label: "FUNDING LANDSCAPE",
       headline: "A Selection of Programmes",
       body: "Federal, regional, European — we navigate the entire funding landscape for your SME.",
+    },
+
+    // ─── FaqSection ───
+    faq: {
+      label: "FAQ",
+      headline: "Frequently Asked Questions.",
+      items: [
+        {
+          q: "What funding programs are available for SMEs?",
+          a: "Germany has over 2,000 funding programs — from federal programs like ZIM (up to €600,000 for R&D projects) and BAFA EEW (up to 55% for energy efficiency) to regional programs via SAB (Saxony), TAB (Thuringia) or IBB (Berlin). For sustainable investments, KfW loans and EU programs like Horizon Europe are also relevant.",
+        },
+        {
+          q: "Are SMEs directly subject to CSRD?",
+          a: "Most SMEs are no longer directly subject to CSRD under Omnibus I (2026) — new thresholds are 1,000 employees and €450M turnover. However, large customers and banks increasingly demand ESG data from the supply chain. The voluntary VSME standard offers SMEs a proportional framework with just 11 basic data points.",
+        },
+        {
+          q: "What does grant consulting cost?",
+          a: "VO Sustain works on a success basis: the Quick-Check is free. For full application support, a tiered fee applies — payable only upon approval. You bear no financial risk before funding flows.",
+        },
+        {
+          q: "How long does a ZIM application take?",
+          a: "A complete ZIM application typically requires 4–8 weeks of preparation. Processing time at the project sponsor is usually 3–6 months. VO Sustain handles the entire process — from project description and budgeting to submission.",
+        },
+        {
+          q: "What are the requirements for ZIM funding?",
+          a: "ZIM (Central Innovation Programme for SMEs) targets companies with up to 499 employees and less than €100M turnover. The project must have R&D character, involve technical risk, and aim at a new product or process. Funding rate: 25–55% depending on company size and federal state.",
+        },
+        {
+          q: "What is the difference between grants and loans?",
+          a: "Grants (e.g. ZIM, BAFA) do not need to be repaid — they are true capital inflows. Loans (e.g. KfW) are low-interest credits that must be repaid, but offer significantly better terms than bank loans. VO Sustain identifies the optimal mix of grants and loans for each project.",
+        },
+      ],
     },
 
     // ─── FooterSection ───
