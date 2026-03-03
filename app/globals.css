@@ -261,10 +261,53 @@ select option {
   width: 100%;
 }
 
+/* ---- Crystal Logo Effects ---- */
+@keyframes crystal-glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(39,174,96,0.3)) drop-shadow(0 0 50px rgba(39,174,96,0.1)); }
+  50%       { filter: drop-shadow(0 0 45px rgba(39,174,96,0.65)) drop-shadow(0 0 90px rgba(39,174,96,0.22)); }
+}
+@keyframes crystal-shimmer {
+  0%   { left: -70%; opacity: 0; }
+  4%   { opacity: 0.75; }
+  16%  { left: 120%; opacity: 0.75; }
+  18%  { opacity: 0; }
+  100% { left: -70%; opacity: 0; }
+}
+@keyframes crystal-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  40%, 60%  { opacity: 1; transform: scale(1) rotate(45deg); }
+}
+.crystal-img {
+  animation: crystal-glow-pulse 3.5s ease-in-out infinite;
+  width: 100%;
+  display: block;
+}
+.crystal-shimmer {
+  position: absolute;
+  top: -20%; left: -70%;
+  width: 32%; height: 140%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
+  transform: skewX(-18deg);
+  mix-blend-mode: overlay;
+  animation: crystal-shimmer 7s ease-in-out 1.5s infinite;
+  pointer-events: none;
+}
+.crystal-sparkle {
+  position: absolute;
+  background: white;
+  clip-path: polygon(50% 0%, 55% 44%, 100% 50%, 55% 56%, 50% 100%, 45% 56%, 0% 50%, 45% 44%);
+  animation: crystal-sparkle ease-in-out infinite;
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .crystal-hero-wrap { display: none; }
+}
+
 /* ---- Scroll indicator blink ---- */
 .scroll-blink {
   animation: blink 2s ease-in-out infinite;
 }
+
 
 /* ---- Reduce motion ---- */
 @media (prefers-reduced-motion: reduce) {
