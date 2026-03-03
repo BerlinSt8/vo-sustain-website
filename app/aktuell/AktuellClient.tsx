@@ -4,17 +4,27 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import type { Artikel, ArtikelKategorie } from "@/lib/types";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const KATEGORIE: Record<ArtikelKategorie, { accent: string; glow: string; label: string }> = {
-  "Förderaufruf": { accent: "#27AE60", glow: "rgba(39,174,96,0.18)",   label: "Förderaufruf" },
-  "CSRD-News":    { accent: "#2980B9", glow: "rgba(41,128,185,0.15)",  label: "CSRD-News" },
-  "Marktinfo":    { accent: "#D35400", glow: "rgba(211,84,0,0.15)",    label: "Marktinfo" },
-  "Erfolg":       { accent: "#1E8449", glow: "rgba(30,132,73,0.18)",   label: "Erfolg" },
+const KATEGORIE: Record<ArtikelKategorie, { accent: string; glow: string }> = {
+  "Förderaufruf": { accent: "#27AE60", glow: "rgba(39,174,96,0.18)" },
+  "CSRD-News":    { accent: "#2980B9", glow: "rgba(41,128,185,0.15)" },
+  "Marktinfo":    { accent: "#D35400", glow: "rgba(211,84,0,0.15)" },
+  "Erfolg":       { accent: "#1E8449", glow: "rgba(30,132,73,0.18)" },
 };
 
 const ALLE_KATEGORIEN: ArtikelKategorie[] = ["Förderaufruf", "CSRD-News", "Marktinfo", "Erfolg"];
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("de-DE", { day: "2-digit", month: "short", year: "numeric" });
+function getKatLabel(kat: ArtikelKategorie, t: ReturnType<typeof useLanguage>["t"]): string {
+  const map: Record<ArtikelKategorie, string> = {
+    "Förderaufruf": t.aktuell.katFoerderaufruf,
+    "CSRD-News":    t.aktuell.katCSRD,
+    "Marktinfo":    t.aktuell.katMarktinfo,
+    "Erfolg":       t.aktuell.katErfolg,
+  };
+  return map[kat];
+}
+
+function formatDate(iso: string, lang: string) {
+  return new Date(iso).toLocaleDateString(lang === "en" ? "en-GB" : "de-DE", { day: "2-digit", month: "short", year: "numeric" });
 }
 
 // ── Deadline Countdown ─────────────────────────────────────────────────────────
@@ -56,7 +66,7 @@ function ArtikelKarte({ artikel }: { artikel: Artikel }) {
   const [visible, setVisible] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   // Scroll-In via IntersectionObserver
   useEffect(() => {
@@ -119,10 +129,10 @@ function ArtikelKarte({ artikel }: { artikel: Artikel }) {
               letterSpacing: "0.12em", textTransform: "uppercase",
               color: kat.accent, fontWeight: 700,
             }}>
-              ▸ {kat.label}
+              ▸ {getKatLabel(artikel.category, t)}
             </span>
             <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "#999" }}>
-              {formatDate(artikel.date)}
+              {formatDate(artikel.date, lang)}
             </span>
           </div>
 
@@ -134,7 +144,7 @@ function ArtikelKarte({ artikel }: { artikel: Artikel }) {
             lineHeight: 1.35, marginBottom: "0.8rem",
             transition: "color 0.2s",
           }}>
-            {artikel.title}
+            {(lang === "en" && artikel.title_en) ? artikel.title_en : artikel.title}
           </h2>
 
           {/* Teaser */}
@@ -142,7 +152,7 @@ function ArtikelKarte({ artikel }: { artikel: Artikel }) {
             fontFamily: "'Open Sans', sans-serif", fontSize: "0.88rem",
             color: "#555", lineHeight: 1.7, marginBottom: "1.25rem",
           }}>
-            {artikel.teaser}
+            {(lang === "en" && artikel.teaser_en) ? artikel.teaser_en : artikel.teaser}
           </p>
 
           {/* Footer */}
@@ -247,7 +257,7 @@ export default function AktuellClient({ articles }: { articles: Artikel[] }) {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
           <FilterTab label={t.aktuell.filterAll} active={aktiveKategorie === null} onClick={() => setAktiveKategorie(null)} accentColor="#27AE60" />
           {ALLE_KATEGORIEN.map((kat) => (
-            <FilterTab key={kat} label={kat} active={aktiveKategorie === kat} onClick={() => setAktiveKategorie(kat)} accentColor={KATEGORIE[kat].accent} />
+            <FilterTab key={kat} label={getKatLabel(kat, t)} active={aktiveKategorie === kat} onClick={() => setAktiveKategorie(kat)} accentColor={KATEGORIE[kat].accent} />
           ))}
           <span style={{
             marginLeft: "auto",

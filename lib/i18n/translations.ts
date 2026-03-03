@@ -208,6 +208,23 @@ export const translations = {
       tomorrow: "Morgen!",
       daysLeft: "Tage",
       backToNews: "← Zurück zu Aktuell",
+      katFoerderaufruf: "Förderaufruf",
+      katCSRD: "CSRD-News",
+      katMarktinfo: "Marktinfo",
+      katErfolg: "Erfolg",
+    },
+
+    // ─── Artikel-Detail ───
+    artikel: {
+      deadline: "Antragsfrist",
+      source: "Quelle:",
+      ctaHeadline: "Passt das zu Ihrem Unternehmen?",
+      ctaBody: "In 5 Minuten sehen Sie, welche Förderprogramme für Sie relevant sind.",
+      ctaButton: "Quick-Check starten →",
+      deadlineExpired: "Abgelaufen",
+      deadlineToday: "Heute!",
+      deadlineTomorrow: "Morgen!",
+      deadlineDays: "Tage",
     },
 
     // ─── AboutSection ───
@@ -456,6 +473,23 @@ export const translations = {
       tomorrow: "Tomorrow!",
       daysLeft: "Days",
       backToNews: "← Back to News",
+      katFoerderaufruf: "Grant Call",
+      katCSRD: "CSRD News",
+      katMarktinfo: "Market Info",
+      katErfolg: "Success",
+    },
+
+    // ─── Artikel-Detail ───
+    artikel: {
+      deadline: "Application Deadline",
+      source: "Source:",
+      ctaHeadline: "Does this fit your company?",
+      ctaBody: "Find out which funding programmes are relevant for you in 5 minutes.",
+      ctaButton: "Start Quick-Check →",
+      deadlineExpired: "Expired",
+      deadlineToday: "Today!",
+      deadlineTomorrow: "Tomorrow!",
+      deadlineDays: "Days",
     },
 
     // ─── AboutSection ───

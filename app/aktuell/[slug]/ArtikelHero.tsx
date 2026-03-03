@@ -11,8 +11,8 @@ const KATEGORIE_ACCENT: Record<ArtikelKategorie, string> = {
   "Erfolg":       "#2ECC71",
 };
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric" });
+function formatDate(iso: string, lang: string) {
+  return new Date(iso).toLocaleDateString(lang === "en" ? "en-GB" : "de-DE", { day: "2-digit", month: "long", year: "numeric" });
 }
 
 interface ArtikelHeroProps {
@@ -22,7 +22,7 @@ interface ArtikelHeroProps {
 export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
   const [scrollY, setScrollY] = useState(0);
   const accent = KATEGORIE_ACCENT[artikel.category];
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY);
@@ -87,7 +87,7 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
             fontFamily: "'Roboto Mono', monospace", fontSize: "0.7rem",
             color: "rgba(255,255,255,0.55)",
           }}>
-            {formatDate(artikel.date)}
+            {formatDate(artikel.date, lang)}
           </span>
         </div>
 
@@ -102,7 +102,7 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
             animationDelay: "0.06s",
           }}
         >
-          {artikel.title}
+          {(lang === "en" && artikel.title_en) ? artikel.title_en : artikel.title}
         </h1>
 
         {/* Teaser */}
@@ -114,7 +114,7 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
             animationDelay: "0.12s",
           }}
         >
-          {artikel.teaser}
+          {(lang === "en" && artikel.teaser_en) ? artikel.teaser_en : artikel.teaser}
         </p>
       </div>
 
@@ -134,7 +134,7 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
         >
           <img
             src={artikel.image}
-            alt={artikel.title}
+            alt={(lang === "en" && artikel.title_en) ? artikel.title_en : artikel.title}
             style={{
               width: "100%",
               height: "auto",

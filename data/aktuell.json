@@ -3,10 +3,12 @@
     "id": "005",
     "slug": "esa-horizon-europe-2026-erdbeobachtung",
     "title": "ESA & Horizon Europe 2026: Koordinierter Call für Erdbeobachtung & Klimaforschung",
+    "title_en": "ESA & Horizon Europe 2026: Coordinated Call for Earth Observation & Climate Research",
     "category": "Förderaufruf",
     "date": "2026-02-28",
     "deadline": "2026-04-15",
     "teaser": "Die Europäische Kommission und ESA haben den Horizon Europe 2026-Workplan gestartet — mit koordinierten Calls für Erdwissenschaften, KI-basierte Erdbeobachtungslösungen und Biodiversität. Erste Deadline bereits am 15. April 2026.",
+    "teaser_en": "The European Commission and ESA have launched the Horizon Europe 2026 Work Programme — with coordinated calls for earth sciences, AI-based earth observation solutions, and biodiversity. First deadline already on 15 April 2026.",
     "facts": [
       { "label": "Programm",     "value": "Horizon Europe 2026",      "icon": "🇪🇺" },
       { "label": "Call",         "value": "HORIZON-CL5-2026-08",       "icon": "📋" },
@@ -15,12 +17,27 @@
       { "label": "Konsortium",   "value": "min. 3 Partner, 3 Länder",  "icon": "🤝" },
       { "label": "Fokus",        "value": "Erdsystemwissenschaften & Satellitenfernerkundung", "icon": "🛰️" }
     ],
+    "facts_en": [
+      { "label": "Programme",       "value": "Horizon Europe 2026",           "icon": "🇪🇺" },
+      { "label": "Call",            "value": "HORIZON-CL5-2026-08",            "icon": "📋" },
+      { "label": "Stage 1 Deadline","value": "15 April 2026",                  "icon": "⏱" },
+      { "label": "Stage 2 Deadline","value": "8 October 2026",                 "icon": "📅" },
+      { "label": "Consortium",      "value": "min. 3 partners, 3 countries",   "icon": "🤝" },
+      { "label": "Focus",           "value": "Earth System Science & Satellite Remote Sensing", "icon": "🛰️" }
+    ],
     "content": [
       "Im Rahmen des Horizon Europe 2026–2027 Work Programmes hat die Europäische Kommission in enger Abstimmung mit der ESA neue koordinierte Forschungscalls geöffnet. Kern ist die EC-ESA Earth System Science Initiative (ESSI), die seit 2020 mehr als ½ Milliarde Euro in über 70 Projekte an der Schnittstelle von Satellitenfernerkundung und Klimaforschung gebündelt hat.",
       "Aktuell offen (Stage 1, Deadline 15. April 2026): Call HORIZON-CL5-2026-08-Two-Stage-D1-06 — 'Closing knowledge gaps on Earth system science in support of global and regional assessments and climate policy'. Gefördert werden Forschungsvorhaben, die offene Wissenslücken im Bereich Erdsystemwissenschaften adressieren, insbesondere im Scope des IPCC Working Group I. Anträge, die Satellitendaten nutzen, werden zur Kooperation mit ESAs FutureEO-Programm eingeladen.",
       "In der Pipeline für April bis November 2026: Am 17. April öffnet HORIZON-CL6-2026-01-BIODIV-05 (Biodiversitätsszenarien und Prognosemodelle). Bereits am 12. Februar ist HORIZON-CL6-2026-03-GOVERNANCE-01 geöffnet worden — fokussiert auf KI-basierte Earth Intelligence-Lösungen. Für Ende 2026 sind außerdem Calls zu Extremwetterereignissen (CL5-2027-01-D1-07) und Carbon Source & Sink Attribution (CL5-2027-01-D1-12) geplant.",
       "Für wen ist das relevant? Unternehmen und Forschungseinrichtungen, die in Erdbeobachtung, KI-gestützter Umweltanalytik, Klimamodellierung oder nachhaltiger Landnutzung tätig sind, sollten die Stage-1-Deadline am 15. April im Blick behalten. VO Sustain unterstützt bei der Einschätzung des Fits, der Partnerfindung und der Antragsstellung — insbesondere wenn ein Hochschul- oder Forschungspartner eingebunden werden soll.",
       "Wichtig: Horizon Europe verlangt Konsortien mit mindestens 3 Partnern aus 3 verschiedenen EU-Mitgliedstaaten oder assoziierten Ländern. Der zweistufige Prozess (Two-Stage) bedeutet: Stage 1 ist eine Kurzskizze (~10 Seiten), die Entscheidung fällt innerhalb weniger Wochen — deutlich weniger Aufwand als ein Vollantragsverfahren."
+    ],
+    "content_en": [
+      "As part of the Horizon Europe 2026–2027 Work Programme, the European Commission has opened new coordinated research calls in close coordination with ESA. The core is the EC-ESA Earth System Science Initiative (ESSI), which has channelled more than half a billion euros into over 70 projects at the interface of satellite remote sensing and climate research since 2020.",
+      "Currently open (Stage 1, deadline 15 April 2026): Call HORIZON-CL5-2026-08-Two-Stage-D1-06 — 'Closing knowledge gaps on Earth system science in support of global and regional assessments and climate policy'. Funded are research projects that address open knowledge gaps in earth system sciences, particularly within the scope of IPCC Working Group I. Applications using satellite data are invited to cooperate with ESA's FutureEO programme.",
+      "In the pipeline for April to November 2026: On 17 April, HORIZON-CL6-2026-01-BIODIV-05 opens (biodiversity scenarios and forecasting models). HORIZON-CL6-2026-03-GOVERNANCE-01 has already opened on 12 February — focused on AI-based Earth Intelligence solutions. Calls on extreme weather events (CL5-2027-01-D1-07) and Carbon Source & Sink Attribution (CL5-2027-01-D1-12) are also planned for late 2026.",
+      "Who is this relevant for? Companies and research institutions active in earth observation, AI-supported environmental analytics, climate modelling, or sustainable land use should keep the Stage 1 deadline of 15 April in mind. VO Sustain supports with fit assessment, partner finding, and application submission — especially when a university or research partner is to be involved.",
+      "Important: Horizon Europe requires consortia with at least 3 partners from 3 different EU member states or associated countries. The two-stage process means: Stage 1 is a short outline (~10 pages), with the decision within a few weeks — significantly less effort than a full application procedure."
     ],
     "tags": ["Horizon Europe", "ESA", "Erdbeobachtung", "ESSI", "Klimaforschung", "EU-Call", "Two-Stage"],
     "source": "https://eo4society.esa.int/2026/02/06/get-ready-for-new-coordinated-eu-esa-science-actions-with-recently-launched-horizon-europe-2026-call/"
@@ -29,10 +46,12 @@
     "id": "001",
     "slug": "bafa-eew-antragsfrist-q2-2026",
     "title": "BAFA EEW: Antragsrunde Q2 2026 — Prozesswärme & Abwärme",
+    "title_en": "BAFA EEW: Application Round Q2 2026 — Process Heat & Waste Heat",
     "category": "Förderaufruf",
     "date": "2026-02-20",
     "deadline": "2026-04-30",
     "teaser": "Das BAFA fördert bis zu 55% der Investitionskosten für Energieeffizienzmaßnahmen in Unternehmen. KMU erhalten einen zusätzlichen Bonus. Antragstellung jetzt möglich.",
+    "teaser_en": "BAFA funds up to 55% of investment costs for energy efficiency measures in companies. SMEs receive an additional bonus. Applications now open.",
     "facts": [
       { "label": "Fördergeber",        "value": "BAFA",                          "icon": "🏛️" },
       { "label": "Max. Förderquote",   "value": "bis zu 55% (inkl. KMU-Bonus)",  "icon": "💶" },
@@ -41,11 +60,25 @@
       { "label": "Förderart",          "value": "Investitionszuschuss",           "icon": "✅" },
       { "label": "Zielgruppe",         "value": "Unternehmen aller Branchen",    "icon": "🏭" }
     ],
+    "facts_en": [
+      { "label": "Funding Authority",  "value": "BAFA",                          "icon": "🏛️" },
+      { "label": "Max. Funding Rate",  "value": "up to 55% (incl. SME bonus)",   "icon": "💶" },
+      { "label": "Min. Investment",    "value": "€20,000 net",                   "icon": "📊" },
+      { "label": "Application Deadline","value": "30 April 2026",                "icon": "⏱" },
+      { "label": "Funding Type",       "value": "Investment Grant",              "icon": "✅" },
+      { "label": "Target Group",       "value": "Companies of all sectors",      "icon": "🏭" }
+    ],
     "content": [
       "Das Bundesamt für Wirtschaft und Ausfuhrkontrolle (BAFA) hat die neue Antragsrunde für das Programm 'Energie- und Ressourceneffizienz in der Wirtschaft' (EEW) geöffnet. Förderfähig sind Investitionen in Prozesswärme, Abwärmenutzung, Druckluftanlagen, Beleuchtung und weitere Energieeffizienzmaßnahmen.",
       "Die maximale Förderquote beträgt 55% für KMU (inklusive KMU-Bonus). Voraussetzung ist eine Mindestinvestition von 20.000 € Nettoinvestitionskosten sowie ein Nachweis der Energieeinsparung durch einen zugelassenen Energieberater.",
       "Wichtig: Der Förderantrag muss vor Beginn der Maßnahme gestellt werden — eine rückwirkende Förderung ist nicht möglich. VO Sustain begleitet Sie vom Energieaudit bis zur Abschlussrechnung.",
       "Besonders attraktiv für energieintensive Branchen: Metallverarbeitung, Lebensmittelproduktion, Papiererzeugung, Kunststoffverarbeitung und Maschinenbau. Für Unternehmen in Sachsen ist eine Kombination mit dem SAB-Programm 'Energie und Klima/2023' möglich."
+    ],
+    "content_en": [
+      "The Federal Office for Economic Affairs and Export Control (BAFA) has opened the new application round for the 'Energy and Resource Efficiency in Industry' (EEW) programme. Eligible investments include process heat, waste heat utilisation, compressed air systems, lighting, and other energy efficiency measures.",
+      "The maximum funding rate is 55% for SMEs (including the SME bonus). Prerequisites are a minimum investment of €20,000 in net investment costs and proof of energy savings by an approved energy consultant.",
+      "Important: The funding application must be submitted before the measure begins — retroactive funding is not possible. VO Sustain guides you from the energy audit to the final invoice.",
+      "Particularly attractive for energy-intensive sectors: metal processing, food production, paper manufacturing, plastics processing, and mechanical engineering. For companies in Saxony, a combination with the SAB programme 'Energie und Klima/2023' is possible."
     ],
     "tags": ["BAFA", "EEW", "Energieeffizienz", "Prozesswärme", "KMU-Bonus"],
     "source": "https://www.bafa.de/DE/Energie/Energieeffizienz/energieeffizienz_node.html"
@@ -54,10 +87,12 @@
     "id": "006",
     "slug": "csrd-omnibus-i-kmu-maerz-2026",
     "title": "CSRD & KMU: Was nach Omnibus I wirklich gilt (März 2026)",
+    "title_en": "CSRD & SMEs: What Really Applies After Omnibus I (March 2026)",
     "category": "CSRD-News",
     "date": "2026-03-03",
     "deadline": null,
     "teaser": "Omnibus I hat die CSRD-Schwellen massiv angehoben: 1.000 MA und 450 Mio. EUR Umsatz. 80% weniger Firmen betroffen. Dazu: Stop-the-Clock verschiebt Welle 2 und 3, der Substance Proposal der Kommission könnte den Anwendungsbereich nochmals verkleinern. Der VSME-Standard und der Value Chain Cap schützen KMU — als freiwilliger 'Safe Harbour'.",
+    "teaser_en": "Omnibus I has massively raised CSRD thresholds: 1,000 employees and €450m turnover. 80% fewer companies affected. Plus: Stop-the-Clock shifts Waves 2 and 3, the Commission's Substance Proposal could further reduce scope. The VSME standard and Value Chain Cap protect SMEs — as a voluntary 'Safe Harbour'.",
     "image": "/images/aktuell/csrd-omnibus-i-kmu-maerz-2026.png",
     "facts": [
       { "label": "Richtlinie",     "value": "Omnibus I (EU 2026/470)",          "icon": "📜" },
@@ -67,12 +102,27 @@
       { "label": "KMU-Schutz",     "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
       { "label": "Standard",       "value": "VSME Basic + Comprehensive",       "icon": "📋" }
     ],
+    "facts_en": [
+      { "label": "Directive",      "value": "Omnibus I (EU 2026/470)",          "icon": "📜" },
+      { "label": "New Threshold",  "value": ">1,000 employees AND >€450m",      "icon": "📊" },
+      { "label": "Reduction",      "value": "80% fewer companies affected",     "icon": "📉" },
+      { "label": "Timeline",       "value": "Wave 2→2027 · Wave 3→2028",       "icon": "⏱" },
+      { "label": "SME Protection", "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
+      { "label": "Standard",       "value": "VSME Basic + Comprehensive",       "icon": "📋" }
+    ],
     "content": [
       "Am 26. Februar 2026 wurde die Omnibus-I-Richtlinie (EU 2026/470) veröffentlicht — und sie verändert die CSRD-Landschaft grundlegend. Die neuen Schwellen: Nur noch Unternehmen mit mehr als 1.000 Mitarbeitenden UND mehr als 450 Mio. EUR Umsatz fallen unter die CSRD-Berichtspflicht. Die Zahl der betroffenen Unternehmen sinkt von ca. 50.000 auf rund 10.000 — eine Reduktion um 80%. Gleichzeitig sinken die Pflicht-Datenpunkte in den vereinfachten ESRS um ca. 61% (von über 1.000 auf rund 300–400).",
       "Zeitplan: Verschiebungen durch Stop-the-Clock. Die 'Stop-the-Clock-Richtlinie' (EU 2025/794) verschiebt den Berichtsbeginn für Welle 2 (große Unternehmen post-Omnibus) auf Berichtsjahr 2027 und für Welle 3 (börsennotierte KMU via LSME-Standard) auf 2028, mit Opt-out bis 2030. Für Unternehmen der Welle 1 mit 501–1.000 MA gibt es bereits eine Befreiung für die Berichtsjahre 2025/2026. Zusätzlich schlägt der 'Substance Proposal' der EU-Kommission (Februar 2025) weitere Vereinfachungen und eine Anhebung der Schwellenwerte vor — noch nicht in nationales Recht überführt, aber von der Bundesregierung nachdrücklich unterstützt.",
       "Die Standard-Architektur auf einen Blick: Die CSRD ist die Richtlinie (wer muss berichten). Die ESRS Set 1 sind die detaillierten Standards für Großunternehmen. Der LSME-Standard wird verpflichtend für börsennotierte KMU (ab 2028). Und der VSME — das Hauptwerkzeug für nicht-börsennotierte KMU — ist freiwillig und modular: Das Basic Module (B1–B11) deckt Energie, Scope-1/2-Emissionen, Abfall, Wasser, Belegschaft und Governance ab. Das Comprehensive Module erweitert um Scope 3, Transition Plans und Menschenrechtsvorfälle — entscheidend für KMU in der Green Economy, die als 'Enabler' in der Wertschöpfungskette großer Konzerne fungieren.",
       "Der Value Chain Cap schützt KMU gesetzlich (Art. 29c/29d). Großunternehmen dürfen von Zulieferern mit unter 1.000 MA NICHT mehr Daten verlangen als der VSME vorsieht. KMU haben ein gesetzliches Ablehnungsrecht — und der Großkunde muss auf dieses Recht hinweisen. Eine Selbstdeklaration ohne externe Prüfung reicht aus.",
       "So handeln KMU richtig: 1) Mitarbeiterzahl dokumentieren (unter 1.000 = geschütztes Unternehmen). 2) VSME-Basismodul kennenlernen — für Green-Economy-Unternehmen auch das Comprehensive Module. 3) Selbstauskunft vorbereiten. 4) Über-VSME-Anfragen höflich ablehnen. 5) Lieferverträge um Value-Chain-Cap-Verweis ergänzen. 6) Rechtsentwicklung verfolgen — Umsetzungsfrist der Richtlinie 2026/470 läuft bis 19. März 2027. VO Sustain begleitet KMU bei der Umsetzung — und verknüpft ESG-Investitionen mit passenden Förderprogrammen."
+    ],
+    "content_en": [
+      "On 26 February 2026, the Omnibus I Directive (EU 2026/470) was published — and it fundamentally changes the CSRD landscape. The new thresholds: only companies with more than 1,000 employees AND more than €450m in revenue fall under the CSRD reporting obligation. The number of affected companies falls from around 50,000 to roughly 10,000 — a reduction of 80%. At the same time, mandatory data points in the simplified ESRS are reduced by approximately 61% (from over 1,000 to around 300–400).",
+      "Timeline: Delays through Stop-the-Clock. The 'Stop-the-Clock Directive' (EU 2025/794) postpones the reporting start for Wave 2 (large companies post-Omnibus) to reporting year 2027 and for Wave 3 (listed SMEs via LSME standard) to 2028, with an opt-out until 2030. For Wave 1 companies with 501–1,000 employees, there is already an exemption for reporting years 2025/2026. Additionally, the 'Substance Proposal' of the EU Commission (February 2025) proposes further simplifications and an increase in thresholds — not yet transposed into national law, but strongly supported by the German government.",
+      "The standard architecture at a glance: The CSRD is the directive (who must report). The ESRS Set 1 are the detailed standards for large companies. The LSME standard will become mandatory for listed SMEs (from 2028). And the VSME — the main tool for non-listed SMEs — is voluntary and modular: The Basic Module (B1–B11) covers energy, Scope 1/2 emissions, waste, water, workforce, and governance. The Comprehensive Module extends to Scope 3, Transition Plans, and human rights incidents — crucial for SMEs in the green economy that act as 'enablers' in the value chain of large corporations.",
+      "The Value Chain Cap legally protects SMEs (Art. 29c/29d). Large companies may NOT demand more data from suppliers with fewer than 1,000 employees than the VSME provides. SMEs have a statutory right to refuse — and the large customer must point to this right. A self-declaration without external verification is sufficient.",
+      "How SMEs should act: 1) Document employee count (under 1,000 = protected company). 2) Familiarise yourself with the VSME Basic Module — for green economy companies also the Comprehensive Module. 3) Prepare a self-declaration. 4) Politely decline over-VSME requests. 5) Add a Value Chain Cap reference to supply contracts. 6) Monitor legal developments — the transposition deadline for Directive 2026/470 runs until 19 March 2027. VO Sustain supports SMEs in implementation — and links ESG investments with appropriate funding programmes."
     ],
     "tags": ["CSRD", "Omnibus I", "VSME", "Value Chain Cap", "KMU", "ESG", "Stop-the-Clock", "LSME"],
     "source": "https://eur-lex.europa.eu/eli/dir/2026/470"
@@ -81,10 +131,12 @@
     "id": "002",
     "slug": "csrd-vsme-kmu-2026",
     "title": "VSME-Standard: Der pragmatische Rahmen für KMU-Nachhaltigkeitsdaten",
+    "title_en": "VSME Standard: The Pragmatic Framework for SME Sustainability Data",
     "category": "CSRD-News",
     "date": "2026-02-15",
     "deadline": null,
     "teaser": "KMU sind meist nicht direkt CSRD-pflichtig — aber Großkunden fragen ESG-Daten ab. Der VSME-Standard bietet einen schlanken, proportionalen Rahmen mit nur 11 Basis-Datenpunkten.",
+    "teaser_en": "SMEs are mostly not directly subject to CSRD — but large customers request ESG data. The VSME standard offers a lean, proportionate framework with just 11 basic data points.",
     "facts": [
       { "label": "Standard",     "value": "VSME (EFRAG, Jan. 2026)",          "icon": "📋" },
       { "label": "Datenpunkte",  "value": "11 im Basismodul (B1–B11)",        "icon": "📊" },
@@ -93,11 +145,25 @@
       { "label": "Schutz",       "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
       { "label": "Vorteil",      "value": "Wettbewerbsvorteil + Kreditfähigkeit", "icon": "🚀" }
     ],
+    "facts_en": [
+      { "label": "Standard",     "value": "VSME (EFRAG, Jan. 2026)",          "icon": "📋" },
+      { "label": "Data Points",  "value": "11 in Basic Module (B1–B11)",      "icon": "📊" },
+      { "label": "Mandatory?",   "value": "No — voluntary for SMEs",          "icon": "✅" },
+      { "label": "Verification", "value": "Self-declaration sufficient",      "icon": "🔓" },
+      { "label": "Protection",   "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
+      { "label": "Benefit",      "value": "Competitive edge + creditworthiness", "icon": "🚀" }
+    ],
     "content": [
       "KMU unter 1.000 Mitarbeitenden sind nach Omnibus I (Februar 2026) NICHT direkt CSRD-berichtspflichtig. Aber: Großkunden, Banken und Versicherungen fragen zunehmend Nachhaltigkeitsdaten über die Lieferkette ab. Der VSME-Standard des EFRAG bietet dafür einen maßgeschneiderten, schlanken Rahmen.",
       "Der VSME ist in Module aufgeteilt: Das Basismodul (B1–B11) deckt Energie, Scope-1/2-Emissionen, Abfall, Wasser, Belegschaft und Governance ab — ohne Scope 3, ohne Doppelte Wesentlichkeitsanalyse. Das erweiterte Business-Partner-Modul ist nur nötig, wenn Großkunden explizit mehr Daten anfordern.",
       "Wichtig: Der Value Chain Information Cap (Art. 29c/29d der Omnibus-I-Richtlinie) schützt KMU gesetzlich. Großunternehmen dürfen von Zulieferern mit unter 1.000 MA nicht mehr verlangen als der VSME vorsieht. KMU können über-VSME-Anfragen ablehnen — und eine Selbstdeklaration ohne externe Prüfung reicht aus.",
       "Warum trotzdem handeln? Erstens: Wer VSME-Daten vorbereitet hat, beantwortet Lieferketten-Fragebögen in Stunden statt Wochen. Zweitens: Banken bewerten ESG-Readiness zunehmend bei Kreditvergaben. Drittens: Nachhaltigkeitsinvestitionen (z.B. Energieeffizienz) sind oft förderfähig — VO Sustain verbindet beides."
+    ],
+    "content_en": [
+      "SMEs with fewer than 1,000 employees are NOT directly subject to CSRD reporting after Omnibus I (February 2026). But large customers, banks, and insurers are increasingly requesting sustainability data across supply chains. The VSME standard from EFRAG provides a tailored, lean framework for this.",
+      "The VSME is divided into modules: The Basic Module (B1–B11) covers energy, Scope 1/2 emissions, waste, water, workforce, and governance — without Scope 3, without double materiality analysis. The extended Business Partner Module is only needed when large customers explicitly request more data.",
+      "Important: The Value Chain Information Cap (Art. 29c/29d of the Omnibus I Directive) legally protects SMEs. Large companies may not demand more from suppliers with fewer than 1,000 employees than the VSME provides. SMEs can reject over-VSME requests — and a self-declaration without external verification is sufficient.",
+      "Why act anyway? First: those who have prepared VSME data answer supply chain questionnaires in hours rather than weeks. Second: banks increasingly assess ESG readiness when granting loans. Third: sustainability investments (e.g. energy efficiency) are often eligible for funding — VO Sustain combines both."
     ],
     "tags": ["VSME", "ESG", "Value Chain Cap", "Nachhaltigkeit", "Lieferkette"],
     "source": "https://www.efrag.org/Activities/2010191062456827/VSME"
@@ -106,10 +172,12 @@
     "id": "003",
     "slug": "zim-richtlinie-2025",
     "title": "Neue ZIM-Richtlinie 2025: Höhere Fördersätze für Innovationsnetzwerke",
+    "title_en": "New ZIM Guidelines 2025: Higher Funding Rates for Innovation Networks",
     "category": "Marktinfo",
     "date": "2026-02-10",
     "deadline": null,
     "teaser": "Die neue ZIM-Richtlinie 2025 bringt verbesserte Konditionen für F&E-Kooperationen und Innovationsnetzwerke. Besonders KMU in strukturschwachen Regionen profitieren.",
+    "teaser_en": "The new ZIM guidelines 2025 bring improved conditions for R&D collaborations and innovation networks. SMEs in structurally weak regions benefit most.",
     "facts": [
       { "label": "Programm",         "value": "ZIM – Zentrales Innovationsprogramm Mittelstand", "icon": "🔬" },
       { "label": "Fördersatz KU",    "value": "bis zu 55%",                                       "icon": "💶" },
@@ -118,11 +186,25 @@
       { "label": "Netzwerkgröße",    "value": "ab 6 Partnerunternehmen",                          "icon": "🤝" },
       { "label": "Fokus",            "value": "F&E, Digitalisierung, Nachhaltigkeit",             "icon": "💡" }
     ],
+    "facts_en": [
+      { "label": "Programme",        "value": "ZIM – Central Innovation Programme for SMEs",     "icon": "🔬" },
+      { "label": "Funding Rate SE",  "value": "up to 55%",                                        "icon": "💶" },
+      { "label": "Funding Rate ME",  "value": "up to 45%",                                        "icon": "💶" },
+      { "label": "Regional Bonus",   "value": "+10 percentage points (GRW area)",                 "icon": "📍" },
+      { "label": "Network Size",     "value": "from 6 partner companies",                         "icon": "🤝" },
+      { "label": "Focus",            "value": "R&D, Digitalisation, Sustainability",              "icon": "💡" }
+    ],
     "content": [
       "Das Zentrales Innovationsprogramm Mittelstand (ZIM) des BMWK hat zum 01.01.2025 eine überarbeitete Richtlinie in Kraft gesetzt. Kern der Änderungen: Höhere Fördersätze für Kooperationsprojekte, eine vereinfachte Antragsstellung und erweiterte Förderfähigkeit für Digitalisierungsvorhaben mit Nachhaltigkeitsbezug.",
       "Neu: KMU in strukturschwachen Regionen (GRW-Fördergebiet) erhalten einen Regionalbonus von bis zu 10 Prozentpunkten auf den Fördersatz. Dies gilt insbesondere für Unternehmen in Sachsen und Thüringen.",
       "Für Innovationsnetzwerke (wie das SEAWEED DECARBON POLYMER Netzwerk) wurden die Anforderungen an die Netzwerkgröße angepasst: Ab 6 Partnerunternehmen ist eine Förderung des Netzwerkmanagements möglich — bisher lag die Schwelle bei 8 Partnern.",
       "ZIM ist besonders attraktiv, wenn ein Forschungs- oder Technologiepartner (Hochschule, Forschungsinstitut) eingebunden werden kann. Die Förderquoten liegen für kleine Unternehmen bei bis zu 55%, für mittlere Unternehmen bei bis zu 45%."
+    ],
+    "content_en": [
+      "The Central Innovation Programme for SMEs (ZIM) of the Federal Ministry for Economic Affairs and Climate Action (BMWK) introduced revised guidelines on 01.01.2025. Key changes: higher funding rates for cooperation projects, simplified application procedures, and extended eligibility for digitalisation projects with a sustainability focus.",
+      "New: SMEs in structurally weak regions (GRW support area) receive a regional bonus of up to 10 percentage points on the funding rate. This applies particularly to companies in Saxony and Thuringia.",
+      "For innovation networks (such as the SEAWEED DECARBON POLYMER network), the requirements for network size have been adjusted: network management funding is now available from 6 partner companies — previously the threshold was 8 partners.",
+      "ZIM is particularly attractive when a research or technology partner (university, research institute) can be involved. Funding rates are up to 55% for small enterprises and up to 45% for medium-sized enterprises."
     ],
     "tags": ["ZIM", "Innovation", "F&E", "Netzwerk", "BMWK", "Sachsen", "Thüringen"],
     "source": "https://www.zim.de/ZIM/Navigation/DE/"
@@ -131,10 +213,12 @@
     "id": "004",
     "slug": "referenz-300000-euro-energieforschung",
     "title": "Referenz: 60 % Zuschuss für Energieforschungsprojekt erfolgreich bewilligt",
+    "title_en": "Case Study: 60% Grant for Energy Research Project Successfully Approved",
     "category": "Erfolg",
     "date": "2026-01-28",
     "deadline": null,
     "teaser": "Ein Forschungsunternehmen aus dem Bereich Energietechnologie erhielt 60 % Zuschuss für ein innovatives Dekarbonisierungsprojekt — begleitet von VO Sustain von der Konzeption bis zur Bewilligung.",
+    "teaser_en": "An energy technology research company received a 60% grant for an innovative decarbonisation project — supported by VO Sustain from conception to approval.",
     "facts": [
       { "label": "Förderquote",        "value": "60 %",               "icon": "🏆" },
       { "label": "Bearbeitungszeit",   "value": "14 Wochen",                  "icon": "⚡" },
@@ -143,11 +227,25 @@
       { "label": "Sektor",             "value": "Energietechnologie / Dekarbonisierung", "icon": "🔋" },
       { "label": "Nachforderungen",    "value": "Keine",                      "icon": "🎯" }
     ],
+    "facts_en": [
+      { "label": "Funding Rate",       "value": "60%",                        "icon": "🏆" },
+      { "label": "Processing Time",    "value": "14 weeks",                   "icon": "⚡" },
+      { "label": "Approval Round",     "value": "1st round (immediate)",      "icon": "✅" },
+      { "label": "Funding Duration",   "value": "24 months",                  "icon": "📅" },
+      { "label": "Sector",             "value": "Energy Technology / Decarbonisation", "icon": "🔋" },
+      { "label": "Add. Requests",      "value": "None",                       "icon": "🎯" }
+    ],
     "content": [
       "Ein spezialisiertes Forschungsunternehmen aus dem Energiesektor hat für sein Projekt zur innovativen Energiespeicherung einen Zuschuss von 60 % der förderfähigen Kosten erhalten. VO Sustain hat das Unternehmen von der ersten Potenzialanalyse bis zur Bewilligung des Antrags begleitet.",
       "Herausforderung: Das Projekt lag an der Schnittstelle zwischen Grundlagenforschung und industrieller Anwendung — eine Abgrenzung, die bei der Programmwahl entscheidend ist. VO Sustain identifizierte das passende Bundesförderprogramm und strukturierte den Antrag so, dass die Innovationshöhe klar nachgewiesen werden konnte.",
       "Ergebnis: Bewilligung in der ersten Antragsrunde, keine Nachforderungen, Förderlaufzeit 24 Monate. Die gesamte Bearbeitungszeit vom Erstgespräch bis zur Bewilligungsmitteilung betrug 14 Wochen.",
       "Dieses Beispiel zeigt: Der entscheidende Erfolgsfaktor ist nicht das Projekt selbst, sondern die richtige Positionierung im Fördersystem. Wenn Sie ein Innovations- oder Energieprojekt planen, sprechen Sie uns frühzeitig an."
+    ],
+    "content_en": [
+      "A specialised research company in the energy sector received a grant of 60% of eligible costs for its innovative energy storage project. VO Sustain guided the company from the initial potential analysis through to the approval of the application.",
+      "The challenge: The project sat at the interface between basic research and industrial application — a distinction that is crucial when choosing the right programme. VO Sustain identified the appropriate federal funding programme and structured the application so that the degree of innovation was clearly demonstrated.",
+      "Result: Approved in the first application round, no requests for additional information, funding duration 24 months. The total processing time from initial consultation to approval notification was 14 weeks.",
+      "This example shows: the key success factor is not the project itself, but the correct positioning within the funding system. If you are planning an innovation or energy project, talk to us early."
     ],
     "tags": ["Referenz", "Energieforschung", "Dekarbonisierung", "Erfolg", "60 %"],
     "source": null

@@ -63,13 +63,17 @@ export interface Artikel {
   id: string;
   slug: string;
   title: string;
+  title_en?: string;
   category: ArtikelKategorie;
   date: string;          // ISO-Date "2026-02-20"
   deadline: string | null; // ISO-Date für Countdown, oder null
   teaser: string;
+  teaser_en?: string;
   image?: string | null;  // Pfad zum Header-Bild (relativ zu /public)
   content: string[];     // Array von Absätzen
+  content_en?: string[];
   facts?: ArtikelFakt[]; // Key-Facts als Kacheln
+  facts_en?: ArtikelFakt[];
   tags: string[];
   source: string | null;
 }
