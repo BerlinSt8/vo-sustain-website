@@ -102,66 +102,80 @@ export default function SolutionSection() {
 
         {/* Channel cards — full width */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-          {t.solution.channels.map((c, i) => (
-            <div
-              key={i}
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "var(--radius)",
-                padding: "2rem",
-                transition: "background 0.2s, border-color 0.2s, transform 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.background = "rgba(39,174,96,0.07)";
-                el.style.borderColor = "rgba(39,174,96,0.3)";
-                el.style.transform = "translateY(-3px)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.background = "rgba(255,255,255,0.04)";
-                el.style.borderColor = "rgba(255,255,255,0.08)";
-                el.style.transform = "translateY(0)";
-              }}
-            >
-              <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "var(--verde-bright)", letterSpacing: "0.15em", marginBottom: "1.25rem" }}>
-                {c.label}
-              </div>
-              <h3 style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: "1.15rem",
-                fontWeight: 800,
-                color: "white",
-                lineHeight: 1.2,
-                marginBottom: "1rem",
-              }}>
-                {c.title}
-              </h3>
-              <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.65, marginBottom: "1.5rem" }}>
-                {c.desc}
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                {c.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontFamily: "'Roboto Mono', monospace",
-                      fontSize: "0.62rem",
-                      color: "rgba(255,255,255,0.65)",
-                      background: "rgba(255,255,255,0.07)",
-                      border: "1px solid rgba(255,255,255,0.14)",
-                      padding: "2px 8px",
-                      borderRadius: "2px",
-                      letterSpacing: "0.06em",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+          {t.solution.channels.map((c, i) => {
+            const links = ["/foerderberatung", "/csrd-beratung", "/zim-foerderung"];
+            return (
+              <a
+                key={i}
+                href={links[i] || "#"}
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "var(--radius)",
+                  padding: "2rem",
+                  transition: "background 0.2s, border-color 0.2s, transform 0.2s",
+                  textDecoration: "none",
+                  display: "block",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.background = "rgba(39,174,96,0.07)";
+                  el.style.borderColor = "rgba(39,174,96,0.3)";
+                  el.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.background = "rgba(255,255,255,0.04)";
+                  el.style.borderColor = "rgba(255,255,255,0.08)";
+                  el.style.transform = "translateY(0)";
+                }}
+              >
+                <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "var(--verde-bright)", letterSpacing: "0.15em", marginBottom: "1.25rem" }}>
+                  {c.label}
+                </div>
+                <h3 style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: "1.15rem",
+                  fontWeight: 800,
+                  color: "white",
+                  lineHeight: 1.2,
+                  marginBottom: "1rem",
+                }}>
+                  {c.title}
+                </h3>
+                <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.65, marginBottom: "1.5rem" }}>
+                  {c.desc}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "1.25rem" }}>
+                  {c.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        fontFamily: "'Roboto Mono', monospace",
+                        fontSize: "0.62rem",
+                        color: "rgba(255,255,255,0.65)",
+                        background: "rgba(255,255,255,0.07)",
+                        border: "1px solid rgba(255,255,255,0.14)",
+                        padding: "2px 8px",
+                        borderRadius: "2px",
+                        letterSpacing: "0.06em",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span style={{
+                  fontFamily: "'Roboto Mono', monospace",
+                  fontSize: "0.68rem",
+                  color: "var(--verde-bright)",
+                  letterSpacing: "0.06em",
+                }}>
+                  →
+                </span>
+              </a>
+            );
+          })}
         </div>
 
       </div>

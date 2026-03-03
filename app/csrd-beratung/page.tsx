@@ -1,0 +1,59 @@
+import NavBar from "@/components/ui/NavBar";
+import FooterSection from "@/components/sections/FooterSection";
+import CsrdBeratungClient from "./CsrdBeratungClient";
+
+const BASE_URL = "https://www.vosustain.de";
+
+export const metadata = {
+  title: "CSRD-Beratung — Nachhaltigkeitsberichterstattung für KMU",
+  description:
+    "CSRD-Beratung für KMU nach VSME-Standard. Wesentlichkeitsanalyse, ESG-Datenmanagement, Berichtspflicht-Check in 30 Minuten — proportional und audit-sicher.",
+  alternates: {
+    canonical: `${BASE_URL}/csrd-beratung`,
+    languages: {
+      de: `${BASE_URL}/csrd-beratung`,
+      en: `${BASE_URL}/csrd-beratung`,
+      "x-default": `${BASE_URL}/csrd-beratung`,
+    },
+  },
+  openGraph: {
+    title: "CSRD-Beratung für KMU | VO Sustain",
+    description:
+      "Pragmatische CSRD-Beratung nach VSME-Standard. Berichtspflicht-Check, Wesentlichkeitsanalyse, ESG-Daten — proportional und audit-sicher.",
+    url: `${BASE_URL}/csrd-beratung`,
+    type: "website",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${BASE_URL}/csrd-beratung#service`,
+  name: "CSRD-Beratung & Nachhaltigkeitsberichterstattung",
+  description:
+    "Pragmatische CSRD-Beratung für KMU nach VSME-Standard — Berichtspflicht-Check, Wesentlichkeitsanalyse, ESG-Datenmanagement und Shield-Template für Lieferketten-Anfragen.",
+  provider: {
+    "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
+    name: "VO Sustain",
+  },
+  areaServed: { "@type": "Country", name: "Deutschland" },
+  serviceType: "CSRD-Beratung",
+  url: `${BASE_URL}/csrd-beratung`,
+};
+
+export default function CsrdBeratungPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <NavBar />
+      <main>
+        <CsrdBeratungClient />
+      </main>
+      <FooterSection />
+    </>
+  );
+}

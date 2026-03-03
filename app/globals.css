@@ -309,6 +309,11 @@ select option {
 }
 
 
+/* ---- Service page process connector ---- */
+@media (max-width: 640px) {
+  .process-connector { display: none; }
+}
+
 /* ---- Reduce motion ---- */
 @media (prefers-reduced-motion: reduce) {
   * {
