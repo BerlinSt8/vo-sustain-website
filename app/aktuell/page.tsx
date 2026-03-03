@@ -7,8 +7,19 @@ import type { Artikel } from "@/lib/types";
 import artikelData from "@/data/aktuell.json";
 
 export const metadata = {
-  title: "Aktuell | VO Sustain",
-  description: "Aktuelle Förderaufrufe, CSRD-Updates und Neuigkeiten aus der Förderlandschaft für KMU.",
+  title: "Aktuell — Förderaufrufe & CSRD-News",
+  description:
+    "Aktuelle Förderaufrufe mit Fristen, CSRD-Updates (Omnibus I, VSME) und Neuigkeiten aus der deutschen Förderlandschaft — wöchentlich aktualisiert.",
+  alternates: {
+    canonical: "https://www.vosustain.de/aktuell",
+  },
+  openGraph: {
+    title: "Aktuell — Förderaufrufe & CSRD-News | VO Sustain",
+    description:
+      "Aktuelle Förderaufrufe mit Fristen, CSRD-Updates (Omnibus I, VSME) und Neuigkeiten aus der deutschen Förderlandschaft.",
+    url: "https://www.vosustain.de/aktuell",
+    type: "website",
+  },
 };
 
 export default function AktuellPage() {
