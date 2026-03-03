@@ -1,8 +1,17 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const programs = ["ZIM", "BAFA", "SAB", "TAB", "EFRE", "Horizon Europe", "LIFE", "BMWK"];
+
+const SPARKLES = [
+  { top: "6%",  left: "15%",  delay: "0.3s", dur: "3.2s", size: 4 },
+  { top: "12%", left: "78%",  delay: "1.4s", dur: "2.8s", size: 5 },
+  { top: "55%", left: "88%",  delay: "0.8s", dur: "3.0s", size: 3 },
+  { top: "80%", left: "60%",  delay: "2.0s", dur: "2.6s", size: 4 },
+  { top: "72%", left: "8%",   delay: "1.1s", dur: "3.4s", size: 3 },
+];
 
 export default function AboutSection() {
   const { t } = useLanguage();
@@ -13,8 +22,8 @@ export default function AboutSection() {
       style={{ background: "var(--navy)", padding: "6rem 8vw" }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* Label */}
-        <div style={{ marginBottom: "3rem" }}>
+        {/* Label + Crystal row */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "3rem" }}>
           <span style={{
             fontFamily: "'Roboto Mono', monospace",
             fontSize: "0.65rem",
@@ -24,6 +33,39 @@ export default function AboutSection() {
           }}>
             {t.about.label}
           </span>
+
+          {/* Crystal top right */}
+          <motion.div
+            className="crystal-hero-wrap"
+            style={{ width: "clamp(160px, 18vw, 240px)", position: "relative" }}
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5.5, ease: "easeInOut", repeat: Infinity }}
+              style={{ position: "relative" }}
+            >
+              <div style={{
+                position: "absolute", inset: "-20%",
+                background: "radial-gradient(ellipse at center, rgba(39,174,96,0.1) 0%, transparent 65%)",
+                pointerEvents: "none",
+              }} />
+              <div style={{ position: "relative", overflow: "hidden" }}>
+                <img src="/vo-crystal.png" alt="VO Sustain" className="crystal-img" />
+                <div className="crystal-shimmer" />
+              </div>
+              {SPARKLES.map((s, i) => (
+                <div key={i} className="crystal-sparkle" style={{
+                  top: s.top, left: s.left,
+                  width: `${s.size}px`, height: `${s.size}px`,
+                  animationDelay: s.delay, animationDuration: s.dur,
+                }} />
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem", alignItems: "start" }}>
