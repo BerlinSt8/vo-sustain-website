@@ -26,23 +26,32 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: "12px",
-        padding: "18px 28px",
-        margin: "0 16px",
+        borderRadius: "14px",
+        padding: "16px 32px",
+        margin: "0 14px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: "88px",
-        minWidth: "180px",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+        height: "100px",
+        minWidth: "200px",
+        boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
         flexShrink: 0,
+        transition: "box-shadow 0.2s ease, transform 0.2s ease",
+      }}
+      onMouseEnter={e => {
+        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 24px rgba(0,0,0,0.13)";
+        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
+      }}
+      onMouseLeave={e => {
+        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 16px rgba(0,0,0,0.07)";
+        (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
-        style={{ objectFit: "contain", maxHeight: "52px", maxWidth: "140px", width: "auto" }}
+        style={{ objectFit: "contain", maxHeight: "60px", maxWidth: "168px", width: "100%", height: "auto" }}
       />
     </div>
   );
@@ -137,7 +146,7 @@ export default function LogoTickerSection() {
       </div>
 
       {/* Ticker Rows */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
         <TickerRow logos={ROW_1} direction="left"  duration={28} />
         <TickerRow logos={ROW_2} direction="right" duration={34} />
       </div>
