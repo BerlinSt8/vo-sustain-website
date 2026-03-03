@@ -55,24 +55,25 @@
     "slug": "csrd-omnibus-i-kmu-maerz-2026",
     "title": "CSRD & KMU: Was nach Omnibus I wirklich gilt (März 2026)",
     "category": "CSRD-News",
-    "date": "2026-03-02",
+    "date": "2026-03-03",
     "deadline": null,
-    "teaser": "Omnibus I hat die CSRD-Schwellen massiv angehoben: 1.000 MA und 450 Mio. EUR Umsatz. Die meisten KMU sind NICHT berichtspflichtig — aber Lieferketten-Anfragen kommen trotzdem. Der VSME-Standard und der Value Chain Cap schützen KMU dabei.",
+    "teaser": "Omnibus I hat die CSRD-Schwellen massiv angehoben: 1.000 MA und 450 Mio. EUR Umsatz. 80% weniger Firmen betroffen. Dazu: Stop-the-Clock verschiebt Welle 2 und 3, der Substance Proposal der Kommission könnte den Anwendungsbereich nochmals verkleinern. Der VSME-Standard und der Value Chain Cap schützen KMU — als freiwilliger 'Safe Harbour'.",
     "facts": [
-      { "label": "Richtlinie",     "value": "Omnibus I (EU 2026/470)",         "icon": "📜" },
+      { "label": "Richtlinie",     "value": "Omnibus I (EU 2026/470)",          "icon": "📜" },
       { "label": "Neue Schwelle",  "value": ">1.000 MA UND >450 Mio. EUR",      "icon": "📊" },
-      { "label": "Reduktion",      "value": "80% weniger betroffene Firmen",   "icon": "📉" },
-      { "label": "KMU-Schutz",     "value": "Value Chain Cap (Art. 29c/29d)",  "icon": "🛡️" },
-      { "label": "Standard",       "value": "VSME Basic (B1–B11)",            "icon": "📋" },
-      { "label": "Veröffentlicht", "value": "26. Februar 2026",               "icon": "📅" }
+      { "label": "Reduktion",      "value": "80% weniger betroffene Firmen",    "icon": "📉" },
+      { "label": "Zeitplan",       "value": "Welle 2→2027 · Welle 3→2028",     "icon": "⏱" },
+      { "label": "KMU-Schutz",     "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
+      { "label": "Standard",       "value": "VSME Basic + Comprehensive",       "icon": "📋" }
     ],
     "content": [
-      "Am 26. Februar 2026 wurde die Omnibus-I-Richtlinie (EU 2026/470) veröffentlicht — und sie verändert die CSRD-Landschaft grundlegend. Die neuen Schwellen: Nur noch Unternehmen mit mehr als 1.000 Mitarbeitenden UND mehr als 450 Mio. EUR Umsatz fallen unter die CSRD-Berichtspflicht. Die Zahl der betroffenen Unternehmen sinkt von ca. 50.000 auf rund 10.000 — eine Reduktion um 80%.",
-      "Was bedeutet das für KMU? Die große Mehrheit der KMU (unter 1.000 MA) ist NICHT direkt CSRD-berichtspflichtig. Aber: Großkunden, die selbst CSRD-pflichtig sind, fragen zunehmend ESG-Daten über die Lieferkette ab. Hier kommt der VSME-Standard ins Spiel — ein freiwilliger, schlanker Berichtsstandard des EFRAG mit nur 11 Basis-Datenpunkten (B1–B11): Energie, Emissionen (Scope 1+2), Abfall, Wasser, Belegschaft, Gesundheit, Vergütung, Weiterbildung, Governance.",
-      "Neu und entscheidend: Der Value Chain Information Cap (Art. 29c/29d). Großunternehmen dürfen von KMU-Zulieferern mit unter 1.000 MA NICHT mehr Daten verlangen als der VSME-Standard vorsieht. KMU haben ein gesetzliches Ablehnungsrecht für darüber hinausgehende Anfragen — und der Großkunde muss auf dieses Recht sogar hinweisen.",
-      "So handeln KMU richtig: 1) Mitarbeiterzahl dokumentieren (unter 1.000 = geschütztes Unternehmen). 2) VSME-Basismodul kennenlernen. 3) Selbstauskunft vorbereiten. 4) Über-VSME-Anfragen höflich ablehnen. 5) Lieferverträge um Value-Chain-Cap-Verweis ergänzen. VO Sustain begleitet KMU bei der Umsetzung — und verknüpft ESG-Investitionen mit passenden Förderprogrammen."
+      "Am 26. Februar 2026 wurde die Omnibus-I-Richtlinie (EU 2026/470) veröffentlicht — und sie verändert die CSRD-Landschaft grundlegend. Die neuen Schwellen: Nur noch Unternehmen mit mehr als 1.000 Mitarbeitenden UND mehr als 450 Mio. EUR Umsatz fallen unter die CSRD-Berichtspflicht. Die Zahl der betroffenen Unternehmen sinkt von ca. 50.000 auf rund 10.000 — eine Reduktion um 80%. Gleichzeitig sinken die Pflicht-Datenpunkte in den vereinfachten ESRS um ca. 61% (von über 1.000 auf rund 300–400).",
+      "Zeitplan: Verschiebungen durch Stop-the-Clock. Die 'Stop-the-Clock-Richtlinie' (EU 2025/794) verschiebt den Berichtsbeginn für Welle 2 (große Unternehmen post-Omnibus) auf Berichtsjahr 2027 und für Welle 3 (börsennotierte KMU via LSME-Standard) auf 2028, mit Opt-out bis 2030. Für Unternehmen der Welle 1 mit 501–1.000 MA gibt es bereits eine Befreiung für die Berichtsjahre 2025/2026. Zusätzlich schlägt der 'Substance Proposal' der EU-Kommission (Februar 2025) weitere Vereinfachungen und eine Anhebung der Schwellenwerte vor — noch nicht in nationales Recht überführt, aber von der Bundesregierung nachdrücklich unterstützt.",
+      "Die Standard-Architektur auf einen Blick: Die CSRD ist die Richtlinie (wer muss berichten). Die ESRS Set 1 sind die detaillierten Standards für Großunternehmen. Der LSME-Standard wird verpflichtend für börsennotierte KMU (ab 2028). Und der VSME — das Hauptwerkzeug für nicht-börsennotierte KMU — ist freiwillig und modular: Das Basic Module (B1–B11) deckt Energie, Scope-1/2-Emissionen, Abfall, Wasser, Belegschaft und Governance ab. Das Comprehensive Module erweitert um Scope 3, Transition Plans und Menschenrechtsvorfälle — entscheidend für KMU in der Green Economy, die als 'Enabler' in der Wertschöpfungskette großer Konzerne fungieren.",
+      "Der Value Chain Cap schützt KMU gesetzlich (Art. 29c/29d). Großunternehmen dürfen von Zulieferern mit unter 1.000 MA NICHT mehr Daten verlangen als der VSME vorsieht. KMU haben ein gesetzliches Ablehnungsrecht — und der Großkunde muss auf dieses Recht hinweisen. Eine Selbstdeklaration ohne externe Prüfung reicht aus.",
+      "So handeln KMU richtig: 1) Mitarbeiterzahl dokumentieren (unter 1.000 = geschütztes Unternehmen). 2) VSME-Basismodul kennenlernen — für Green-Economy-Unternehmen auch das Comprehensive Module. 3) Selbstauskunft vorbereiten. 4) Über-VSME-Anfragen höflich ablehnen. 5) Lieferverträge um Value-Chain-Cap-Verweis ergänzen. 6) Rechtsentwicklung verfolgen — Umsetzungsfrist der Richtlinie 2026/470 läuft bis 19. März 2027. VO Sustain begleitet KMU bei der Umsetzung — und verknüpft ESG-Investitionen mit passenden Förderprogrammen."
     ],
-    "tags": ["CSRD", "Omnibus I", "VSME", "Value Chain Cap", "KMU", "ESG"],
+    "tags": ["CSRD", "Omnibus I", "VSME", "Value Chain Cap", "KMU", "ESG", "Stop-the-Clock", "LSME"],
     "source": "https://eur-lex.europa.eu/eli/dir/2026/470"
   },
   {
