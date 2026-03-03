@@ -1,4 +1,5 @@
 {
+  "buildCommand": "NEXT_TURBOPACK=0 next build",
   "functions": {
     "app/api/quick-check/route.ts": {
       "maxDuration": 30
