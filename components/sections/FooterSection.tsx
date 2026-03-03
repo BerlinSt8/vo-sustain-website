@@ -14,7 +14,7 @@ export default function FooterSection() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
-              <img src="/vo-logo.jpg" alt="VO Sustain" style={{ height: "36px", width: "auto", borderRadius: "3px" }} />
+              <img src="/vo-crystal.png" alt="VO Sustain" style={{ height: "36px", width: "auto", borderRadius: "3px" }} />
               <div>
                 <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.1rem", fontWeight: 900, color: "white", letterSpacing: "0.05em", lineHeight: 1.1 }}>
                   VO SUSTAIN
