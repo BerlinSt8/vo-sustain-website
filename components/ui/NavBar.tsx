@@ -35,29 +35,37 @@ export default function NavBar() {
   ];
 
   const langToggle = (
-    <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-      {(["de", "en"] as const).map((l) => (
-        <button
-          key={l}
-          onClick={() => setLang(l)}
-          style={{
-            background: lang === l ? "rgba(39,174,96,0.15)" : "transparent",
-            border: `1px solid ${lang === l ? "rgba(39,174,96,0.4)" : "rgba(255,255,255,0.15)"}`,
-            color: lang === l ? "#2ECC71" : "rgba(255,255,255,0.5)",
-            borderRadius: "3px",
-            padding: "2px 7px",
-            cursor: "pointer",
-            fontFamily: "'Roboto Mono', monospace",
-            fontSize: "0.58rem",
-            letterSpacing: "0.12em",
-            fontWeight: lang === l ? 700 : 400,
-            transition: "all 0.2s",
-          }}
-        >
-          {l.toUpperCase()}
-        </button>
-      ))}
-    </div>
+    <button
+      onClick={() => setLang(lang === "de" ? "en" : "de")}
+      title={lang === "de" ? "Switch to English" : "Zu Deutsch wechseln"}
+      style={{
+        background: "transparent",
+        border: "1px solid rgba(255,255,255,0.18)",
+        borderRadius: "50%",
+        width: "30px",
+        height: "30px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        transition: "border-color 0.2s, background 0.2s",
+        flexShrink: 0,
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(39,174,96,0.6)";
+        (e.currentTarget as HTMLButtonElement).style.background = "rgba(39,174,96,0.1)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)";
+        (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+      }}
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    </button>
   );
 
   return (
@@ -74,9 +82,9 @@ export default function NavBar() {
           alignItems: "center",
           justifyContent: "space-between",
           transition: "background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s",
-          background: scrolled || menuOpen ? "rgba(13,27,42,0.97)" : "transparent",
-          backdropFilter: scrolled || menuOpen ? "blur(12px)" : "none",
-          boxShadow: scrolled || menuOpen ? "0 1px 0 rgba(255,255,255,0.06)" : "none",
+          background: "rgba(13,27,42,0.97)",
+          backdropFilter: "blur(12px)",
+          boxShadow: "0 1px 0 rgba(255,255,255,0.06)",
         }}
       >
         {/* Logo */}
