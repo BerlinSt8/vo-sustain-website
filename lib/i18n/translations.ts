@@ -256,35 +256,47 @@ export const translations = {
       items: [
         {
           q: "Welche Förderprogramme gibt es für KMU?",
-          a: "Es gibt über 2.000 Förderprogramme in Deutschland – von bundesweiten Programmen wie ZIM (bis 600.000 € für F&E-Projekte) und BAFA EEW (bis 55 % für Energieeffizienz) bis zu Landesförderungen über SAB (Sachsen), TAB (Thüringen) oder IBB (Berlin). Für nachhaltige Investitionen sind außerdem KfW-Kredite und EU-Programme wie Horizon Europe relevant.",
+          a: "Deutschland hat über 2.000 Förderprogramme auf Bundes-, Landes- und EU-Ebene. Für F&E fördert ZIM bis zu 380.000 € je Einzelprojekt (bis 2,3 Mio. € bei Kooperationsprojekten) mit 25–60 % Fördersatz. Die Forschungszulage ergänzt das als steuerliche Gutschrift: 35 % der F&E-Personalkosten für KMU, direkt mit der Steuerschuld verrechenbar. Für Energieeffizienz zahlt BAFA EEW bis zu 55 % (Mindestinvestition 20.000 €). Dazu kommen Landesförderungen wie SAB (Sachsen) oder TAB (Thüringen) und zinsgünstige KfW-Kredite. Entscheidend ist der Einstieg: Nicht jedes Programm lässt sich kombinieren — De-minimis-Regeln und AGVO-Grenzen bestimmen, welche Programme parallel nutzbar sind.",
         },
         {
           q: "Sind KMU direkt CSRD-pflichtig?",
-          a: "Die meisten KMU sind durch Omnibus I (2026) nicht mehr direkt CSRD-pflichtig — die neuen Schwellen liegen bei 1.000 Mitarbeitenden und 450 Mio. € Umsatz. Allerdings fordern Großkunden und Banken zunehmend ESG-Daten aus der Lieferkette. Der freiwillige VSME-Standard bietet KMU einen proportionalen Rahmen mit nur 11 Basis-Datenpunkten.",
+          a: "Nach dem EU-Omnibus I-Paket (Februar 2026) gelten neue Schwellen: direkt berichtspflichtig sind nur noch Unternehmen mit ≥ 1.000 Mitarbeitenden UND ≥ 450 Mio. € Umsatz — das trifft ca. 90 % weniger Unternehmen als ursprünglich geplant. Zusätzlich hat die EU einen Stop-the-Clock beschlossen: Für Berichtsjahre 2025 und 2026 sind die Fristen ausgesetzt, während die überarbeiteten ESRS-Standards im Trilogverfahren finalisiert werden. Trotzdem: Wer als Zulieferer oder Kreditnehmer von Großkunden oder Banken ESG-Daten liefern muss, ist indirekt betroffen. Der freiwillige VSME-Standard bietet genau dafür den richtigen Rahmen: 11 Basis-Datenpunkte (Module B1–B3), proportional und lieferkettenfähig. Per Value-Chain-Cap-Regelung dürfen Kunden aus der Lieferkette maximal VSME-Datenpunkte anfordern — keine ESRS-Vollberichte.",
         },
         {
           q: "Was kostet Förderberatung?",
-          a: "VO Sustain arbeitet erfolgsbasiert: Der Quick-Check ist kostenlos. Bei vollständiger Antragsbegleitung gilt eine Staffelgebühr, die erst bei Bewilligung fällig wird. Sie tragen kein finanzielles Risiko, bevor Fördergelder fließen.",
+          a: "Der Quick-Check ist kostenlos und liefert eine erste Einschätzung, welche Programme für Ihr Vorhaben infrage kommen. VO Sustain arbeitet bei der vollständigen Antragsbegleitung erfolgsbasiert: Die Beratungsgebühr wird als prozentualer Anteil der bewilligten Fördersumme berechnet und ist erst bei Bewilligung fällig — nicht bei Antragstellung. Sie tragen kein finanzielles Risiko, bevor Fördergelder fließen. Für Projekte mit mehreren Programmen (z.B. ZIM + Forschungszulage) wird der Gesamtaufwand vorab transparent kalkuliert.",
         },
         {
           q: "Wie lange dauert ein ZIM-Antrag?",
-          a: "Ein vollständiger ZIM-Antrag benötigt in der Regel 4–8 Wochen Vorbereitungszeit. Die Bearbeitungszeit beim Projektträger beträgt erfahrungsgemäß 3–6 Monate. VO Sustain übernimmt den gesamten Prozess – von der Projektbeschreibung über die Kalkulation bis zur Einreichung.",
+          a: "Der Prozess läuft in drei Phasen: Antragsvorbereitung (4–8 Wochen) umfasst Projektbeschreibung mit Neuheitsnachweis und technischem Risiko, Arbeitspakete, Kalkulation, Finanzierungsplan und AGVO-Erklärungen. Begutachtung beim Projektträger (VDI/VDE-IT oder AiF) dauert erfahrungsgemäß 3–6 Monate — externe Gutachter prüfen F&E-Charakter und Förderwürdigkeit, Rückfragen sind normal und kein Ablehnungssignal. Nach Bewilligung folgt der Mittelabruf im Projektverlauf nach tatsächlich entstandenen Kosten. Wichtig: Projektstart darf erst nach Antragstellung erfolgen — nachträgliche Finanzierung ist nicht möglich.",
         },
         {
           q: "Welche Voraussetzungen hat ZIM-Förderung?",
-          a: "ZIM (Zentrales Innovationsprogramm Mittelstand) richtet sich an KMU mit bis zu 499 Mitarbeitenden und weniger als 100 Mio. € Umsatz. Das Projekt muss F&E-Charakter haben, ein technisches Risiko enthalten und auf ein neues Produkt oder Verfahren abzielen. Fördersatz: 25–55 % je nach Unternehmensgröße und Bundesland.",
+          a: "ZIM richtet sich an gewerbliche Unternehmen mit bis zu 499 Mitarbeitenden und weniger als 100 Mio. € Jahresumsatz — das ist bewusst breiter als die EU-KMU-Definition. Das Kernkriterium: Das Projekt muss echten F&E-Charakter haben, d.h. technisches Risiko (kein gesichertes Ergebnis), Neuheitsgrad gegenüber dem Stand der Technik und das Ziel eines neuen Produkts, Verfahrens oder einer neuen technischen Dienstleistung. Reine Investitionen, Marktanpassungen oder Software-Customizing reichen nicht. Fördersatz: 25–45 % (mittlere Unternehmen West) bis 55–60 % (kleine Unternehmen neue Bundesländer). De-minimis-Spielraum (300.000 € / 3 Jahre) muss vorab geprüft werden — alternativ greift die AGVO (Allgemeine Gruppenfreistellungsverordnung).",
         },
         {
-          q: "Was ist der Unterschied zwischen Zuschuss und Darlehen?",
-          a: "Zuschüsse (z.B. ZIM, BAFA) müssen nicht zurückgezahlt werden – sie sind echter Kapitalzufluss. Darlehen (z.B. KfW) sind zinsgünstige Kredite, die zurückgezahlt werden müssen, aber deutlich bessere Konditionen als Bankdarlehen bieten. VO Sustain identifiziert für jedes Projekt den optimalen Mix.",
+          q: "Was ist der Unterschied zwischen Zuschuss, Darlehen und Steuervorteil?",
+          a: "Drei Förderformen mit unterschiedlicher Wirkung: Zuschüsse (z.B. ZIM, BAFA EEW) müssen nicht zurückgezahlt werden — sie sind echter Kapitalzufluss und erhöhen die Liquidität sofort nach Auszahlung. Zinsgünstige Darlehen (z.B. KfW-Programme) müssen zurückgezahlt werden, bieten aber deutlich bessere Konditionen als Bankdarlehen und schonen die Kreditlinie. Steuerliche Gutschriften (Forschungszulage nach FZulG) werden direkt mit der Körperschaft- oder Einkommensteuer verrechnet — auch bei Verlust im Gründungsjahr als Erstattung auszahlbar. Viele Projekte nutzen alle drei Säulen: ZIM-Zuschuss für F&E-Kosten, Forschungszulage für Personalkosten und KfW-Kredit für Investitionen — bei korrekter Kumulierungsprüfung rechtlich zulässig.",
         },
         {
           q: "Wie stelle ich einen ZIM-Antrag 2026?",
-          a: "Für einen ZIM-Antrag 2026 brauchen Sie: eine Projektbeschreibung mit Neuheitsnachweis und technischem Risiko, einen Finanzierungsplan, Arbeitspakete und AGVO-Erklärungen. VO Sustain übernimmt die komplette Vorbereitung — von der Förderprogramm-Prüfung bis zur Einreichung beim Projektträger AiF oder DLR. Typische Vorbereitungszeit: 4–8 Wochen. Fördersatz: 25–55 % je nach Unternehmensgröße.",
+          a: "Ein ZIM-Antrag 2026 besteht aus vier Kernteilen: 1) Projektbeschreibung mit Nachweis des Stands der Technik und Begründung des technischen Risikos — das ist der kritischste Teil, weil Gutachter hier am häufigsten nachfragen. 2) Strukturierter Arbeitspaketplan mit Meilensteinen, Verantwortlichkeiten und Personalaufwand je AP. 3) Finanzierungsplan mit Gesamtkosten, beantragter Förderung, Eigen- und Fremdmitteln. 4) Beihilferechtliche Erklärungen: De-minimis-Selbstauskunft und/oder AGVO-Erklärung. Einreichung erfolgt digital über easy-Online beim zuständigen Projektträger (VDI/VDE-IT für die meisten Technologiethemen, AiF für angewandte Forschung). Fördersatz: 25–60 % je nach Unternehmensgröße und Standort. Typische Vorbereitungszeit: 4–8 Wochen.",
         },
         {
           q: "Welche BAFA-Förderung gibt es für Nachhaltigkeit?",
-          a: "BAFA fördert Nachhaltigkeit über mehrere Programme: BAFA BEE (Bundesförderung effiziente Energiesysteme) mit bis zu 55 % für Prozesswärme und Abwärmenutzung, BAFA Energieberatung mit bis zu 80 % für KMU-Beratung, und BAFA Transformationskonzepte für Dekarbonisierungsstrategien. Kombinierbar mit KfW-Krediten und EFRE-Landesförderung.",
+          a: "BAFA bietet drei relevante Programme: BAFA EEW (Energie- und Ressourceneffizienz in der Wirtschaft) fördert Prozesswärme, Abwärmenutzung, Druckluftsysteme und Antriebstechnik mit bis zu 55 % Zuschuss (KMU-Bonus inklusive) — Mindestinvestition 20.000 €, kombinierbar mit KfW-Kredit. BAFA Energieberatung Mittelstand fördert externe Energieberatungen mit bis zu 80 % (max. 8.000 € Zuschuss für KMU) — Grundlage für viele Investitionsanträge. BAFA Transformationskonzepte fördert Dekarbonisierungsroadmaps für energieintensive Betriebe mit bis zu 60 %. Alle drei Programme sind kumulierbar mit EFRE-Landesförderung (SAB, TAB, IBB), solange De-minimis-Grenzen eingehalten werden und die Gesamtförderquote den beihilferechtlichen Höchstsatz nicht übersteigt.",
+        },
+        {
+          q: "Wie arbeitet VO Sustain — und was unterscheidet euch von klassischen Beratern?",
+          a: "VO Sustain ist auf KMU im Nachhaltigkeitsbereich spezialisiert und kombiniert eigene Praxiserfahrung mit KI-gestützter Recherche. Der Gründer Denis Jänicke ist aktiver ZIM-Netzwerkmanager (SEAWEED DECARBON POLYMER, 12+ Partner) und kennt die Prozesse aus erster Hand — nicht nur aus Handbüchern. Der Ablauf: Kostenloser Quick-Check → Tiefenanalyse mit Programm-Matching → Antragsbegleitung bis zum Verwendungsnachweis. Kein Unternehmensberatungsvolumen, keine anonymen Teams — Sie arbeiten direkt mit der Fachkraft, die Ihren Antrag schreibt. Das Modell: Success-Fee, fällig erst bei Bewilligung. Kein finanzielles Risiko für Sie.",
+        },
+        {
+          q: "Wie ist die Vergütung aufgebaut — was sind die konkreten Konditionen?",
+          a: "VO Sustain arbeitet ausschließlich erfolgsbasiert — keine Stundensätze, kein Retainer, keine Vorauszahlung. Die Vergütung ist eine Staffelprovision auf die bewilligte Fördersumme: 10 % auf die erste Tranche (bis 100.000 €), 7 % auf die zweite (100.001–300.000 €), 5 % auf die dritte (300.001–600.000 €), 3,5 % auf alles darüber. Die Staffel gilt pro Bewilligungsbescheid. Fälligkeit: erst bei tatsächlicher Auszahlung der Fördermittel — BGH-konforme Regelung. Für Projekte mit mehreren Programmen (z.B. ZIM + BAFA) wird je Bewilligungsbescheid separat abgerechnet. Es gibt keine Gebühr bei Ablehnung.",
+        },
+        {
+          q: "Was ist De-minimis und warum ist es für Förderanträge wichtig?",
+          a: "De-minimis ist eine EU-Beihilferegelung: Jedes Unternehmen (inkl. verbundener Unternehmen im EU-Sinne) darf innerhalb von drei Steuerkalenderjahren maximal 300.000 € an De-minimis-Beihilfen erhalten — eine 2024 auf 300.000 € angehobene Grenze (vorher 200.000 €). Viele kleine BAFA-, SAB- und KfW-Programme laufen unter De-minimis. Wer diese Grenze bereits ausgeschöpft hat, kann bestimmte Programme nicht mehr nutzen oder muss auf AGVO (Allgemeine Gruppenfreistellungsverordnung) ausweichen, die höhere Beträge erlaubt, aber strengere Kriterien stellt. Falsch kumulierte Programme können zur Rückforderung der gesamten Beihilfe führen — rückwirkend für alle drei Jahre. VO Sustain prüft den De-minimis-Status vor jeder Empfehlung.",
         },
       ],
     },
@@ -682,35 +694,47 @@ export const translations = {
       items: [
         {
           q: "What funding programs are available for SMEs?",
-          a: "Germany has over 2,000 funding programs — from federal programs like ZIM (up to €600,000 for R&D projects) and BAFA EEW (up to 55% for energy efficiency) to regional programs via SAB (Saxony), TAB (Thuringia) or IBB (Berlin). For sustainable investments, KfW loans and EU programs like Horizon Europe are also relevant.",
+          a: "Germany has over 2,000 funding programmes at federal, state, and EU level. For R&D, ZIM funds up to €380,000 per individual project (up to €2.3M for cooperation projects) at a 25–60% grant rate. The Research Allowance (Forschungszulage) complements this as a tax credit: 35% of R&D personnel costs for SMEs, offset directly against tax liability. For energy efficiency, BAFA EEW pays up to 55% (minimum investment €20,000). State programmes such as SAB (Saxony) or TAB (Thuringia) and low-interest KfW loans add further options. What matters most: not every programme can be combined — de minimis rules and GBER limits determine which programmes may be used in parallel.",
         },
         {
           q: "Are SMEs directly subject to CSRD?",
-          a: "Most SMEs are no longer directly subject to CSRD under Omnibus I (2026) — new thresholds are 1,000 employees and €450M turnover. However, large customers and banks increasingly demand ESG data from the supply chain. The voluntary VSME standard offers SMEs a proportional framework with just 11 basic data points.",
+          a: "Under the EU Omnibus I package (February 2026), new thresholds apply: direct reporting obligations only affect companies with ≥ 1,000 employees AND ≥ €450M turnover — roughly 90% fewer companies than originally planned. The EU has also enacted a Stop-the-Clock: reporting years 2025 and 2026 are suspended while revised ESRS standards are finalised in trilogue. That said, companies that supply large customers or need bank financing are indirectly affected by ESG data requests. The voluntary VSME standard provides the right framework: 11 basic data points (modules B1–B3), proportional and supply-chain-ready. Under the Value Chain Cap, customers may only request VSME-level data from suppliers — no full ESRS reports.",
         },
         {
           q: "What does grant consulting cost?",
-          a: "VO Sustain works on a success basis: the Quick-Check is free. For full application support, a tiered fee applies — payable only upon approval. You bear no financial risk before funding flows.",
+          a: "The Quick-Check is free and provides a first assessment of which programmes suit your project. For full application support, VO Sustain works on a success basis: the advisory fee is calculated as a percentage of the approved funding amount and is only due upon approval — not at submission. You bear no financial risk before funding flows. For projects spanning multiple programmes (e.g. ZIM plus Research Allowance), the total fee is calculated transparently upfront.",
         },
         {
           q: "How long does a ZIM application take?",
-          a: "A complete ZIM application typically requires 4–8 weeks of preparation. Processing time at the project sponsor is usually 3–6 months. VO Sustain handles the entire process — from project description and budgeting to submission.",
+          a: "The process runs in three phases: Application preparation (4–8 weeks) covers the project description with proof of novelty and technical risk, work packages, budgeting, financing plan, and GBER declarations. Expert review at the project sponsor (VDI/VDE-IT or AiF) typically takes 3–6 months — external reviewers assess R&D character and eligibility; queries are normal and not a rejection signal. After approval, funding is disbursed incrementally against actual incurred costs. Important: the project may only start after submission — retrospective funding is not possible.",
         },
         {
           q: "What are the requirements for ZIM funding?",
-          a: "ZIM (Central Innovation Programme for SMEs) targets companies with up to 499 employees and less than €100M turnover. The project must have R&D character, involve technical risk, and aim at a new product or process. Funding rate: 25–55% depending on company size and federal state.",
+          a: "ZIM targets commercial enterprises with up to 499 employees and less than €100M annual turnover — deliberately broader than the EU SME definition. The core criterion: genuine R&D character, meaning technical risk (no guaranteed outcome), novelty beyond the state of the art, and the goal of a new product, process, or technical service. Pure investments, market adaptations, or software customisation do not qualify. Funding rate: 25–45% (medium enterprises, West) up to 55–60% (small enterprises, new federal states). De minimis headroom (€300,000 / 3 years) must be verified in advance — alternatively, GBER (General Block Exemption Regulation) applies.",
         },
         {
-          q: "What is the difference between grants and loans?",
-          a: "Grants (e.g. ZIM, BAFA) do not need to be repaid — they are true capital inflows. Loans (e.g. KfW) are low-interest credits that must be repaid, but offer significantly better terms than bank loans. VO Sustain identifies the optimal mix of grants and loans for each project.",
+          q: "What is the difference between grants, loans, and tax incentives?",
+          a: "Three funding types with different effects: Grants (e.g. ZIM, BAFA EEW) are non-repayable — they are true capital inflows that improve liquidity immediately on disbursement. Low-interest loans (e.g. KfW programmes) must be repaid, but offer significantly better terms than commercial bank loans and preserve credit lines. Tax credits (Research Allowance under FZulG) are offset directly against corporate or income tax — payable as a refund even in loss years. Many projects use all three pillars: ZIM grant for R&D costs, Research Allowance for personnel costs, and KfW loan for investment — legally permissible with correct cumulation analysis.",
         },
         {
           q: "How do I apply for ZIM funding in 2026?",
-          a: "A ZIM application in 2026 requires: a project description with proof of novelty and technical risk, a financing plan, work packages, and AGVO declarations. VO Sustain handles the entire preparation — from funding programme analysis to submission to the project sponsor (AiF or DLR). Typical preparation time: 4–8 weeks. Funding rate: 25–55% depending on company size.",
+          a: "A ZIM application in 2026 consists of four core parts: 1) Project description with proof of the state of the art and justification of technical risk — this is the most critical part, as reviewers query it most frequently. 2) Structured work package plan with milestones, responsibilities, and personnel effort per package. 3) Financing plan with total costs, requested grant, equity, and third-party funding. 4) State aid declarations: de minimis self-assessment and/or GBER declaration. Submission is digital via easy-Online at the relevant project sponsor (VDI/VDE-IT for most technology topics, AiF for applied research). Funding rate: 25–60% depending on company size and location. Typical preparation time: 4–8 weeks.",
         },
         {
           q: "What BAFA funding is available for sustainability?",
-          a: "BAFA funds sustainability through several programmes: BAFA BEE (Federal Funding for Efficient Energy Systems) with up to 55% for process heat and waste heat recovery, BAFA Energy Consulting with up to 80% for SME consultancy, and BAFA Transformation Concepts for decarbonisation strategies. Combinable with KfW loans and EFRE regional funding.",
+          a: "BAFA offers three relevant programmes: BAFA EEW (Energie- und Ressourceneffizienz in der Wirtschaft) funds process heat, waste heat recovery, compressed air systems, and drive technology with up to 55% grant (SME bonus included) — minimum investment €20,000, combinable with KfW loan. BAFA Energy Consulting for SMEs funds external energy audits with up to 80% (max. €8,000 grant) — a prerequisite for many investment applications. BAFA Transformation Concepts funds decarbonisation roadmaps for energy-intensive businesses with up to 60%. All three programmes can be combined with EFRE regional funding (SAB, TAB, IBB), provided de minimis limits are respected and total aid intensity does not exceed the GBER ceiling.",
+        },
+        {
+          q: "How does VO Sustain work — and what sets you apart from traditional consultants?",
+          a: "VO Sustain specialises in SMEs in the sustainability sector and combines hands-on expertise with AI-powered research. Founder Denis Jänicke is an active ZIM network manager (SEAWEED DECARBON POLYMER, 12+ partners) — he knows the processes from first-hand experience, not just textbooks. The process: free Quick-Check → deep analysis with programme matching → full application support through to the final financial report. No large consultancy overhead, no anonymous teams — you work directly with the expert writing your application. The model: success fee, due only upon approval. No financial risk for you.",
+        },
+        {
+          q: "How is the fee structured — what are the concrete terms?",
+          a: "VO Sustain works exclusively on a success basis — no hourly rates, no retainer, no upfront payment. The fee is a tiered commission on the approved funding amount: 10% on the first tranche (up to €100,000), 7% on the second (€100,001–300,000), 5% on the third (€300,001–600,000), 3.5% on everything above. The tiers apply per approval notice. Due date: only upon actual disbursement of the funding — compliant with BGH (German Federal Court of Justice) standard. For projects across multiple programmes (e.g. ZIM + BAFA), each approval notice is invoiced separately. No fee in the event of rejection.",
+        },
+        {
+          q: "What is de minimis and why does it matter for funding applications?",
+          a: "De minimis is an EU state aid rule: any company (including affiliated enterprises in the EU sense) may receive a maximum of €300,000 in de minimis aid within three fiscal calendar years — a threshold raised to €300,000 in 2024 (previously €200,000). Many smaller BAFA, SAB, and KfW programmes run under de minimis. Companies that have already used up this limit cannot access certain programmes or must switch to GBER (General Block Exemption Regulation), which allows higher amounts but applies stricter criteria. Incorrectly combined programmes can trigger clawback of all aid — retroactively for the full three-year period. VO Sustain verifies de minimis status before any recommendation.",
         },
       ],
     },
