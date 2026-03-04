@@ -55,22 +55,50 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
         willChange: "transform, opacity",
         position: "relative",
       }}>
-        {/* Zurück-Link */}
-        <a
-          href="/aktuell"
-          style={{
-            display: "inline-flex", alignItems: "center", gap: "0.4rem",
-            fontFamily: "'Roboto Mono', monospace", fontSize: "0.72rem",
-            letterSpacing: "0.08em", textTransform: "uppercase",
-            color: "rgba(255,255,255,0.55)", textDecoration: "none",
-            marginBottom: "2rem",
-            transition: "color 0.2s",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.55)")}
-        >
-          {t.aktuell.backToNews}
-        </a>
+        {/* Breadcrumb Nav */}
+        <nav aria-label="Breadcrumb" style={{ marginBottom: "2rem" }}>
+          <ol style={{
+            display: "flex", alignItems: "center", flexWrap: "wrap", gap: "0.35rem",
+            listStyle: "none", margin: 0, padding: 0,
+            fontFamily: "'Roboto Mono', monospace", fontSize: "0.68rem",
+            letterSpacing: "0.07em",
+          }}>
+            <li>
+              <a
+                href="/"
+                style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+              >
+                VO Sustain
+              </a>
+            </li>
+            <li aria-hidden="true" style={{ color: "rgba(255,255,255,0.25)" }}>›</li>
+            <li>
+              <a
+                href="/aktuell"
+                style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+              >
+                {t.nav.aktuell}
+              </a>
+            </li>
+            <li aria-hidden="true" style={{ color: "rgba(255,255,255,0.25)" }}>›</li>
+            <li
+              aria-current="page"
+              style={{
+                color: "rgba(255,255,255,0.65)",
+                maxWidth: "clamp(180px, 40vw, 340px)",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {(lang === "en" && artikel.title_en) ? artikel.title_en : artikel.title}
+            </li>
+          </ol>
+        </nav>
 
         {/* Kategorie + Datum */}
         <div className="animate-fade-up" style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>

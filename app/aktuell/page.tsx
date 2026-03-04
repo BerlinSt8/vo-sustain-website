@@ -22,6 +22,15 @@ export const metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "VO Sustain", item: "https://www.vosustain.de" },
+    { "@type": "ListItem", position: 2, name: "Aktuell", item: "https://www.vosustain.de/aktuell" },
+  ],
+};
+
 export default function AktuellPage() {
   const articles = (artikelData as Artikel[]).sort(
     (a, b) => b.date.localeCompare(a.date)
@@ -29,6 +38,10 @@ export default function AktuellPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <NavBar />
       <main>
         {/* Parallax Hero — dark navy */}
