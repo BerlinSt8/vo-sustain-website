@@ -292,7 +292,7 @@ export const translations = {
         },
         {
           q: "Wie ist die Vergütung aufgebaut — was sind die konkreten Konditionen?",
-          a: "VO Sustain arbeitet ausschließlich erfolgsbasiert — keine Stundensätze, kein Retainer, keine Vorauszahlung. Die Vergütung ist eine Staffelprovision auf die bewilligte Fördersumme: 10 % auf die erste Tranche (bis 100.000 €), 7 % auf die zweite (100.001–300.000 €), 5 % auf die dritte (300.001–600.000 €), 3,5 % auf alles darüber. Die Staffel gilt pro Bewilligungsbescheid. Fälligkeit: erst bei tatsächlicher Auszahlung der Fördermittel — BGH-konforme Regelung. Für Projekte mit mehreren Programmen (z.B. ZIM + BAFA) wird je Bewilligungsbescheid separat abgerechnet. Es gibt keine Gebühr bei Ablehnung.",
+          a: "Kein Retainer, keine Vorauszahlung, keine Gebühr bei Ablehnung. Die Vergütung ist eine Erfolgsprovision auf die bewilligte Fördersumme — und je größer die bewilligte Summe, desto niedriger der Prozentsatz: bis 100.000 € sind es 10 %, von 100.001 bis 300.000 € 7 %, von 300.001 bis 600.000 € 5 %, darüber hinaus 3,5 %. Das funktioniert wie ein Steuerstufenmodell: Jede Stufe gilt nur für den jeweiligen Teilbetrag. Bei einer bewilligten Förderung von beispielsweise 150.000 € ergibt sich: 10 % auf 100.000 € + 7 % auf 50.000 € = 13.500 €. Fälligkeit entsteht erst bei tatsächlicher Auszahlung der Fördermittel. Werden mehrere Programme bewilligt (z.B. ZIM und BAFA), wird jeder Bescheid separat berechnet.",
         },
         {
           q: "Was ist De-minimis und warum ist es für Förderanträge wichtig?",
@@ -730,7 +730,7 @@ export const translations = {
         },
         {
           q: "How is the fee structured — what are the concrete terms?",
-          a: "VO Sustain works exclusively on a success basis — no hourly rates, no retainer, no upfront payment. The fee is a tiered commission on the approved funding amount: 10% on the first tranche (up to €100,000), 7% on the second (€100,001–300,000), 5% on the third (€300,001–600,000), 3.5% on everything above. The tiers apply per approval notice. Due date: only upon actual disbursement of the funding — compliant with BGH (German Federal Court of Justice) standard. For projects across multiple programmes (e.g. ZIM + BAFA), each approval notice is invoiced separately. No fee in the event of rejection.",
+          a: "No retainer, no upfront payment, no fee on rejection. The fee is a success commission on the approved funding amount — and the larger the approved sum, the lower the percentage: up to €100,000 it is 10%, from €100,001 to €300,000 it is 7%, from €300,001 to €600,000 it is 5%, and 3.5% on everything above. This works like a tax bracket model: each rate applies only to that portion of the amount. For an approved grant of, say, €150,000: 10% on €100,000 + 7% on €50,000 = €13,500. The fee is due only upon actual disbursement of the funding. If multiple programmes are approved (e.g. ZIM and BAFA), each approval notice is calculated separately.",
         },
         {
           q: "What is de minimis and why does it matter for funding applications?",
