@@ -11,6 +11,17 @@ import FaqSection from "@/components/sections/FaqSection";
 import FooterSection from "@/components/sections/FooterSection";
 import { translations } from "@/lib/i18n/translations";
 
+export const metadata = {
+  title: "Förderberatung für KMU: ZIM, BAFA & CSRD | VO Sustain",
+  description: "Professionelle Förderberatung für deutsche KMU. ZIM bis 600.000 €, BAFA bis 55 %, CSRD nach VSME-Standard. Kostenloser Quick-Check in 3 Minuten – schlüsselfertig und audit-sicher.",
+  openGraph: {
+    title: "Förderberatung für KMU: ZIM, BAFA & CSRD | VO Sustain",
+    description: "Professionelle Förderberatung für deutsche KMU. ZIM bis 600.000 €, BAFA bis 55 %, CSRD nach VSME-Standard. Kostenloser Quick-Check in 3 Minuten.",
+    url: "https://www.vosustain.de",
+    type: "website" as const,
+  },
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",

@@ -278,6 +278,14 @@ export const translations = {
           q: "Was ist der Unterschied zwischen Zuschuss und Darlehen?",
           a: "Zuschüsse (z.B. ZIM, BAFA) müssen nicht zurückgezahlt werden – sie sind echter Kapitalzufluss. Darlehen (z.B. KfW) sind zinsgünstige Kredite, die zurückgezahlt werden müssen, aber deutlich bessere Konditionen als Bankdarlehen bieten. VO Sustain identifiziert für jedes Projekt den optimalen Mix.",
         },
+        {
+          q: "Wie stelle ich einen ZIM-Antrag 2026?",
+          a: "Für einen ZIM-Antrag 2026 brauchen Sie: eine Projektbeschreibung mit Neuheitsnachweis und technischem Risiko, einen Finanzierungsplan, Arbeitspakete und AGVO-Erklärungen. VO Sustain übernimmt die komplette Vorbereitung — von der Förderprogramm-Prüfung bis zur Einreichung beim Projektträger AiF oder DLR. Typische Vorbereitungszeit: 4–8 Wochen. Fördersatz: 25–55 % je nach Unternehmensgröße.",
+        },
+        {
+          q: "Welche BAFA-Förderung gibt es für Nachhaltigkeit?",
+          a: "BAFA fördert Nachhaltigkeit über mehrere Programme: BAFA BEE (Bundesförderung effiziente Energiesysteme) mit bis zu 55 % für Prozesswärme und Abwärmenutzung, BAFA Energieberatung mit bis zu 80 % für KMU-Beratung, und BAFA Transformationskonzepte für Dekarbonisierungsstrategien. Kombinierbar mit KfW-Krediten und EFRE-Landesförderung.",
+        },
       ],
     },
 
@@ -668,6 +676,14 @@ export const translations = {
         {
           q: "What is the difference between grants and loans?",
           a: "Grants (e.g. ZIM, BAFA) do not need to be repaid — they are true capital inflows. Loans (e.g. KfW) are low-interest credits that must be repaid, but offer significantly better terms than bank loans. VO Sustain identifies the optimal mix of grants and loans for each project.",
+        },
+        {
+          q: "How do I apply for ZIM funding in 2026?",
+          a: "A ZIM application in 2026 requires: a project description with proof of novelty and technical risk, a financing plan, work packages, and AGVO declarations. VO Sustain handles the entire preparation — from funding programme analysis to submission to the project sponsor (AiF or DLR). Typical preparation time: 4–8 weeks. Funding rate: 25–55% depending on company size.",
+        },
+        {
+          q: "What BAFA funding is available for sustainability?",
+          a: "BAFA funds sustainability through several programmes: BAFA BEE (Federal Funding for Efficient Energy Systems) with up to 55% for process heat and waste heat recovery, BAFA Energy Consulting with up to 80% for SME consultancy, and BAFA Transformation Concepts for decarbonisation strategies. Combinable with KfW loans and EFRE regional funding.",
         },
       ],
     },
