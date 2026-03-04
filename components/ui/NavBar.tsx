@@ -8,11 +8,13 @@ const SERVICE_ITEMS = {
     { label: "Förderberatung", sub: "ZIM, BAFA, EFRE & mehr", href: "/foerderberatung" },
     { label: "CSRD-Beratung", sub: "VSME-Standard & Reporting", href: "/csrd-beratung" },
     { label: "ZIM-Netzwerkmanagement", sub: "Projekte & Netzwerke", href: "/zim-foerderung" },
+    { label: "Nachhaltigkeitsstrategie", sub: "Roadmap & THG-Bilanz", href: "/nachhaltigkeitsstrategie" },
   ],
   en: [
     { label: "Grant Advisory", sub: "ZIM, BAFA, EFRE & more", href: "/foerderberatung" },
     { label: "CSRD Consulting", sub: "VSME standard & reporting", href: "/csrd-beratung" },
     { label: "ZIM Network Management", sub: "Projects & networks", href: "/zim-foerderung" },
+    { label: "Sustainability Strategy", sub: "Roadmap & GHG balance", href: "/nachhaltigkeitsstrategie" },
   ],
 };
 

@@ -380,6 +380,32 @@ export const translations = {
       types: ["Einzelprojekt", "Kooperationsprojekt", "Netzwerk", "Durchführbarkeitsstudie", "Markteinführung", "International"],
     },
 
+    nachhaltigkeitsstrategie: {
+      heroLabel: "NACHHALTIGKEITSSTRATEGIE",
+      heroHeadline: "Nachhaltig wachsen.",
+      heroSub: "Eine Nachhaltigkeitsstrategie ist kein Selbstzweck — sie erschließt Fördergelder, schützt Lieferkettenbeziehungen und senkt Kosten. Wir entwickeln Roadmaps, die priorisieren statt überfordern.",
+      heroBody: "Viele KMU haben Nachhaltigkeitsziele, aber keine klare Priorität und keine Verbindung zu konkreten Maßnahmen oder Förderprogrammen. Wir übersetzen den Transformationsauftrag in eine finanzierbare Schritt-für-Schritt-Roadmap — mit messbaren KPIs, klarer Verantwortlichkeit und direktem Link zu BAFA, KfW, ZIM und SAB.",
+      scope: [
+        { title: "Status-Quo-Analyse", desc: "THG-Bilanz Scope 1 & 2 (Direktemissionen, Strom und Wärme), Energieverbrauch, Materialströme und relevante Sozialkennzahlen. Basis für alle strategischen Entscheidungen — und Pflichtgrundlage für BAFA-Förderanträge." },
+        { title: "Wesentlichkeitsanalyse", desc: "Welche Nachhaltigkeitsthemen sind für Ihre Branche, Ihre Kunden und Ihre Risikolage tatsächlich relevant? Wir priorisieren nach Impact und Förderfähigkeit — damit Sie nicht an 20 Baustellen gleichzeitig arbeiten." },
+        { title: "Roadmap & Maßnahmenplan", desc: "3-Jahres-Roadmap mit konkreten Maßnahmen, Investitionsvolumen, eingeplanten Fördermitteln (BAFA EEW, KfW, ZIM, SAB) und THG-Reduktionszielen. Jede Maßnahme ist mit einem Förderpotenzial hinterlegt." },
+        { title: "Umsetzungsbegleitung", desc: "Quartalsweises Monitoring der KPIs, Anpassung der Roadmap bei regulatorischen Änderungen (CSRD, Lieferkettensorgfaltspflicht, EU-Taxonomie) und Begleitung der Förderanträge für priorisierte Maßnahmen." },
+      ],
+      process: [
+        { step: "01", title: "Analyse & Erstgespräch", desc: "Unternehmensprofil, Branche, bisherige Maßnahmen und Förderstatus klären. Erste Einschätzung des Förderpotenzials und relevanter Programme. Kostenlos und ohne Verpflichtung." },
+        { step: "02", title: "THG-Bilanz & Wesentlichkeit", desc: "Berechnung der Scope 1 & 2 Emissionen, Energiebilanz und Ressourcenverbrauch. Wesentlichkeitsmatrix: Wo ist Handlungsbedarf, was ist förderbar, was schützt Lieferkettenbeziehungen?" },
+        { step: "03", title: "Strategie & Roadmap", desc: "Priorisierter Maßnahmenplan mit Kosten-Nutzen-Abschätzung, eingeplanten Fördermitteln und THG-Reduktionspfad. Ergebnis: ein 3-Jahres-Fahrplan, den Ihr Team umsetzen kann." },
+        { step: "04", title: "Umsetzung & Monitoring", desc: "Begleitung der Maßnahmenumsetzung, Förderantragsstellung für priorisierte Investitionen, quartalsweises KPI-Reporting und Anpassung bei regulatorischen Änderungen." },
+      ],
+      facts: [
+        { value: "bis 80 %", label: "Förderquote für Energieeffizienzmaßnahmen (BAFA)" },
+        { value: "3 Jahre", label: "Typischer Roadmap-Horizont" },
+        { value: "Scope 1+2", label: "THG-Bilanzierung als Ausgangspunkt" },
+        { value: "0 €", label: "Risiko — Success-Fee erst bei Förder-Bewilligung" },
+      ],
+      tags: ["THG-Bilanz", "Roadmap", "BAFA EEW", "KfW", "ZIM", "SAB", "EU-Taxonomie", "Lieferkette", "Scope 1+2"],
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Förderberatung für deutsche KMU. Fördermittelmanagement · CSRD · Nachhaltigkeitsstrategie.",
@@ -390,6 +416,7 @@ export const translations = {
         { label: "Förderberatung", href: "/foerderberatung" },
         { label: "CSRD-Beratung", href: "/csrd-beratung" },
         { label: "ZIM-Förderung", href: "/zim-foerderung" },
+        { label: "Nachhaltigkeitsstrategie", href: "/nachhaltigkeitsstrategie" },
         { label: "Quick-Check", href: "/#quick-check" },
         { label: "Über uns", href: "/#ueber-uns" },
       ],
@@ -779,6 +806,32 @@ export const translations = {
       types: ["Individual Project", "Cooperation Project", "Network", "Feasibility Study", "Market Introduction", "International"],
     },
 
+    nachhaltigkeitsstrategie: {
+      heroLabel: "SUSTAINABILITY STRATEGY",
+      heroHeadline: "Grow sustainably.",
+      heroSub: "A sustainability strategy isn't an end in itself — it unlocks grants, protects supply chain relationships, and reduces costs. We build roadmaps that prioritise instead of overwhelm.",
+      heroBody: "Many SMEs have sustainability goals but no clear priorities and no link to concrete measures or funding programmes. We translate the transformation mandate into a fundable step-by-step roadmap — with measurable KPIs, clear accountability, and direct links to BAFA, KfW, ZIM, and SAB.",
+      scope: [
+        { title: "Status Quo Analysis", desc: "GHG balance Scope 1 & 2 (direct emissions, electricity and heat), energy consumption, material flows, and relevant social indicators. The basis for all strategic decisions — and a mandatory requirement for BAFA grant applications." },
+        { title: "Materiality Assessment", desc: "Which sustainability topics are genuinely relevant for your industry, your customers, and your risk profile? We prioritise by impact and fundability — so you don't work on 20 construction sites at once." },
+        { title: "Roadmap & Action Plan", desc: "3-year roadmap with concrete measures, investment volumes, planned grants (BAFA EEW, KfW, ZIM, SAB), and GHG reduction targets. Every measure includes a funding potential estimate." },
+        { title: "Implementation Support", desc: "Quarterly KPI monitoring, roadmap adjustment for regulatory changes (CSRD, supply chain due diligence, EU taxonomy), and grant application support for prioritised measures." },
+      ],
+      process: [
+        { step: "01", title: "Analysis & First Meeting", desc: "Clarify company profile, industry, existing measures, and funding status. First assessment of funding potential and relevant programmes. Free and without obligation." },
+        { step: "02", title: "GHG Balance & Materiality", desc: "Calculation of Scope 1 & 2 emissions, energy balance, and resource consumption. Materiality matrix: where is action needed, what is fundable, what protects supply chain relationships?" },
+        { step: "03", title: "Strategy & Roadmap", desc: "Prioritised action plan with cost-benefit assessment, planned grants, and GHG reduction pathway. Result: a 3-year roadmap your team can implement." },
+        { step: "04", title: "Implementation & Monitoring", desc: "Support for measure implementation, grant applications for prioritised investments, quarterly KPI reporting, and adaptation to regulatory changes." },
+      ],
+      facts: [
+        { value: "up to 80%", label: "grant rate for energy efficiency (BAFA)" },
+        { value: "3 years", label: "typical roadmap horizon" },
+        { value: "Scope 1+2", label: "GHG accounting as starting point" },
+        { value: "€0", label: "risk — success fee only upon grant approval" },
+      ],
+      tags: ["GHG Balance", "Roadmap", "BAFA EEW", "KfW", "ZIM", "SAB", "EU Taxonomy", "Supply Chain", "Scope 1+2"],
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Grant advisory for German SMEs. Funding management · CSRD · Sustainability strategy.",
@@ -789,6 +842,7 @@ export const translations = {
         { label: "Grant Advisory", href: "/foerderberatung" },
         { label: "CSRD Advisory", href: "/csrd-beratung" },
         { label: "ZIM Funding", href: "/zim-foerderung" },
+        { label: "Sustainability Strategy", href: "/nachhaltigkeitsstrategie" },
         { label: "Quick-Check", href: "/#quick-check" },
         { label: "About", href: "/#ueber-uns" },
       ],
