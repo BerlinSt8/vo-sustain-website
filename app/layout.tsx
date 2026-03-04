@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
     languages: {
       de: BASE_URL,
+      en: BASE_URL,
       "x-default": BASE_URL,
     },
   },
@@ -90,7 +91,7 @@ const organizationSchema = {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        email: "denis@vosustain.de",
+        email: "info@vosustain.de",
         contactType: "customer service",
         availableLanguage: ["German", "English"],
       },
