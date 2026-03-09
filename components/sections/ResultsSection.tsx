@@ -279,11 +279,13 @@ export default function ResultsSection() {
       </div>
 
       {/* Stack Cards */}
-      <div style={{ background: "var(--navy-dark)", padding: "2rem 4vw 0", position: "relative", overflow: "clip" }}>
-        {/* Floating orbs in background */}
-        <FloatingOrbs count={12} maxSize={4} minSize={1} />
+      <div style={{ background: "var(--navy-dark)", position: "relative" }}>
+        {/* Orbs background — separate layer with overflow hidden so it doesn't break sticky */}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+          <FloatingOrbs count={12} maxSize={4} minSize={1} />
+        </div>
 
-        <div style={{ maxWidth: "1300px", margin: "0 auto", position: "relative", zIndex: 2 }}>
+        <div style={{ maxWidth: "1300px", margin: "0 auto", position: "relative", zIndex: 2, padding: "2rem 4vw 0" }}>
           {/* Label */}
           <div style={{ padding: "2rem 4vw 1.5rem", display: "flex", alignItems: "center", gap: "1rem" }}>
             <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", letterSpacing: "0.18em", color: "rgba(255,255,255,0.55)", textTransform: "uppercase", whiteSpace: "nowrap" }}>
