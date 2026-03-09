@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import FloatingOrbs from "@/components/ui/FloatingOrbs";
 
 const ICONS = [
   /* Shield with crack */
@@ -24,6 +26,91 @@ const ICONS = [
   </svg>,
 ];
 
+function TiltCard({
+  children,
+  index,
+}: {
+  children: React.ReactNode;
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0, scale: 1 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({
+      rotateX: -y * 12,
+      rotateY: x * 12,
+      scale: 1.02,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ rotateX: 0, rotateY: 0, scale: 1 });
+    setIsHovered(false);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay: 0.15 * index }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        perspective: "800px",
+        cursor: "default",
+      }}
+    >
+      <motion.div
+        animate={{
+          rotateX: tilt.rotateX,
+          rotateY: tilt.rotateY,
+          scale: tilt.scale,
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        style={{
+          background: isHovered ? "rgba(231,76,60,0.04)" : "rgba(255,255,255,0.03)",
+          borderRadius: "12px",
+          padding: "2rem",
+          border: `1px solid ${isHovered ? "rgba(231,76,60,0.15)" : "rgba(255,255,255,0.06)"}`,
+          transformStyle: "preserve-3d",
+          position: "relative",
+          overflow: "hidden",
+          boxShadow: isHovered
+            ? "0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(231,76,60,0.08)"
+            : "0 4px 12px rgba(0,0,0,0.1)",
+          transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
+        }}
+      >
+        {/* Inner glow on hover */}
+        {isHovered && (
+          <div style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "120%",
+            height: "120%",
+            transform: "translate(-50%, -50%)",
+            background: "radial-gradient(ellipse at center, rgba(231,76,60,0.06) 0%, transparent 60%)",
+            pointerEvents: "none",
+          }} />
+        )}
+        <div style={{ position: "relative", transform: "translateZ(20px)" }}>
+          {children}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function ProblemSection() {
   const { t } = useLanguage();
 
@@ -37,6 +124,9 @@ export default function ProblemSection() {
         overflow: "hidden",
       }}
     >
+      {/* Floating orbs */}
+      <FloatingOrbs count={10} color="231,76,60" maxSize={4} minSize={1} />
+
       {/* Subtle gradient accent */}
       <div style={{
         position: "absolute",
@@ -48,7 +138,7 @@ export default function ProblemSection() {
         pointerEvents: "none",
       }} />
 
-      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
         {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -103,37 +193,10 @@ export default function ProblemSection() {
           {t.problem.body}
         </motion.p>
 
-        {/* Problem cards */}
+        {/* Problem cards — 3D Tilt */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
           {t.problem.cards.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: 0.15 * i }}
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                borderRadius: "var(--radius)",
-                padding: "2rem",
-                border: "1px solid rgba(255,255,255,0.06)",
-                transition: "background 0.25s, border-color 0.25s, transform 0.25s",
-                cursor: "default",
-                position: "relative",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.background = "rgba(231,76,60,0.04)";
-                el.style.borderColor = "rgba(231,76,60,0.15)";
-                el.style.transform = "translateY(-3px)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.background = "rgba(255,255,255,0.03)";
-                el.style.borderColor = "rgba(255,255,255,0.06)";
-                el.style.transform = "translateY(0)";
-              }}
-            >
+            <TiltCard key={i} index={i}>
               {/* Number + Icon row */}
               <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.25rem" }}>
                 <span style={{
@@ -167,7 +230,7 @@ export default function ProblemSection() {
               }}>
                 {p.desc}
               </p>
-            </motion.div>
+            </TiltCard>
           ))}
         </div>
       </div>

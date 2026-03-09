@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import FloatingOrbs from "@/components/ui/FloatingOrbs";
 
 const OUTCOME_ICONS = [
   <svg key="shield" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>,
@@ -47,6 +48,7 @@ function StackCard({
 
   const scale = useTransform(scrollYProgress, [0.15, 0.85], isLast ? [1, 1] : [1, 0.93]);
   const dimOpacity = useTransform(scrollYProgress, [0.15, 0.85], isLast ? [0, 0] : [0, 0.45]);
+  const rotateX = useTransform(scrollYProgress, [0.15, 0.85], isLast ? [0, 0] : [0, -2]);
 
   return (
     <div
@@ -63,24 +65,28 @@ function StackCard({
       <motion.div
         style={{
           scale,
+          rotateX,
           transformOrigin: "top center",
           height: isMobile ? "auto" : "calc(100% - 2rem)",
           position: "relative",
-          borderRadius: "12px",
+          borderRadius: "16px",
           overflow: "hidden",
           background: "var(--navy)",
           border: "1px solid rgba(255,255,255,0.07)",
-          boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
+          boxShadow: "0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           padding: isMobile ? "2rem 1.5rem" : "4rem 8vw",
         }}
       >
-        {/* Subtle accent glow */}
+        {/* Subtle accent glow — enhanced */}
         <div style={{
-          position: "absolute", top: 0, right: 0, width: "40%", height: "100%",
-          background: `radial-gradient(ellipse 80% 60% at 100% 50%, ${accent}18 0%, transparent 70%)`,
+          position: "absolute", top: 0, right: 0, width: "50%", height: "100%",
+          background: `
+            radial-gradient(ellipse 80% 60% at 100% 50%, ${accent}18 0%, transparent 70%),
+            radial-gradient(ellipse 40% 40% at 90% 30%, ${accent}10 0%, transparent 50%)
+          `,
           pointerEvents: "none",
         }} />
 
@@ -91,6 +97,8 @@ function StackCard({
           gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
           gap: isMobile ? "1.5rem" : "4rem",
           alignItems: "center",
+          position: "relative",
+          zIndex: 2,
         }}>
           {/* Mobile: Result first */}
           {isMobile && (
@@ -120,7 +128,7 @@ function StackCard({
             <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
               <div style={{
                 background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)",
-                borderRadius: "8px", padding: isMobile ? "6px 10px" : "8px 14px",
+                borderRadius: "10px", padding: isMobile ? "6px 10px" : "8px 14px",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
                 <img
@@ -153,15 +161,29 @@ function StackCard({
               <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.62)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
                 {customer.type}
               </div>
-              <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900, color: accent, lineHeight: 1, letterSpacing: "-0.02em" }}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                  fontWeight: 900,
+                  color: accent,
+                  lineHeight: 1,
+                  letterSpacing: "-0.02em",
+                  textShadow: `0 0 40px ${accent}40`,
+                }}
+              >
                 {customer.result}
-              </div>
+              </motion.div>
             </div>
           )}
         </div>
 
         {/* Dimming overlay */}
-        <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "12px" }} />
+        <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "16px" }} />
       </motion.div>
     </div>
   );
@@ -175,23 +197,53 @@ export default function ResultsSection() {
       {/* Outcome pillars */}
       <div style={{ padding: "6rem 8vw 5rem" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "1.5rem" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            style={{ marginBottom: "1.5rem" }}
+          >
             <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.18em", color: "var(--verde-dark)", textTransform: "uppercase" }}>
               {t.results.label}
             </span>
-          </div>
+          </motion.div>
 
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, color: "var(--navy)", lineHeight: 1.05, marginBottom: "1.25rem", maxWidth: "700px" }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, color: "var(--navy)", lineHeight: 1.05, marginBottom: "1.25rem", maxWidth: "700px" }}
+          >
             {t.results.headline}
-          </h2>
-          <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "1.05rem", color: "#555", lineHeight: 1.7, maxWidth: "520px", marginBottom: "4rem" }}>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "1.05rem", color: "#555", lineHeight: 1.7, maxWidth: "520px", marginBottom: "4rem" }}
+          >
             {t.results.body}
-          </p>
+          </motion.p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {t.results.outcomes.map((o, i) => (
-              <div key={i} style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
-                <div style={{ width: "40px", height: "40px", minWidth: "40px", background: "rgba(39,174,96,0.1)", border: "1px solid rgba(39,174,96,0.25)", borderRadius: "var(--radius)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", color: "var(--verde-dark)" }}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 * i }}
+                style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}
+              >
+                <div style={{
+                  width: "40px", height: "40px", minWidth: "40px",
+                  background: "rgba(39,174,96,0.1)", border: "1px solid rgba(39,174,96,0.25)",
+                  borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: "1rem", color: "var(--verde-dark)",
+                }}>
                   {OUTCOME_ICONS[i]}
                 </div>
                 <div>
@@ -200,15 +252,18 @@ export default function ResultsSection() {
                   </h3>
                   <p style={{ fontSize: "0.875rem", color: "#666", lineHeight: 1.6 }}>{o.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
 
       {/* Stack Cards */}
-      <div style={{ background: "var(--navy-dark)", padding: "2rem 4vw 0" }}>
-        <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
+      <div style={{ background: "var(--navy-dark)", padding: "2rem 4vw 0", position: "relative", overflow: "hidden" }}>
+        {/* Floating orbs in background */}
+        <FloatingOrbs count={12} maxSize={4} minSize={1} />
+
+        <div style={{ maxWidth: "1300px", margin: "0 auto", position: "relative", zIndex: 2 }}>
           {/* Label */}
           <div style={{ padding: "2rem 4vw 1.5rem", display: "flex", alignItems: "center", gap: "1rem" }}>
             <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", letterSpacing: "0.18em", color: "rgba(255,255,255,0.55)", textTransform: "uppercase", whiteSpace: "nowrap" }}>

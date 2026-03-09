@@ -1,7 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import CountUp from "@/components/ui/CountUp";
+import FloatingOrbs from "@/components/ui/FloatingOrbs";
 
 const programs = ["ZIM", "BAFA", "SAB", "TAB", "EFRE", "Horizon Europe", "LIFE", "BMWK"];
 
@@ -13,15 +16,37 @@ const SPARKLES = [
   { top: "72%", left: "8%",   delay: "1.1s", dur: "3.4s", size: 3 },
 ];
 
+// Parse credential label for CountUp
+function parseCredential(label: string): { num: number; suffix: string; prefix: string } | null {
+  const match = label.match(/^([>+]?)(\d+)(.*)$/);
+  if (match) {
+    return { prefix: match[1], num: parseInt(match[2]), suffix: match[3] };
+  }
+  return null;
+}
+
 export default function AboutSection() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const photoY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const crystalY = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   return (
     <section
+      ref={sectionRef}
       id="ueber-uns"
-      style={{ background: "var(--navy)", padding: "6rem 8vw" }}
+      style={{ background: "var(--navy)", padding: "6rem 8vw", position: "relative", overflow: "hidden" }}
     >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      {/* Floating orbs background */}
+      <FloatingOrbs count={8} maxSize={3} minSize={1} />
+
+      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
         {/* Label + Crystal row */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "3rem" }}>
           <span style={{
@@ -34,10 +59,10 @@ export default function AboutSection() {
             {t.about.label}
           </span>
 
-          {/* Crystal top right */}
+          {/* Crystal top right — with parallax */}
           <motion.div
             className="crystal-hero-wrap"
-            style={{ width: "clamp(160px, 18vw, 240px)", position: "relative" }}
+            style={{ width: "clamp(160px, 18vw, 240px)", position: "relative", y: crystalY }}
             initial={{ opacity: 0, scale: 0.85, y: 20 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -69,102 +94,168 @@ export default function AboutSection() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem", alignItems: "start" }}>
-          {/* Foto */}
-          <div>
-            <div style={{
-              borderRadius: "var(--radius)",
-              overflow: "hidden",
-              border: "1px solid rgba(39,174,96,0.2)",
-              background: "rgba(255,255,255,0.04)",
-              aspectRatio: "3/4",
-              maxWidth: "300px",
-            }}>
+          {/* Foto — with parallax */}
+          <motion.div style={{ y: photoY }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                borderRadius: "12px",
+                overflow: "hidden",
+                border: "1px solid rgba(39,174,96,0.2)",
+                background: "rgba(255,255,255,0.04)",
+                aspectRatio: "3/4",
+                maxWidth: "300px",
+                position: "relative",
+              }}
+            >
               <img
                 src="/denis.png"
                 alt={t.about.imgAlt}
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
               />
-            </div>
-          </div>
+              {/* Subtle verde overlay on bottom */}
+              <div style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: "40%",
+                background: "linear-gradient(to top, rgba(8,15,26,0.5) 0%, transparent 100%)",
+                pointerEvents: "none",
+              }} />
+            </motion.div>
+          </motion.div>
 
           {/* Content */}
           <div>
-            <h2 style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 900,
-              color: "white",
-              lineHeight: 1.05,
-              marginBottom: "0.5rem",
-            }}>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                fontWeight: 900,
+                color: "white",
+                lineHeight: 1.05,
+                marginBottom: "0.5rem",
+              }}
+            >
               {t.about.headline}
-            </h2>
-            <p style={{
-              fontFamily: "'Roboto Mono', monospace",
-              fontSize: "0.75rem",
-              color: "var(--verde-bright)",
-              letterSpacing: "0.1em",
-              marginBottom: "2rem",
-            }}>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{
+                fontFamily: "'Roboto Mono', monospace",
+                fontSize: "0.75rem",
+                color: "var(--verde-bright)",
+                letterSpacing: "0.1em",
+                marginBottom: "2rem",
+              }}
+            >
               {t.about.subtitle}
-            </p>
+            </motion.p>
 
             {/* Quote */}
-            <blockquote style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "1.1rem",
-              fontWeight: 600,
-              color: "rgba(255,255,255,0.85)",
-              lineHeight: 1.55,
-              borderLeft: "3px solid var(--verde)",
-              paddingLeft: "1.5rem",
-              marginBottom: "2.5rem",
-              fontStyle: "italic",
-            }}>
-              „{t.about.quote}"
-            </blockquote>
+            <motion.blockquote
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                color: "rgba(255,255,255,0.85)",
+                lineHeight: 1.55,
+                borderLeft: "3px solid var(--verde)",
+                paddingLeft: "1.5rem",
+                marginBottom: "2.5rem",
+                fontStyle: "italic",
+              }}
+            >
+              &bdquo;{t.about.quote}&ldquo;
+            </motion.blockquote>
 
-            {/* Metrics */}
+            {/* Metrics — Animated CountUp */}
             <div style={{ display: "flex", gap: "2.5rem", marginBottom: "2.5rem", flexWrap: "wrap" }}>
-              {t.about.credentials.map((c, i) => (
-                <div key={i}>
-                  <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.6rem", fontWeight: 900, color: "var(--verde-bright)", lineHeight: 1 }}>
-                    {c.label}
-                  </div>
-                  <div style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.65)", marginTop: "4px" }}>
-                    {c.sub}
-                  </div>
-                </div>
-              ))}
+              {t.about.credentials.map((c, i) => {
+                const parsed = parseCredential(c.label);
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * i }}
+                  >
+                    <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.6rem", fontWeight: 900, color: "var(--verde-bright)", lineHeight: 1 }}>
+                      {parsed ? (
+                        <CountUp
+                          end={parsed.num}
+                          prefix={parsed.prefix}
+                          suffix={parsed.suffix}
+                          duration={2000}
+                        />
+                      ) : (
+                        c.label
+                      )}
+                    </div>
+                    <div style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.65)", marginTop: "4px" }}>
+                      {c.sub}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Bio */}
-            <p style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontSize: "0.9rem",
-              color: "rgba(255,255,255,0.78)",
-              lineHeight: 1.75,
-              marginBottom: "2rem",
-              maxWidth: "560px",
-            }}>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "0.9rem",
+                color: "rgba(255,255,255,0.78)",
+                lineHeight: 1.75,
+                marginBottom: "2rem",
+                maxWidth: "560px",
+              }}
+            >
               {t.about.bio}
-            </p>
+            </motion.p>
 
-            {/* Program tags */}
+            {/* Program tags — staggered reveal */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-              {programs.map((p) => (
-                <span key={p} style={{
-                  fontFamily: "'Roboto Mono', monospace",
-                  fontSize: "0.68rem",
-                  color: "rgba(255,255,255,0.68)",
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  padding: "4px 10px",
-                  borderRadius: "2px",
-                  letterSpacing: "0.06em",
-                }}>
+              {programs.map((p, i) => (
+                <motion.span
+                  key={p}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.05 * i }}
+                  style={{
+                    fontFamily: "'Roboto Mono', monospace",
+                    fontSize: "0.68rem",
+                    color: "rgba(255,255,255,0.68)",
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    padding: "4px 10px",
+                    borderRadius: "2px",
+                    letterSpacing: "0.06em",
+                  }}
+                >
                   {p}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>

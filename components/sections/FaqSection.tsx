@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 function FaqItem({ item, isOpen, onToggle, index }: {
@@ -49,59 +49,68 @@ function FaqItem({ item, isOpen, onToggle, index }: {
           cursor: "pointer",
           textAlign: "left",
           gap: "1.5rem",
+          transition: "padding 0.2s",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "1rem", flex: 1 }}>
-          {/* Verde accent line */}
-          <div style={{
-            width: "3px",
-            height: "20px",
-            borderRadius: "2px",
-            background: isOpen ? "var(--verde)" : "rgba(39,174,96,0.2)",
-            transition: "background 0.3s, height 0.3s",
-            flexShrink: 0,
-          }} />
+          {/* Verde accent line — animated */}
+          <motion.div
+            animate={{
+              height: isOpen ? 24 : 20,
+              background: isOpen ? "var(--verde)" : "rgba(39,174,96,0.2)",
+            }}
+            transition={{ duration: 0.3 }}
+            style={{
+              width: "3px",
+              borderRadius: "2px",
+              flexShrink: 0,
+            }}
+          />
           <span style={{
             fontFamily: "'Montserrat', sans-serif",
             fontSize: "clamp(0.95rem, 1.8vw, 1.05rem)",
             fontWeight: isOpen ? 800 : 700,
             color: isOpen ? "var(--navy-dark)" : "var(--navy)",
             lineHeight: 1.35,
-            transition: "color 0.2s",
+            transition: "color 0.2s, font-weight 0.2s",
           }}>
             {item.q}
           </span>
         </div>
         {/* Animated chevron */}
-        <div style={{
-          width: "28px",
-          height: "28px",
-          borderRadius: "50%",
-          background: isOpen ? "rgba(39,174,96,0.08)" : "rgba(11,22,34,0.04)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-          transition: "background 0.25s, transform 0.3s",
-          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-        }}>
+        <motion.div
+          animate={{
+            rotate: isOpen ? 180 : 0,
+            background: isOpen ? "rgba(39,174,96,0.08)" : "rgba(11,22,34,0.04)",
+          }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            width: "28px",
+            height: "28px",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}
+        >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={isOpen ? "var(--verde)" : "var(--ct3)"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9" />
           </svg>
-        </div>
+        </motion.div>
       </button>
 
       {/* Animated content */}
-      <div style={{
-        height: isOpen ? height : 0,
-        overflow: "hidden",
-        transition: "height 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
-      }}>
+      <motion.div
+        animate={{ height: isOpen ? height : 0 }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        style={{ overflow: "hidden" }}
+      >
         <div ref={contentRef}>
           <p style={{
             fontFamily: "'Open Sans', sans-serif",
             fontSize: "clamp(0.9rem, 1.6vw, 0.97rem)",
-            color: "var(--ct4)",
+            color: "#5A6470",
             lineHeight: 1.8,
             paddingBottom: "1.5rem",
             paddingLeft: "calc(3px + 1rem)",
@@ -110,7 +119,7 @@ function FaqItem({ item, isOpen, onToggle, index }: {
             {item.a}
           </p>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

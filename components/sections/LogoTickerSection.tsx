@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 /* eslint-disable @next/next/no-img-element */
 
@@ -26,7 +27,7 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
       className="logo-card"
       style={{
         background: "white",
-        borderRadius: "10px",
+        borderRadius: "12px",
         padding: "14px 28px",
         margin: "0 10px",
         display: "flex",
@@ -36,7 +37,7 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
         minWidth: "180px",
         border: "1px solid rgba(0,0,0,0.06)",
         flexShrink: 0,
-        transition: "border-color 0.3s, box-shadow 0.3s",
+        transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s",
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -104,39 +105,58 @@ export default function LogoTickerSection() {
         background: "var(--off-white)",
         padding: "72px 0 64px",
         overflow: "hidden",
+        position: "relative",
       }}
     >
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: "48px", padding: "0 24px" }}>
-        <p style={{
-          fontFamily: "'Roboto Mono', monospace",
-          fontSize: "0.65rem",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--verde-dark)",
-          marginBottom: "1rem",
-        }}>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          style={{
+            fontFamily: "'Roboto Mono', monospace",
+            fontSize: "0.65rem",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "var(--verde-dark)",
+            marginBottom: "1rem",
+          }}
+        >
           {t.logoTicker.label}
-        </p>
-        <h2 style={{
-          fontFamily: "Montserrat, sans-serif",
-          fontWeight: 900,
-          fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-          color: "var(--navy-dark)",
-          margin: "0 0 12px",
-        }}>
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            fontWeight: 900,
+            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
+            color: "var(--navy-dark)",
+            margin: "0 0 12px",
+          }}
+        >
           {t.logoTicker.headline}
-        </h2>
-        <p style={{
-          fontFamily: "'Open Sans', sans-serif",
-          fontSize: "1rem",
-          color: "var(--ct4)",
-          maxWidth: "520px",
-          margin: "0 auto",
-          lineHeight: 1.6,
-        }}>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          style={{
+            fontFamily: "'Open Sans', sans-serif",
+            fontSize: "1rem",
+            color: "var(--ct4)",
+            maxWidth: "520px",
+            margin: "0 auto",
+            lineHeight: 1.6,
+          }}
+        >
           {t.logoTicker.body}
-        </p>
+        </motion.p>
       </div>
 
       {/* Ticker Rows */}
@@ -158,8 +178,9 @@ export default function LogoTickerSection() {
           animation-play-state: paused;
         }
         .logo-card:hover {
-          border-color: rgba(39,174,96,0.2);
-          box-shadow: 0 4px 16px rgba(39,174,96,0.08);
+          border-color: rgba(39,174,96,0.25);
+          box-shadow: 0 8px 24px rgba(39,174,96,0.1), 0 0 0 1px rgba(39,174,96,0.05);
+          transform: translateY(-2px);
         }
         .logo-card:hover .logo-img {
           filter: grayscale(0%) opacity(1) !important;

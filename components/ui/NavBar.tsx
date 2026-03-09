@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const SERVICE_ITEMS = {
@@ -25,8 +26,8 @@ export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [leistungenOpen, setLeistungenOpen] = useState(false); // mobile accordion
-  const [dropdownOpen, setDropdownOpen] = useState(false);     // desktop hover
+  const [leistungenOpen, setLeistungenOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -50,7 +51,6 @@ export default function NavBar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrolled]);
 
-  // Close desktop dropdown when clicking outside
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -84,16 +84,18 @@ export default function NavBar() {
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        transition: "border-color 0.2s, background 0.2s",
+        transition: "border-color 0.2s, background 0.2s, box-shadow 0.2s",
         flexShrink: 0,
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(39,174,96,0.6)";
         (e.currentTarget as HTMLButtonElement).style.background = "rgba(39,174,96,0.1)";
+        (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px rgba(39,174,96,0.15)";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)";
         (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+        (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
       }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -106,21 +108,31 @@ export default function NavBar() {
 
   return (
     <>
-      <nav
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
+          top: isMobile ? 0 : "12px",
+          left: isMobile ? 0 : "16px",
+          right: isMobile ? 0 : "16px",
           zIndex: 100,
-          padding: isMobile ? "0.75rem 1.25rem" : "1rem 2rem",
+          padding: isMobile ? "0.75rem 1.25rem" : "0.85rem 2rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s",
-          background: "rgba(13,27,42,0.97)",
-          backdropFilter: "blur(12px)",
-          boxShadow: "0 1px 0 rgba(255,255,255,0.06)",
+          transition: "background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s, border-color 0.4s",
+          background: scrolled
+            ? "rgba(8,15,26,0.85)"
+            : "rgba(13,27,42,0.6)",
+          backdropFilter: "blur(20px) saturate(1.4)",
+          WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+          boxShadow: scrolled
+            ? "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)"
+            : "0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          borderRadius: isMobile ? 0 : "14px",
         }}
       >
         {/* Logo */}
@@ -144,7 +156,7 @@ export default function NavBar() {
         {!isMobile && (
           <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
 
-            {/* ── Leistungen mit Dropdown ── */}
+            {/* Leistungen mit Dropdown */}
             <div
               ref={dropdownRef}
               style={{ position: "relative" }}
@@ -187,110 +199,114 @@ export default function NavBar() {
                 </svg>
               </button>
 
-              {/* Dropdown Panel */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 14px)",
-                  left: "50%",
-                  width: "240px",
-                  background: "rgba(11,22,34,0.98)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "10px",
-                  boxShadow: "0 16px 40px rgba(0,0,0,0.5)",
-                  padding: "6px",
-                  opacity: dropdownOpen ? 1 : 0,
-                  pointerEvents: dropdownOpen ? "auto" : "none",
-                  transform: dropdownOpen
-                    ? "translateX(-50%) translateY(0)"
-                    : "translateX(-50%) translateY(-6px)",
-                  transition: "opacity 0.18s ease, transform 0.18s ease",
-                }}
-              >
-                {/* Small arrow */}
-                <div style={{
-                  position: "absolute",
-                  top: "-5px",
-                  left: "50%",
-                  transform: "translateX(-50%) rotate(45deg)",
-                  width: "9px",
-                  height: "9px",
-                  background: "rgba(11,22,34,0.98)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderBottom: "none",
-                  borderRight: "none",
-                }} />
-
-                {services.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
+              {/* Dropdown Panel — glassmorphism */}
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "2px",
-                      padding: "10px 14px",
-                      borderRadius: "6px",
-                      textDecoration: "none",
-                      transition: "background 0.15s",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "rgba(39,174,96,0.08)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "transparent";
+                      position: "absolute",
+                      top: "calc(100% + 14px)",
+                      left: "50%",
+                      width: "260px",
+                      transform: "translateX(-50%)",
+                      background: "rgba(8,15,26,0.9)",
+                      backdropFilter: "blur(20px) saturate(1.4)",
+                      WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "12px",
+                      boxShadow: "0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
+                      padding: "6px",
                     }}
                   >
-                    <span style={{
-                      fontFamily: "'Open Sans', sans-serif",
-                      fontSize: "0.82rem",
-                      fontWeight: 600,
-                      color: "rgba(255,255,255,0.88)",
-                      letterSpacing: "0.01em",
-                    }}>
-                      {item.label}
-                    </span>
-                    <span style={{
-                      fontFamily: "'Roboto Mono', monospace",
-                      fontSize: "0.62rem",
-                      color: "rgba(255,255,255,0.35)",
-                      letterSpacing: "0.04em",
-                    }}>
-                      {item.sub}
-                    </span>
-                  </a>
-                ))}
+                    {/* Arrow */}
+                    <div style={{
+                      position: "absolute",
+                      top: "-5px",
+                      left: "50%",
+                      transform: "translateX(-50%) rotate(45deg)",
+                      width: "9px",
+                      height: "9px",
+                      background: "rgba(8,15,26,0.9)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderBottom: "none",
+                      borderRight: "none",
+                    }} />
 
-                {/* Divider + "Alle Leistungen" */}
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", margin: "4px 6px" }} />
-                <a
-                  href="/#leistungen"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: "8px 14px",
-                    borderRadius: "6px",
-                    textDecoration: "none",
-                    transition: "background 0.15s",
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(39,174,96,0.08)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
-                >
-                  <span style={{
-                    fontFamily: "'Roboto Mono', monospace",
-                    fontSize: "0.65rem",
-                    color: "var(--verde-bright)",
-                    letterSpacing: "0.08em",
-                  }}>
-                    {lang === "de" ? "Alle Leistungen →" : "All services →"}
-                  </span>
-                </a>
-              </div>
+                    {services.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "2px",
+                          padding: "10px 14px",
+                          borderRadius: "8px",
+                          textDecoration: "none",
+                          transition: "background 0.15s",
+                          cursor: "pointer",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "rgba(39,174,96,0.08)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                        }}
+                      >
+                        <span style={{
+                          fontFamily: "'Open Sans', sans-serif",
+                          fontSize: "0.82rem",
+                          fontWeight: 600,
+                          color: "rgba(255,255,255,0.88)",
+                          letterSpacing: "0.01em",
+                        }}>
+                          {item.label}
+                        </span>
+                        <span style={{
+                          fontFamily: "'Roboto Mono', monospace",
+                          fontSize: "0.62rem",
+                          color: "rgba(255,255,255,0.35)",
+                          letterSpacing: "0.04em",
+                        }}>
+                          {item.sub}
+                        </span>
+                      </a>
+                    ))}
+
+                    <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", margin: "4px 6px" }} />
+                    <a
+                      href="/#leistungen"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "8px 14px",
+                        borderRadius: "8px",
+                        textDecoration: "none",
+                        transition: "background 0.15s",
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(39,174,96,0.08)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                    >
+                      <span style={{
+                        fontFamily: "'Roboto Mono', monospace",
+                        fontSize: "0.65rem",
+                        color: "var(--verde-bright)",
+                        letterSpacing: "0.08em",
+                      }}>
+                        {lang === "de" ? "Alle Leistungen \u2192" : "All services \u2192"}
+                      </span>
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Restliche Links */}
+            {/* Other links */}
             {[
               { href: "/#ueber-uns", label: t.nav.ueberUns },
               { href: "/aktuell", label: t.nav.aktuell },
@@ -308,6 +324,7 @@ export default function NavBar() {
 
             {langToggle}
 
+            {/* CTA Button — with glow */}
             <a
               href="/#quick-check"
               style={{
@@ -320,10 +337,17 @@ export default function NavBar() {
                 padding: "0.5rem 1.2rem",
                 borderRadius: "var(--radius)",
                 letterSpacing: "0.04em",
-                transition: "background 0.2s",
+                transition: "background 0.2s, box-shadow 0.3s",
+                position: "relative",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--verde-dark)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "var(--verde)")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "var(--verde-dark)";
+                e.currentTarget.style.boxShadow = "0 0 20px rgba(39,174,96,0.35), 0 0 40px rgba(39,174,96,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "var(--verde)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               {t.nav.quickCheck}
             </a>
@@ -372,127 +396,132 @@ export default function NavBar() {
             </button>
           </div>
         )}
-      </nav>
+      </motion.nav>
 
       {/* Mobile Slide-down Menu */}
       {isMobile && (
-        <div
-          style={{
-            position: "fixed",
-            top: "56px",
-            left: 0,
-            right: 0,
-            zIndex: 99,
-            background: "rgba(13,27,42,0.97)",
-            backdropFilter: "blur(12px)",
-            borderBottom: "1px solid rgba(255,255,255,0.08)",
-            transform: menuOpen ? "translateY(0)" : "translateY(-110%)",
-            transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)",
-            padding: "0.5rem 1.5rem 1.5rem",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          {/* Leistungen accordion */}
-          <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-            <button
-              onClick={() => setLeistungenOpen((o) => !o)}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                width: "100%",
+                position: "fixed",
+                top: "56px",
+                left: 0,
+                right: 0,
+                zIndex: 99,
+                background: "rgba(8,15,26,0.95)",
+                backdropFilter: "blur(20px) saturate(1.4)",
+                WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+                borderBottom: "1px solid rgba(255,255,255,0.08)",
+                padding: "0.5rem 1.5rem 1.5rem",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: "0.9rem 0",
-                fontFamily: "'Open Sans', sans-serif",
-                fontSize: "1.05rem",
-                color: "rgba(255,255,255,0.85)",
-                letterSpacing: "0.02em",
+                flexDirection: "column",
               }}
             >
-              {t.nav.leistungen}
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="rgba(255,255,255,0.4)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ transition: "transform 0.2s", transform: leistungenOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-
-            {/* Sub-items */}
-            <div style={{
-              overflow: "hidden",
-              maxHeight: leistungenOpen ? "300px" : "0",
-              transition: "max-height 0.25s ease",
-            }}>
-              <div style={{ paddingBottom: "0.75rem", display: "flex", flexDirection: "column", gap: "2px" }}>
-                {services.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "1px",
-                      padding: "0.6rem 0.75rem",
-                      borderRadius: "6px",
-                      textDecoration: "none",
-                      background: "rgba(39,174,96,0.05)",
-                      borderLeft: "2px solid rgba(39,174,96,0.3)",
-                    }}
-                  >
-                    <span style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.8)", fontWeight: 600 }}>
-                      {item.label}
-                    </span>
-                    <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>
-                      {item.sub}
-                    </span>
-                  </a>
-                ))}
-                <a
-                  href="/#leistungen"
-                  onClick={() => setMenuOpen(false)}
-                  style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "var(--verde-bright)", padding: "0.4rem 0.75rem", textDecoration: "none", letterSpacing: "0.06em" }}
+              {/* Leistungen accordion */}
+              <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                <button
+                  onClick={() => setLeistungenOpen((o) => !o)}
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: "0.9rem 0",
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "1.05rem",
+                    color: "rgba(255,255,255,0.85)",
+                    letterSpacing: "0.02em",
+                  }}
                 >
-                  {lang === "de" ? "Alle Leistungen →" : "All services →"}
-                </a>
-              </div>
-            </div>
-          </div>
+                  {t.nav.leistungen}
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.4)"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ transition: "transform 0.2s", transform: leistungenOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
 
-          {/* Über uns + Aktuell */}
-          {[
-            { href: "/#ueber-uns", label: t.nav.ueberUns },
-            { href: "/aktuell", label: t.nav.aktuell },
-          ].map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                fontFamily: "'Open Sans', sans-serif",
-                fontSize: "1.05rem",
-                color: "rgba(255,255,255,0.85)",
-                textDecoration: "none",
-                padding: "0.9rem 0",
-                borderBottom: i === 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-                letterSpacing: "0.02em",
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+                <div style={{
+                  overflow: "hidden",
+                  maxHeight: leistungenOpen ? "300px" : "0",
+                  transition: "max-height 0.25s ease",
+                }}>
+                  <div style={{ paddingBottom: "0.75rem", display: "flex", flexDirection: "column", gap: "2px" }}>
+                    {services.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "1px",
+                          padding: "0.6rem 0.75rem",
+                          borderRadius: "6px",
+                          textDecoration: "none",
+                          background: "rgba(39,174,96,0.05)",
+                          borderLeft: "2px solid rgba(39,174,96,0.3)",
+                        }}
+                      >
+                        <span style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.9rem", color: "rgba(255,255,255,0.8)", fontWeight: 600 }}>
+                          {item.label}
+                        </span>
+                        <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>
+                          {item.sub}
+                        </span>
+                      </a>
+                    ))}
+                    <a
+                      href="/#leistungen"
+                      onClick={() => setMenuOpen(false)}
+                      style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "var(--verde-bright)", padding: "0.4rem 0.75rem", textDecoration: "none", letterSpacing: "0.06em" }}
+                    >
+                      {lang === "de" ? "Alle Leistungen \u2192" : "All services \u2192"}
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {[
+                { href: "/#ueber-uns", label: t.nav.ueberUns },
+                { href: "/aktuell", label: t.nav.aktuell },
+              ].map((link, i) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "1.05rem",
+                    color: "rgba(255,255,255,0.85)",
+                    textDecoration: "none",
+                    padding: "0.9rem 0",
+                    borderBottom: i === 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       )}
     </>
   );
