@@ -14,8 +14,8 @@ export const translations = {
 
     // ─── HeroSection ───
     hero: {
-      tag: "VO SUSTAIN · Berlin · Deutschland",
-      headline: "Förderberatung für Cleantech KMU.",
+      tag: "Nachhaltigkeit · Cleantech · Innovation · ZIM",
+      headline: "Förderberatung für KMU.",
       sub: "KI-Analyse in 48h. Fertige Konzepte. Erfolgshonorar.",
       body: "Wir kommen mit einem fertigen Förderkonzept zu Ihnen — nicht mit einem leeren Erstgespräch. KI-gestützte Analyse von tausenden Förderprogrammen (ZIM, BAFA, EFRE, Horizon Europe), ausgereift in 48 Stunden. Honorar nur bei Bewilligung.",
       ctaPrimary: "Quick-Check starten →",
@@ -504,8 +504,8 @@ export const translations = {
 
     // ─── HeroSection ───
     hero: {
-      tag: "VO SUSTAIN · Berlin · Germany",
-      headline: "Grant Advisory for Cleantech SMEs.",
+      tag: "Sustainability · Cleantech · Innovation · ZIM",
+      headline: "Grant Advisory for SMEs.",
       sub: "AI Analysis in 48h. Ready Concepts. Success Fee Only.",
       body: "We come to you with a ready-made funding concept — not with an empty introductory meeting. AI-powered analysis of thousands of funding programmes (ZIM, BAFA, EFRE, Horizon Europe), delivered in 48 hours. Fee only upon approval.",
       ctaPrimary: "Start Quick-Check →",
