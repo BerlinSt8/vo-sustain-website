@@ -105,15 +105,19 @@ export default function SolutionSection() {
           {t.solution.channels.map((c, i) => {
             const links = ["/foerderberatung", "/zim-foerderung", "/bafa-foerderung", "/csrd-beratung", "/nachhaltigkeitsstrategie"];
             return (
-              <a
+              <motion.a
                 key={i}
                 href={links[i] || "#"}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: 0.08 * i }}
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "var(--radius)",
                   padding: "2rem",
-                  transition: "background 0.2s, border-color 0.2s, transform 0.2s",
+                  transition: "background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s",
                   textDecoration: "none",
                   display: "block",
                 }}
@@ -121,13 +125,15 @@ export default function SolutionSection() {
                   const el = e.currentTarget as HTMLAnchorElement;
                   el.style.background = "rgba(39,174,96,0.07)";
                   el.style.borderColor = "rgba(39,174,96,0.3)";
-                  el.style.transform = "translateY(-3px)";
+                  el.style.transform = "translateY(-4px)";
+                  el.style.boxShadow = "0 8px 32px rgba(39,174,96,0.1)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
                   el.style.background = "rgba(255,255,255,0.04)";
                   el.style.borderColor = "rgba(255,255,255,0.08)";
                   el.style.transform = "translateY(0)";
+                  el.style.boxShadow = "none";
                 }}
               >
                 <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "var(--verde-bright)", letterSpacing: "0.15em", marginBottom: "1.25rem" }}>
@@ -173,7 +179,7 @@ export default function SolutionSection() {
                 }}>
                   →
                 </span>
-              </a>
+              </motion.a>
             );
           })}
         </div>

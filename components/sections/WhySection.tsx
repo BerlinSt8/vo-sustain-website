@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function WhySection() {
@@ -15,65 +16,86 @@ export default function WhySection() {
       }}
     >
       {/* Label */}
-      <p style={{
-        fontFamily: "'Roboto Mono', monospace",
-        fontSize: "0.68rem",
-        letterSpacing: "0.2em",
-        color: "#27AE60",
-        textTransform: "uppercase",
-        marginBottom: "1.25rem",
-      }}>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.4 }}
+        style={{
+          fontFamily: "'Roboto Mono', monospace",
+          fontSize: "0.65rem",
+          letterSpacing: "0.18em",
+          color: "var(--verde-dark)",
+          textTransform: "uppercase",
+          marginBottom: "1.25rem",
+        }}
+      >
         {w.label}
-      </p>
+      </motion.p>
 
       {/* Headline */}
-      <h2 style={{
-        fontFamily: "'Montserrat', sans-serif",
-        fontWeight: 900,
-        fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-        color: "#0B1622",
-        lineHeight: 1.05,
-        letterSpacing: "-0.02em",
-        marginBottom: "3.5rem",
-        maxWidth: "600px",
-      }}>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        style={{
+          fontFamily: "'Montserrat', sans-serif",
+          fontWeight: 900,
+          fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+          color: "#0B1622",
+          lineHeight: 1.05,
+          letterSpacing: "-0.02em",
+          marginBottom: "3.5rem",
+          maxWidth: "600px",
+        }}
+      >
         {w.headline}<br />
         <span style={{ color: "#27AE60" }}>{w.headline2}</span>
-      </h2>
+      </motion.h2>
 
       {/* USP Grid */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-        gap: "2rem",
+        gap: "1.5rem",
       }}>
-        {w.usps.map((usp) => (
-          <div
+        {w.usps.map((usp, i) => (
+          <motion.div
             key={usp.number}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: 0.12 * i }}
             style={{
               background: "#fff",
               borderRadius: "12px",
-              border: "1px solid rgba(11,22,34,0.08)",
+              border: "1px solid rgba(11,22,34,0.06)",
+              borderBottom: "2px solid rgba(39,174,96,0.15)",
               padding: "2rem 2rem 1.75rem",
               display: "flex",
               flexDirection: "column",
               gap: "1rem",
-              boxShadow: "0 2px 12px rgba(11,22,34,0.05)",
-              transition: "box-shadow 0.2s, transform 0.2s",
+              transition: "box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s",
+              cursor: "default",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 24px rgba(39,174,96,0.12)";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.boxShadow = "0 8px 32px rgba(39,174,96,0.12), 0 0 0 1px rgba(39,174,96,0.08)";
+              el.style.transform = "translateY(-4px)";
+              el.style.borderBottomColor = "rgba(39,174,96,0.5)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(11,22,34,0.05)";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.boxShadow = "none";
+              el.style.transform = "translateY(0)";
+              el.style.borderBottomColor = "rgba(39,174,96,0.15)";
             }}
           >
             {/* Number */}
             <span style={{
               fontFamily: "'Roboto Mono', monospace",
-              fontSize: "0.72rem",
+              fontSize: "0.68rem",
               fontWeight: 600,
               color: "#27AE60",
               letterSpacing: "0.15em",
@@ -98,7 +120,7 @@ export default function WhySection() {
               fontFamily: "'Open Sans', sans-serif",
               fontSize: "0.9rem",
               color: "#5A6470",
-              lineHeight: 1.65,
+              lineHeight: 1.7,
               margin: 0,
               flexGrow: 1,
             }}>
@@ -112,11 +134,11 @@ export default function WhySection() {
                   key={tag}
                   style={{
                     fontFamily: "'Roboto Mono', monospace",
-                    fontSize: "0.65rem",
+                    fontSize: "0.62rem",
                     letterSpacing: "0.08em",
                     color: "#27AE60",
-                    background: "rgba(39,174,96,0.08)",
-                    border: "1px solid rgba(39,174,96,0.2)",
+                    background: "rgba(39,174,96,0.06)",
+                    border: "1px solid rgba(39,174,96,0.15)",
                     padding: "3px 8px",
                     borderRadius: "3px",
                   }}
@@ -125,7 +147,7 @@ export default function WhySection() {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
