@@ -34,7 +34,6 @@ function StackCard({
   index: number;
   total: number;
 }) {
-  const isLast = index === total - 1;
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -68,7 +67,7 @@ function StackCard({
         top: `${pinTop}px`,
         zIndex: index + 1,
         height: `calc(100vh - ${pinTop + 40}px)`,
-        marginBottom: isLast ? "0" : "100vh",
+        marginBottom: "100vh",
       }}
     >
       <CardContent
