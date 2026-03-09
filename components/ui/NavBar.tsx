@@ -6,12 +6,14 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 const SERVICE_ITEMS = {
   de: [
     { label: "Förderberatung", sub: "ZIM, BAFA, EFRE & mehr", href: "/foerderberatung" },
+    { label: "BAFA-Förderung", sub: "Energieberatung, EEW & BEG", href: "/bafa-foerderung" },
     { label: "CSRD-Beratung", sub: "VSME-Standard & Reporting", href: "/csrd-beratung" },
     { label: "ZIM-Netzwerkmanagement", sub: "Projekte & Netzwerke", href: "/zim-foerderung" },
     { label: "Nachhaltigkeitsstrategie", sub: "Roadmap & THG-Bilanz", href: "/nachhaltigkeitsstrategie" },
   ],
   en: [
     { label: "Grant Advisory", sub: "ZIM, BAFA, EFRE & more", href: "/foerderberatung" },
+    { label: "BAFA Grants", sub: "Energy consulting, EEW & BEG", href: "/bafa-foerderung" },
     { label: "CSRD Consulting", sub: "VSME standard & reporting", href: "/csrd-beratung" },
     { label: "ZIM Network Management", sub: "Projects & networks", href: "/zim-foerderung" },
     { label: "Sustainability Strategy", sub: "Roadmap & GHG balance", href: "/nachhaltigkeitsstrategie" },

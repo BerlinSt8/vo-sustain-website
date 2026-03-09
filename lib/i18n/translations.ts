@@ -470,6 +470,32 @@ export const translations = {
       tags: ["THG-Bilanz", "Roadmap", "BAFA EEW", "KfW", "ZIM", "SAB", "EU-Taxonomie", "Lieferkette", "Scope 1+2"],
     },
 
+    bafaFoerderung: {
+      heroLabel: "BAFA-FÖRDERUNG & ENERGIEEFFIZIENZ",
+      heroHeadline: "BAFA-Förderung für KMU: Energieberatung, EEW & Transformation.",
+      heroSub: "Bis 80 % Zuschuss für Energieberatung, bis 55 % für Effizienzinvestitionen — kumulierbar mit KfW und SAB.",
+      heroBody: "Das BAFA ist das zentrale Förderprogramm für Energieeffizienz und industrielle Transformation in Deutschland. Die Besonderheit: Anträge müssen vor Vorhabenbeginn gestellt werden — ein formaler Fehler, der viele KMU ihre Förderung kostet. Wir stellen sicher, dass Ihr Antrag rechtzeitig und vollständig eingereicht wird.",
+      scope: [
+        { title: "BAFA Energieberatung Mittelstand", desc: "Bis 80 % Förderquote für qualifizierte Energieberatung durch einen BAFA-zugelassenen Berater. Förderfähig: detaillierte Energieanalyse mit Maßnahmenkonzept. Voraussetzung: Unternehmen mit mindestens 2 Beschäftigten. Ergebnis: dokumentierte Einsparpotenziale — und direkte Vorbereitung auf EEW-Anträge." },
+        { title: "Bundesförderung Energie- und Ressourceneffizienz (EEW)", desc: "Investitionszuschüsse von bis zu 55 % für Energie- und Ressourceneinsparung in der Produktion. Fördermodule: Querschnittstechnologien (Motoren, Pumpen, Druckluft), Prozesswärme aus erneuerbaren Energien, Abwärmenutzung. Mindestinvestition 30.000 € netto, Antragstellung im BAFA-Portal vor Vorhabenbeginn." },
+        { title: "BAFA Bundesförderung effiziente Gebäude (BEG)", desc: "Heizungsförderung (Wärmepumpe, Pelletkessel, Solarthermie) mit bis zu 70 % Förderanteil (Basis + Klima-Bonus). Für Unternehmensgebäude und vermietete Objekte. Kombination mit KfW 261 möglich — optimale Kumulierung prüfen wir vorab." },
+        { title: "BAFA Transformationsprogramm", desc: "Förderung für tiefgreifende Dekarbonisierung in energie- und treibhausgasintensiven Industrien. Bis 50 % Förderquote für transformative Investitionen in klimaneutrale Produktionsverfahren. Relevante Branchen: Lebensmittel, Getränke, Metall, Chemie, Glas, Papier." },
+      ],
+      process: [
+        { step: "01", title: "Erstcheck & Förderfähigkeitsanalyse", desc: "Prüfung auf BAFA-Kriterien: Unternehmenstyp, Investitionsvorhaben, De-minimis-Spielraum und Kumulierbarkeit mit KfW, ZIM oder SAB. Wichtigste Prüffrage: Ist das Vorhaben noch nicht begonnen? Bindende Bestellungen gelten bereits als Vorhabenbeginn." },
+        { step: "02", title: "Antragstellung vor Vorhabenbeginn", desc: "Der häufigste Fehler: Maßnahmen werden begonnen, bevor der Antrag gestellt wurde — und sind damit nicht mehr förderfähig. Wir koordinieren Antrag, Energieberater-Beauftragung und Investitionstiming, damit kein Förderpotenzial verloren geht." },
+        { step: "03", title: "Begleitung der Umsetzung", desc: "Nach Zuwendungsbescheid: Umsetzungsbegleitung, Rechnungsmanagement und Dokumentation der geförderten Maßnahmen. Einhaltung von Fristen (i.d.R. 18–36 Monate Umsetzungszeitraum) und Abschlussbedingungen." },
+        { step: "04", title: "Verwendungsnachweis & Auszahlung", desc: "Vollständige Zusammenstellung aller Nachweisdokumente (Rechnungen, Liefernachweise, Energiedatenvergleich). Technische Nachweise gemäß BAFA-Anforderungen (Effizienzklassen, Messkonzept). Abruf des Zuschusses nach Prüfung." },
+      ],
+      facts: [
+        { value: "bis 80 %", label: "Zuschuss Energieberatung Mittelstand" },
+        { value: "bis 55 %", label: "für EEW-Investitionen" },
+        { value: "bis 70 %", label: "Heizungsförderung BEG" },
+        { value: "0 €", label: "Risiko — Erfolgshonorar erst bei Bewilligung" },
+      ],
+      types: ["BAFA Energieberatung", "BAFA EEW", "BAFA BEG", "Transformationsprogramm", "Wärmepumpe", "Abwärmenutzung", "Druckluft", "Dekarbonisierung"],
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Förderberatung für deutsche KMU. Fördermittelmanagement · CSRD · Nachhaltigkeitsstrategie.",
@@ -478,6 +504,7 @@ export const translations = {
       navLinks: [
         { label: "Leistungen", href: "/#leistungen" },
         { label: "Förderberatung", href: "/foerderberatung" },
+        { label: "BAFA-Förderung", href: "/bafa-foerderung" },
         { label: "CSRD-Beratung", href: "/csrd-beratung" },
         { label: "ZIM-Förderung", href: "/zim-foerderung" },
         { label: "Nachhaltigkeitsstrategie", href: "/nachhaltigkeitsstrategie" },
@@ -960,6 +987,32 @@ export const translations = {
       tags: ["GHG Balance", "Roadmap", "BAFA EEW", "KfW", "ZIM", "SAB", "EU Taxonomy", "Supply Chain", "Scope 1+2"],
     },
 
+    bafaFoerderung: {
+      heroLabel: "BAFA GRANTS & ENERGY EFFICIENCY",
+      heroHeadline: "BAFA Grants for SMEs: Energy Consulting, EEW & Transformation.",
+      heroSub: "Up to 80% subsidy for energy consulting, up to 55% for efficiency investments — combinable with KfW and SAB.",
+      heroBody: "BAFA is Germany's central grant programme for energy efficiency and industrial transformation. The key requirement: applications must be submitted before starting the project — a formal error that costs many SMEs their grant. We ensure your application is submitted on time and in full.",
+      scope: [
+        { title: "BAFA Energy Consulting for SMEs", desc: "Up to 80% funding rate for qualified energy consulting by a BAFA-approved advisor. Eligible: detailed energy analysis with action plan. Prerequisite: companies with at least 2 employees. Result: documented savings potential — and direct preparation for EEW applications." },
+        { title: "Federal Energy & Resource Efficiency Grants (EEW)", desc: "Investment subsidies of up to 55% for energy and resource savings in production. Funding modules: cross-cutting technologies (motors, pumps, compressed air), renewable process heat, waste heat recovery. Minimum investment €30,000 net, application via BAFA portal before project start." },
+        { title: "BAFA Federal Efficient Buildings Grants (BEG)", desc: "Heating system grants (heat pump, pellet boiler, solar thermal) with up to 70% subsidy (base + climate bonus). For commercial buildings and rented properties. Combination with KfW 261 possible — we check optimal stacking in advance." },
+        { title: "BAFA Transformation Programme", desc: "Grants for deep decarbonisation in energy-intensive and high-GHG industries. Up to 50% funding rate for transformative investments in climate-neutral production. Relevant sectors: food and beverage, metals, chemicals, glass, paper." },
+      ],
+      process: [
+        { step: "01", title: "Initial Check & Eligibility Analysis", desc: "Assessment against BAFA criteria: company type, investment project, de minimis headroom, and combinability with KfW, ZIM, or SAB. Key question: has the project not yet started? Binding orders already count as project start." },
+        { step: "02", title: "Application Before Project Start", desc: "The most common BAFA mistake: measures are started before the application is submitted — making them ineligible. We coordinate application, energy consultant engagement, and investment timing so no funding potential is lost." },
+        { step: "03", title: "Implementation Support", desc: "After the grant notice: implementation guidance, invoice management, and documentation of funded measures. Compliance with completion conditions and deadlines (typically 18–36 months implementation period)." },
+        { step: "04", title: "Final Report & Disbursement", desc: "Complete assembly of all proof documents (invoices, delivery confirmations, energy data comparison). Technical evidence per BAFA requirements (efficiency classes, measurement concept). Grant disbursement after review." },
+      ],
+      facts: [
+        { value: "up to 80%", label: "subsidy for energy consulting" },
+        { value: "up to 55%", label: "for EEW investments" },
+        { value: "up to 70%", label: "BEG heating system grants" },
+        { value: "€0", label: "risk — success fee only upon approval" },
+      ],
+      types: ["BAFA Energy Consulting", "BAFA EEW", "BAFA BEG", "Transformation Programme", "Heat Pump", "Waste Heat Recovery", "Compressed Air", "Decarbonisation"],
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Grant advisory for German SMEs. Funding management · CSRD · Sustainability strategy.",
@@ -968,6 +1021,7 @@ export const translations = {
       navLinks: [
         { label: "Services", href: "/#leistungen" },
         { label: "Grant Advisory", href: "/foerderberatung" },
+        { label: "BAFA Grants", href: "/bafa-foerderung" },
         { label: "CSRD Advisory", href: "/csrd-beratung" },
         { label: "ZIM Funding", href: "/zim-foerderung" },
         { label: "Sustainability Strategy", href: "/nachhaltigkeitsstrategie" },
