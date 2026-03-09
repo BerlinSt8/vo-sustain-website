@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import QuickCheckForm from "@/components/quickcheck/QuickCheckForm";
 import ResultsView from "@/components/quickcheck/ResultsView";
+import FloatingOrbs from "@/components/ui/FloatingOrbs";
 import type { QuickCheckInput, QuickCheckResult, FoerderdatenbankResponse, FoerderlotseResponse } from "@/lib/types";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
@@ -78,22 +80,30 @@ export default function QuickCheckSection() {
   return (
     <section
       id="quick-check"
-      style={{ background: "var(--navy-muted)", padding: "6rem 8vw" }}
+      style={{ background: "var(--navy-muted)", padding: "6rem 8vw", position: "relative", overflow: "hidden" }}
     >
-      <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+      <FloatingOrbs count={10} maxSize={3} minSize={1} />
+      <div style={{ maxWidth: "860px", margin: "0 auto", position: "relative", zIndex: 2 }}>
         {/* Header – nur sichtbar wenn kein Ergebnis */}
         {!result && (
           <div style={{ marginBottom: "3rem" }}>
             <div style={{ marginBottom: "1.25rem" }}>
-              <span style={{
-                fontFamily: "'Roboto Mono', monospace",
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                color: "var(--verde-bright)",
-                textTransform: "uppercase",
-              }}>
+              <motion.span
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.4 }}
+                style={{
+                  fontFamily: "'Roboto Mono', monospace",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.18em",
+                  color: "var(--verde-bright)",
+                  textTransform: "uppercase",
+                  display: "inline-block",
+                }}
+              >
                 {t.quickCheck.label}
-              </span>
+              </motion.span>
             </div>
             <h2 style={{
               fontFamily: "'Montserrat', sans-serif",
@@ -103,17 +113,47 @@ export default function QuickCheckSection() {
               lineHeight: 1.05,
               marginBottom: "1rem",
             }}>
-              {t.quickCheck.headline1}<br />{t.quickCheck.headline2}
+              {t.quickCheck.headline1.split(" ").map((word: string, i: number) => (
+                <motion.span
+                  key={`h1-${i}`}
+                  initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ display: "inline-block", marginRight: "0.3em" }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <br />
+              {t.quickCheck.headline2.split(" ").map((word: string, i: number) => (
+                <motion.span
+                  key={`h2-${i}`}
+                  initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: (t.quickCheck.headline1.split(" ").length + i) * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ display: "inline-block", marginRight: "0.3em" }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </h2>
-            <p style={{
-              fontFamily: "'Open Sans', sans-serif",
-              fontSize: "1rem",
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.7,
-              maxWidth: "500px",
-            }}>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "1rem",
+                color: "rgba(255,255,255,0.55)",
+                lineHeight: 1.7,
+                maxWidth: "500px",
+              }}
+            >
               {t.quickCheck.body}
-            </p>
+            </motion.p>
           </div>
         )}
 
@@ -158,12 +198,24 @@ export default function QuickCheckSection() {
             {/* Verde glow backdrop */}
             <div style={{
               position: "absolute",
-              top: "-40px",
+              top: "-60px",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "70%",
+              width: "90%",
+              height: "200px",
+              background: "radial-gradient(ellipse at center, rgba(39,174,96,0.12) 0%, rgba(39,174,96,0.04) 40%, transparent 70%)",
+              pointerEvents: "none",
+              zIndex: 0,
+            }} />
+            {/* Bottom verde glow */}
+            <div style={{
+              position: "absolute",
+              bottom: "-40px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "60%",
               height: "120px",
-              background: "radial-gradient(ellipse at center, rgba(39,174,96,0.08) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse at center, rgba(39,174,96,0.06) 0%, transparent 70%)",
               pointerEvents: "none",
               zIndex: 0,
             }} />

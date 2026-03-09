@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 /* eslint-disable @next/next/no-img-element */
 
@@ -99,8 +100,17 @@ function TickerRow({
 
 export default function LogoTickerSection() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const rotateXRow1 = useTransform(scrollYProgress, [0, 0.5, 1], [3, 0, -3]);
+  const rotateXRow2 = useTransform(scrollYProgress, [0, 0.5, 1], [-3, 0, 3]);
+
   return (
     <section
+      ref={sectionRef}
       style={{
         background: "var(--off-white)",
         padding: "72px 0 64px",
@@ -160,9 +170,13 @@ export default function LogoTickerSection() {
       </div>
 
       {/* Ticker Rows */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-        <TickerRow logos={ROW_1} direction="left"  duration={28} />
-        <TickerRow logos={ROW_2} direction="right" duration={34} />
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px", perspective: "1000px" }}>
+        <motion.div style={{ rotateX: rotateXRow1, transformStyle: "preserve-3d" }}>
+          <TickerRow logos={ROW_1} direction="left"  duration={28} />
+        </motion.div>
+        <motion.div style={{ rotateX: rotateXRow2, transformStyle: "preserve-3d" }}>
+          <TickerRow logos={ROW_2} direction="right" duration={34} />
+        </motion.div>
       </div>
 
       <style>{`

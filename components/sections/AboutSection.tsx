@@ -36,6 +36,8 @@ export default function AboutSection() {
 
   const photoY = useTransform(scrollYProgress, [0, 1], [30, -30]);
   const crystalY = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const lineY = useTransform(scrollYProgress, [0, 1], [15, -15]);
 
   return (
     <section
@@ -45,6 +47,38 @@ export default function AboutSection() {
     >
       {/* Floating orbs background */}
       <FloatingOrbs count={8} maxSize={3} minSize={1} />
+
+      {/* Parallax verde gradient orb — fast layer */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "20%",
+          right: "8%",
+          width: "clamp(200px, 30vw, 400px)",
+          height: "clamp(200px, 30vw, 400px)",
+          borderRadius: "50%",
+          background: "radial-gradient(ellipse at center, rgba(39,174,96,0.07) 0%, rgba(39,174,96,0.02) 40%, transparent 70%)",
+          filter: "blur(40px)",
+          pointerEvents: "none",
+          zIndex: 1,
+          y: orbY,
+        }}
+      />
+
+      {/* Parallax horizontal line — medium layer */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "55%",
+          left: "5%",
+          right: "5%",
+          height: "1px",
+          background: "linear-gradient(90deg, transparent 0%, rgba(39,174,96,0.1) 30%, rgba(39,174,96,0.1) 70%, transparent 100%)",
+          pointerEvents: "none",
+          zIndex: 1,
+          y: lineY,
+        }}
+      />
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
         {/* Label + Crystal row */}

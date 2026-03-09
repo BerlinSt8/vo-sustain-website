@@ -10,7 +10,9 @@ export default function FooterSection() {
   return (
     <footer style={{
       background: "var(--navy-dark)",
-      position: "relative",
+      position: "sticky",
+      bottom: 0,
+      zIndex: 0,
     }}>
       {/* Gradient separator — verde glow line */}
       <div style={{

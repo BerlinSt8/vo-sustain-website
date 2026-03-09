@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
@@ -151,7 +151,10 @@ function ServiceCard({
 export default function SolutionSection() {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const [activeCard, setActiveCard] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -172,6 +175,39 @@ export default function SolutionSection() {
     const el = sectionRef.current;
     el?.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => el?.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Carousel scroll tracking
+  const handleCarouselScroll = useCallback(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const { scrollLeft, scrollWidth, clientWidth } = container;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) {
+      setScrollProgress(0);
+      setActiveCard(0);
+      return;
+    }
+    setScrollProgress(scrollLeft / maxScroll);
+
+    // Determine active card based on scroll position
+    const cardWidth = 340 + 20; // minWidth + gap
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveCard(Math.min(index, t.solution.channels.length - 1));
+  }, [t.solution.channels.length]);
+
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+    container.addEventListener("scroll", handleCarouselScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleCarouselScroll);
+  }, [handleCarouselScroll]);
+
+  const scrollToCard = useCallback((index: number) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const cardWidth = 340 + 20; // minWidth + gap
+    container.scrollTo({ left: index * cardWidth, behavior: "smooth" });
   }, []);
 
   return (
@@ -307,20 +343,116 @@ export default function SolutionSection() {
 
         </div>
 
-        {/* Channel cards — 3D tilt */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
-          {t.solution.channels.map((c, i) => {
-            const links = ["/foerderberatung", "/zim-foerderung", "/bafa-foerderung", "/csrd-beratung", "/nachhaltigkeitsstrategie"];
-            return (
-              <ServiceCard
-                key={i}
-                channel={c}
-                href={links[i] || "#"}
-                index={i}
-              />
-            );
-          })}
+        {/* Channel cards — horizontal scroll carousel */}
+        <div style={{ position: "relative" }}>
+          {/* Left fade mask */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            width: "60px",
+            background: "linear-gradient(to right, var(--navy), transparent)",
+            zIndex: 3,
+            pointerEvents: "none",
+            opacity: scrollProgress > 0.02 ? 1 : 0,
+            transition: "opacity 0.3s ease",
+          }} />
+          {/* Right fade mask */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            width: "60px",
+            background: "linear-gradient(to left, var(--navy), transparent)",
+            zIndex: 3,
+            pointerEvents: "none",
+            opacity: scrollProgress < 0.98 ? 1 : 0,
+            transition: "opacity 0.3s ease",
+          }} />
+
+          <div
+            ref={carouselRef}
+            className="solution-carousel-scroll"
+            style={{
+              display: "flex",
+              gap: "1.25rem",
+              overflowX: "auto",
+              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth",
+              paddingLeft: "1.5rem",
+              paddingRight: "1.5rem",
+              paddingTop: "0.5rem",
+              paddingBottom: "0.5rem",
+              margin: "0 -1.5rem",
+            }}
+          >
+            {t.solution.channels.map((c, i) => {
+              const links = ["/foerderberatung", "/zim-foerderung", "/bafa-foerderung", "/csrd-beratung", "/nachhaltigkeitsstrategie"];
+              return (
+                <div
+                  key={i}
+                  style={{
+                    scrollSnapAlign: "start",
+                    minWidth: "340px",
+                    maxWidth: "380px",
+                    flexShrink: 0,
+                  }}
+                >
+                  <ServiceCard
+                    channel={c}
+                    href={links[i] || "#"}
+                    index={i}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Scroll indicator dots */}
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "8px",
+          marginTop: "1.5rem",
+        }}>
+          {t.solution.channels.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToCard(i)}
+              aria-label={`Go to card ${i + 1}`}
+              style={{
+                width: activeCard === i ? "24px" : "8px",
+                height: "8px",
+                borderRadius: "4px",
+                border: "none",
+                background: activeCard === i ? "var(--verde-bright)" : "rgba(255,255,255,0.2)",
+                cursor: "pointer",
+                padding: 0,
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                opacity: activeCard === i ? 1 : 0.6,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Hide scrollbar CSS */}
+        <style>{`
+          .solution-carousel-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+          }
+          .solution-carousel-scroll::-webkit-scrollbar {
+            display: none;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .solution-carousel-scroll {
+              scroll-behavior: auto;
+            }
+          }
+        `}</style>
 
       </div>
     </section>

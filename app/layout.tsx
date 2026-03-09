@@ -3,6 +3,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import CursorGlow from "@/components/ui/CursorGlow";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const BASE_URL = "https://www.vosustain.de";
 
@@ -162,6 +163,7 @@ export default function RootLayout({
     <html lang="de">
       <body className="grain-overlay">
         <CursorGlow />
+        <CustomCursor />
         <ScrollProgress />
         <LanguageProvider>{children}</LanguageProvider>
         <script

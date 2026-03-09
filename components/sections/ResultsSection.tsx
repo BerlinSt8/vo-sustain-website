@@ -46,49 +46,52 @@ function StackCard({
     offset: ["start start", "end start"],
   });
 
-  // Dramatic scale-down + rotation for visible stacking
-  const scale = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [1, 1] : [1, 0.9]);
-  const dimOpacity = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [0, 0] : [0, 0.6]);
-  const rotateX = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [0, 0] : [0, -4]);
-  const borderRadius = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [16, 16] : [16, 20]);
+  // Scale down slightly as next card covers this one
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], isLast ? [1, 1, 1] : [1, 1, 0.92]);
+  const dimOpacity = useTransform(scrollYProgress, [0, 0.5, 1], isLast ? [0, 0, 0] : [0, 0, 0.7]);
 
-  // Each card sticks at a staggered offset — creates visible stack edges
-  const stickyTop = isMobile ? 56 : 80 + index * 32;
+  // ALL cards stick at the SAME top position — each fully covers the previous
+  const stickyTop = isMobile ? 56 : 80;
+  const cardHeight = isMobile ? "auto" : "calc(100vh - 120px)";
 
   return (
     <div
       ref={ref}
       style={{
-        position: isMobile ? "relative" : "sticky",
-        top: isMobile ? undefined : `${stickyTop}px`,
         height: isMobile ? "auto" : "100vh",
         minHeight: isMobile ? "auto" : "500px",
-        zIndex: index + 1,
       }}
     >
-      <motion.div
+      <div
         style={{
-          scale,
-          rotateX,
-          transformOrigin: "top center",
-          height: isMobile ? "auto" : `calc(100vh - ${stickyTop + 40}px)`,
-          position: "relative",
-          borderRadius,
-          overflow: "hidden",
-          background: `linear-gradient(145deg, #0D1E30 0%, #0A1628 60%, #0D1B2A 100%)`,
-          border: "1px solid rgba(255,255,255,0.08)",
-          boxShadow: `
-            0 ${4 + index * 12}px ${30 + index * 25}px rgba(0,0,0,0.6),
-            0 0 0 1px rgba(255,255,255,0.03),
-            inset 0 1px 0 rgba(255,255,255,0.05),
-            inset 0 -1px 0 rgba(0,0,0,0.2)
-          `,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: isMobile ? "2rem 1.5rem" : "4rem 8vw",
+          position: isMobile ? "relative" : "sticky",
+          top: isMobile ? undefined : `${stickyTop}px`,
+          zIndex: index + 1,
+          height: isMobile ? "auto" : cardHeight,
         }}
       >
+        <motion.div
+          style={{
+            scale,
+            transformOrigin: "top center",
+            height: "100%",
+            position: "relative",
+            borderRadius: 16,
+            overflow: "hidden",
+            background: `linear-gradient(145deg, #0D1E30 0%, #0A1628 60%, #0D1B2A 100%)`,
+            border: "1px solid rgba(255,255,255,0.08)",
+            boxShadow: `
+              0 ${8 + index * 16}px ${40 + index * 30}px rgba(0,0,0,0.7),
+              0 0 0 1px rgba(255,255,255,0.03),
+              inset 0 1px 0 rgba(255,255,255,0.05),
+              inset 0 -1px 0 rgba(0,0,0,0.2)
+            `,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: isMobile ? "2rem 1.5rem" : "4rem 8vw",
+          }}
+        >
         {/* Subtle accent glow — enhanced */}
         <div style={{
           position: "absolute", top: 0, right: 0, width: "50%", height: "100%",
@@ -191,9 +194,10 @@ function StackCard({
           )}
         </div>
 
-        {/* Dimming overlay */}
-        <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "16px" }} />
-      </motion.div>
+          {/* Dimming overlay */}
+          <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "16px" }} />
+        </motion.div>
+      </div>
     </div>
   );
 }
@@ -218,15 +222,22 @@ export default function ResultsSection() {
             </span>
           </motion.div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, color: "var(--navy)", lineHeight: 1.05, marginBottom: "1.25rem", maxWidth: "700px" }}
-          >
-            {t.results.headline}
-          </motion.h2>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, color: "var(--navy)", lineHeight: 1.05, marginBottom: "1.25rem", maxWidth: "700px" }}>
+            <span style={{ display: "flex", flexWrap: "wrap", gap: "0 0.25em" }}>
+              {t.results.headline.split(" ").map((word, i) => (
+                <motion.span
+                  key={`rh-${i}`}
+                  initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ display: "inline-block" }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
+          </h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}

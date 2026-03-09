@@ -44,7 +44,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <NavBar />
-      <main>
+      <main style={{ position: "relative", zIndex: 1, background: "var(--navy-dark)" }}>
         {/* 1 – Hero: brechende Welle */}
         <HeroSection />
 
@@ -90,6 +90,9 @@ export default function Home() {
         {/* 7 – FAQ */}
         <FaqSection />
       </main>
+
+      {/* Spacer to create scroll room for footer parallax reveal */}
+      <div style={{ height: "400px", background: "transparent" }} />
 
       {/* 7 – Footer */}
       <FooterSection />
