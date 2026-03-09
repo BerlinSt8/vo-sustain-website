@@ -48,11 +48,11 @@ export default function Home() {
         {/* 1 – Hero: brechende Welle */}
         <HeroSection />
 
-        {/* navy → off-white */}
-        <WaveDivider fromColor="#080F1A" toColor="#F8F9FA" />
-
-        {/* 2 – Problem: Der Theorie-Nebel */}
+        {/* 2 – Problem: Der Theorie-Nebel (navy bg, same as hero) */}
         <ProblemSection />
+
+        {/* navy → off-white */}
+        <WaveDivider fromColor="#0D1B2A" toColor="#F8F9FA" />
 
         {/* 2b – Why: Drei USPs */}
         <WhySection />

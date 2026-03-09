@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 /* eslint-disable @next/next/no-img-element */
-// Reihe 1: Bundesebene – Kernprogramme
+
 const ROW_1 = [
   { src: "/logos/zim.png",      alt: "ZIM – Zentrales Innovationsprogramm Mittelstand" },
   { src: "/logos/bmbf.svg",     alt: "BMBF – Bundesministerium für Bildung und Forschung" },
@@ -12,7 +12,6 @@ const ROW_1 = [
   { src: "/logos/dlr.png",      alt: "DLR Projektträger" },
 ];
 
-// Reihe 2: Landes- & EU-Ebene
 const ROW_2 = [
   { src: "/logos/sab.png",     alt: "SAB – Sächsische Aufbaubank" },
   { src: "/logos/tab.jpg",     alt: "Thüringer Aufbaubank" },
@@ -24,34 +23,36 @@ const ROW_2 = [
 function LogoCard({ src, alt }: { src: string; alt: string }) {
   return (
     <div
+      className="logo-card"
       style={{
-        background: "#fff",
-        borderRadius: "14px",
-        padding: "16px 32px",
-        margin: "0 14px",
+        background: "white",
+        borderRadius: "10px",
+        padding: "14px 28px",
+        margin: "0 10px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: "100px",
-        minWidth: "200px",
-        boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
+        height: "88px",
+        minWidth: "180px",
+        border: "1px solid rgba(0,0,0,0.06)",
         flexShrink: 0,
-        transition: "box-shadow 0.2s ease, transform 0.2s ease",
-      }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 24px rgba(0,0,0,0.13)";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 16px rgba(0,0,0,0.07)";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+        transition: "border-color 0.3s, box-shadow 0.3s",
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
-        style={{ objectFit: "contain", maxHeight: "60px", maxWidth: "168px", width: "100%", height: "auto" }}
+        className="logo-img"
+        style={{
+          objectFit: "contain",
+          maxHeight: "52px",
+          maxWidth: "152px",
+          width: "100%",
+          height: "auto",
+          filter: "grayscale(100%) opacity(0.55)",
+          transition: "filter 0.4s ease",
+        }}
       />
     </div>
   );
@@ -66,7 +67,6 @@ function TickerRow({
   direction: "left" | "right";
   duration: number;
 }) {
-  // Triple for seamless loop at all speeds
   const items = [...logos, ...logos, ...logos];
   const animName = direction === "left" ? "ticker-left" : "ticker-right";
 
@@ -75,9 +75,9 @@ function TickerRow({
       style={{
         overflow: "hidden",
         maskImage:
-          "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
         WebkitMaskImage:
-          "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
       }}
     >
       <div
@@ -101,57 +101,50 @@ export default function LogoTickerSection() {
   return (
     <section
       style={{
-        background: "#F8F9FA",
-        padding: "80px 0 72px",
+        background: "var(--off-white)",
+        padding: "72px 0 64px",
         overflow: "hidden",
       }}
     >
       {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: "52px", padding: "0 24px" }}>
-        <p
-          style={{
-            fontFamily: "'Roboto Mono', monospace",
-            fontSize: "11px",
-            letterSpacing: "3px",
-            textTransform: "uppercase",
-            color: "#27AE60",
-            marginBottom: "12px",
-          }}
-        >
+      <div style={{ textAlign: "center", marginBottom: "48px", padding: "0 24px" }}>
+        <p style={{
+          fontFamily: "'Roboto Mono', monospace",
+          fontSize: "0.65rem",
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "var(--verde-dark)",
+          marginBottom: "1rem",
+        }}>
           {t.logoTicker.label}
         </p>
-        <h2
-          style={{
-            fontFamily: "Montserrat, sans-serif",
-            fontWeight: 900,
-            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-            color: "#080F1A",
-            margin: "0 0 12px",
-          }}
-        >
+        <h2 style={{
+          fontFamily: "Montserrat, sans-serif",
+          fontWeight: 900,
+          fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
+          color: "var(--navy-dark)",
+          margin: "0 0 12px",
+        }}>
           {t.logoTicker.headline}
         </h2>
-        <p
-          style={{
-            fontFamily: "'Open Sans', sans-serif",
-            fontSize: "1rem",
-            color: "#4A5568",
-            maxWidth: "520px",
-            margin: "0 auto",
-            lineHeight: 1.6,
-          }}
-        >
+        <p style={{
+          fontFamily: "'Open Sans', sans-serif",
+          fontSize: "1rem",
+          color: "var(--ct4)",
+          maxWidth: "520px",
+          margin: "0 auto",
+          lineHeight: 1.6,
+        }}>
           {t.logoTicker.body}
         </p>
       </div>
 
       {/* Ticker Rows */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
         <TickerRow logos={ROW_1} direction="left"  duration={28} />
         <TickerRow logos={ROW_2} direction="right" duration={34} />
       </div>
 
-      {/* Keyframe animations */}
       <style>{`
         @keyframes ticker-left {
           from { transform: translateX(0); }
@@ -163,6 +156,13 @@ export default function LogoTickerSection() {
         }
         .ticker-row:hover {
           animation-play-state: paused;
+        }
+        .logo-card:hover {
+          border-color: rgba(39,174,96,0.2);
+          box-shadow: 0 4px 16px rgba(39,174,96,0.08);
+        }
+        .logo-card:hover .logo-img {
+          filter: grayscale(0%) opacity(1) !important;
         }
       `}</style>
     </section>
