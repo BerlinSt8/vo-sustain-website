@@ -47,24 +47,36 @@ export const translations = {
     // ─── SolutionSection ───
     solution: {
       label: "Was wir tun",
-      headline1: "Die drei Kanäle",
-      headline2: "von VO Sustain.",
+      headline1: "Fünf Leistungen,",
+      headline2: "ein Ziel.",
       body: "Schlüsselfertige Lösungen – von der Förderstrategie bis zur audit-sicheren Abwicklung.",
       channels: [
         {
           label: "01",
-          title: "Fördermittel-management",
-          desc: "Von der Erstprüfung bis zum Verwendungsnachweis – schlüsselfertig und audit-sicher.",
-          tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW", "EU HORIZON"],
+          title: "Förderberatung",
+          desc: "Programmauswahl, Antragstellung und Abwicklung aus einer Hand — von der Erstprüfung bis zum Verwendungsnachweis.",
+          tags: ["Bund", "Länder", "EU", "Erfolgshonorar"],
         },
         {
           label: "02",
+          title: "ZIM-Förderung",
+          desc: "Einzelprojekte, Kooperationen und Innovationsnetzwerke — mit Senior-Expertise aus laufenden ZIM-Netzwerken.",
+          tags: ["ZIM", "F&E", "Netzwerk", "BMWK"],
+        },
+        {
+          label: "03",
+          title: "BAFA-Förderung",
+          desc: "Energieberatung, EEW-Investitionszuschüsse, BEG-Sanierung und STARK-Strukturwandel — alle BAFA-Programme aus einer Hand.",
+          tags: ["EEW", "BEG", "STARK", "Energieeffizienz"],
+        },
+        {
+          label: "04",
           title: "CSRD-Beratung",
           desc: "ESG-Daten für Lieferketten-Anfragen nach VSME-Standard — pragmatisch, proportional und mit Value-Chain-Cap-Schutz.",
           tags: ["CSRD", "VSME", "ESG", "Reporting"],
         },
         {
-          label: "03",
+          label: "05",
           title: "Nachhaltigkeits-strategie",
           desc: "Roadmaps, die priorisieren statt überfordern. Klare Schritte, messbare Wirkung, finanzierbare Maßnahmen.",
           tags: ["Roadmap", "Strategie", "THG-Reduktion"],
@@ -564,24 +576,36 @@ export const translations = {
     // ─── SolutionSection ───
     solution: {
       label: "What We Do",
-      headline1: "Three Channels",
-      headline2: "of VO Sustain.",
+      headline1: "Five Services,",
+      headline2: "One Goal.",
       body: "Turnkey solutions – from funding strategy to audit-proof implementation.",
       channels: [
         {
           label: "01",
-          title: "Grant Management",
-          desc: "From initial screening to final reporting – turnkey and audit-proof.",
-          tags: ["ZIM", "BAFA", "EFRE", "SAB", "KfW", "EU HORIZON"],
+          title: "Grant Advisory",
+          desc: "Programme selection, application and management from a single source — from initial screening to final reporting.",
+          tags: ["Federal", "State", "EU", "Success Fee"],
         },
         {
           label: "02",
+          title: "ZIM Funding",
+          desc: "Individual projects, cooperations and innovation networks — with senior expertise from active ZIM networks.",
+          tags: ["ZIM", "R&D", "Network", "BMWK"],
+        },
+        {
+          label: "03",
+          title: "BAFA Funding",
+          desc: "Energy consulting, EEW investment grants, BEG renovation and STARK structural transformation — all BAFA programmes from one source.",
+          tags: ["EEW", "BEG", "STARK", "Energy Efficiency"],
+        },
+        {
+          label: "04",
           title: "CSRD Advisory",
           desc: "ESG data for supply chain requests under the VSME standard — pragmatic, proportionate, and with Value Chain Cap protection.",
           tags: ["CSRD", "VSME", "ESG", "Reporting"],
         },
         {
-          label: "03",
+          label: "05",
           title: "Sustainability Strategy",
           desc: "Roadmaps that prioritise rather than overwhelm. Clear steps, measurable impact, fundable measures.",
           tags: ["Roadmap", "Strategy", "GHG Reduction"],

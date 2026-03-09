@@ -22,6 +22,34 @@ function formatDeadline(iso: string, lang: string, t: ReturnType<typeof useLangu
   return { label: `${dateStr} — noch ${days} ${t.artikel.deadlineDays}`, urgent: days <= 14, expired: false };
 }
 
+/** Parse markdown-style [text](url) links within a string into React elements */
+function renderWithLinks(text: string): React.ReactNode {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      const isExternal = match[2].startsWith("http");
+      return (
+        <a
+          key={i}
+          href={match[2]}
+          {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          style={{
+            color: "var(--verde-dark)",
+            textDecoration: "none",
+            borderBottom: "1px solid rgba(39,174,96,0.35)",
+            fontWeight: 600,
+          }}
+        >
+          {match[1]}
+        </a>
+      );
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
+
 export default function ArtikelBodyClient({ artikel }: { artikel: Artikel }) {
   const { t, lang } = useLanguage();
 
@@ -126,18 +154,50 @@ export default function ArtikelBodyClient({ artikel }: { artikel: Artikel }) {
         </div>
       )}
 
-      {/* Content Paragraphs */}
-      {content.map((para, i) => (
-        <p key={i} style={{
-          fontFamily: "'Open Sans', sans-serif",
-          fontSize: "1rem",
-          color: "#333",
-          lineHeight: 1.9,
-          marginBottom: "1.5rem",
-        }}>
-          {para}
-        </p>
-      ))}
+      {/* Content Paragraphs + Headings */}
+      {content.map((para, i) => {
+        if (para.startsWith("## ")) {
+          return (
+            <h2 key={i} style={{
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 800,
+              fontSize: "1.35rem",
+              color: "#0B1622",
+              lineHeight: 1.3,
+              marginTop: i === 0 ? 0 : "2.5rem",
+              marginBottom: "1rem",
+            }}>
+              {para.slice(3)}
+            </h2>
+          );
+        }
+        if (para.startsWith("### ")) {
+          return (
+            <h3 key={i} style={{
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 700,
+              fontSize: "1.1rem",
+              color: "#1a2a3a",
+              lineHeight: 1.35,
+              marginTop: "2rem",
+              marginBottom: "0.75rem",
+            }}>
+              {para.slice(4)}
+            </h3>
+          );
+        }
+        return (
+          <p key={i} style={{
+            fontFamily: "'Open Sans', sans-serif",
+            fontSize: "1rem",
+            color: "#333",
+            lineHeight: 1.9,
+            marginBottom: "1.5rem",
+          }}>
+            {renderWithLinks(para)}
+          </p>
+        );
+      })}
 
       {/* Divider */}
       <hr style={{

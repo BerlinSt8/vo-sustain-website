@@ -101,9 +101,9 @@ export default function SolutionSection() {
         </div>
 
         {/* Channel cards — full width */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
           {t.solution.channels.map((c, i) => {
-            const links = ["/foerderberatung", "/csrd-beratung", "/zim-foerderung"];
+            const links = ["/foerderberatung", "/zim-foerderung", "/bafa-foerderung", "/csrd-beratung", "/nachhaltigkeitsstrategie"];
             return (
               <a
                 key={i}
