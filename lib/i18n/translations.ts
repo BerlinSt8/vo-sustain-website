@@ -15,10 +15,10 @@ export const translations = {
     // ─── HeroSection ───
     hero: {
       tag: "Nachhaltigkeit · Cleantech · Innovation · ZIM",
-      headline: "Förderberatung für KMU.",
-      sub: "Fertige Konzepte. Echte Praxiserfahrung. Erfolgshonorar.",
-      body: "Wir kommen mit einem fertigen Förderkonzept zu Ihnen — nicht mit einem leeren Erstgespräch. Senior-Expertise aus laufenden ZIM-Netzwerken, tausenden analysierten Programmen und echter Antragspraxis. Honorar nur bei Bewilligung.",
-      ctaPrimary: "Quick-Check starten →",
+      headline: "Förderberatung für KMU — mit fertigem Konzept statt Erstgespräch.",
+      sub: "Konzept vor dem Erstgespräch. Honorar erst bei Bewilligung.",
+      body: "Bevor wir ins Gespräch kommen, haben wir Ihr Förderpotenzial bereits analysiert. Sie erhalten ein ausgearbeitetes Konzept mit passenden Programmen, realistischen Quoten und konkretem Fahrplan. Unser Honorar wird erst bei Bewilligung fällig.",
+      ctaPrimary: "Förderpotenzial prüfen — kostenlos →",
       ctaSecondary: "Leistungen",
       imgAlt: "Verde Onda – die Grüne Welle",
     },
@@ -26,20 +26,20 @@ export const translations = {
     // ─── ProblemSection ───
     problem: {
       label: "Die Ausgangslage",
-      headline: "Der Theorie-Nebel.",
-      body: "Viele KMU erleben Nachhaltigkeit als lähmende Komplexität. Wir kennen das. Und wir lösen es – mit Klarheit, Strategie und finanzierter Umsetzung.",
+      headline: "Drei Hürden, die KMU Fördergeld kosten.",
+      body: "Über 2.000 Förderprogramme in Deutschland — und die meisten KMU nutzen keines davon. Die Gründe sind fast immer dieselben.",
       cards: [
         {
-          title: "Lieferketten-Druck",
-          desc: "Die meisten KMU sind nicht direkt CSRD-pflichtig — aber Großkunden fordern zunehmend ESG-Daten über die Lieferkette. Ohne Vorbereitung drohen Auftrags- und Kreditrisiken.",
+          title: "Unübersichtliche Förderlandschaft",
+          desc: "Über 2.000 Programme, ständig wechselnde Fristen und undurchsichtige Kumulierungsregeln: Die meisten KMU lassen fünf- bis sechsstellige Summen liegen, weil der Überblick fehlt.",
         },
         {
-          title: "Förder-Chaos",
-          desc: "Undurchsichtige Förderlogiken, Haushaltssperren und Antragsfristen: Die meisten KMU lassen bares Geld liegen, weil der Überblick fehlt.",
+          title: "Keine interne Förder-Kompetenz",
+          desc: "Zwischen Tagesgeschäft und Förderbürokratie fehlt intern die Kapazität — und die spezifische Erfahrung, die ein erfolgreicher Antrag erfordert.",
         },
         {
-          title: "Ressourcenmangel",
-          desc: "Zwischen Tagesgeschäft und Förderbürokratie fehlt intern die Kapazität – Nachhaltigkeit bleibt Absichtserklärung statt Realität.",
+          title: "Lieferketten- und ESG-Druck",
+          desc: "Großkunden fordern ESG-Daten, Banken fragen nach Nachhaltigkeitskennzahlen. Wer nicht vorbereitet ist, riskiert Aufträge und Kreditkonditionen.",
         },
       ],
     },
@@ -48,19 +48,19 @@ export const translations = {
     solution: {
       label: "Was wir tun",
       headline1: "Fünf Leistungen,",
-      headline2: "ein Ziel.",
-      body: "Schlüsselfertige Lösungen – von der Förderstrategie bis zur audit-sicheren Abwicklung.",
+      headline2: "ein Ziel: Ihr Fördergeld fließt.",
+      body: "Von der Programmauswahl bis zum Verwendungsnachweis — alles aus einer Hand.",
       channels: [
         {
           label: "01",
           title: "Förderberatung",
-          desc: "Programmauswahl, Antragstellung und Abwicklung aus einer Hand — von der Erstprüfung bis zum Verwendungsnachweis.",
+          desc: "Von der Programmauswahl über die vollständige Antragstellung bis zum Verwendungsnachweis. Sie erhalten eine Bewilligung, nicht nur eine Empfehlung.",
           tags: ["Bund", "Länder", "EU", "Erfolgshonorar"],
         },
         {
           label: "02",
           title: "ZIM-Förderung",
-          desc: "Einzelprojekte, Kooperationen und Innovationsnetzwerke — mit Senior-Expertise aus laufenden ZIM-Netzwerken.",
+          desc: "Einzelprojekte, Kooperationen und Innovationsnetzwerke — begleitet von einem aktiven ZIM-Netzwerkmanager.",
           tags: ["ZIM", "F&E", "Netzwerk", "BMWK"],
         },
         {
@@ -72,13 +72,13 @@ export const translations = {
         {
           label: "04",
           title: "CSRD-Beratung",
-          desc: "ESG-Daten für Lieferketten-Anfragen nach VSME-Standard — pragmatisch, proportional und mit Value-Chain-Cap-Schutz.",
+          desc: "Wenn Großkunden ESG-Daten fordern: Wir liefern genau das, was die EU vorschreibt — nicht mehr, nicht weniger. Pragmatisch nach VSME-Standard.",
           tags: ["CSRD", "VSME", "ESG", "Reporting"],
         },
         {
           label: "05",
-          title: "Nachhaltigkeits-strategie",
-          desc: "Roadmaps, die priorisieren statt überfordern. Klare Schritte, messbare Wirkung, finanzierbare Maßnahmen.",
+          title: "Nachhaltigkeitsstrategie",
+          desc: "Nachhaltigkeitsstrategie mit direkter Anbindung an Förderprogramme. Jede Maßnahme ist mit einem Finanzierungsplan hinterlegt.",
           tags: ["Roadmap", "Strategie", "THG-Reduktion"],
         },
       ],
@@ -88,20 +88,20 @@ export const translations = {
     results: {
       label: "Nachgewiesene Ergebnisse",
       headline: "Was unsere Kunden gewinnen.",
-      body: "Kein Versprechen ohne Beweis.",
+      body: "Ausgewählte Projekte und Ergebnisse.",
       refsLabel: "Referenzen",
       outcomes: [
         {
-          title: "Sicherheit",
-          desc: "Klarheit über jeden Schritt – von der Antragstellung bis zum Audit. Keine bösen Überraschungen.",
+          title: "Kein Risiko",
+          desc: "Erfolgshonorar: Sie zahlen erst, wenn Fördermittel bewilligt sind. Kein Retainer, keine Vorabkosten.",
         },
         {
-          title: "Wirkung",
-          desc: "Messbar verbesserte Nachhaltigkeits-KPIs. THG-Reduktion, Energieeffizienz, ESG-Readiness.",
+          title: "Messbare Wirkung",
+          desc: "THG-Reduktion, Energieeffizienz, ESG-Readiness — mit konkreten KPIs, nicht mit Absichtserklärungen.",
         },
         {
-          title: "Investitionskraft",
-          desc: "Finanzierungsspielräume schaffen durch smarte Förderung – mehr Kapital für das Kerngeschäft.",
+          title: "Bis zu 60 % Zuschuss",
+          desc: "Fördermittel erschließen, die Ihren Eigenanteil senken — mehr Spielraum für Investitionen ins Kerngeschäft.",
         },
       ],
       customers: [
@@ -109,28 +109,28 @@ export const translations = {
           nr: "01",
           company: "Kelorina",
           result: "55 % Zuschuss",
-          type: "Fördermittel gesichert",
-          program: "Energie & Klimaschutz",
-          desc: "Vollständige Förderantragstellung und erfolgreiche Bewilligung im Bereich erneuerbare Energien – von der ersten Programmprüfung bis zur Bewilligungsmitteilung.",
+          type: "Erneuerbare Energien · Brandenburg",
+          program: "Bundes-Förderprogramm",
+          desc: "Vollständige Förderantragstellung und Bewilligung für ein Erneuerbare-Energien-Projekt. 55 % Zuschuss auf die Investitionssumme — Begleitung von der Programmprüfung bis zur Bewilligungsmitteilung in 5 Monaten.",
           tags: ["Erneuerbare Energien", "Förderantrag", "Bewilligung"],
         },
         {
           nr: "02",
           company: "Green Island",
           result: "60 % Zuschuss",
-          type: "Energieforschung",
-          program: "F&E-Förderung",
-          desc: "Förderstrategie, Programmauswahl und vollständige Antragsstellung im Bereich Energieforschung und Prozesseffizienz.",
-          tags: ["F&E", "Energieeffizienz", "Förderantrag"],
+          type: "Cleantech · F&E · Sachsen",
+          program: "ZIM-Förderung",
+          desc: "Förderstrategie, Programmauswahl und vollständige Antragstellung im Bereich Energieforschung und Prozesseffizienz. 60 % Zuschuss bei einem sechsstelligen Projektvolumen.",
+          tags: ["F&E", "Energieeffizienz", "ZIM"],
         },
         {
           nr: "03",
           company: "Kiyora",
           result: "ESG-Ready",
-          type: "Nachhaltigkeitsberatung",
+          type: "Lebensmittelindustrie · Berlin",
           program: "VSME-Standard",
-          desc: "ESG-Datenstrategie nach VSME-Standard — lieferkettenfähig, proportional und mit Value-Chain-Cap-Schutz.",
-          tags: ["VSME", "ESG", "Lieferkette", "Value Chain Cap"],
+          desc: "ESG-Datenstrategie nach VSME-Standard — lieferkettenfähig und proportional. Aufbau eines belastbaren Datensatzes für Großkunden-Anfragen und Bankgespräche.",
+          tags: ["VSME", "ESG", "Lieferkette", "CSRD"],
         },
       ],
     },
@@ -140,10 +140,10 @@ export const translations = {
       label: "Kostenloser Schnellcheck",
       headline1: "Ihr Förderpotenzial",
       headline2: "in 3 Minuten.",
-      body: "Finden Sie in 3 Minuten Ihre Förderprogramme. Präzise, kostenlos.",
+      body: "Erste Einschätzung Ihres Förderpotenzials in 3 Minuten. Kostenlos, unverbindlich.",
       loading: "Analyse läuft…",
       loadingSub: "Förderprogramme werden gematcht. Einen Moment.",
-      error: "Die Analyse konnte nicht abgeschlossen werden. Bitte versuche es erneut.",
+      error: "Die Analyse konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
     },
 
     // ─── QuickCheckForm ───
@@ -236,7 +236,7 @@ export const translations = {
       deadline: "Antragsfrist",
       source: "Quelle:",
       ctaHeadline: "Passt das zu Ihrem Unternehmen?",
-      ctaBody: "In 5 Minuten sehen Sie, welche Förderprogramme für Sie relevant sind.",
+      ctaBody: "In 3 Minuten sehen Sie, welche Förderprogramme für Sie relevant sind.",
       ctaButton: "Quick-Check starten →",
       deadlineExpired: "Abgelaufen",
       deadlineToday: "Heute!",
@@ -246,16 +246,16 @@ export const translations = {
 
     // ─── AboutSection ───
     about: {
-      label: "Wer steckt dahinter",
+      label: "Der Gründer",
       headline: "Denis Jänicke",
       subtitle: "Gründer · VO Sustain · Berlin",
-      quote: "Ich verbinde technisches Förderwissen mit pragmatischer Umsetzung – damit Ihre Nachhaltigkeitsinvestition nicht am Schreibtisch stecken bleibt.",
+      quote: "Als aktiver ZIM-Netzwerkmanager schreibe ich die Anträge, die ich begutachten lasse. Ich kenne beide Seiten des Prozesses — und genau da liegt der Unterschied.",
       credentials: [
-        { label: "EU–Bund–Land", sub: "Vollständige Förderebenen" },
-        { label: "End-to-End", sub: "Konzept bis Verwendungsnachweis" },
-        { label: "DE · EU · Asien", sub: "Projektregionen" },
+        { label: "ZIM · BAFA · EFRE", sub: "Kernprogramme" },
+        { label: "Antrag bis Nachweis", sub: "Komplettbegleitung" },
+        { label: "12+ Partner", sub: "Aktives ZIM-Netzwerk" },
       ],
-      bio: "Senior Grant & Programme Operations Lead mit Spezialisierung auf EU-Förderung und Konsortialmanagement. ZIM-Netzwerkmanager für das SEAWEED DECARBON POLYMER-Projekt (12+ Partner). Audit-sichere Prozessgestaltung, Verwendungsnachweis und CSRD-Umsetzungsbegleitung.",
+      bio: "Förderberater mit Schwerpunkt ZIM, BAFA und EU-Förderung. Aktiver Netzwerkmanager für das ZIM-Innovationsnetzwerk SEAWEED DECARBON POLYMER (12+ Partner aus Forschung und Industrie). Erfahrung aus der vollständigen Förderkette: Antragstellung, Projektträger-Kommunikation, Mittelabruf und Verwendungsnachweis.",
       imgAlt: "Denis Jänicke – Inhaber VO Sustain",
     },
 
@@ -263,7 +263,7 @@ export const translations = {
     logoTicker: {
       label: "FÖRDERLANDSCHAFT",
       headline: "Eine Auswahl der Programme",
-      body: "Bundesweit, regional, europäisch — wir navigieren die gesamte Förderlandschaft für Ihr KMU.",
+      body: "Bundesweit, regional, europäisch — die Programme, die wir für Sie prüfen.",
     },
 
     // ─── FaqSection ───
@@ -304,7 +304,7 @@ export const translations = {
           a: "BAFA bietet drei relevante Programme: BAFA EEW (Energie- und Ressourceneffizienz in der Wirtschaft) fördert Prozesswärme, Abwärmenutzung, Druckluftsysteme und Antriebstechnik mit bis zu 55 % Zuschuss (KMU-Bonus inklusive) — Mindestinvestition 20.000 €, kombinierbar mit KfW-Kredit. BAFA Energieberatung Mittelstand fördert externe Energieberatungen mit bis zu 80 % (max. 8.000 € Zuschuss für KMU) — Grundlage für viele Investitionsanträge. BAFA Transformationskonzepte fördert Dekarbonisierungsroadmaps für energieintensive Betriebe mit bis zu 60 %. Alle drei Programme sind kumulierbar mit EFRE-Landesförderung (SAB, TAB, IBB), solange De-minimis-Grenzen eingehalten werden und die Gesamtförderquote den beihilferechtlichen Höchstsatz nicht übersteigt.",
         },
         {
-          q: "Wie arbeitet VO Sustain — und was unterscheidet euch von klassischen Beratern?",
+          q: "Wie arbeitet VO Sustain — und was unterscheidet Sie von klassischen Beratern?",
           a: "VO Sustain ist auf KMU im Nachhaltigkeitsbereich spezialisiert und kombiniert eigene Praxiserfahrung mit KI-gestützter Recherche. Der Gründer Denis Jänicke ist aktiver ZIM-Netzwerkmanager (SEAWEED DECARBON POLYMER, 12+ Partner) und kennt die Prozesse aus erster Hand — nicht nur aus Handbüchern. Der Ablauf: Kostenloser Quick-Check → Tiefenanalyse mit Programm-Matching → Antragsbegleitung bis zum Verwendungsnachweis. Kein Unternehmensberatungsvolumen, keine anonymen Teams — Sie arbeiten direkt mit der Fachkraft, die Ihren Antrag schreibt. Das Modell: Success-Fee, fällig erst bei Bewilligung. Kein finanzielles Risiko für Sie.",
         },
         {
@@ -346,21 +346,21 @@ export const translations = {
       usps: [
         {
           number: "01",
-          title: "Fertiges Förderkonzept statt leeres Erstgespräch.",
-          body: "Wir kommen nicht mit einer Broschüre, sondern mit einem ausgearbeiteten Förderkonzept — passende Programme, realistische Quoten, konkreter Fahrplan. Aus laufenden ZIM-Netzwerken, hunderten Anträgen und echter Projektpraxis. Noch bevor Sie sich entschieden haben, ob Sie uns beauftragen.",
-          tags: ["Konzept-First", "Senior-Expertise", "349 Programme"],
+          title: "Fertiges Förderkonzept vor dem Erstgespräch.",
+          body: "Wir investieren vorab in Ihr Projekt, weil wir nur Mandate annehmen, bei denen wir von der Förderfähigkeit überzeugt sind. Sie erhalten ein Konzept mit konkreten Programmen und Quoten — als Entscheidungsgrundlage, nicht als Verkaufsgespräch.",
+          tags: ["Konzept-First", "Vorab-Analyse", "349 Programme"],
         },
         {
           number: "02",
-          title: "Wir kommen mit dem Konzept. Nicht mit dem Fragebogen.",
-          body: "Der gesamte Markt arbeitet reaktiv: Kunden kommen mit Vorhaben, Berater reagieren. VO Sustain dreht das um. Wir analysieren Ihr Unternehmen vorab, identifizieren das Förderpotenzial und kommen mit einem fertigen Konzept. Das erste Gespräch ist kein Erstgespräch — es ist eine Entscheidungssitzung.",
-          tags: ["Vorab-Analyse", "Fertiges Konzept", "0 € Risiko"],
+          title: "Erfolgshonorar. Kein Risiko für Sie.",
+          body: "Kein Retainer, keine Vorauszahlung, keine Gebühr bei Ablehnung. Unser Honorar wird als Staffelprovision auf die bewilligte Fördersumme berechnet — fällig erst bei tatsächlicher Auszahlung. Je höher die Summe, desto niedriger der Satz.",
+          tags: ["Erfolgshonorar", "Staffelprovision", "0 € Risiko"],
         },
         {
           number: "03",
-          title: "Nicht nur Berater. Aktiver ZIM-Netzwerkmanager.",
-          body: "Denis Jänicke managt aktiv das ZIM-Innovationsnetzwerk SEAWEED DECARBON POLYMER (12+ Partnerorganisationen). Das ist kein Handbuch-Wissen — das ist gelebte Praxis. Wer ZIM-Förderung beantragt, arbeitet mit jemandem zusammen, der selbst ZIM-Netzwerke aufbaut und betreibt.",
-          tags: ["ZIM-Netzwerkmanager", "12+ Partner", "Bundesweit"],
+          title: "Aktiver ZIM-Netzwerkmanager — nicht nur Berater.",
+          body: "Denis Jänicke managt aktiv das ZIM-Innovationsnetzwerk SEAWEED DECARBON POLYMER (12+ Partner aus Forschung und Industrie). Wer ZIM-Förderung beantragt, arbeitet mit jemandem zusammen, der selbst Netzwerke aufbaut und Anträge bei Projektträgern einreicht.",
+          tags: ["ZIM-Netzwerkmanager", "12+ Partner", "Cleantech"],
         },
       ],
     },
@@ -368,8 +368,8 @@ export const translations = {
     // ─── Leistungsseiten ───
     services: {
       backToHome: "← Zurück zur Startseite",
-      ctaHeadline: "Bereit für den nächsten Schritt?",
-      ctaBody: "Kostenloser Quick-Check in 3 Minuten — finden Sie heraus, welche Förderprogramme für Ihr Unternehmen relevant sind.",
+      ctaHeadline: "Förderpotenzial Ihres Vorhabens prüfen",
+      ctaBody: "Kostenlose Ersteinschätzung in 3 Minuten — finden Sie heraus, welche Förderprogramme für Ihr Unternehmen relevant sind.",
       ctaButton: "Quick-Check starten →",
       ctaEmail: "Oder direkt schreiben:",
       processLabel: "SO ARBEITEN WIR",
@@ -544,10 +544,10 @@ export const translations = {
     // ─── HeroSection ───
     hero: {
       tag: "Sustainability · Cleantech · Innovation · ZIM",
-      headline: "Grant Advisory for SMEs.",
-      sub: "Ready Concepts. Real Expertise. Success Fee Only.",
-      body: "We come to you with a ready-made funding concept — not with an empty introductory meeting. Senior expertise from active ZIM networks, thousands of analysed programmes, and real application practice. Fee only upon approval.",
-      ctaPrimary: "Start Quick-Check →",
+      headline: "German Grant Consulting for SMEs — with a tailored proposal before the first meeting.",
+      sub: "Tailored Proposals. Hands-on Expertise. No Win, No Fee.",
+      body: "Before we meet, we've already analysed your funding potential. You receive a tailored proposal with matching programmes, realistic grant rates, and a concrete roadmap. Our fee is only due upon approval.",
+      ctaPrimary: "Check your funding potential — free →",
       ctaSecondary: "Services",
       imgAlt: "Verde Onda – The Green Wave",
     },
@@ -555,20 +555,20 @@ export const translations = {
     // ─── ProblemSection ───
     problem: {
       label: "The Challenge",
-      headline: "The Theory Fog.",
-      body: "Many SMEs experience sustainability as paralyzing complexity. We know that feeling. And we solve it – with clarity, strategy, and funded implementation.",
+      headline: "Three barriers costing SMEs grant funding.",
+      body: "Over 2,000 funding programmes in Germany — and most SMEs don't use a single one. The reasons are almost always the same.",
       cards: [
         {
-          title: "Supply Chain Pressure",
-          desc: "Most SMEs are not directly subject to CSRD — but large customers increasingly demand ESG data through the supply chain. Without preparation, contract and credit risks arise.",
+          title: "Complex Funding Landscape",
+          desc: "Over 2,000 programmes, constantly shifting deadlines, and complex eligibility rules: most SMEs leave significant funding on the table simply because they can't see the full picture.",
         },
         {
-          title: "Funding Chaos",
-          desc: "Opaque grant logic, budget freezes, and application deadlines: most SMEs leave money on the table because they lack the overview.",
+          title: "No In-House Grant Expertise",
+          desc: "Between day-to-day operations and grant bureaucracy, internal capacity is lacking — along with the specific experience a successful application requires.",
         },
         {
-          title: "Resource Gap",
-          desc: "Between day-to-day operations and grant bureaucracy, internal capacity is lacking – sustainability stays a declaration of intent, not reality.",
+          title: "Supply Chain & ESG Pressure",
+          desc: "Large customers demand ESG data, banks ask for sustainability metrics. Companies that aren't prepared risk losing contracts and credit terms.",
         },
       ],
     },
@@ -577,19 +577,19 @@ export const translations = {
     solution: {
       label: "What We Do",
       headline1: "Five Services,",
-      headline2: "One Goal.",
-      body: "Turnkey solutions – from funding strategy to audit-proof implementation.",
+      headline2: "One Goal: Your Grant Gets Approved.",
+      body: "From programme selection to final financial reporting — everything from a single source.",
       channels: [
         {
           label: "01",
           title: "Grant Advisory",
-          desc: "Programme selection, application and management from a single source — from initial screening to final reporting.",
+          desc: "From programme selection through the complete application to final financial reporting. You receive an approval, not just a recommendation.",
           tags: ["Federal", "State", "EU", "Success Fee"],
         },
         {
           label: "02",
           title: "ZIM Funding",
-          desc: "Individual projects, cooperations and innovation networks — with senior expertise from active ZIM networks.",
+          desc: "Individual projects, cooperations, and innovation networks — guided by an active ZIM network manager.",
           tags: ["ZIM", "R&D", "Network", "BMWK"],
         },
         {
@@ -601,13 +601,13 @@ export const translations = {
         {
           label: "04",
           title: "CSRD Advisory",
-          desc: "ESG data for supply chain requests under the VSME standard — pragmatic, proportionate, and with Value Chain Cap protection.",
+          desc: "When large customers demand ESG data: we deliver exactly what the EU requires — nothing more, nothing less. Pragmatic, VSME-based.",
           tags: ["CSRD", "VSME", "ESG", "Reporting"],
         },
         {
           label: "05",
           title: "Sustainability Strategy",
-          desc: "Roadmaps that prioritise rather than overwhelm. Clear steps, measurable impact, fundable measures.",
+          desc: "Sustainability strategy directly linked to funding programmes. Every measure comes with a financing plan.",
           tags: ["Roadmap", "Strategy", "GHG Reduction"],
         },
       ],
@@ -617,20 +617,20 @@ export const translations = {
     results: {
       label: "Proven Results",
       headline: "What our clients gain.",
-      body: "No promise without proof.",
+      body: "Selected projects and results.",
       refsLabel: "References",
       outcomes: [
         {
-          title: "Certainty",
-          desc: "Clarity on every step – from application to audit. No nasty surprises.",
+          title: "Zero Risk",
+          desc: "Success fee: you only pay when grant funding is approved. No retainer, no upfront costs.",
         },
         {
-          title: "Impact",
-          desc: "Measurably improved sustainability KPIs. GHG reduction, energy efficiency, ESG readiness.",
+          title: "Measurable Impact",
+          desc: "GHG reduction, energy efficiency, ESG readiness — with concrete KPIs, not declarations of intent.",
         },
         {
-          title: "Investment Power",
-          desc: "Create financial headroom through smart funding – more capital for your core business.",
+          title: "Up to 60% Grant",
+          desc: "Unlock funding that reduces your equity share — more headroom for core business investments.",
         },
       ],
       customers: [
@@ -638,28 +638,28 @@ export const translations = {
           nr: "01",
           company: "Kelorina",
           result: "55% Grant",
-          type: "Funding Secured",
-          program: "Energy & Climate",
-          desc: "Full grant application and successful approval in renewable energy – from initial programme screening to funding notification.",
+          type: "Renewable Energy · Brandenburg",
+          program: "Federal Programme",
+          desc: "Full grant application and approval for a renewable energy project. 55% grant on total investment — from programme screening to approval notification in 5 months.",
           tags: ["Renewable Energy", "Grant Application", "Approval"],
         },
         {
           nr: "02",
           company: "Green Island",
           result: "60% Grant",
-          type: "Energy Research",
-          program: "R&D Funding",
-          desc: "Funding strategy, programme selection and complete application in energy research and process efficiency.",
-          tags: ["R&D", "Energy Efficiency", "Grant Application"],
+          type: "Cleantech · R&D · Saxony",
+          program: "ZIM Funding",
+          desc: "Funding strategy, programme selection, and complete application in energy research and process efficiency. 60% grant on a six-figure project volume.",
+          tags: ["R&D", "Energy Efficiency", "ZIM"],
         },
         {
           nr: "03",
           company: "Kiyora",
           result: "ESG-Ready",
-          type: "Sustainability Advisory",
+          type: "Food Industry · Berlin",
           program: "VSME Standard",
-          desc: "ESG data strategy under the VSME standard — supply-chain-ready, proportionate, and with Value Chain Cap protection.",
-          tags: ["VSME", "ESG", "Supply Chain", "Value Chain Cap"],
+          desc: "ESG data strategy under the VSME standard — supply-chain-ready and proportionate. Built a robust dataset for large customer enquiries and bank discussions.",
+          tags: ["VSME", "ESG", "Supply Chain", "CSRD"],
         },
       ],
     },
@@ -669,7 +669,7 @@ export const translations = {
       label: "Free Quick-Check",
       headline1: "Your Funding Potential",
       headline2: "in 3 minutes.",
-      body: "Find your matching grant programmes in 3 minutes. Precise, free of charge.",
+      body: "Initial assessment of your funding potential in 3 minutes. Free, no obligation.",
       loading: "Analysing…",
       loadingSub: "Matching grant programmes. Just a moment.",
       error: "The analysis could not be completed. Please try again.",
@@ -765,7 +765,7 @@ export const translations = {
       deadline: "Application Deadline",
       source: "Source:",
       ctaHeadline: "Does this fit your company?",
-      ctaBody: "Find out which funding programmes are relevant for you in 5 minutes.",
+      ctaBody: "Find out which funding programmes are relevant for you in 3 minutes.",
       ctaButton: "Start Quick-Check →",
       deadlineExpired: "Expired",
       deadlineToday: "Today!",
@@ -775,16 +775,16 @@ export const translations = {
 
     // ─── AboutSection ───
     about: {
-      label: "Who's behind it",
+      label: "The Founder",
       headline: "Denis Jänicke",
       subtitle: "Founder · VO Sustain · Berlin",
-      quote: "I combine technical grant expertise with pragmatic implementation – so your sustainability investment doesn't get stuck at a desk.",
+      quote: "As an active ZIM network manager, I write the applications I have reviewed. I know both sides of the process — and that's what makes the difference.",
       credentials: [
-        { label: "EU–Federal–State", sub: "Full funding coverage" },
-        { label: "End-to-End", sub: "Concept to final reporting" },
-        { label: "DE · EU · Asia", sub: "Project regions" },
+        { label: "ZIM · BAFA · EFRE", sub: "Core Programmes" },
+        { label: "Application to Reporting", sub: "Full Support" },
+        { label: "12+ Partners", sub: "Active ZIM Network" },
       ],
-      bio: "Senior Grant & Programme Operations Lead specialising in EU funding and consortium management. ZIM Network Manager for the SEAWEED DECARBON POLYMER project (12+ partners). Audit-proof process design, financial reporting, and CSRD compliance support.",
+      bio: "Grant consultant specialising in ZIM, BAFA, and EU funding. Active network manager for the ZIM Innovation Network SEAWEED DECARBON POLYMER (12+ research and industry partners). Hands-on experience across the full grant lifecycle: application, project sponsor communication, disbursement, and final financial reporting.",
       imgAlt: "Denis Jänicke – Founder VO Sustain",
     },
 
@@ -792,7 +792,7 @@ export const translations = {
     logoTicker: {
       label: "FUNDING LANDSCAPE",
       headline: "A Selection of Programmes",
-      body: "Federal, regional, European — we navigate the entire funding landscape for your SME.",
+      body: "Federal, regional, European — the programmes we review for you.",
     },
 
     // ─── FaqSection ───
@@ -875,21 +875,21 @@ export const translations = {
       usps: [
         {
           number: "01",
-          title: "A ready funding concept, not an empty first meeting.",
-          body: "We don't arrive with a brochure — we arrive with a fully developed funding concept: matching programmes, realistic rates, concrete roadmap. Built on active ZIM networks, hundreds of applications, and real project experience. Before you've even decided whether to engage us.",
-          tags: ["Concept-First", "Senior Expertise", "349 Programmes"],
+          title: "A tailored funding proposal before the first meeting.",
+          body: "We invest upfront in your project because we only take on mandates where we are confident in fundability. You receive a proposal with specific programmes and grant rates — as a decision basis, not a sales pitch.",
+          tags: ["Concept-First", "Upfront Analysis", "349 Programmes"],
         },
         {
           number: "02",
-          title: "We come with the concept. Not the questionnaire.",
-          body: "The entire market works reactively: clients come with a project, consultants respond. VO Sustain reverses that. We analyse your company upfront, identify your funding potential, and arrive with a ready concept. The first meeting isn't an introductory chat — it's a decision session.",
-          tags: ["Upfront Analysis", "Ready Concept", "€0 Risk"],
+          title: "Success fee. Zero risk for you.",
+          body: "No retainer, no upfront payment, no fee on rejection. Our fee is a tiered commission on the approved funding amount — due only upon actual disbursement. The higher the sum, the lower the rate.",
+          tags: ["Success Fee", "Tiered Commission", "€0 Risk"],
         },
         {
           number: "03",
-          title: "Not just a consultant. An active ZIM network manager.",
-          body: "Denis Jänicke actively manages the ZIM innovation network SEAWEED DECARBON POLYMER (12+ partner organisations). This isn't textbook knowledge — it's lived practice. When you apply for ZIM funding, you work with someone who builds and runs ZIM networks themselves.",
-          tags: ["ZIM Network Manager", "12+ Partners", "Germany-wide"],
+          title: "Active ZIM network manager — not just a consultant.",
+          body: "Denis Jänicke actively manages the ZIM Innovation Network SEAWEED DECARBON POLYMER (12+ research and industry partners). When you apply for ZIM funding, you work with someone who builds networks and submits applications to project sponsors himself.",
+          tags: ["ZIM Network Manager", "12+ Partners", "Cleantech"],
         },
       ],
     },
@@ -897,8 +897,8 @@ export const translations = {
     // ─── Leistungsseiten ───
     services: {
       backToHome: "← Back to Home",
-      ctaHeadline: "Ready for the next step?",
-      ctaBody: "Free Quick-Check in 3 minutes — find out which funding programmes are relevant for your company.",
+      ctaHeadline: "Check your project's funding potential",
+      ctaBody: "Free initial assessment in 3 minutes — find out which funding programmes are relevant for your company.",
       ctaButton: "Start Quick-Check →",
       ctaEmail: "Or write directly:",
       processLabel: "HOW WE WORK",
@@ -1039,7 +1039,7 @@ export const translations = {
 
     // ─── FooterSection ───
     footer: {
-      tagline: "Grant advisory for German SMEs. Funding management · CSRD · Sustainability strategy.",
+      tagline: "Grant consultancy for German SMEs. Public funding · CSRD compliance · Sustainability strategy.",
       location: "Berlin, Germany",
       navLabel: "Navigation",
       navLinks: [
