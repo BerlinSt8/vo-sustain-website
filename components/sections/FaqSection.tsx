@@ -33,6 +33,11 @@ function FaqItem({ item, isOpen, onToggle, index }: {
       transition={{ duration: 0.4, delay: index * 0.04 }}
       style={{
         borderBottom: "1px solid rgba(11,22,34,0.08)",
+        background: isOpen ? "rgba(39,174,96,0.03)" : "transparent",
+        borderRadius: isOpen ? "8px" : "0px",
+        padding: isOpen ? "0 1rem" : "0",
+        margin: isOpen ? "4px 0" : "0",
+        transition: "background 0.3s, padding 0.3s, margin 0.3s, border-radius 0.3s",
       }}
     >
       <button
@@ -131,7 +136,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      style={{ background: "var(--off-white)", padding: "6rem 8vw" }}
+      style={{ background: "var(--off-white)", padding: "6rem 8vw", position: "relative", zIndex: 1 }}
     >
       <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         {/* Label */}

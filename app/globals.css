@@ -314,6 +314,19 @@ select option {
   .process-connector { display: none; }
 }
 
+/* ---- Film Grain Overlay ---- */
+.grain-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+}
+
 /* ---- Reduce motion ---- */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -321,6 +334,7 @@ select option {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .grain-overlay::after { display: none; }
 }
 
 /* ---- Print ---- */

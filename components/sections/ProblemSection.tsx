@@ -158,29 +158,41 @@ export default function ProblemSection() {
           </span>
         </motion.div>
 
-        {/* Headline */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
-            fontWeight: 900,
-            color: "white",
-            lineHeight: 1.05,
-            marginBottom: "1.25rem",
-            maxWidth: "700px",
-          }}
-        >
-          {t.problem.headline}
-        </motion.h2>
+        {/* Headline — word-by-word reveal */}
+        <h2 style={{
+          fontFamily: "'Montserrat', sans-serif",
+          fontSize: "clamp(2rem, 5vw, 3.5rem)",
+          fontWeight: 900,
+          color: "white",
+          lineHeight: 1.05,
+          marginBottom: "1.25rem",
+          maxWidth: "700px",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "0 0.25em",
+        }}>
+          {t.problem.headline.split(" ").map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1 + i * 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              style={{ display: "inline-block" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h2>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           style={{
             fontFamily: "'Open Sans', sans-serif",
             fontSize: "1.05rem",

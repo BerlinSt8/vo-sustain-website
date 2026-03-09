@@ -120,26 +120,46 @@ export default function WhySection() {
         {w.label}
       </motion.p>
 
-      {/* Headline */}
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        style={{
-          fontFamily: "'Montserrat', sans-serif",
-          fontWeight: 900,
-          fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
-          color: "#0B1622",
-          lineHeight: 1.05,
-          letterSpacing: "-0.02em",
-          marginBottom: "3.5rem",
-          maxWidth: "600px",
-        }}
-      >
-        {w.headline}<br />
-        <span style={{ color: "#27AE60" }}>{w.headline2}</span>
-      </motion.h2>
+      {/* Headline — word-by-word reveal with verde accent */}
+      <h2 style={{
+        fontFamily: "'Montserrat', sans-serif",
+        fontWeight: 900,
+        fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+        color: "#0B1622",
+        lineHeight: 1.05,
+        letterSpacing: "-0.02em",
+        marginBottom: "3.5rem",
+        maxWidth: "600px",
+      }}>
+        <span style={{ display: "flex", flexWrap: "wrap", gap: "0 0.25em" }}>
+          {w.headline.split(" ").map((word, i) => (
+            <motion.span
+              key={`h1-${i}`}
+              initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.05 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              style={{ display: "inline-block" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </span>
+        <span style={{ display: "flex", flexWrap: "wrap", gap: "0 0.25em", color: "#27AE60" }}>
+          {w.headline2.split(" ").map((word, i) => (
+            <motion.span
+              key={`h2-${i}`}
+              initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.3 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              style={{ display: "inline-block" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </span>
+      </h2>
 
       {/* USP Grid — 3D Tilt Cards */}
       <div style={{

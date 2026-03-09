@@ -224,7 +224,34 @@ export default function SolutionSection() {
               marginBottom: "1.25rem",
               maxWidth: "700px",
             }}>
-              {t.solution.headline1}<br />{t.solution.headline2}
+              <span style={{ display: "flex", flexWrap: "wrap", gap: "0 0.25em" }}>
+                {t.solution.headline1.split(" ").map((word, i) => (
+                  <motion.span
+                    key={`s1-${i}`}
+                    initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ display: "inline-block" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </span>
+              <span style={{ display: "flex", flexWrap: "wrap", gap: "0 0.25em" }}>
+                {t.solution.headline2.split(" ").map((word, i) => (
+                  <motion.span
+                    key={`s2-${i}`}
+                    initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ display: "inline-block" }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </span>
             </h2>
             <p style={{
               fontFamily: "'Open Sans', sans-serif",

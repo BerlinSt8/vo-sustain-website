@@ -46,19 +46,23 @@ function StackCard({
     offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0.15, 0.85], isLast ? [1, 1] : [1, 0.93]);
-  const dimOpacity = useTransform(scrollYProgress, [0.15, 0.85], isLast ? [0, 0] : [0, 0.45]);
-  const rotateX = useTransform(scrollYProgress, [0.15, 0.85], isLast ? [0, 0] : [0, -2]);
+  // Dramatic scale-down + rotation for visible stacking
+  const scale = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [1, 1] : [1, 0.9]);
+  const dimOpacity = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [0, 0] : [0, 0.6]);
+  const rotateX = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [0, 0] : [0, -4]);
+  const borderRadius = useTransform(scrollYProgress, [0.3, 0.9], isLast ? [16, 16] : [16, 20]);
+
+  // Each card sticks at a staggered offset — creates visible stack edges
+  const stickyTop = isMobile ? 56 : 80 + index * 32;
 
   return (
     <div
       ref={ref}
       style={{
-        position: "sticky",
-        top: "56px",
+        position: isMobile ? "relative" : "sticky",
+        top: isMobile ? undefined : `${stickyTop}px`,
         height: isMobile ? "auto" : "100vh",
-        minHeight: isMobile ? "auto" : undefined,
-        paddingBottom: "2rem",
+        minHeight: isMobile ? "auto" : "500px",
         zIndex: index + 1,
       }}
     >
@@ -67,13 +71,18 @@ function StackCard({
           scale,
           rotateX,
           transformOrigin: "top center",
-          height: isMobile ? "auto" : "calc(100% - 2rem)",
+          height: isMobile ? "auto" : `calc(100vh - ${stickyTop + 40}px)`,
           position: "relative",
-          borderRadius: "16px",
+          borderRadius,
           overflow: "hidden",
-          background: "var(--navy)",
-          border: "1px solid rgba(255,255,255,0.07)",
-          boxShadow: "0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03)",
+          background: `linear-gradient(145deg, #0D1E30 0%, #0A1628 60%, #0D1B2A 100%)`,
+          border: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: `
+            0 ${4 + index * 12}px ${30 + index * 25}px rgba(0,0,0,0.6),
+            0 0 0 1px rgba(255,255,255,0.03),
+            inset 0 1px 0 rgba(255,255,255,0.05),
+            inset 0 -1px 0 rgba(0,0,0,0.2)
+          `,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

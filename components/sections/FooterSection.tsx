@@ -1,13 +1,17 @@
 "use client";
 
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { motion } from "framer-motion";
 
 export default function FooterSection() {
   const { t } = useLanguage();
   const year = 2026;
 
   return (
-    <footer style={{ background: "var(--navy-dark)", position: "relative" }}>
+    <footer style={{
+      background: "var(--navy-dark)",
+      position: "relative",
+    }}>
       {/* Gradient separator — verde glow line */}
       <div style={{
         height: "1px",

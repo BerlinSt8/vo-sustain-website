@@ -191,10 +191,10 @@ export default function AboutSection() {
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 20, scale: 0.9, filter: "blur(8px)" }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 * i }}
+                    transition={{ duration: 0.7, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.6rem", fontWeight: 900, color: "var(--verde-bright)", lineHeight: 1 }}>
                       {parsed ? (

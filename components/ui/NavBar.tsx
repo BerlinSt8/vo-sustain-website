@@ -122,16 +122,17 @@ export default function NavBar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s, border-color 0.4s",
+          transition: "background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s, border-color 0.4s, border-bottom 0.4s",
           background: scrolled
-            ? "rgba(8,15,26,0.85)"
-            : "rgba(13,27,42,0.6)",
-          backdropFilter: "blur(20px) saturate(1.4)",
-          WebkitBackdropFilter: "blur(20px) saturate(1.4)",
+            ? "rgba(8,15,26,0.75)"
+            : "rgba(8,15,26,0)",
+          backdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "blur(0px)",
+          WebkitBackdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "blur(0px)",
           boxShadow: scrolled
-            ? "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)"
-            : "0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05)",
-          border: "1px solid rgba(255,255,255,0.06)",
+            ? "0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.03)"
+            : "none",
+          border: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(255,255,255,0)",
+          borderBottom: scrolled ? "1px solid rgba(46,204,113,0.08)" : "1px solid rgba(255,255,255,0)",
           borderRadius: isMobile ? 0 : "14px",
         }}
       >
