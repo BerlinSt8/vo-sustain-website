@@ -1,5 +1,48 @@
 [
   {
+    "id": "007",
+    "slug": "bafa-stark-kohleregionen-transformationstechnologien",
+    "title": "BAFA STARK: Bis 90 % Förderung in Kohleregionen — Kategorie 12 erstmals investiv",
+    "title_en": "BAFA STARK: Up to 90% Funding in Coal Regions — Category 12 Opens Investment Track",
+    "category": "Marktinfo",
+    "date": "2026-03-09",
+    "deadline": null,
+    "teaser": "Das STARK-Programm fördert die Transformation in deutschen Kohleregionen mit bis zu 90 % Zuschuss. Seit der Novelle August 2024 ist erstmals investive Förderung möglich: Kategorie 12 finanziert den Aufbau von Produktionskapazitäten für Batterien, Solarpaneele, Windturbinen, Wärmepumpen und Elektrolyseure — bis 200 Mio. EUR pro Unternehmen.",
+    "teaser_en": "The STARK programme funds transformation in German coal regions with up to 90% grants. Since the August 2024 amendment, investment funding is available for the first time: Category 12 finances production capacity for batteries, solar panels, wind turbines, heat pumps and electrolysers — up to €200m per company.",
+    "facts": [
+      { "label": "Programm", "value": "BAFA STARK (Novelle Aug. 2024)", "icon": "🏛️" },
+      { "label": "Förderquote", "value": "bis 90 % (Kat. 1–11)", "icon": "💶" },
+      { "label": "Kat. 12 KMU", "value": "bis 40 % (kleine U.)", "icon": "🏭" },
+      { "label": "Max. Beihilfe", "value": "200 Mio. EUR (C-Gebiet)", "icon": "📊" },
+      { "label": "Laufzeit", "value": "bis 31. Dezember 2038", "icon": "📅" },
+      { "label": "Fördergebiet", "value": "Lausitz · Mitteldeutschland · Rheinland", "icon": "📍" }
+    ],
+    "facts_en": [
+      { "label": "Programme", "value": "BAFA STARK (amended Aug. 2024)", "icon": "🏛️" },
+      { "label": "Funding Rate", "value": "up to 90% (Cat. 1–11)", "icon": "💶" },
+      { "label": "Cat. 12 SME", "value": "up to 40% (small enterprises)", "icon": "🏭" },
+      { "label": "Max. Aid", "value": "€200m (C-region)", "icon": "📊" },
+      { "label": "Duration", "value": "until 31 December 2038", "icon": "📅" },
+      { "label": "Eligible Area", "value": "Lusatia · Central Germany · Rhineland", "icon": "📍" }
+    ],
+    "content": [
+      "Das STARK-Programm (Stärkung der Transformationsdynamik und Aufbruch in den Revieren und an den Kohlekraftwerkstandorten) ist eines der größten Strukturwandel-Programme Deutschlands. Rechtsgrundlage ist das Strukturstärkungsgesetz Kohleregionen (InvKG) — Teil des 26-Milliarden-Euro-Pakets des Bundes für die Kohleregionen bis 2038. Administriert wird das Programm vom BAFA (Kategorien 1–11) und VDI/VDE Innovation + Technik GmbH (Kategorie 12). Im März 2026 hat das BAFA den 400. Zuwendungsbescheid erteilt — das Programm ist aktiv und bewilligt laufend.",
+      "12 Förderkategorien — von Vernetzung bis Transformationstechnologien: STARK deckt ein breites Spektrum ab: Vernetzung (Kat. 1), Wissens- und Technologietransfer (Kat. 2), Beratung (Kat. 3), Qualifikation und Weiterbildung (Kat. 4), nachhaltige Anpassung öffentlicher Leistungen (Kat. 5), Planungskapazitäten (Kat. 6), Gemeinsinn und Zukunftsverständnis (Kat. 7), Außenwirtschaft (Kat. 8), wissenschaftliche Begleitung (Kat. 9), Stärkung unternehmerischen Handelns (Kat. 10), innovative Ansätze (Kat. 11) und — seit der Novelle vom 13. August 2024 — Transformationstechnologien (Kat. 12). Die Förderquoten für Kategorien 1–7 und 10–11 liegen bei bis zu 90 %, Kategorie 8 bei bis zu 80 % und Kategorie 9 bei bis zu 70 %. Der Eigenanteil beträgt mindestens 10 % der förderfähigen Ausgaben.",
+      "Kategorie 12 — der Gamechanger für Cleantech-KMU in Kohleregionen: Die Novelle hat erstmals eine rein investive Förderkomponente eingeführt. Gefördert wird der Auf- und Ausbau von Produktionskapazitäten für Transformationstechnologien: Batterien, Solarpaneele, Windturbinen, Wärmepumpen, Elektrolyseure und CCUS-Ausrüstung (CO₂-Abscheidung, Nutzung und Speicherung). Auch Schlüsselkomponenten und die Rückgewinnung kritischer Rohstoffe sind förderfähig. Beihilfeintensität: bis zu 40 % für kleine Unternehmen und bis zu 30 % für mittlere Unternehmen. In C-Fördergebieten kann die Beihilfe auf bis zu 200 Mio. EUR pro Unternehmen angehoben werden. Mindestinvestition: 500.000 EUR für KMU, 1 Mio. EUR für große Unternehmen. Projektträger ist VDI/VDE Innovation + Technik GmbH (Berlin).",
+      "Antrag und Verfahren: Für Kategorien 1–11 erfolgt die Antragstellung über das easy-Online-Portal beim BAFA. Für Kategorie 12 läuft ein zweistufiges Verfahren: Zuerst wird eine Projektskizze (max. 20 DIN-A4-Seiten) beim Projektträger VDI/VDE-IT eingereicht. Die Skizze muss u. a. strukturpolitische Wirksamkeit, Marktpotenzial, Finanzierungsplan und Verwertungskonzept darlegen. Erst nach positiver Bewertung und Landes-Votum erfolgt die Aufforderung zum förmlichen Förderantrag über easy-Online. Projektlaufzeit: in der Regel bis zu 4 Jahre, verlängerbar. Entscheidend: Vor Projektbeginn dürfen keine rechtsverbindlichen Bestellungen oder Bauarbeiten getätigt werden.",
+      "Für wen ist STARK relevant? Das Programm richtet sich an Akteure in den Kohleregionen: Lausitzer Revier (Brandenburg, Sachsen), Mitteldeutsches Revier (Sachsen-Anhalt, Sachsen, Thüringen), Rheinisches Revier (NRW) sowie an Kohlekraftwerkstandorten bundesweit. Bei Unternehmen stehen KMU im Fokus — aber auch Kommunen, Hochschulen, Vereine und gemeinnützige Organisationen sind antragsberechtigt. Für Cleantech-KMU in diesen Regionen ist Kategorie 12 besonders attraktiv: Wer Produktionskapazitäten für grüne Technologien aufbauen will, kann bis zu 40 % der Investitionskosten als nicht rückzahlbaren Zuschuss erhalten. VO Sustain prüft, ob Ihr Standort in einem Fördergebiet liegt, und begleitet von der Skizze bis zum Verwendungsnachweis."
+    ],
+    "content_en": [
+      "The STARK programme (Strengthening Transformation Dynamics and New Beginnings in Coal Regions and at Coal Power Plant Sites) is one of Germany's largest structural change programmes. Its legal basis is the Structural Strengthening Act for Coal Regions (InvKG) — part of the federal government's €26 billion package for coal regions through 2038. The programme is administered by BAFA (Categories 1–11) and VDI/VDE Innovation + Technik GmbH (Category 12). In March 2026, BAFA issued its 400th grant notice — the programme is active and approving applications on an ongoing basis.",
+      "12 funding categories — from networking to transformation technologies: STARK covers a broad spectrum: networking (Cat. 1), knowledge and technology transfer (Cat. 2), consulting (Cat. 3), qualification and training (Cat. 4), sustainable adaptation of public services (Cat. 5), planning capacity (Cat. 6), community and shared future vision (Cat. 7), foreign trade (Cat. 8), scientific research support (Cat. 9), entrepreneurship (Cat. 10), innovative approaches (Cat. 11), and — since the amendment of 13 August 2024 — transformation technologies (Cat. 12). Funding rates for Categories 1–7 and 10–11 are up to 90%, Category 8 up to 80%, and Category 9 up to 70%. The minimum co-financing share is 10% of eligible expenditure.",
+      "Category 12 — the game changer for cleantech SMEs in coal regions: The amendment introduced a purely investment-focused funding component for the first time. Funded is the construction and expansion of production capacity for transformation technologies: batteries, solar panels, wind turbines, heat pumps, electrolysers, and CCUS equipment (carbon capture, utilisation and storage). Key components and the recovery of critical raw materials are also eligible. Aid intensity: up to 40% for small enterprises and up to 30% for medium-sized enterprises. In C-support regions, aid can be increased to up to €200m per company. Minimum investment: €500,000 for SMEs, €1m for large enterprises. The project sponsor is VDI/VDE Innovation + Technik GmbH (Berlin).",
+      "Application and procedure: For Categories 1–11, applications are submitted via the easy-Online portal at BAFA. For Category 12, a two-stage process applies: first, a project outline (max. 20 DIN A4 pages) is submitted to the project sponsor VDI/VDE-IT. The outline must demonstrate structural policy impact, market potential, financing plan, and commercialisation concept. Only after a positive assessment and a state-level vote is the applicant invited to submit a formal funding application via easy-Online. Project duration: typically up to 4 years, extendable. Critical: no legally binding orders or construction work may commence before project start.",
+      "Who is STARK relevant for? The programme targets actors in coal regions: Lusatian district (Brandenburg, Saxony), Central German district (Saxony-Anhalt, Saxony, Thuringia), Rhenish district (NRW), and at coal power plant sites nationwide. For enterprises, the focus is on SMEs — but municipalities, universities, associations, and non-profit organisations are also eligible. For cleantech SMEs in these regions, Category 12 is particularly attractive: companies building production capacity for green technologies can receive up to 40% of investment costs as a non-repayable grant. VO Sustain checks whether your location falls within an eligible area and guides you from the project outline through to the final financial report."
+    ],
+    "tags": ["STARK", "BAFA", "Kohleregionen", "Transformationstechnologien", "Strukturwandel", "KMU", "Lausitz", "Kategorie 12", "Cleantech"],
+    "source": "https://www.bafa.de/DE/Wirtschaft/Beratung_Finanzierung/Stark_2/stark_2_node.html"
+  },
+  {
     "id": "005",
     "slug": "esa-horizon-europe-2026-erdbeobachtung",
     "title": "ESA & Horizon Europe 2026: Koordinierter Call für Erdbeobachtung & Klimaforschung",
