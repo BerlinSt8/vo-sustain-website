@@ -2,6 +2,7 @@ import NavBar from "@/components/ui/NavBar";
 import WaveDivider from "@/components/ui/WaveDivider";
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
+import WhySection from "@/components/sections/WhySection";
 import SolutionSection from "@/components/sections/SolutionSection";
 import ResultsSection from "@/components/sections/ResultsSection";
 import LogoTickerSection from "@/components/sections/LogoTickerSection";
@@ -12,11 +13,11 @@ import FooterSection from "@/components/sections/FooterSection";
 import { translations } from "@/lib/i18n/translations";
 
 export const metadata = {
-  title: "Förderberatung für KMU: ZIM, BAFA & CSRD | VO Sustain",
-  description: "Professionelle Förderberatung für deutsche KMU. ZIM bis 600.000 €, BAFA bis 55 %, CSRD nach VSME-Standard. Kostenloser Quick-Check in 3 Minuten – schlüsselfertig und audit-sicher.",
+  title: "Förderberatung Cleantech KMU: ZIM, BAFA & CSRD | VO Sustain",
+  description: "KI-gestützte Förderberatung für Cleantech & Nachhaltigkeit KMU. ZIM bis 600.000 €, BAFA bis 55 %, Erfolgshonorar. Fertige Konzepte in 48h — Quick-Check kostenlos.",
   openGraph: {
-    title: "Förderberatung für KMU: ZIM, BAFA & CSRD | VO Sustain",
-    description: "Professionelle Förderberatung für deutsche KMU. ZIM bis 600.000 €, BAFA bis 55 %, CSRD nach VSME-Standard. Kostenloser Quick-Check in 3 Minuten.",
+    title: "Förderberatung Cleantech KMU: ZIM, BAFA & CSRD | VO Sustain",
+    description: "KI-gestützte Förderberatung für Cleantech & Nachhaltigkeit KMU. ZIM bis 600.000 €, BAFA bis 55 %, Erfolgshonorar. Fertige Konzepte in 48h.",
     url: "https://www.vosustain.de",
     type: "website" as const,
   },
@@ -52,6 +53,9 @@ export default function Home() {
 
         {/* 2 – Problem: Der Theorie-Nebel */}
         <ProblemSection />
+
+        {/* 2b – Why: Drei USPs */}
+        <WhySection />
 
         {/* off-white → navy */}
         <WaveDivider fromColor="#F8F9FA" toColor="#0D1B2A" />
