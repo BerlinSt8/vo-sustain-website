@@ -3,16 +3,14 @@
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { motion } from "framer-motion";
 
-export default function FooterSection() {
+export default function FooterSection({ sticky = false }: { sticky?: boolean }) {
   const { t } = useLanguage();
   const year = 2026;
 
   return (
     <footer style={{
       background: "var(--navy-dark)",
-      position: "sticky",
-      bottom: 0,
-      zIndex: 0,
+      ...(sticky ? { position: "sticky" as const, bottom: 0, zIndex: 0 } : {}),
     }}>
       {/* Gradient separator — verde glow line */}
       <div style={{

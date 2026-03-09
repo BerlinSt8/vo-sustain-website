@@ -95,7 +95,7 @@ export default function Home() {
       <div style={{ height: "400px", background: "transparent" }} />
 
       {/* 7 – Footer */}
-      <FooterSection />
+      <FooterSection sticky />
     </>
   );
 }

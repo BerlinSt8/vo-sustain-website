@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
 
@@ -18,9 +18,8 @@ const CUSTOMER_LOGOS = [
 const CUSTOMER_ACCENTS = ["#27AE60", "#2ECC71", "#1E8449"];
 
 /**
- * JS-driven stack card — uses useScroll to compute a translateY that
- * pins the card to the viewport top while its scroll-spacer passes by.
- * No CSS `position: sticky` → immune to overflow ancestors.
+ * Sticky stack card — each card is position:sticky in a shared tall container.
+ * Cards stack on top of each other as you scroll, with later cards covering earlier ones.
  */
 function StackCard({
   customer,
@@ -35,7 +34,6 @@ function StackCard({
   index: number;
   total: number;
 }) {
-  const spacerRef = useRef<HTMLDivElement>(null);
   const isLast = index === total - 1;
   const [isMobile, setIsMobile] = useState(false);
 
@@ -47,19 +45,9 @@ function StackCard({
   }, []);
 
   const pinTop = isMobile ? 56 : 80;
-
-  // Track how far the spacer div has scrolled through the viewport
-  const { scrollYProgress } = useScroll({
-    target: spacerRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Scale down as the next card slides over
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], isLast ? [1, 1, 1] : [1, 1, 0.92]);
-  const dimOpacity = useTransform(scrollYProgress, [0, 0.5, 1], isLast ? [0, 0, 0] : [0, 0, 0.7]);
+  const cardHeight = isMobile ? 400 : 500;
 
   if (isMobile) {
-    // Mobile: simple stacked layout, no sticky behavior
     return (
       <div style={{ marginBottom: "1.5rem" }}>
         <CardContent
@@ -68,42 +56,28 @@ function StackCard({
           accent={accent}
           index={index}
           isMobile={true}
-          scale={scale}
-          dimOpacity={dimOpacity}
         />
       </div>
     );
   }
 
-  // Desktop: each spacer is 100vh tall. The card is position:sticky inside it.
-  // We use REAL position:sticky but on a container that's a direct child of the
-  // stack-cards wrapper — which has NO overflow set.
   return (
     <div
-      ref={spacerRef}
       style={{
-        height: "100vh",
-        minHeight: "500px",
+        position: "sticky",
+        top: `${pinTop}px`,
+        zIndex: index + 1,
+        height: `calc(100vh - ${pinTop + 40}px)`,
+        marginBottom: isLast ? "0" : "100vh",
       }}
     >
-      <div
-        style={{
-          position: "sticky",
-          top: `${pinTop}px`,
-          zIndex: index + 1,
-          height: `calc(100vh - ${pinTop + 40}px)`,
-        }}
-      >
-        <CardContent
-          customer={customer}
-          logo={logo}
-          accent={accent}
-          index={index}
-          isMobile={false}
-          scale={scale}
-          dimOpacity={dimOpacity}
-        />
-      </div>
+      <CardContent
+        customer={customer}
+        logo={logo}
+        accent={accent}
+        index={index}
+        isMobile={false}
+      />
     </div>
   );
 }
@@ -114,22 +88,16 @@ function CardContent({
   accent,
   index,
   isMobile,
-  scale,
-  dimOpacity,
 }: {
   customer: { nr: string; company: string; result: string; type: string; program: string; desc: string; tags: readonly string[] };
   logo: string;
   accent: string;
   index: number;
   isMobile: boolean;
-  scale: any;
-  dimOpacity: any;
 }) {
   return (
-    <motion.div
+    <div
       style={{
-        scale,
-        transformOrigin: "top center",
         height: "100%",
         position: "relative",
         borderRadius: 16,
@@ -250,9 +218,7 @@ function CardContent({
         )}
       </div>
 
-      {/* Dimming overlay */}
-      <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "16px" }} />
-    </motion.div>
+    </div>
   );
 }
 
