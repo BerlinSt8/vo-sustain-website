@@ -346,9 +346,9 @@ export const translations = {
       usps: [
         {
           number: "01",
-          title: "Förderanalyse in 48 Stunden, nicht 3 Wochen.",
-          body: "Während klassische Berater Wochen für eine Programmrecherche brauchen, durchsucht unsere KI-Infrastruktur (Grok-4 + Firecrawl) tausende Programme in Stunden. Das Ergebnis: ein präzises, belegtes Förderkonzept — noch bevor Sie sich entschieden haben, ob Sie uns beauftragen.",
-          tags: ["KI-gestützt", "Grok-4", "Tausende Programme"],
+          title: "Fertiges Förderkonzept statt leeres Erstgespräch.",
+          body: "Wir kommen nicht mit einer Broschüre, sondern mit einem ausgearbeiteten Förderkonzept — passende Programme, realistische Quoten, konkreter Fahrplan. Aus laufenden ZIM-Netzwerken, hunderten Anträgen und echter Projektpraxis. Noch bevor Sie sich entschieden haben, ob Sie uns beauftragen.",
+          tags: ["Konzept-First", "Senior-Expertise", "349 Programme"],
         },
         {
           number: "02",
@@ -875,9 +875,9 @@ export const translations = {
       usps: [
         {
           number: "01",
-          title: "Funding analysis in 48 hours, not 3 weeks.",
-          body: "While traditional consultants spend weeks on programme research, our AI infrastructure (Grok-4 + Firecrawl) searches thousands of programmes in hours. The result: a precise, evidence-based funding concept — before you've even decided whether to engage us.",
-          tags: ["AI-powered", "Grok-4", "1000+ Programmes"],
+          title: "A ready funding concept, not an empty first meeting.",
+          body: "We don't arrive with a brochure — we arrive with a fully developed funding concept: matching programmes, realistic rates, concrete roadmap. Built on active ZIM networks, hundreds of applications, and real project experience. Before you've even decided whether to engage us.",
+          tags: ["Concept-First", "Senior Expertise", "349 Programmes"],
         },
         {
           number: "02",
