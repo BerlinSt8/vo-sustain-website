@@ -16,8 +16,8 @@ export const translations = {
     hero: {
       tag: "Nachhaltigkeit · Cleantech · Innovation · ZIM",
       headline: "Förderberatung für KMU.",
-      sub: "KI-Analyse in 48h. Fertige Konzepte. Erfolgshonorar.",
-      body: "Wir kommen mit einem fertigen Förderkonzept zu Ihnen — nicht mit einem leeren Erstgespräch. KI-gestützte Analyse von tausenden Förderprogrammen (ZIM, BAFA, EFRE, Horizon Europe), ausgereift in 48 Stunden. Honorar nur bei Bewilligung.",
+      sub: "Fertige Konzepte. Echte Praxiserfahrung. Erfolgshonorar.",
+      body: "Wir kommen mit einem fertigen Förderkonzept zu Ihnen — nicht mit einem leeren Erstgespräch. Senior-Expertise aus laufenden ZIM-Netzwerken, tausenden analysierten Programmen und echter Antragspraxis. Honorar nur bei Bewilligung.",
       ctaPrimary: "Quick-Check starten →",
       ctaSecondary: "Leistungen",
       imgAlt: "Verde Onda – die Grüne Welle",
@@ -506,8 +506,8 @@ export const translations = {
     hero: {
       tag: "Sustainability · Cleantech · Innovation · ZIM",
       headline: "Grant Advisory for SMEs.",
-      sub: "AI Analysis in 48h. Ready Concepts. Success Fee Only.",
-      body: "We come to you with a ready-made funding concept — not with an empty introductory meeting. AI-powered analysis of thousands of funding programmes (ZIM, BAFA, EFRE, Horizon Europe), delivered in 48 hours. Fee only upon approval.",
+      sub: "Ready Concepts. Real Expertise. Success Fee Only.",
+      body: "We come to you with a ready-made funding concept — not with an empty introductory meeting. Senior expertise from active ZIM networks, thousands of analysed programmes, and real application practice. Fee only upon approval.",
       ctaPrimary: "Start Quick-Check →",
       ctaSecondary: "Services",
       imgAlt: "Verde Onda – The Green Wave",
