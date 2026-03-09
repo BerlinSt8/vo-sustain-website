@@ -17,7 +17,7 @@ export const translations = {
       tag: "VO SUSTAIN · Berlin · Deutschland",
       headline: "Förderberatung für Cleantech KMU.",
       sub: "KI-Analyse in 48h. Fertige Konzepte. Erfolgshonorar.",
-      body: "Wir kommen mit einem fertigen Förderkonzept zu Ihnen — nicht mit einem leeren Erstgespräch. KI-gestützte Analyse von 349 Programmen (ZIM, BAFA, EFRE, Horizon Europe), ausgereift in 48 Stunden. Honorar nur bei Bewilligung.",
+      body: "Wir kommen mit einem fertigen Förderkonzept zu Ihnen — nicht mit einem leeren Erstgespräch. KI-gestützte Analyse von tausenden Förderprogrammen (ZIM, BAFA, EFRE, Horizon Europe), ausgereift in 48 Stunden. Honorar nur bei Bewilligung.",
       ctaPrimary: "Quick-Check starten →",
       ctaSecondary: "Leistungen",
       imgAlt: "Verde Onda – die Grüne Welle",
@@ -335,8 +335,8 @@ export const translations = {
         {
           number: "01",
           title: "Förderanalyse in 48 Stunden, nicht 3 Wochen.",
-          body: "Während klassische Berater Wochen für eine Programmrecherche brauchen, durchsucht unsere KI-Infrastruktur (Grok-4 + Firecrawl) 349 Programme in Stunden. Das Ergebnis: ein präzises, belegtes Förderkonzept — noch bevor Sie sich entschieden haben, ob Sie uns beauftragen.",
-          tags: ["KI-gestützt", "Grok-4", "349 Programme"],
+          body: "Während klassische Berater Wochen für eine Programmrecherche brauchen, durchsucht unsere KI-Infrastruktur (Grok-4 + Firecrawl) tausende Programme in Stunden. Das Ergebnis: ein präzises, belegtes Förderkonzept — noch bevor Sie sich entschieden haben, ob Sie uns beauftragen.",
+          tags: ["KI-gestützt", "Grok-4", "Tausende Programme"],
         },
         {
           number: "02",
@@ -507,7 +507,7 @@ export const translations = {
       tag: "VO SUSTAIN · Berlin · Germany",
       headline: "Grant Advisory for Cleantech SMEs.",
       sub: "AI Analysis in 48h. Ready Concepts. Success Fee Only.",
-      body: "We come to you with a ready-made funding concept — not with an empty introductory meeting. AI-powered analysis of 349 programmes (ZIM, BAFA, EFRE, Horizon Europe), delivered in 48 hours. Fee only upon approval.",
+      body: "We come to you with a ready-made funding concept — not with an empty introductory meeting. AI-powered analysis of thousands of funding programmes (ZIM, BAFA, EFRE, Horizon Europe), delivered in 48 hours. Fee only upon approval.",
       ctaPrimary: "Start Quick-Check →",
       ctaSecondary: "Services",
       imgAlt: "Verde Onda – The Green Wave",
@@ -825,8 +825,8 @@ export const translations = {
         {
           number: "01",
           title: "Funding analysis in 48 hours, not 3 weeks.",
-          body: "While traditional consultants spend weeks on programme research, our AI infrastructure (Grok-4 + Firecrawl) searches 349 programmes in hours. The result: a precise, evidence-based funding concept — before you've even decided whether to engage us.",
-          tags: ["AI-powered", "Grok-4", "349 Programmes"],
+          body: "While traditional consultants spend weeks on programme research, our AI infrastructure (Grok-4 + Firecrawl) searches thousands of programmes in hours. The result: a precise, evidence-based funding concept — before you've even decided whether to engage us.",
+          tags: ["AI-powered", "Grok-4", "1000+ Programmes"],
         },
         {
           number: "02",
