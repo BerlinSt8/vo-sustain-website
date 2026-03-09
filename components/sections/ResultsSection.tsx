@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect, useState, useCallback } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
 
@@ -17,6 +17,11 @@ const CUSTOMER_LOGOS = [
 ];
 const CUSTOMER_ACCENTS = ["#27AE60", "#2ECC71", "#1E8449"];
 
+/**
+ * JS-driven stack card — uses useScroll to compute a translateY that
+ * pins the card to the viewport top while its scroll-spacer passes by.
+ * No CSS `position: sticky` → immune to overflow ancestors.
+ */
 function StackCard({
   customer,
   logo,
@@ -30,7 +35,7 @@ function StackCard({
   index: number;
   total: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
   const isLast = index === total - 1;
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,164 +46,213 @@ function StackCard({
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  const pinTop = isMobile ? 56 : 80;
+
+  // Track how far the spacer div has scrolled through the viewport
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: spacerRef,
     offset: ["start start", "end start"],
   });
 
-  // Scale down slightly as next card covers this one
+  // Scale down as the next card slides over
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], isLast ? [1, 1, 1] : [1, 1, 0.92]);
   const dimOpacity = useTransform(scrollYProgress, [0, 0.5, 1], isLast ? [0, 0, 0] : [0, 0, 0.7]);
 
-  // ALL cards stick at the SAME top position — each fully covers the previous
-  const stickyTop = isMobile ? 56 : 80;
-  const cardHeight = isMobile ? "auto" : "calc(100vh - 120px)";
+  if (isMobile) {
+    // Mobile: simple stacked layout, no sticky behavior
+    return (
+      <div style={{ marginBottom: "1.5rem" }}>
+        <CardContent
+          customer={customer}
+          logo={logo}
+          accent={accent}
+          index={index}
+          isMobile={true}
+          scale={scale}
+          dimOpacity={dimOpacity}
+        />
+      </div>
+    );
+  }
 
+  // Desktop: each spacer is 100vh tall. The card is position:sticky inside it.
+  // We use REAL position:sticky but on a container that's a direct child of the
+  // stack-cards wrapper — which has NO overflow set.
   return (
     <div
-      ref={ref}
+      ref={spacerRef}
       style={{
-        height: isMobile ? "auto" : "100vh",
-        minHeight: isMobile ? "auto" : "500px",
+        height: "100vh",
+        minHeight: "500px",
       }}
     >
       <div
         style={{
-          position: isMobile ? "relative" : "sticky",
-          top: isMobile ? undefined : `${stickyTop}px`,
+          position: "sticky",
+          top: `${pinTop}px`,
           zIndex: index + 1,
-          height: isMobile ? "auto" : cardHeight,
+          height: `calc(100vh - ${pinTop + 40}px)`,
         }}
       >
-        <motion.div
-          style={{
-            scale,
-            transformOrigin: "top center",
-            height: "100%",
-            position: "relative",
-            borderRadius: 16,
-            overflow: "hidden",
-            background: `linear-gradient(145deg, #0D1E30 0%, #0A1628 60%, #0D1B2A 100%)`,
-            border: "1px solid rgba(255,255,255,0.08)",
-            boxShadow: `
-              0 ${8 + index * 16}px ${40 + index * 30}px rgba(0,0,0,0.7),
-              0 0 0 1px rgba(255,255,255,0.03),
-              inset 0 1px 0 rgba(255,255,255,0.05),
-              inset 0 -1px 0 rgba(0,0,0,0.2)
-            `,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            padding: isMobile ? "2rem 1.5rem" : "4rem 8vw",
-          }}
-        >
-        {/* Subtle accent glow — enhanced */}
-        <div style={{
-          position: "absolute", top: 0, right: 0, width: "50%", height: "100%",
-          background: `
-            radial-gradient(ellipse 80% 60% at 100% 50%, ${accent}18 0%, transparent 70%),
-            radial-gradient(ellipse 40% 40% at 90% 30%, ${accent}10 0%, transparent 50%)
-          `,
-          pointerEvents: "none",
-        }} />
-
-        {/* Card content */}
-        <div style={{
-          maxWidth: "1100px", margin: "0 auto", width: "100%",
-          display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
-          gap: isMobile ? "1.5rem" : "4rem",
-          alignItems: "center",
-          position: "relative",
-          zIndex: 2,
-        }}>
-          {/* Mobile: Result first */}
-          {isMobile && (
-            <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: "1.25rem" }}>
-              <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.55rem", color: "rgba(255,255,255,0.45)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.4rem" }}>
-                {customer.type}
-              </div>
-              <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2rem, 9vw, 2.8rem)", fontWeight: 900, color: accent, lineHeight: 1, letterSpacing: "-0.02em", whiteSpace: "nowrap" }}>
-                {customer.result}
-              </div>
-            </div>
-          )}
-
-          {/* Left */}
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: isMobile ? "1rem" : "2rem" }}>
-              <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.18em", color: accent, textTransform: "uppercase" }}>
-                {customer.nr}
-              </span>
-              <div style={{ height: "1px", flex: 1, background: "rgba(255,255,255,0.08)" }} />
-              <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.62)", letterSpacing: "0.1em" }}>
-                {customer.program}
-              </span>
-            </div>
-
-            {/* Company logo + name */}
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
-              <div style={{
-                background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)",
-                borderRadius: "10px", padding: isMobile ? "6px 10px" : "8px 14px",
-                display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-              }}>
-                <img
-                  src={logo}
-                  alt={`${customer.company} Logo`}
-                  style={{ height: isMobile ? "28px" : "36px", width: "auto", maxWidth: isMobile ? "90px" : "120px", objectFit: "contain", display: "block", filter: "brightness(1.1)" }}
-                />
-              </div>
-              <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: isMobile ? "1.4rem" : "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 900, color: "white", lineHeight: 1.1, margin: 0 }}>
-                {customer.company}
-              </h3>
-            </div>
-
-            <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: isMobile ? "0.9rem" : "1rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.75, marginBottom: "1.25rem", maxWidth: "420px" }}>
-              {customer.desc}
-            </p>
-
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-              {customer.tags.map((tag) => (
-                <span key={tag} style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.65)", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)", padding: "4px 10px", borderRadius: "2px", letterSpacing: "0.06em" }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Right – Result (desktop only) */}
-          {!isMobile && (
-            <div style={{ textAlign: "right" }}>
-              <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.62)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
-                {customer.type}
-              </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                  fontWeight: 900,
-                  color: accent,
-                  lineHeight: 1,
-                  letterSpacing: "-0.02em",
-                  textShadow: `0 0 40px ${accent}40`,
-                }}
-              >
-                {customer.result}
-              </motion.div>
-            </div>
-          )}
-        </div>
-
-          {/* Dimming overlay */}
-          <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "16px" }} />
-        </motion.div>
+        <CardContent
+          customer={customer}
+          logo={logo}
+          accent={accent}
+          index={index}
+          isMobile={false}
+          scale={scale}
+          dimOpacity={dimOpacity}
+        />
       </div>
     </div>
+  );
+}
+
+function CardContent({
+  customer,
+  logo,
+  accent,
+  index,
+  isMobile,
+  scale,
+  dimOpacity,
+}: {
+  customer: { nr: string; company: string; result: string; type: string; program: string; desc: string; tags: readonly string[] };
+  logo: string;
+  accent: string;
+  index: number;
+  isMobile: boolean;
+  scale: any;
+  dimOpacity: any;
+}) {
+  return (
+    <motion.div
+      style={{
+        scale,
+        transformOrigin: "top center",
+        height: "100%",
+        position: "relative",
+        borderRadius: 16,
+        overflow: "hidden",
+        background: `linear-gradient(145deg, #0D1E30 0%, #0A1628 60%, #0D1B2A 100%)`,
+        border: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: `
+          0 ${8 + index * 16}px ${40 + index * 30}px rgba(0,0,0,0.7),
+          0 0 0 1px rgba(255,255,255,0.03),
+          inset 0 1px 0 rgba(255,255,255,0.05),
+          inset 0 -1px 0 rgba(0,0,0,0.2)
+        `,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: isMobile ? "2rem 1.5rem" : "4rem 8vw",
+      }}
+    >
+      {/* Subtle accent glow */}
+      <div style={{
+        position: "absolute", top: 0, right: 0, width: "50%", height: "100%",
+        background: `
+          radial-gradient(ellipse 80% 60% at 100% 50%, ${accent}18 0%, transparent 70%),
+          radial-gradient(ellipse 40% 40% at 90% 30%, ${accent}10 0%, transparent 50%)
+        `,
+        pointerEvents: "none",
+      }} />
+
+      {/* Card content */}
+      <div style={{
+        maxWidth: "1100px", margin: "0 auto", width: "100%",
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+        gap: isMobile ? "1.5rem" : "4rem",
+        alignItems: "center",
+        position: "relative",
+        zIndex: 2,
+      }}>
+        {/* Mobile: Result first */}
+        {isMobile && (
+          <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", paddingBottom: "1.25rem" }}>
+            <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.55rem", color: "rgba(255,255,255,0.45)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+              {customer.type}
+            </div>
+            <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(2rem, 9vw, 2.8rem)", fontWeight: 900, color: accent, lineHeight: 1, letterSpacing: "-0.02em", whiteSpace: "nowrap" }}>
+              {customer.result}
+            </div>
+          </div>
+        )}
+
+        {/* Left */}
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: isMobile ? "1rem" : "2rem" }}>
+            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.18em", color: accent, textTransform: "uppercase" }}>
+              {customer.nr}
+            </span>
+            <div style={{ height: "1px", flex: 1, background: "rgba(255,255,255,0.08)" }} />
+            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.62)", letterSpacing: "0.1em" }}>
+              {customer.program}
+            </span>
+          </div>
+
+          {/* Company logo + name */}
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
+            <div style={{
+              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)",
+              borderRadius: "10px", padding: isMobile ? "6px 10px" : "8px 14px",
+              display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+            }}>
+              <img
+                src={logo}
+                alt={`${customer.company} Logo`}
+                style={{ height: isMobile ? "28px" : "36px", width: "auto", maxWidth: isMobile ? "90px" : "120px", objectFit: "contain", display: "block", filter: "brightness(1.1)" }}
+              />
+            </div>
+            <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: isMobile ? "1.4rem" : "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 900, color: "white", lineHeight: 1.1, margin: 0 }}>
+              {customer.company}
+            </h3>
+          </div>
+
+          <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: isMobile ? "0.9rem" : "1rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.75, marginBottom: "1.25rem", maxWidth: "420px" }}>
+            {customer.desc}
+          </p>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+            {customer.tags.map((tag) => (
+              <span key={tag} style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.65)", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.14)", padding: "4px 10px", borderRadius: "2px", letterSpacing: "0.06em" }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Right – Result (desktop only) */}
+        {!isMobile && (
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.62)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
+              {customer.type}
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "clamp(2.5rem, 6vw, 5rem)",
+                fontWeight: 900,
+                color: accent,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+                textShadow: `0 0 40px ${accent}40`,
+              }}
+            >
+              {customer.result}
+            </motion.div>
+          </div>
+        )}
+      </div>
+
+      {/* Dimming overlay */}
+      <motion.div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,1)", opacity: dimOpacity, pointerEvents: "none", borderRadius: "16px" }} />
+    </motion.div>
   );
 }
 
@@ -278,13 +332,18 @@ export default function ResultsSection() {
         </div>
       </div>
 
-      {/* Stack Cards */}
+      {/* Stack Cards — NO overflow on any wrapper */}
       <div style={{ background: "var(--navy-dark)", position: "relative" }}>
-        {/* Orbs background — separate layer with overflow hidden so it doesn't break sticky */}
-        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+        {/* Orbs background — separate layer */}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
           <FloatingOrbs count={12} maxSize={4} minSize={1} />
         </div>
 
+        {/*
+          CRITICAL: This wrapper must NOT have overflow set.
+          maxWidth + margin auto centers content.
+          Cards inside use position:sticky which requires NO overflow ancestors.
+        */}
         <div style={{ maxWidth: "1300px", margin: "0 auto", position: "relative", zIndex: 2, padding: "2rem 4vw 0" }}>
           {/* Label */}
           <div style={{ padding: "2rem 4vw 1.5rem", display: "flex", alignItems: "center", gap: "1rem" }}>
