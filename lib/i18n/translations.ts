@@ -369,7 +369,7 @@ export const translations = {
     },
     foerderberatung: {
       heroLabel: "INDIVIDUELLE FÖRDERBERATUNG",
-      heroHeadline: "Fördergelder sichern.",
+      heroHeadline: "Individuelle Förderberatung für KMU.",
       heroSub: "Professionelle Beratung schützt vor Antragsfehlern, Sperrfristen und entgangener Förderung — wo Selbstrecherche aufhört, beginnt echte Expertise.",
       heroBody: "Über 2.000 Förderprogramme in Deutschland, jedes mit eigenen Fristen, Kumulierungsregeln und Antragspflichten. Falsche Programmwahl oder Formfehler bedeuten Ablehnung und Sperrfrist. Wir matchen Ihr Vorhaben gegen 64+ geprüfte Programme — von ZIM (bis 60 %) über die Forschungszulage (35 % für KMU, steuerlich anrechenbar) bis zum EIC Accelerator (100 % Zuschuss bis 2,5 Mio. €).",
       scope: [
@@ -394,7 +394,7 @@ export const translations = {
     },
     csrdBeratung: {
       heroLabel: "CSRD & NACHHALTIGKEITSBERICHTERSTATTUNG",
-      heroHeadline: "ESG-Ready werden.",
+      heroHeadline: "CSRD-Beratung nach VSME-Standard für KMU.",
       heroSub: "Für die meisten KMU gilt: keine direkte Berichtspflicht — aber Großkunden und Banken fordern ESG-Daten. Wir sichern Ihre Lieferketten-Position mit minimalem Aufwand.",
       heroBody: "Omnibus I (Feb. 2026) hat die CSRD-Schwellen auf 1.000 Mitarbeitende UND 450 Mio. EUR Umsatz angehoben — ca. 90 % weniger betroffene Unternehmen. Für nicht-börsennotierte KMU besteht bis zur vollständigen Umsetzung keine direkte Berichtspflicht. Trotzdem: Wer als Zulieferer oder Kreditnehmer gefragt wird, braucht belastbare Antworten. Wir liefern sie — nach VSME-Standard, proportional und lieferkettenfähig.",
       scope: [
@@ -419,7 +419,7 @@ export const translations = {
     },
     zimFoerderung: {
       heroLabel: "ZIM-FÖRDERUNG & NETZWERKMANAGEMENT",
-      heroHeadline: "Innovation fördern.",
+      heroHeadline: "ZIM-Förderung für KMU: Einzelprojekte, Kooperationen, Netzwerke.",
       heroSub: "Einzelprojekte bis 380.000 €, Kooperationen bis 2,3 Mio. € — mit bis zu 60 % Fördersatz für kleine Unternehmen.",
       heroBody: "Das Zentrale Innovationsprogramm Mittelstand ist das wichtigste Bundes-Förderprogramm für F&E in KMU. Denis Jänicke kennt es nicht nur als Berater — er managt aktiv ein ZIM-Netzwerk mit 12+ Partnern und weiß, wo Anträge scheitern.",
       scope: [
@@ -446,7 +446,7 @@ export const translations = {
 
     nachhaltigkeitsstrategie: {
       heroLabel: "NACHHALTIGKEITSSTRATEGIE",
-      heroHeadline: "Nachhaltig wachsen.",
+      heroHeadline: "Nachhaltigkeitsstrategie für KMU mit Förderfinanzierung.",
       heroSub: "Eine Nachhaltigkeitsstrategie ist kein Selbstzweck — sie erschließt Fördergelder, schützt Lieferkettenbeziehungen und senkt Kosten. Wir entwickeln Roadmaps, die priorisieren statt überfordern.",
       heroBody: "Viele KMU haben Nachhaltigkeitsziele, aber keine klare Priorität und keine Verbindung zu konkreten Maßnahmen oder Förderprogrammen. Wir übersetzen den Transformationsauftrag in eine finanzierbare Schritt-für-Schritt-Roadmap — mit messbaren KPIs, klarer Verantwortlichkeit und direktem Link zu BAFA, KfW, ZIM und SAB.",
       scope: [
@@ -859,7 +859,7 @@ export const translations = {
     },
     foerderberatung: {
       heroLabel: "INDIVIDUAL GRANT ADVISORY",
-      heroHeadline: "Secure funding.",
+      heroHeadline: "Individual Grant Advisory for SMEs.",
       heroSub: "Professional advisory protects against application errors, exclusion periods, and missed funding — where self-research ends, real expertise begins.",
       heroBody: "Germany has over 2,000 funding programmes, each with its own deadlines, cumulation rules, and application requirements. Wrong programme selection or formal errors mean rejection and exclusion periods. We match your project against 64+ verified programmes — from ZIM (up to 60%) and the Research Allowance (35% for SMEs, tax-deductible) to the EIC Accelerator (100% grant up to €2.5M).",
       scope: [
@@ -884,7 +884,7 @@ export const translations = {
     },
     csrdBeratung: {
       heroLabel: "CSRD & SUSTAINABILITY REPORTING",
-      heroHeadline: "Get ESG-ready.",
+      heroHeadline: "CSRD Advisory under VSME Standard for SMEs.",
       heroSub: "For most SMEs: no direct reporting obligation — but large customers and banks demand ESG data. We secure your supply chain position with minimal effort.",
       heroBody: "Omnibus I (Feb. 2026) raised CSRD thresholds to 1,000 employees AND €450M turnover — approximately 90% fewer companies affected. Non-listed SMEs face no direct reporting obligation until Omnibus is fully transposed. But as a supplier or borrower, you still need reliable answers. We provide them — under the VSME standard, proportionate and supply-chain-ready.",
       scope: [
@@ -909,7 +909,7 @@ export const translations = {
     },
     zimFoerderung: {
       heroLabel: "ZIM FUNDING & NETWORK MANAGEMENT",
-      heroHeadline: "Fund innovation.",
+      heroHeadline: "ZIM Funding for SMEs: Individual Projects, Cooperations, Networks.",
       heroSub: "Individual projects up to €380,000, cooperations up to €2.3M — with funding rates of up to 60% for small enterprises.",
       heroBody: "The Central Innovation Programme for SMEs (ZIM) is Germany's most important federal R&D funding programme for SMEs. Denis Jänicke doesn't just advise on it — he actively manages a ZIM network with 12+ partners and knows exactly where applications fail.",
       scope: [
@@ -936,7 +936,7 @@ export const translations = {
 
     nachhaltigkeitsstrategie: {
       heroLabel: "SUSTAINABILITY STRATEGY",
-      heroHeadline: "Grow sustainably.",
+      heroHeadline: "Sustainability Strategy for SMEs with Grant Financing.",
       heroSub: "A sustainability strategy isn't an end in itself — it unlocks grants, protects supply chain relationships, and reduces costs. We build roadmaps that prioritise instead of overwhelm.",
       heroBody: "Many SMEs have sustainability goals but no clear priorities and no link to concrete measures or funding programmes. We translate the transformation mandate into a fundable step-by-step roadmap — with measurable KPIs, clear accountability, and direct links to BAFA, KfW, ZIM, and SAB.",
       scope: [

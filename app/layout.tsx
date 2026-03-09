@@ -95,6 +95,9 @@ const organizationSchema = {
         contactType: "customer service",
         availableLanguage: ["German", "English"],
       },
+      foundingDate: "2025",
+      priceRange: "€€",
+      knowsAbout: ["ZIM-Förderung", "BAFA Energieberatung", "CSRD-Beratung", "Forschungszulage", "EFRE-Förderung", "Horizon Europe", "Nachhaltigkeitsstrategie", "Cleantech-Förderung"],
       sameAs: ["https://www.linkedin.com/in/denis-jaenicke"],
       founder: {
         "@type": "Person",
