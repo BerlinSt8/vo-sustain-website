@@ -50,6 +50,22 @@ export interface FoerderdatenbankResponse {
   error?: string;
 }
 
+// ── Förderlotse Wachstumsmärkte ─────────────────────────────
+export interface FoerderlotseResult {
+  id: string;
+  title: string;
+  description: string;
+  type: string;
+  institution: string;
+  rubric: "funding" | "online" | "advice";
+  url: string;
+}
+
+export interface FoerderlotseResponse {
+  results: FoerderlotseResult[];
+  error?: string;
+}
+
 // ── Aktuell / News ──────────────────────────────────────────
 export type ArtikelKategorie = "Förderaufruf" | "CSRD-News" | "Marktinfo" | "Erfolg";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import type { QuickCheckResult, QuickCheckInput, FoerderdatenbankResponse } from "@/lib/types";
+import type { QuickCheckResult, QuickCheckInput, FoerderdatenbankResponse, FoerderlotseResponse } from "@/lib/types";
 import ProgramCard from "./ProgramCard";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
@@ -10,9 +10,11 @@ interface Props {
   onReset: () => void;
   fdbResults?: FoerderdatenbankResponse | null;
   fdbLoading?: boolean;
+  fwmResults?: FoerderlotseResponse | null;
+  fwmLoading?: boolean;
 }
 
-export default function ResultsView({ result, input, onReset, fdbResults, fdbLoading }: Props) {
+export default function ResultsView({ result, input, onReset, fdbResults, fdbLoading, fwmResults, fwmLoading }: Props) {
   const { t } = useLanguage();
 
   const RECOMMENDATION_CONFIG = {
@@ -221,6 +223,85 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
             color: "rgba(255,255,255,0.35)",
           }}>
             {t.resultsView.fdbNoResults}
+          </div>
+        )}
+      </div>
+
+      {/* Förderlotse Wachstumsmärkte */}
+      <div style={{ marginTop: "2rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1rem" }}>
+          <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.62rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+            {t.resultsView.fwmLabel}
+          </span>
+          <div className="divider" style={{ flex: 1 }} />
+          {fwmLoading && (
+            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.68rem", color: "rgba(255,255,255,0.4)" }}>
+              {t.resultsView.fwmChecking}
+            </span>
+          )}
+          {fwmResults && !fwmLoading && (
+            <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.8rem", fontWeight: 800, color: "var(--verde-bright)" }}>
+              {fwmResults.results.length}
+            </span>
+          )}
+        </div>
+
+        {fwmLoading && (
+          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "var(--radius)", padding: "1.5rem" }}>
+            {[1, 2, 3].map((i) => (
+              <div key={i} style={{ marginBottom: i < 3 ? "1rem" : 0 }}>
+                <div style={{ height: "14px", width: `${60 + i * 10}%`, background: "rgba(255,255,255,0.06)", borderRadius: "3px", marginBottom: "8px", animation: "pulse 1.5s ease-in-out infinite" }} />
+                <div style={{ height: "10px", width: `${40 + i * 8}%`, background: "rgba(255,255,255,0.03)", borderRadius: "3px", animation: "pulse 1.5s ease-in-out infinite", animationDelay: "0.2s" }} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {fwmResults && !fwmLoading && fwmResults.results.length > 0 && (
+          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "var(--radius)", padding: "1.25rem 1.5rem" }}>
+            <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.06em", marginBottom: "1rem" }}>
+              {t.resultsView.fwmSubtitle}
+            </div>
+            {fwmResults.results.map((item, i) => {
+              const rubricColor = item.rubric === "funding" ? "var(--verde-bright)" : item.rubric === "advice" ? "#64b5f6" : "rgba(255,255,255,0.5)";
+              return (
+                <a
+                  key={i}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: "block", padding: "0.75rem 0", borderBottom: i < fwmResults.results.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none", textDecoration: "none", transition: "opacity 0.15s" }}
+                >
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                    <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.58rem", color: rubricColor, letterSpacing: "0.06em", textTransform: "uppercase", whiteSpace: "nowrap", paddingTop: "2px", flexShrink: 0 }}>
+                      {item.type}
+                    </span>
+                    <div>
+                      <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "rgba(255,255,255,0.85)", marginBottom: "3px", fontFamily: "'Open Sans', sans-serif" }}>
+                        {item.title}
+                      </div>
+                      <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.63rem", color: "rgba(255,255,255,0.38)" }}>
+                        {item.institution}
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+            <a
+              href="https://www.foerderlotse-wachstumsmaerkte.de/de/chatbot"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "block", marginTop: "1rem", paddingTop: "0.75rem", borderTop: "1px solid rgba(255,255,255,0.08)", fontFamily: "'Roboto Mono', monospace", fontSize: "0.68rem", color: "var(--verde-bright)", textDecoration: "none" }}
+            >
+              {t.resultsView.fwmAllResults}
+            </a>
+          </div>
+        )}
+
+        {fwmResults && !fwmLoading && fwmResults.results.length === 0 && !fwmResults.error && (
+          <div style={{ background: "rgba(255,255,255,0.02)", borderRadius: "var(--radius)", padding: "1rem 1.5rem", fontFamily: "'Open Sans', sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.35)" }}>
+            {t.resultsView.fwmNoResults}
           </div>
         )}
       </div>

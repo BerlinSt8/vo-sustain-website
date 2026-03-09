@@ -3,7 +3,7 @@
 import { useState } from "react";
 import QuickCheckForm from "@/components/quickcheck/QuickCheckForm";
 import ResultsView from "@/components/quickcheck/ResultsView";
-import type { QuickCheckInput, QuickCheckResult, FoerderdatenbankResponse } from "@/lib/types";
+import type { QuickCheckInput, QuickCheckResult, FoerderdatenbankResponse, FoerderlotseResponse } from "@/lib/types";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function QuickCheckSection() {
@@ -14,12 +14,15 @@ export default function QuickCheckSection() {
   const [error, setError] = useState<string | null>(null);
   const [fdbResults, setFdbResults] = useState<FoerderdatenbankResponse | null>(null);
   const [fdbLoading, setFdbLoading] = useState(false);
+  const [fwmResults, setFwmResults] = useState<FoerderlotseResponse | null>(null);
+  const [fwmLoading, setFwmLoading] = useState(false);
 
   const handleSubmit = async (data: QuickCheckInput) => {
     setIsLoading(true);
     setError(null);
     setInput(data);
     setFdbResults(null);
+    setFwmResults(null);
 
     try {
       const res = await fetch("/api/quick-check", {
@@ -43,6 +46,18 @@ export default function QuickCheckSection() {
         .then((fdb: FoerderdatenbankResponse) => setFdbResults(fdb))
         .catch(() => setFdbResults({ results: [], searchUrl: "", error: "Nicht verfügbar" }))
         .finally(() => setFdbLoading(false));
+
+      // Förderlotse Wachstumsmärkte async nachladen
+      setFwmLoading(true);
+      fetch("/api/foerderlotse", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ branche: data.branche, projektkategorien: data.projektkategorien }),
+      })
+        .then((r) => r.json())
+        .then((fwm: FoerderlotseResponse) => setFwmResults(fwm))
+        .catch(() => setFwmResults({ results: [], error: "Nicht verfügbar" }))
+        .finally(() => setFwmLoading(false));
     } catch {
       setError(t.quickCheck.error);
     } finally {
@@ -56,6 +71,8 @@ export default function QuickCheckSection() {
     setError(null);
     setFdbResults(null);
     setFdbLoading(false);
+    setFwmResults(null);
+    setFwmLoading(false);
   };
 
   return (
@@ -173,6 +190,8 @@ export default function QuickCheckSection() {
             onReset={handleReset}
             fdbResults={fdbResults}
             fdbLoading={fdbLoading}
+            fwmResults={fwmResults}
+            fwmLoading={fwmLoading}
           />
         )}
       </div>
