@@ -279,7 +279,7 @@ export default function ResultsSection() {
       </div>
 
       {/* Stack Cards */}
-      <div style={{ background: "var(--navy-dark)", padding: "2rem 4vw 0", position: "relative", overflow: "hidden" }}>
+      <div style={{ background: "var(--navy-dark)", padding: "2rem 4vw 0", position: "relative", overflow: "clip" }}>
         {/* Floating orbs in background */}
         <FloatingOrbs count={12} maxSize={4} minSize={1} />
 
