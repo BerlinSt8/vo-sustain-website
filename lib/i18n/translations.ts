@@ -14,11 +14,11 @@ export const translations = {
 
     // ─── HeroSection ───
     hero: {
-      tag: "Nachhaltigkeit · Cleantech · Innovation · ZIM",
-      headline: "Förderberatung für KMU.",
-      sub: "Konzept vor dem Erstgespräch. Honorar erst bei Bewilligung.",
-      body: "Bevor wir ins Gespräch kommen, haben wir Ihr Förderpotenzial bereits analysiert. Sie erhalten ein ausgearbeitetes Konzept mit passenden Programmen, realistischen Quoten und konkretem Fahrplan.",
-      ctaPrimary: "Förderpotenzial prüfen — kostenlos →",
+      tag: "ZIM · BAFA · Cleantech · Berlin",
+      headline: "Fertiges Förderkonzept vor dem ersten Gespräch.",
+      sub: "Aktiver ZIM-Netzwerkmanager. Kein Honorar ohne Bewilligung.",
+      body: "Bevor Sie eine Stunde investieren, haben wir Ihr Förderpotenzial bereits geprüft. Sie erhalten ein Konzept mit konkreten Programmen (ZIM, BAFA, EFRE), realistischen Quoten und Finanzierungsplan — als Entscheidungsgrundlage, nicht als Verkaufsgespräch.",
+      ctaPrimary: "Mein Förderpotenzial entdecken →",
       ctaSecondary: "Leistungen",
       imgAlt: "Verde Onda – die Grüne Welle",
     },
@@ -26,7 +26,7 @@ export const translations = {
     // ─── ProblemSection ───
     problem: {
       label: "Die Ausgangslage",
-      headline: "Drei Hürden, die KMU Fördergeld kosten.",
+      headline: "Warum KMU ZIM- und BAFA-Förderung nicht nutzen.",
       body: "Über 2.000 Förderprogramme in Deutschland — und die meisten KMU nutzen keines davon. Die Gründe sind fast immer dieselben.",
       cards: [
         {
@@ -543,11 +543,11 @@ export const translations = {
 
     // ─── HeroSection ───
     hero: {
-      tag: "Sustainability · Cleantech · Innovation · ZIM",
-      headline: "German Grant Consulting for SMEs.",
-      sub: "Tailored Proposals. Hands-on Expertise. No Win, No Fee.",
-      body: "Before we meet, we've already analysed your funding potential. You receive a tailored proposal with matching programmes, realistic grant rates, and a concrete roadmap.",
-      ctaPrimary: "Check your funding potential — free →",
+      tag: "ZIM · BAFA · Cleantech · Berlin",
+      headline: "Your grant proposal — ready before the first meeting.",
+      sub: "Active ZIM Network Manager. No win, no fee.",
+      body: "Before you invest an hour, we've already assessed your funding potential. You receive a tailored proposal with specific programmes (ZIM, BAFA, EFRE), realistic grant rates, and a financing plan — a basis for decision, not a sales pitch.",
+      ctaPrimary: "Discover my funding potential →",
       ctaSecondary: "Services",
       imgAlt: "Verde Onda – The Green Wave",
     },
@@ -555,7 +555,7 @@ export const translations = {
     // ─── ProblemSection ───
     problem: {
       label: "The Challenge",
-      headline: "Three barriers costing SMEs grant funding.",
+      headline: "Why SMEs miss out on ZIM and BAFA funding.",
       body: "Over 2,000 funding programmes in Germany — and most SMEs don't use a single one. The reasons are almost always the same.",
       cards: [
         {

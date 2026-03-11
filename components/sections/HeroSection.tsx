@@ -156,7 +156,7 @@ export default function HeroSection() {
         {/* Kinetic Headline — word by word */}
         <h1 style={{
           fontFamily: "'Montserrat', sans-serif",
-          fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)",
+          fontSize: "clamp(2.2rem, 4.8vw, 4rem)",
           fontWeight: 900,
           color: "white",
           lineHeight: 1.0,
