@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 function FaqItem({ item, isOpen, onToggle, index }: {
@@ -115,7 +115,7 @@ function FaqItem({ item, isOpen, onToggle, index }: {
           <p style={{
             fontFamily: "'Open Sans', sans-serif",
             fontSize: "clamp(0.9rem, 1.6vw, 0.97rem)",
-            color: "#5A6470",
+            color: "var(--ct4)",
             lineHeight: 1.8,
             paddingBottom: "1.5rem",
             paddingLeft: "calc(3px + 1rem)",
@@ -132,11 +132,21 @@ function FaqItem({ item, isOpen, onToggle, index }: {
 export default function FaqSection() {
   const { t } = useLanguage();
   const [open, setOpen] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // As FAQ exits viewport upward, slide it off 10% faster → reveals footer beneath
+  const y = useTransform(scrollYProgress, [0.6, 1], ["0%", "-10%"]);
 
   return (
-    <section
+    <motion.section
+      ref={sectionRef}
       id="faq"
-      style={{ background: "var(--off-white)", padding: "6rem 8vw", position: "relative", zIndex: 1 }}
+      style={{ background: "var(--off-white)", padding: "6rem 8vw", position: "relative", zIndex: 1, y }}
     >
       <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         {/* Label */}
@@ -193,6 +203,6 @@ export default function FaqSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

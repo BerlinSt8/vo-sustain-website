@@ -91,11 +91,8 @@ export default function Home() {
         <FaqSection />
       </main>
 
-      {/* Spacer to create scroll room for footer parallax reveal */}
-      <div style={{ height: "400px", background: "transparent" }} />
-
-      {/* 7 – Footer */}
-      <FooterSection sticky />
+      {/* Footer — reveals from beneath as FAQ section slides away */}
+      <FooterSection />
     </>
   );
 }
