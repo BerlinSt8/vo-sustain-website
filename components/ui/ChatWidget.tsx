@@ -50,9 +50,15 @@ function FordinandBot({
 }: {
   eyeX: number; eyeY: number; headRotate: number; isHovered: boolean; proximity: number;
 }) {
-  // CSS 3D perspective tilt driven by eye tracking values
-  const tiltX = -eyeY * 8;  // vertical tilt (inverted for natural feel)
-  const tiltY = eyeX * 12;   // horizontal tilt
+  // Head tilt — transform-origin at neck (~58% from top) so it looks like head movement
+  const headTiltX = -eyeY * 6;     // vertical nod (less aggressive)
+  const headTiltY = eyeX * 10;     // horizontal turn
+  const headTiltZ = headRotate * 0.5; // subtle head cock (Z-rotation from headRotate)
+
+  // Body has its own subtle sway — much less than head, slight delay feel
+  const bodySwayY = eyeX * 3;      // body leans slightly toward cursor
+  const bodySwayX = -eyeY * 2;
+
   const glowIntensity = 0.15 + proximity * 0.4;
   const scale = isHovered ? 1.08 : 1;
 
@@ -61,79 +67,91 @@ function FordinandBot({
       className="relative"
       style={{
         width: 120,
-        height: 120,
+        height: 130,
         perspective: '600px',
-        perspectiveOrigin: '50% 40%',
+        perspectiveOrigin: '50% 35%',
       }}
     >
       {/* Ambient verde glow behind bot */}
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          background: `radial-gradient(circle at 50% 50%, rgba(39,174,96,${glowIntensity}) 0%, transparent 70%)`,
+          background: `radial-gradient(circle at 50% 45%, rgba(39,174,96,${glowIntensity}) 0%, transparent 70%)`,
           filter: 'blur(12px)',
           transform: 'scale(1.3)',
           transition: 'all 0.4s ease',
         }}
       />
 
-      {/* Main 3D render with perspective tilt */}
+      {/* Body layer — subtle sway, pivot from bottom */}
       <div
         style={{
           width: '100%',
           height: '100%',
-          transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(${scale})`,
-          transition: 'transform 0.15s ease-out',
+          transform: `rotateX(${bodySwayX}deg) rotateY(${bodySwayY}deg) scale(${scale})`,
+          transition: 'transform 0.25s ease-out',
           transformStyle: 'preserve-3d',
+          transformOrigin: '50% 85%', // pivot near feet — body rocks gently
         }}
       >
-        {/* Bot image — transparent, floating freely */}
-        <picture>
-          <source srcSet="/fordinand-bot.webp" type="image/webp" />
-          <img
-            src="/fordinand-bot.png"
-            alt="Fördinand"
-            width={130}
-            height={130}
-            className="relative z-10 pointer-events-none select-none"
-            style={{
-              filter: `drop-shadow(0 6px 16px rgba(0,0,0,0.5)) drop-shadow(0 0 ${10 + proximity * 20}px rgba(39,174,96,${0.12 + proximity * 0.25}))`,
-              transition: 'filter 0.3s ease',
-            }}
-            draggable={false}
-          />
-        </picture>
+        {/* Head layer — stronger tilt, pivot at neck */}
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            transform: `rotateX(${headTiltX}deg) rotateY(${headTiltY}deg) rotateZ(${headTiltZ}deg)`,
+            transition: 'transform 0.12s ease-out',
+            transformStyle: 'preserve-3d',
+            transformOrigin: '50% 58%', // neck pivot — head tilts from here
+          }}
+        >
+          {/* Bot image — transparent, floating freely */}
+          <picture>
+            <source srcSet="/fordinand-bot.webp" type="image/webp" />
+            <img
+              src="/fordinand-bot.png"
+              alt="Fördinand"
+              width={130}
+              height={130}
+              className="relative z-10 pointer-events-none select-none"
+              style={{
+                filter: `drop-shadow(0 6px 16px rgba(0,0,0,0.5)) drop-shadow(0 0 ${10 + proximity * 20}px rgba(39,174,96,${0.12 + proximity * 0.25}))`,
+                transition: 'filter 0.3s ease',
+              }}
+              draggable={false}
+            />
+          </picture>
 
-        {/* Eye tracking overlay — two green catchlights that follow cursor */}
-        <div
-          className="absolute z-20 pointer-events-none"
-          style={{
-            // Left eye position (relative to the 120px render)
-            // Eyes are roughly at 38%, 40% and 58%, 40% of the image
-            left: `${46 + eyeX * 4}px`,
-            top: `${44 + eyeY * 3}px`,
-            width: 6,
-            height: 6,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(46,204,113,0.4) 60%, transparent 100%)',
-            transition: 'left 0.08s ease-out, top 0.08s ease-out',
-            opacity: 0.7 + proximity * 0.3,
-          }}
-        />
-        <div
-          className="absolute z-20 pointer-events-none"
-          style={{
-            // Right eye
-            left: `${70 + eyeX * 4}px`,
-            top: `${44 + eyeY * 3}px`,
-            width: 6,
-            height: 6,
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(46,204,113,0.4) 60%, transparent 100%)',
-            transition: 'left 0.08s ease-out, top 0.08s ease-out',
-            opacity: 0.7 + proximity * 0.3,
-          }}
-        />
+          {/* Eye tracking overlay — catchlights on pupils, follow cursor */}
+          <div
+            className="absolute z-20 pointer-events-none"
+            style={{
+              // Left eye — maximum movement range for clearly visible tracking
+              left: `${48 + eyeX * 16}px`,
+              top: `${47 + eyeY * 12}px`,
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 35%, rgba(46,204,113,0.35) 65%, transparent 100%)',
+              transition: 'left 0.05s ease-out, top 0.05s ease-out',
+              opacity: 0.8 + proximity * 0.2,
+            }}
+          />
+          <div
+            className="absolute z-20 pointer-events-none"
+            style={{
+              // Right eye — mirrors left eye movement
+              left: `${74 + eyeX * 16}px`,
+              top: `${47 + eyeY * 12}px`,
+              width: 8,
+              height: 8,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 35%, rgba(46,204,113,0.35) 65%, transparent 100%)',
+              transition: 'left 0.05s ease-out, top 0.05s ease-out',
+              opacity: 0.8 + proximity * 0.2,
+            }}
+          />
+        </div>
       </div>
 
       {/* Chest LED pulse — verde heartbeat */}
@@ -141,7 +159,7 @@ function FordinandBot({
         className="absolute z-20 pointer-events-none"
         style={{
           left: '50%',
-          top: '62%',
+          top: '65%',
           width: 8,
           height: 8,
           marginLeft: -4,
@@ -195,11 +213,11 @@ export default function ChatWidget() {
   const rawHeadRotate = useMotionValue(0);
   const headRotateSpring = useSpring(rawHeadRotate, { stiffness: 60, damping: 12 });
 
-  // Layer 4: Eye tracking — fastest response (like Cursor Target, damping 10)
+  // Layer 4: Eye tracking — fastest, snappiest response (like Cursor Target, damping 10)
   const rawEyeX = useMotionValue(0);
   const rawEyeY = useMotionValue(0);
-  const eyeX = useSpring(rawEyeX, { stiffness: 120, damping: 18 });
-  const eyeY = useSpring(rawEyeY, { stiffness: 120, damping: 18 });
+  const eyeX = useSpring(rawEyeX, { stiffness: 180, damping: 14 });  // snappy + slight overshoot
+  const eyeY = useSpring(rawEyeY, { stiffness: 180, damping: 14 });
 
   // Synced state values for SVG rendering
   const [eyePos, setEyePos] = useState({ x: 0, y: 0 });
@@ -212,10 +230,10 @@ export default function ChatWidget() {
     const handleMouseMove = (e: MouseEvent) => {
       cursorRef.current = { x: e.clientX, y: e.clientY };
 
-      // Reset idle timer
+      // Reset idle timer — returns home after 1.2s without mouse movement
       setIsIdle(false);
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-      idleTimerRef.current = setTimeout(() => setIsIdle(true), 2000);
+      idleTimerRef.current = setTimeout(() => setIsIdle(true), 1200);
 
       // Get current bot center for relative calculations
       const bx = botX.get() + BOT_SIZE / 2;
@@ -238,10 +256,9 @@ export default function ChatWidget() {
       const headTilt = (dx / Math.max(window.innerWidth, 1)) * 24;
       rawHeadRotate.set(Math.max(-12, Math.min(12, headTilt)));
 
-      // Layer 2: Bot position — follow cursor if not chat-open
+      // Layer 2: Bot position — gentle attraction toward cursor, strong home gravity
       if (!open) {
-        // Follow cursor but offset: bot stays ~120px behind cursor, gravitating
-        const followStrength = 0.35; // how aggressively bot follows (0=stay home, 1=stick to cursor)
+        const followStrength = 0.15; // subtle — bot mostly stays home, just leans toward cursor
         const home = getHomePos();
         const targetX = home.x + (e.clientX - home.x - BOT_SIZE / 2) * followStrength;
         const targetY = home.y + (e.clientY - home.y - BOT_SIZE / 2) * followStrength;
@@ -275,8 +292,24 @@ export default function ChatWidget() {
       rawBotX.set(home.x);
       rawBotY.set(home.y);
       rawHeadRotate.set(0);
+      rawEyeX.set(0);
+      rawEyeY.set(0);
     }
-  }, [isIdle, open, rawBotX, rawBotY, rawHeadRotate]);
+  }, [isIdle, open, rawBotX, rawBotY, rawHeadRotate, rawEyeX, rawEyeY]);
+
+  // ── Periodic home gravity — bot drifts back every 4s even during activity ──
+  useEffect(() => {
+    if (open) return;
+    const interval = setInterval(() => {
+      const home = getHomePos();
+      const currentX = rawBotX.get();
+      const currentY = rawBotY.get();
+      // Blend 60% toward home — gentle rubber-band pull
+      rawBotX.set(currentX + (home.x - currentX) * 0.6);
+      rawBotY.set(currentY + (home.y - currentY) * 0.6);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [open, rawBotX, rawBotY]);
 
   // ── Handle window resize — update home position ──
   useEffect(() => {
