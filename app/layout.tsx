@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import CursorGlow from "@/components/ui/CursorGlow";
 import CustomCursor from "@/components/ui/CustomCursor";
+import ChatWidget from "@/components/ui/ChatWidget";
 
 const BASE_URL = "https://www.vosustain.de";
 
@@ -165,7 +166,10 @@ export default function RootLayout({
         <CursorGlow />
         <CustomCursor />
         <ScrollProgress />
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <ChatWidget />
+        </LanguageProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
