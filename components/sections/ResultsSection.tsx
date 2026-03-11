@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
+
+const NetworkScene3D = dynamic(() => import("@/components/ui/NetworkScene3D"), { ssr: false });
 
 const OUTCOME_ICONS = [
   <svg key="shield" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>,
@@ -67,7 +70,7 @@ function StackCard({
         top: `${pinTop}px`,
         zIndex: index + 1,
         height: `calc(100vh - ${pinTop + 40}px)`,
-        marginBottom: "100vh",
+        marginBottom: index < total - 1 ? "100vh" : "0",
       }}
     >
       <CardContent
@@ -296,6 +299,9 @@ export default function ResultsSection() {
           </div>
         </div>
       </div>
+
+      {/* 3D Network transition — bridges light section into dark stack cards */}
+      <NetworkScene3D />
 
       {/* Stack Cards — NO overflow on any wrapper */}
       <div style={{ background: "var(--navy-dark)", position: "relative" }}>
