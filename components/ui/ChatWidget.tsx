@@ -32,8 +32,29 @@ const LABELS = {
   },
 };
 
-// ─── R4X-Style Fördinand Bot — Premium SVG with eye-tracking ─────────────────
-function FordinandBot({ eyeX, eyeY, isHovered }: { eyeX: number; eyeY: number; isHovered: boolean }) {
+// ─── Home position (bottom-right corner) ─────────────────────────────────────
+const BOT_SIZE = 76;
+const HOME_MARGIN = 16; // distance from edge
+
+function getHomePos() {
+  if (typeof window === 'undefined') return { x: 0, y: 0 };
+  return {
+    x: window.innerWidth - BOT_SIZE - HOME_MARGIN,
+    y: window.innerHeight - BOT_SIZE - HOME_MARGIN,
+  };
+}
+
+// ─── R4X-Style Fördinand Bot — Premium SVG with eye-tracking + head tilt ─────
+function FordinandBot({
+  eyeX, eyeY, headRotate, isHovered, proximity,
+}: {
+  eyeX: number; eyeY: number; headRotate: number; isHovered: boolean; proximity: number;
+}) {
+  // proximity: 0 = far, 1 = cursor right on top — drives dome glow intensity
+  const domeOpacity = 0.7 + proximity * 0.3;
+  const bracketOpacity = 0.15 + proximity * 0.5;
+  const earGlow = 0.2 + proximity * 0.5;
+
   return (
     <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -102,73 +123,76 @@ function FordinandBot({ eyeX, eyeY, isHovered }: { eyeX: number; eyeY: number; i
         <animate attributeName="r" values="2.5;4;2.5" dur="2.5s" repeatCount="indefinite" />
         <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite" />
       </circle>
-      <circle cx="40" cy="56" r="1.5" fill="#e8656a" opacity="0.85">
-        <animate attributeName="fill" values="#e8656a;#27AE60;#e8656a" dur="5s" repeatCount="indefinite" />
+      <circle cx="40" cy="56" r="1.5" fill="#27AE60" opacity={0.5 + proximity * 0.4}>
+        <animate attributeName="opacity" values={`${0.4 + proximity * 0.3};${0.7 + proximity * 0.3};${0.4 + proximity * 0.3}`} dur="2.5s" repeatCount="indefinite" />
       </circle>
 
-      {/* === HEAD (rounded capsule) === */}
-      <rect x="23" y="24" width="34" height="20" rx="10" fill="url(#r4x-head)" filter="url(#head-shadow)" />
-      {/* Head highlight */}
-      <rect x="27" y="25" width="20" height="6" rx="3" fill="white" opacity="0.1" />
+      {/* === HEAD GROUP — rotates toward cursor (R4X Target Head behavior) === */}
+      <g transform={`rotate(${headRotate}, 40, 40)`}>
+        {/* === HEAD (rounded capsule) === */}
+        <rect x="23" y="24" width="34" height="20" rx="10" fill="url(#r4x-head)" filter="url(#head-shadow)" />
+        {/* Head highlight */}
+        <rect x="27" y="25" width="20" height="6" rx="3" fill="white" opacity="0.1" />
 
-      {/* === DOME (glass hemisphere — R4X signature) === */}
-      <ellipse cx="40" cy="22" rx="15" ry="13" fill="url(#r4x-dome)" filter="url(#dome-glow)" opacity={isHovered ? 1 : 0.8}>
-        <animate attributeName="opacity" values={isHovered ? "1;0.88;1" : "0.7;0.85;0.7"} dur="2.5s" repeatCount="indefinite" />
-      </ellipse>
-      {/* Dome inner hotspot */}
-      <ellipse cx="38" cy="19" rx="8" ry="6" fill="url(#dome-inner)" />
-      {/* Glass specular highlight — top-left */}
-      <ellipse cx="34" cy="15" rx="5" ry="3" fill="white" opacity="0.22" />
-      {/* Secondary highlight — smaller */}
-      <ellipse cx="46" cy="20" rx="2.5" ry="1.5" fill="white" opacity="0.1" />
-      {/* Dome rim */}
-      <ellipse cx="40" cy="28" rx="14" ry="2" fill="#d0d4d8" opacity="0.4" />
+        {/* === DOME (glass hemisphere — R4X signature) === */}
+        <ellipse cx="40" cy="22" rx="15" ry="13" fill="url(#r4x-dome)" filter="url(#dome-glow)" opacity={domeOpacity}>
+          <animate attributeName="opacity" values={`${domeOpacity};${domeOpacity * 0.88};${domeOpacity}`} dur="2.5s" repeatCount="indefinite" />
+        </ellipse>
+        {/* Dome inner hotspot */}
+        <ellipse cx="38" cy="19" rx="8" ry="6" fill="url(#dome-inner)" />
+        {/* Glass specular highlight — top-left */}
+        <ellipse cx="34" cy="15" rx="5" ry="3" fill="white" opacity="0.22" />
+        {/* Secondary highlight — smaller */}
+        <ellipse cx="46" cy="20" rx="2.5" ry="1.5" fill="white" opacity="0.1" />
+        {/* Dome rim */}
+        <ellipse cx="40" cy="28" rx="14" ry="2" fill="#d0d4d8" opacity="0.4" />
 
-      {/* === FACE PLATE (dark visor) === */}
-      <rect x="27" y="28" width="26" height="13" rx="6.5" fill="#0d1117" opacity="0.92" />
-      {/* Visor edge highlight */}
-      <rect x="28" y="28.5" width="24" height="0.8" rx="0.4" fill="white" opacity="0.06" />
+        {/* === FACE PLATE (dark visor) === */}
+        <rect x="27" y="28" width="26" height="13" rx="6.5" fill="#0d1117" opacity="0.92" />
+        {/* Visor edge highlight */}
+        <rect x="28" y="28.5" width="24" height="0.8" rx="0.4" fill="white" opacity="0.06" />
 
-      {/* === EYES — R4X large green-yellow, cursor-tracking === */}
-      <g filter="url(#eye-glow)">
-        {/* Left eye socket */}
-        <circle cx="35" cy="34.5" r="4.8" fill="#0a0e14" />
-        {/* Left iris — gradient feel via layered circles */}
-        <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
-        <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
-          <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" />
+        {/* === EYES — R4X large green, cursor-tracking === */}
+        <g filter="url(#eye-glow)">
+          {/* Left eye socket */}
+          <circle cx="35" cy="34.5" r="4.8" fill="#0a0e14" />
+          {/* Left iris — gradient feel via layered circles */}
+          <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
+          <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
+            <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+          {/* Left specular */}
+          <circle cx={33.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
+          <circle cx={35.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
+
+          {/* Right eye socket */}
+          <circle cx="45" cy="34.5" r="4.8" fill="#0a0e14" />
+          {/* Right iris */}
+          <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
+          <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
+            <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" begin="0.4s" />
+          </circle>
+          {/* Right specular */}
+          <circle cx={43.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
+          <circle cx={45.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
+        </g>
+
+        {/* === NECK connector === */}
+        <rect x="36" y="43" width="8" height="4" rx="2" fill="#dde0e3" stroke="#c4c8cc" strokeWidth="0.4" />
+
+        {/* === EAR SENSORS === */}
+        <circle cx="22" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
+        <circle cx="22" cy="33" r="1" fill="#27AE60" opacity={earGlow}>
+          <animate attributeName="opacity" values={`${earGlow * 0.5};${earGlow};${earGlow * 0.5}`} dur="3s" repeatCount="indefinite" />
         </circle>
-        {/* Left specular */}
-        <circle cx={33.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
-        <circle cx={35.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
-
-        {/* Right eye socket */}
-        <circle cx="45" cy="34.5" r="4.8" fill="#0a0e14" />
-        {/* Right iris */}
-        <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
-        <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
-          <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" begin="0.4s" />
+        <circle cx="58" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
+        <circle cx="58" cy="33" r="1" fill="#27AE60" opacity={earGlow}>
+          <animate attributeName="opacity" values={`${earGlow * 0.5};${earGlow};${earGlow * 0.5}`} dur="3s" repeatCount="indefinite" begin="1.5s" />
         </circle>
-        {/* Right specular */}
-        <circle cx={43.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
-        <circle cx={45.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
       </g>
 
-      {/* === NECK connector === */}
-      <rect x="36" y="43" width="8" height="4" rx="2" fill="#dde0e3" stroke="#c4c8cc" strokeWidth="0.4" />
-
-      {/* === EAR SENSORS === */}
-      <circle cx="22" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
-      <circle cx="22" cy="33" r="1" fill="#27AE60" opacity="0.4">
-        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="58" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
-      <circle cx="58" cy="33" r="1" fill="#27AE60" opacity="0.4">
-        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="1.5s" />
-      </circle>
-
-      {/* === TRACKING FRAME (R4X corner brackets) === */}
-      <g stroke="#27AE60" strokeWidth="1.2" opacity={isHovered ? 0.65 : 0.2} strokeLinecap="round"
+      {/* === TRACKING FRAME (R4X corner brackets) — proximity-reactive === */}
+      <g stroke="#27AE60" strokeWidth="1.2" opacity={isHovered ? 0.65 : bracketOpacity} strokeLinecap="round"
          style={{ transition: 'opacity 0.3s ease' }}>
         <path d="M8 8 L8 15" /><path d="M8 8 L15 8" />
         <path d="M72 8 L72 15" /><path d="M72 8 L65 8" />
@@ -195,39 +219,127 @@ export default function ChatWidget() {
   const abortRef       = useRef<AbortController | null>(null);
   const botRef         = useRef<HTMLButtonElement>(null);
 
-  // ── Eye tracking with spring physics ──
+  // ── R4X 3-Layer Follow System ──────────────────────────────────────────────
+  // Layer 1: Cursor position (raw input)
+  const cursorRef = useRef({ x: 0, y: 0 });
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isIdle, setIsIdle] = useState(true);
+
+  // Layer 2: Bot position — follows cursor with high damping (like Target Movement, damping 250)
+  const rawBotX = useMotionValue(getHomePos().x);
+  const rawBotY = useMotionValue(getHomePos().y);
+  const botX = useSpring(rawBotX, { stiffness: 8, damping: 30 });  // very sluggish — R4X body feel
+  const botY = useSpring(rawBotY, { stiffness: 8, damping: 30 });
+
+  // Layer 3: Head rotation — follows cursor with medium damping (like Target Head, damping 25)
+  const rawHeadRotate = useMotionValue(0);
+  const headRotateSpring = useSpring(rawHeadRotate, { stiffness: 60, damping: 12 });
+
+  // Layer 4: Eye tracking — fastest response (like Cursor Target, damping 10)
   const rawEyeX = useMotionValue(0);
   const rawEyeY = useMotionValue(0);
   const eyeX = useSpring(rawEyeX, { stiffness: 120, damping: 18 });
   const eyeY = useSpring(rawEyeY, { stiffness: 120, damping: 18 });
-  const [eyePos, setEyePos] = useState({ x: 0, y: 0 });
 
+  // Synced state values for SVG rendering
+  const [eyePos, setEyePos] = useState({ x: 0, y: 0 });
+  const [headRotate, setHeadRotate] = useState(0);
+  const [botPos, setBotPos] = useState(getHomePos);
+  const [proximity, setProximity] = useState(0);
+
+  // ── Mouse tracking — drives all 3 layers ──
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!botRef.current) return;
-      const rect = botRef.current.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = e.clientX - cx;
-      const dy = e.clientY - cy;
+      cursorRef.current = { x: e.clientX, y: e.clientY };
+
+      // Reset idle timer
+      setIsIdle(false);
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = setTimeout(() => setIsIdle(true), 2000);
+
+      // Get current bot center for relative calculations
+      const bx = botX.get() + BOT_SIZE / 2;
+      const by = botY.get() + BOT_SIZE / 2;
+      const dx = e.clientX - bx;
+      const dy = e.clientY - by;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      const maxDist = 500;
+      const maxDist = 600;
       const factor = Math.min(dist / maxDist, 1);
       const angle = Math.atan2(dy, dx);
+
+      // Proximity (inverse distance, 0-1)
+      setProximity(Math.max(0, 1 - dist / 400));
+
+      // Layer 4: Eyes — direct angle tracking (fastest)
       rawEyeX.set(Math.cos(angle) * factor);
       rawEyeY.set(Math.sin(angle) * factor);
+
+      // Layer 3: Head rotation — tilt toward cursor (-12° to +12°)
+      const headTilt = (dx / Math.max(window.innerWidth, 1)) * 24;
+      rawHeadRotate.set(Math.max(-12, Math.min(12, headTilt)));
+
+      // Layer 2: Bot position — follow cursor if not chat-open
+      if (!open) {
+        // Follow cursor but offset: bot stays ~120px behind cursor, gravitating
+        const followStrength = 0.35; // how aggressively bot follows (0=stay home, 1=stick to cursor)
+        const home = getHomePos();
+        const targetX = home.x + (e.clientX - home.x - BOT_SIZE / 2) * followStrength;
+        const targetY = home.y + (e.clientY - home.y - BOT_SIZE / 2) * followStrength;
+
+        // Clamp to viewport
+        const clampedX = Math.max(8, Math.min(window.innerWidth - BOT_SIZE - 8, targetX));
+        const clampedY = Math.max(8, Math.min(window.innerHeight - BOT_SIZE - 8, targetY));
+
+        rawBotX.set(clampedX);
+        rawBotY.set(clampedY);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      setIsIdle(true);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [rawEyeX, rawEyeY]);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+    };
+  }, [rawEyeX, rawEyeY, rawHeadRotate, rawBotX, rawBotY, botX, botY, open]);
 
-  // Sync spring values to state for SVG rendering
+  // ── Return to home when idle or chat open ──
   useEffect(() => {
-    const unsubX = eyeX.on('change', (x) => setEyePos(prev => ({ ...prev, x })));
-    const unsubY = eyeY.on('change', (y) => setEyePos(prev => ({ ...prev, y })));
-    return () => { unsubX(); unsubY(); };
-  }, [eyeX, eyeY]);
+    if (isIdle || open) {
+      const home = getHomePos();
+      rawBotX.set(home.x);
+      rawBotY.set(home.y);
+      rawHeadRotate.set(0);
+    }
+  }, [isIdle, open, rawBotX, rawBotY, rawHeadRotate]);
+
+  // ── Handle window resize — update home position ──
+  useEffect(() => {
+    const handleResize = () => {
+      if (isIdle || open) {
+        const home = getHomePos();
+        rawBotX.set(home.x);
+        rawBotY.set(home.y);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isIdle, open, rawBotX, rawBotY]);
+
+  // ── Sync spring values to state for rendering ──
+  useEffect(() => {
+    const unsubEyeX = eyeX.on('change', (x) => setEyePos(prev => ({ ...prev, x })));
+    const unsubEyeY = eyeY.on('change', (y) => setEyePos(prev => ({ ...prev, y })));
+    const unsubHead = headRotateSpring.on('change', (r) => setHeadRotate(r));
+    const unsubBotX = botX.on('change', (x) => setBotPos(prev => ({ ...prev, x })));
+    const unsubBotY = botY.on('change', (y) => setBotPos(prev => ({ ...prev, y })));
+    return () => { unsubEyeX(); unsubEyeY(); unsubHead(); unsubBotX(); unsubBotY(); };
+  }, [eyeX, eyeY, headRotateSpring, botX, botY]);
 
   // ── Chat scroll / focus / lang ──
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, loading]);
@@ -280,7 +392,7 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* ── Chat Panel ── */}
+      {/* ── Chat Panel — anchored to bottom-right (home position) ── */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -410,20 +522,23 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* ── R4X Fördinand Bot — SVG with eye-tracking ── */}
+      {/* ── R4X Fördinand Bot — freely positioned, follows cursor ── */}
       <motion.button
         ref={botRef}
         onClick={() => setOpen(prev => !prev)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="fixed bottom-4 right-4 z-50 w-[76px] h-[76px] rounded-2xl flex items-center justify-center cursor-pointer"
+        className="fixed z-50 w-[76px] h-[76px] rounded-2xl flex items-center justify-center cursor-pointer"
         style={{
+          left: botPos.x,
+          top: botPos.y,
           background: 'radial-gradient(circle at 45% 40%, rgba(255,255,255,0.08) 0%, rgba(11,22,34,0.95) 70%)',
           border: isHovered ? '1.5px solid rgba(39,174,96,0.5)' : '1.5px solid rgba(255,255,255,0.1)',
           boxShadow: isHovered
             ? '0 12px 40px rgba(39,174,96,0.25), 0 0 30px rgba(39,174,96,0.1), inset 0 1px 0 rgba(255,255,255,0.06)'
             : '0 8px 32px rgba(0,0,0,0.5), 0 0 16px rgba(39,174,96,0.06), inset 0 1px 0 rgba(255,255,255,0.04)',
           transition: 'box-shadow 0.4s ease, border-color 0.4s ease',
+          willChange: 'left, top',
         }}
         animate={open
           ? { scale: 1 }
@@ -457,7 +572,13 @@ export default function ChatWidget() {
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.25 }}
             >
-              <FordinandBot eyeX={eyePos.x} eyeY={eyePos.y} isHovered={isHovered} />
+              <FordinandBot
+                eyeX={eyePos.x}
+                eyeY={eyePos.y}
+                headRotate={headRotate}
+                isHovered={isHovered}
+                proximity={proximity}
+              />
             </motion.div>
           )}
         </AnimatePresence>
