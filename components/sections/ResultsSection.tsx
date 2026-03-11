@@ -70,7 +70,7 @@ function StackCard({
         top: `${pinTop}px`,
         zIndex: index + 1,
         height: `calc(100vh - ${pinTop + 40}px)`,
-        marginBottom: index < total - 1 ? "100vh" : "0",
+        marginBottom: "100vh",
       }}
     >
       <CardContent
