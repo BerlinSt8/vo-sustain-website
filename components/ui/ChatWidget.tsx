@@ -33,7 +33,7 @@ const LABELS = {
 };
 
 // ─── Home position (bottom-right corner) ─────────────────────────────────────
-const BOT_SIZE = 76;
+const BOT_SIZE = 84;
 const HOME_MARGIN = 16; // distance from edge
 
 function getHomePos() {
@@ -44,160 +44,346 @@ function getHomePos() {
   };
 }
 
-// ─── R4X-Style Fördinand Bot — Premium SVG with eye-tracking + head tilt ─────
+// ─── R4X-Style Fördinand Bot — 3D Premium SVG with eye-tracking + head tilt ──
 function FordinandBot({
   eyeX, eyeY, headRotate, isHovered, proximity,
 }: {
   eyeX: number; eyeY: number; headRotate: number; isHovered: boolean; proximity: number;
 }) {
-  // proximity: 0 = far, 1 = cursor right on top — drives dome glow intensity
-  const domeOpacity = 0.7 + proximity * 0.3;
-  const bracketOpacity = 0.15 + proximity * 0.5;
-  const earGlow = 0.2 + proximity * 0.5;
+  const domeGlow = 0.5 + proximity * 0.5;
+  const earGlow = 0.2 + proximity * 0.65;
+  const bracketOpacity = 0.06 + proximity * 0.4;
+  const eyeScale = isHovered ? 1.2 : 1;
+  const smileWidth = isHovered ? 3 : 2;
 
   return (
-    <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="72" height="72" viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        {/* R4X Dome — warm pink → orange → yellow → green glow */}
-        <radialGradient id="r4x-dome" cx="0.45" cy="0.38" r="0.55">
-          <stop offset="0%" stopColor="#ffb07a" stopOpacity="1" />
-          <stop offset="30%" stopColor="#ff7e6b" stopOpacity="0.85" />
-          <stop offset="60%" stopColor="#e85d6f" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#27AE60" stopOpacity="0.25" />
+        {/* ═══ 3D LIGHTING SYSTEM ═══ */}
+
+        {/* Key light: top-left warm light source */}
+        <radialGradient id="fd-key-light" cx="0.3" cy="0.2" r="0.8">
+          <stop offset="0%" stopColor="#fff8f0" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#fff8f0" stopOpacity="0" />
         </radialGradient>
-        {/* Dome inner light — hot center */}
-        <radialGradient id="dome-inner" cx="0.4" cy="0.35" r="0.35">
-          <stop offset="0%" stopColor="#ffe4a0" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="#ff9060" stopOpacity="0" />
+
+        {/* ── Iridescent Dome — multi-layer glass ── */}
+        <linearGradient id="fd-dome-iris" x1="0.05" y1="0" x2="0.95" y2="1">
+          <stop offset="0%" stopColor="#ff9ecd" stopOpacity="0.9" />
+          <stop offset="15%" stopColor="#ffb3d9" stopOpacity="0.85" />
+          <stop offset="30%" stopColor="#c8a8e6" stopOpacity="0.8" />
+          <stop offset="45%" stopColor="#7ec8e3" stopOpacity="0.78" />
+          <stop offset="60%" stopColor="#a8e6cf" stopOpacity="0.82" />
+          <stop offset="75%" stopColor="#ffe066" stopOpacity="0.75" />
+          <stop offset="90%" stopColor="#ffb07a" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#ff9ecd" stopOpacity="0.65" />
+        </linearGradient>
+        {/* Dome refraction — secondary color layer offset */}
+        <linearGradient id="fd-dome-refract" x1="0.9" y1="0.1" x2="0.1" y2="0.9">
+          <stop offset="0%" stopColor="#88d8f7" stopOpacity="0.4" />
+          <stop offset="30%" stopColor="#ffc8e8" stopOpacity="0.3" />
+          <stop offset="60%" stopColor="#a8e6cf" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#ffe088" stopOpacity="0.25" />
+        </linearGradient>
+        {/* Dome warm inner glow */}
+        <radialGradient id="fd-dome-inner" cx="0.42" cy="0.4" r="0.5">
+          <stop offset="0%" stopColor="#ffe4c8" stopOpacity="0.65" />
+          <stop offset="40%" stopColor="#ffb8a0" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#ff88b8" stopOpacity="0" />
         </radialGradient>
-        {/* Soft outer glow */}
-        <filter id="dome-glow" x="-40%" y="-40%" width="180%" height="180%">
+        {/* Dome primary specular */}
+        <radialGradient id="fd-dome-spec" cx="0.3" cy="0.25" r="0.3">
+          <stop offset="0%" stopColor="white" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+
+        {/* ── Body — 3D cream material with subsurface scattering ── */}
+        <radialGradient id="fd-body" cx="0.38" cy="0.25" r="0.75">
+          <stop offset="0%" stopColor="#faf3ea" />
+          <stop offset="25%" stopColor="#f4ebe0" />
+          <stop offset="50%" stopColor="#ebe0d2" />
+          <stop offset="75%" stopColor="#ddd2c2" />
+          <stop offset="100%" stopColor="#c8bda8" />
+        </radialGradient>
+        {/* Body rim-light (warm edge from key light) */}
+        <radialGradient id="fd-body-rim" cx="0.2" cy="0.15" r="0.9">
+          <stop offset="0%" stopColor="#fff8f0" stopOpacity="0.25" />
+          <stop offset="40%" stopColor="#fff8f0" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+        </radialGradient>
+        {/* Body bottom shadow (ambient occlusion) */}
+        <radialGradient id="fd-body-ao" cx="0.5" cy="0.85" r="0.5">
+          <stop offset="0%" stopColor="#a09080" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#a09080" stopOpacity="0" />
+        </radialGradient>
+        {/* Subsurface scattering — warm light bleeding through thin edges */}
+        <radialGradient id="fd-sss" cx="0.7" cy="0.3" r="0.6">
+          <stop offset="0%" stopColor="#ffd8b8" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#ffd8b8" stopOpacity="0" />
+        </radialGradient>
+
+        {/* ── Head gradient ── */}
+        <radialGradient id="fd-head" cx="0.4" cy="0.25" r="0.7">
+          <stop offset="0%" stopColor="#faf3ea" />
+          <stop offset="40%" stopColor="#f0e6d8" />
+          <stop offset="80%" stopColor="#e2d6c6" />
+          <stop offset="100%" stopColor="#d4c8b6" />
+        </radialGradient>
+
+        {/* ── Eye iris gradient (realistic) ── */}
+        <radialGradient id="fd-iris-l" cx="0.45" cy="0.4" r="0.55">
+          <stop offset="0%" stopColor="#3de88a" />
+          <stop offset="40%" stopColor="#2ECC71" />
+          <stop offset="70%" stopColor="#1a9a50" />
+          <stop offset="100%" stopColor="#0d6e35" />
+        </radialGradient>
+        <radialGradient id="fd-iris-r" cx="0.45" cy="0.4" r="0.55">
+          <stop offset="0%" stopColor="#3de88a" />
+          <stop offset="40%" stopColor="#2ECC71" />
+          <stop offset="70%" stopColor="#1a9a50" />
+          <stop offset="100%" stopColor="#0d6e35" />
+        </radialGradient>
+
+        {/* ═══ FILTER SYSTEM ═══ */}
+
+        {/* Eye emission glow — bright, focused */}
+        <filter id="fd-eye-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feComposite in="blur" in2="SourceGraphic" operator="over" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        {/* Eye halo — soft green ambient around eyes */}
+        <filter id="fd-eye-halo" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="4" />
+        </filter>
+
+        {/* Dome ambient glow — dreamy, wide */}
+        <filter id="fd-dome-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+
+        {/* 3D drop shadow — multi-layer for depth */}
+        <filter id="fd-shadow-deep" x="-20%" y="-10%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#08101a" floodOpacity="0.3" />
+          <feDropShadow dx="0" dy="1" stdDeviation="1" floodColor="#08101a" floodOpacity="0.15" />
+        </filter>
+        {/* Contact shadow (ambient occlusion between elements) */}
+        <filter id="fd-contact-shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="1.5" stdDeviation="2" floodColor="#08101a" floodOpacity="0.2" />
+        </filter>
+
+        {/* Verde LED glow — intense, focused */}
+        <filter id="fd-led-glow" x="-100%" y="-100%" width="300%" height="300%">
           <feGaussianBlur stdDeviation="2.5" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
-        {/* Eye neon glow */}
-        <filter id="eye-glow" x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="1.8" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-        {/* Body — R4X cream white with 3D depth */}
-        <radialGradient id="r4x-body" cx="0.4" cy="0.3" r="0.7">
-          <stop offset="0%" stopColor="#f8f9fa" />
-          <stop offset="60%" stopColor="#e8eaed" />
-          <stop offset="100%" stopColor="#cdd0d4" />
-        </radialGradient>
-        {/* Head 3D gradient */}
-        <radialGradient id="r4x-head" cx="0.42" cy="0.3" r="0.65">
-          <stop offset="0%" stopColor="#f8f9fa" />
-          <stop offset="70%" stopColor="#e4e7ea" />
-          <stop offset="100%" stopColor="#d0d4d8" />
-        </radialGradient>
-        {/* Shadow under head */}
-        <filter id="head-shadow" x="-10%" y="-5%" width="120%" height="130%">
-          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#0B1622" floodOpacity="0.15" />
-        </filter>
-        {/* Shadow under body */}
-        <filter id="body-shadow" x="-10%" y="-5%" width="120%" height="130%">
-          <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#0B1622" floodOpacity="0.2" />
+
+        {/* Ambient backlight (full-bot glow) */}
+        <filter id="fd-backlight" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="8" />
         </filter>
       </defs>
 
-      {/* === GROUND SHADOW === */}
-      <ellipse cx="40" cy="73" rx="18" ry="3" fill="#0B1622" opacity="0.12" />
+      {/* ═══ AMBIENT BACKLIGHT — 3D "floating" effect ═══ */}
+      <ellipse cx="60" cy="62" rx="35" ry="40" fill="#27AE60" opacity={0.04 + proximity * 0.06} filter="url(#fd-backlight)" />
+      <ellipse cx="60" cy="38" rx="25" ry="22" fill="#ffb3d9" opacity={0.03 + proximity * 0.04} filter="url(#fd-backlight)" />
 
-      {/* === BODY (BB-8 sphere) === */}
-      <circle cx="40" cy="56" r="15" fill="url(#r4x-body)" filter="url(#body-shadow)" />
-      {/* Body highlight arc */}
-      <ellipse cx="36" cy="49" rx="8" ry="5" fill="white" opacity="0.12" />
-      {/* Body seam */}
-      <ellipse cx="40" cy="56" rx="14.5" ry="0.4" fill="#c0c4c8" opacity="0.4" />
-      {/* Surface texture dots (BB-8 style) */}
-      <circle cx="34" cy="52" r="0.7" fill="#c8ccd0" />
-      <circle cx="46" cy="54" r="0.5" fill="#c8ccd0" />
-      <circle cx="38" cy="60" r="0.6" fill="#c8ccd0" />
-      <circle cx="44" cy="49" r="0.4" fill="#c8ccd0" />
-      <circle cx="36" cy="63" r="0.5" fill="#c8ccd0" />
-      <circle cx="48" cy="60" r="0.6" fill="#c8ccd0" />
-      {/* Chest indicator — pulsing verde ring */}
-      <circle cx="40" cy="56" r="3" fill="none" stroke="#27AE60" strokeWidth="0.5" opacity="0.3">
-        <animate attributeName="r" values="2.5;4;2.5" dur="2.5s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="40" cy="56" r="1.5" fill="#27AE60" opacity={0.5 + proximity * 0.4}>
-        <animate attributeName="opacity" values={`${0.4 + proximity * 0.3};${0.7 + proximity * 0.3};${0.4 + proximity * 0.3}`} dur="2.5s" repeatCount="indefinite" />
-      </circle>
+      {/* ═══ GROUND SHADOW — soft, realistic ═══ */}
+      <ellipse cx="60" cy="120" rx="28" ry="5" fill="#08101a" opacity="0.18">
+        <animate attributeName="rx" values="28;26;28" dur="4s" repeatCount="indefinite" />
+      </ellipse>
+      <ellipse cx="60" cy="120" rx="16" ry="2.5" fill="#08101a" opacity="0.1" />
 
-      {/* === HEAD GROUP — rotates toward cursor (R4X Target Head behavior) === */}
-      <g transform={`rotate(${headRotate}, 40, 40)`}>
-        {/* === HEAD (rounded capsule) === */}
-        <rect x="23" y="24" width="34" height="20" rx="10" fill="url(#r4x-head)" filter="url(#head-shadow)" />
-        {/* Head highlight */}
-        <rect x="27" y="25" width="20" height="6" rx="3" fill="white" opacity="0.1" />
-
-        {/* === DOME (glass hemisphere — R4X signature) === */}
-        <ellipse cx="40" cy="22" rx="15" ry="13" fill="url(#r4x-dome)" filter="url(#dome-glow)" opacity={domeOpacity}>
-          <animate attributeName="opacity" values={`${domeOpacity};${domeOpacity * 0.88};${domeOpacity}`} dur="2.5s" repeatCount="indefinite" />
-        </ellipse>
-        {/* Dome inner hotspot */}
-        <ellipse cx="38" cy="19" rx="8" ry="6" fill="url(#dome-inner)" />
-        {/* Glass specular highlight — top-left */}
-        <ellipse cx="34" cy="15" rx="5" ry="3" fill="white" opacity="0.22" />
-        {/* Secondary highlight — smaller */}
-        <ellipse cx="46" cy="20" rx="2.5" ry="1.5" fill="white" opacity="0.1" />
-        {/* Dome rim */}
-        <ellipse cx="40" cy="28" rx="14" ry="2" fill="#d0d4d8" opacity="0.4" />
-
-        {/* === FACE PLATE (dark visor) === */}
-        <rect x="27" y="28" width="26" height="13" rx="6.5" fill="#0d1117" opacity="0.92" />
-        {/* Visor edge highlight */}
-        <rect x="28" y="28.5" width="24" height="0.8" rx="0.4" fill="white" opacity="0.06" />
-
-        {/* === EYES — R4X large green, cursor-tracking === */}
-        <g filter="url(#eye-glow)">
-          {/* Left eye socket */}
-          <circle cx="35" cy="34.5" r="4.8" fill="#0a0e14" />
-          {/* Left iris — gradient feel via layered circles */}
-          <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
-          <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
-            <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" />
-          </circle>
-          {/* Left specular */}
-          <circle cx={33.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
-          <circle cx={35.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
-
-          {/* Right eye socket */}
-          <circle cx="45" cy="34.5" r="4.8" fill="#0a0e14" />
-          {/* Right iris */}
-          <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
-          <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
-            <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" begin="0.4s" />
-          </circle>
-          {/* Right specular */}
-          <circle cx={43.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
-          <circle cx={45.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
-        </g>
-
-        {/* === NECK connector === */}
-        <rect x="36" y="43" width="8" height="4" rx="2" fill="#dde0e3" stroke="#c4c8cc" strokeWidth="0.4" />
-
-        {/* === EAR SENSORS === */}
-        <circle cx="22" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
-        <circle cx="22" cy="33" r="1" fill="#27AE60" opacity={earGlow}>
-          <animate attributeName="opacity" values={`${earGlow * 0.5};${earGlow};${earGlow * 0.5}`} dur="3s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="58" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
-        <circle cx="58" cy="33" r="1" fill="#27AE60" opacity={earGlow}>
-          <animate attributeName="opacity" values={`${earGlow * 0.5};${earGlow};${earGlow * 0.5}`} dur="3s" repeatCount="indefinite" begin="1.5s" />
-        </circle>
+      {/* ═══ BODY — 3D round, chubby, cream with proper lighting ═══ */}
+      <g filter="url(#fd-shadow-deep)">
+        {/* Main body sphere */}
+        <ellipse cx="60" cy="92" rx="26" ry="24" fill="url(#fd-body)" />
+        {/* Subsurface scattering — warm edge glow */}
+        <ellipse cx="60" cy="92" rx="26" ry="24" fill="url(#fd-sss)" />
+        {/* Key light highlight — top-left 3D curvature */}
+        <ellipse cx="50" cy="80" rx="16" ry="12" fill="white" opacity="0.14" />
+        {/* Secondary highlight — softer, wider */}
+        <ellipse cx="54" cy="84" rx="20" ry="14" fill="url(#fd-body-rim)" />
+        {/* Ambient occlusion — bottom shadow */}
+        <ellipse cx="60" cy="108" rx="20" ry="6" fill="url(#fd-body-ao)" />
+        {/* Rim light — thin bright edge (key light side) */}
+        <path d="M38 76 Q34 88 38 104" stroke="white" strokeWidth="0.8" fill="none" opacity="0.08" />
+        {/* Panel line — horizontal belt (3D curved) */}
+        <path d="M36 93 Q60 89 84 93" stroke="#ccc0ae" strokeWidth="0.7" fill="none" opacity="0.4" />
+        {/* Panel line — vertical center seam */}
+        <line x1="60" y1="72" x2="60" y2="93" stroke="#ccc0ae" strokeWidth="0.5" opacity="0.2" />
+        {/* Panel accents — technical detail */}
+        <path d="M46 80 L52 84" stroke="#ccc0ae" strokeWidth="0.4" fill="none" opacity="0.18" />
+        <path d="M74 80 L68 84" stroke="#ccc0ae" strokeWidth="0.4" fill="none" opacity="0.18" />
       </g>
 
-      {/* === TRACKING FRAME (R4X corner brackets) — proximity-reactive === */}
-      <g stroke="#27AE60" strokeWidth="1.2" opacity={isHovered ? 0.65 : bracketOpacity} strokeLinecap="round"
-         style={{ transition: 'opacity 0.3s ease' }}>
-        <path d="M8 8 L8 15" /><path d="M8 8 L15 8" />
-        <path d="M72 8 L72 15" /><path d="M72 8 L65 8" />
-        <path d="M8 74 L8 67" /><path d="M8 74 L15 74" />
-        <path d="M72 74 L72 67" /><path d="M72 74 L65 74" />
+      {/* ═══ CHEST LED — verde heartbeat with 3D glow ═══ */}
+      <circle cx="60" cy="88" r="4" fill="none" stroke="#27AE60" strokeWidth="0.7" opacity="0.2">
+        <animate attributeName="r" values="3.5;5.5;3.5" dur="2.2s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.1;0.35;0.1" dur="2.2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="60" cy="88" r="2.5" fill="#27AE60" opacity={0.4 + proximity * 0.45} filter="url(#fd-led-glow)">
+        <animate attributeName="opacity" values={`${0.3 + proximity * 0.3};${0.6 + proximity * 0.35};${0.3 + proximity * 0.3}`} dur="2.2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="60" cy="88" r="1.2" fill="#5eff9e" opacity={0.3 + proximity * 0.3} />
+
+      {/* ═══ LEFT ARM — resting, 3D shading ═══ */}
+      <g filter="url(#fd-contact-shadow)">
+        <ellipse cx="32" cy="90" rx="6" ry="4.5" fill="#ede4d6" transform="rotate(20, 32, 90)" />
+        <ellipse cx="32" cy="90" rx="5" ry="3.5" fill="url(#fd-body-rim)" transform="rotate(20, 32, 90)" />
+        <circle cx="27.5" cy="93" r="3.8" fill="#f0e8dc" />
+        <ellipse cx="26" cy="91.5" rx="2" ry="1.5" fill="white" opacity="0.08" />
+      </g>
+
+      {/* ═══ RIGHT ARM — waving with 3D depth ═══ */}
+      <g transform="translate(87, 78)" filter="url(#fd-contact-shadow)">
+        <animateTransform attributeName="transform" type="rotate" values="-10,0,0;15,0,0;-10,0,0" dur="2s" repeatCount="indefinite" additive="sum" />
+        {/* Upper arm */}
+        <ellipse cx="2" cy="-6" rx="5.5" ry="4" fill="#ede4d6" transform="rotate(-35, 2, -6)" />
+        <ellipse cx="0" cy="-8" rx="3" ry="2" fill="white" opacity="0.06" transform="rotate(-35, 0, -8)" />
+        {/* Forearm */}
+        <ellipse cx="5" cy="-16" rx="4.5" ry="3" fill="#ede4d6" transform="rotate(-12, 5, -16)" />
+        <ellipse cx="3.5" cy="-17.5" rx="2.5" ry="1.5" fill="white" opacity="0.06" transform="rotate(-12, 3.5, -17.5)" />
+        {/* Hand — 3D sphere */}
+        <circle cx="7" cy="-22" r="4" fill="#f0e8dc" />
+        <ellipse cx="5.5" cy="-24" rx="2" ry="1.5" fill="white" opacity="0.1" />
+        {/* Fingers — small spheres */}
+        <circle cx="4.5" cy="-26.5" r="1.5" fill="#f0e8dc" />
+        <circle cx="7.5" cy="-27" r="1.5" fill="#f0e8dc" />
+        <circle cx="10" cy="-26" r="1.3" fill="#f0e8dc" />
+      </g>
+
+      {/* ═══ HEAD GROUP — rotates toward cursor (R4X Target Head) ═══ */}
+      <g transform={`rotate(${headRotate}, 60, 54)`}>
+
+        {/* ── Neck — 3D connector with shadow ── */}
+        <rect x="50" y="67" width="20" height="7" rx="4.5" fill="#ede4d6" />
+        <rect x="52" y="67.5" width="16" height="1.5" rx="0.75" fill="white" opacity="0.06" />
+        <rect x="50" y="72" width="20" height="1.5" rx="0.75" fill="#c8bda8" opacity="0.15" />
+
+        {/* ── Ambient occlusion — head/body junction shadow ── */}
+        <ellipse cx="60" cy="68" rx="14" ry="3" fill="#08101a" opacity="0.06" />
+
+        {/* ── Head base — 3D rounded capsule ── */}
+        <g filter="url(#fd-shadow-deep)">
+          <rect x="30" y="38" width="60" height="32" rx="16" fill="url(#fd-head)" />
+          {/* Key light highlight on head */}
+          <ellipse cx="52" cy="43" rx="20" ry="7" fill="white" opacity="0.1" />
+          {/* Head bottom ambient occlusion */}
+          <rect x="36" y="64" width="48" height="3" rx="1.5" fill="#c0b5a0" opacity="0.1" />
+          {/* Rim light — thin edge on key-light side */}
+          <path d="M34 46 Q30 54 34 64" stroke="white" strokeWidth="0.6" fill="none" opacity="0.07" />
+        </g>
+
+        {/* ── Ear pads — 3D headphone style ── */}
+        {/* Left ear */}
+        <g filter="url(#fd-contact-shadow)">
+          <ellipse cx="28" cy="54" rx="6.5" ry="7" fill="#ede4d6" />
+          <ellipse cx="28" cy="54" rx="5" ry="5.5" fill="#e4dace" />
+          <ellipse cx="27" cy="52" rx="3" ry="2.5" fill="white" opacity="0.06" />
+          <circle cx="28" cy="54" r="2.2" fill="#27AE60" opacity={earGlow} filter="url(#fd-led-glow)">
+            <animate attributeName="opacity" values={`${earGlow * 0.3};${earGlow};${earGlow * 0.3}`} dur="2.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="28" cy="54" r="1" fill="#5eff9e" opacity={earGlow * 0.5} />
+        </g>
+        {/* Right ear */}
+        <g filter="url(#fd-contact-shadow)">
+          <ellipse cx="92" cy="54" rx="6.5" ry="7" fill="#ede4d6" />
+          <ellipse cx="92" cy="54" rx="5" ry="5.5" fill="#e4dace" />
+          <ellipse cx="91" cy="52" rx="3" ry="2.5" fill="white" opacity="0.06" />
+          <circle cx="92" cy="54" r="2.2" fill="#27AE60" opacity={earGlow} filter="url(#fd-led-glow)">
+            <animate attributeName="opacity" values={`${earGlow * 0.3};${earGlow};${earGlow * 0.3}`} dur="2.8s" repeatCount="indefinite" begin="1.2s" />
+          </circle>
+          <circle cx="92" cy="54" r="1" fill="#5eff9e" opacity={earGlow * 0.5} />
+        </g>
+
+        {/* ── Face visor — deep dark plate with 3D depth ── */}
+        <rect x="37" y="45" width="46" height="22" rx="11" fill="#060a10" opacity="0.95" />
+        {/* Visor inner depth — recessed feel */}
+        <rect x="39" y="47" width="42" height="18" rx="9" fill="#0d1420" opacity="0.5" />
+        {/* Visor edge shine — top rim catch light */}
+        <rect x="41" y="45.5" width="38" height="1.2" rx="0.6" fill="white" opacity="0.05" />
+        {/* Visor bottom edge — subtle */}
+        <rect x="43" y="65" width="34" height="0.8" rx="0.4" fill="white" opacity="0.03" />
+
+        {/* ── EYES — 3D emissive, large, alive ── */}
+        {/* Eye ambient halo (soft green glow behind eyes) */}
+        <ellipse cx="50" cy="56" rx="8" ry="6" fill="#27AE60" opacity={0.06 + proximity * 0.08} filter="url(#fd-eye-halo)" />
+        <ellipse cx="70" cy="56" rx="8" ry="6" fill="#27AE60" opacity={0.06 + proximity * 0.08} filter="url(#fd-eye-halo)" />
+
+        <g filter="url(#fd-eye-glow)">
+          {/* ─ Left eye ─ */}
+          {/* Socket — deep black with subtle blue rim */}
+          <circle cx="50" cy="56" r={7.5 * eyeScale} fill="#040810" />
+          <circle cx="50" cy="56" r={7.5 * eyeScale} stroke="#1a3050" strokeWidth="0.4" fill="none" opacity="0.3" />
+          {/* Iris — radial gradient for 3D depth */}
+          <circle cx={50 + eyeX * 3} cy={56 + eyeY * 2.2} r={5.5 * eyeScale} fill="url(#fd-iris-l)">
+            <animate attributeName="opacity" values="1;0.82;1" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+          {/* Iris ring detail */}
+          <circle cx={50 + eyeX * 3} cy={56 + eyeY * 2.2} r={5.5 * eyeScale} stroke="#0d6e35" strokeWidth="0.4" fill="none" opacity="0.4" />
+          {/* Pupil — deep center */}
+          <circle cx={50 + eyeX * 3.2} cy={56 + eyeY * 2.4} r={2 * eyeScale} fill="#061a0c" opacity="0.7" />
+          {/* Primary catchlight — large, bright */}
+          <circle cx={47.5 + eyeX * 1.5} cy={53 + eyeY * 0.7} r={2 * eyeScale} fill="white" opacity="0.92" />
+          {/* Secondary catchlight — opposite side, smaller */}
+          <circle cx={52 + eyeX * 2} cy={54 + eyeY * 0.9} r={0.9 * eyeScale} fill="white" opacity="0.5" />
+          {/* Eye emission glow ring */}
+          <circle cx={50 + eyeX * 3} cy={56 + eyeY * 2.2} r={6 * eyeScale} stroke="#2ECC71" strokeWidth="0.5" fill="none" opacity={0.15 + proximity * 0.2} />
+
+          {/* ─ Right eye ─ */}
+          <circle cx="70" cy="56" r={7.5 * eyeScale} fill="#040810" />
+          <circle cx="70" cy="56" r={7.5 * eyeScale} stroke="#1a3050" strokeWidth="0.4" fill="none" opacity="0.3" />
+          <circle cx={70 + eyeX * 3} cy={56 + eyeY * 2.2} r={5.5 * eyeScale} fill="url(#fd-iris-r)">
+            <animate attributeName="opacity" values="1;0.82;1" dur="2.5s" repeatCount="indefinite" begin="0.4s" />
+          </circle>
+          <circle cx={70 + eyeX * 3} cy={56 + eyeY * 2.2} r={5.5 * eyeScale} stroke="#0d6e35" strokeWidth="0.4" fill="none" opacity="0.4" />
+          <circle cx={70 + eyeX * 3.2} cy={56 + eyeY * 2.4} r={2 * eyeScale} fill="#061a0c" opacity="0.7" />
+          <circle cx={67.5 + eyeX * 1.5} cy={53 + eyeY * 0.7} r={2 * eyeScale} fill="white" opacity="0.92" />
+          <circle cx={72 + eyeX * 2} cy={54 + eyeY * 0.9} r={0.9 * eyeScale} fill="white" opacity="0.5" />
+          <circle cx={70 + eyeX * 3} cy={56 + eyeY * 2.2} r={6 * eyeScale} stroke="#2ECC71" strokeWidth="0.5" fill="none" opacity={0.15 + proximity * 0.2} />
+        </g>
+
+        {/* ── Smile — friendly, reactive ── */}
+        <path
+          d={`M55 ${isHovered ? 63 : 63.5} Q60 ${isHovered ? 67 : 65.5} 65 ${isHovered ? 63 : 63.5}`}
+          stroke="#2ECC71" strokeWidth={isHovered ? 1.2 : 0.9} fill="none" strokeLinecap="round"
+          opacity={isHovered ? 0.5 : 0.25}
+          style={{ transition: 'all 0.3s ease' }}
+        />
+
+        {/* ── DOME — 3D iridescent glass hemisphere ── */}
+        {/* Layer 1: Base iridescent fill with glow */}
+        <ellipse cx="60" cy="36" rx="24" ry="22" fill="url(#fd-dome-iris)" filter="url(#fd-dome-glow)" opacity={domeGlow}>
+          <animate attributeName="opacity" values={`${domeGlow};${domeGlow * 0.8};${domeGlow}`} dur="3.5s" repeatCount="indefinite" />
+        </ellipse>
+        {/* Layer 2: Refraction — offset color layer for glass depth */}
+        <ellipse cx="62" cy="34" rx="22" ry="20" fill="url(#fd-dome-refract)" opacity={domeGlow * 0.6} />
+        {/* Layer 3: Inner warm glow (like light trapped inside) */}
+        <ellipse cx="58" cy="33" rx="16" ry="14" fill="url(#fd-dome-inner)" opacity={0.45 + proximity * 0.3} />
+        {/* Layer 4: Primary specular — large glass highlight */}
+        <ellipse cx="60" cy="34" rx="22" ry="20" fill="url(#fd-dome-spec)" />
+        {/* Layer 5: Sharp specular — top-left bright arc */}
+        <ellipse cx="50" cy="24" rx="10" ry="6" fill="white" opacity="0.3" />
+        {/* Layer 6: Secondary specular — right side */}
+        <ellipse cx="72" cy="32" rx="5" ry="3" fill="white" opacity="0.12" />
+        {/* Layer 7: Tertiary micro-highlight */}
+        <ellipse cx="54" cy="20" rx="4" ry="2" fill="white" opacity="0.18" />
+        {/* Dome rim — where glass meets head casing */}
+        <ellipse cx="60" cy="49" rx="22" ry="3.5" fill="#d8cebe" opacity="0.5" />
+        <ellipse cx="60" cy="48" rx="20" ry="1.2" fill="white" opacity="0.07" />
+        {/* Dome bottom rim shadow */}
+        <ellipse cx="60" cy="50" rx="20" ry="2" fill="#08101a" opacity="0.06" />
+      </g>
+
+      {/* ═══ TRACKING BRACKETS (R4X signature) ═══ */}
+      <g stroke="#27AE60" strokeWidth="1.2" opacity={isHovered ? 0.5 : bracketOpacity} strokeLinecap="round"
+         style={{ transition: 'opacity 0.4s ease' }}>
+        <path d="M4 4 L4 14" /><path d="M4 4 L14 4" />
+        <path d="M116 4 L116 14" /><path d="M116 4 L106 4" />
+        <path d="M4 126 L4 116" /><path d="M4 126 L14 126" />
+        <path d="M116 126 L116 116" /><path d="M116 126 L106 126" />
       </g>
     </svg>
   );
@@ -415,15 +601,26 @@ export default function ChatWidget() {
             <div className="flex items-center gap-3 px-4 py-3 border-b" style={{ borderColor: 'rgba(39,174,96,0.2)' }}>
               <div className="relative flex-shrink-0">
                 <div className="w-9 h-9 rounded-full bg-[#1a1f25] flex items-center justify-center overflow-hidden border border-[#27AE60]/30">
-                  <svg width="26" height="26" viewBox="18 18 44 48" fill="none">
-                    <circle cx="40" cy="48" r="10" fill="#e8eaed" />
-                    <rect x="25" y="26" width="30" height="17" rx="8.5" fill="#e8eaed" />
-                    <ellipse cx="40" cy="24" rx="12" ry="10" fill="#ff9070" opacity="0.7" />
-                    <rect x="29" y="30" width="22" height="11" rx="5.5" fill="#0d1117" opacity="0.9" />
-                    <circle cx="36" cy="35.5" r="3" fill="#0a0e14" />
-                    <circle cx="36" cy="35.5" r="1.8" fill="#2ECC71" />
-                    <circle cx="44" cy="35.5" r="3" fill="#0a0e14" />
-                    <circle cx="44" cy="35.5" r="1.8" fill="#2ECC71" />
+                  <svg width="26" height="26" viewBox="20 18 80 84" fill="none">
+                    <defs>
+                      <linearGradient id="hd-dome" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#ff9ecd" stopOpacity="0.8" />
+                        <stop offset="40%" stopColor="#a8e6cf" stopOpacity="0.7" />
+                        <stop offset="80%" stopColor="#ffe066" stopOpacity="0.6" />
+                      </linearGradient>
+                    </defs>
+                    <ellipse cx="60" cy="76" rx="18" ry="16" fill="#f0e6d8" />
+                    <rect x="36" y="40" width="48" height="26" rx="13" fill="#f0e6d8" />
+                    <ellipse cx="60" cy="38" rx="18" ry="16" fill="url(#hd-dome)" opacity="0.7" />
+                    <ellipse cx="52" cy="30" rx="7" ry="4" fill="white" opacity="0.25" />
+                    <rect x="41" y="47" width="38" height="16" rx="8" fill="#060a10" opacity="0.92" />
+                    <circle cx="52" cy="55" r="5" fill="#040810" />
+                    <circle cx="52" cy="55" r="3.5" fill="#2ECC71" />
+                    <circle cx="50" cy="53" r="1.3" fill="white" opacity="0.9" />
+                    <circle cx="68" cy="55" r="5" fill="#040810" />
+                    <circle cx="68" cy="55" r="3.5" fill="#2ECC71" />
+                    <circle cx="66" cy="53" r="1.3" fill="white" opacity="0.9" />
+                    <circle cx="60" cy="76" r="2" fill="#27AE60" opacity="0.5" />
                   </svg>
                 </div>
                 <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#27AE60] border-2 border-[#0B1622]" />
@@ -528,7 +725,7 @@ export default function ChatWidget() {
         onClick={() => setOpen(prev => !prev)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="fixed z-50 w-[76px] h-[76px] rounded-2xl flex items-center justify-center cursor-pointer"
+        className="fixed z-50 w-[84px] h-[84px] rounded-2xl flex items-center justify-center cursor-pointer"
         style={{
           left: botPos.x,
           top: botPos.y,
