@@ -55,16 +55,26 @@ function Network({ paused }: { paused: boolean }) {
     <group ref={groupRef}>
       {/* Connection lines */}
       <lineSegments geometry={edgeGeo}>
-        <lineBasicMaterial color="#27AE60" transparent opacity={0.22} />
+        <lineBasicMaterial color="#2ECC71" transparent opacity={0.45} />
       </lineSegments>
-      {/* Nodes */}
+      {/* Halo glow — large soft layer behind nodes */}
+      <points geometry={nodeGeo}>
+        <pointsMaterial
+          color="#27AE60"
+          size={0.32}
+          sizeAttenuation
+          transparent
+          opacity={0.18}
+        />
+      </points>
+      {/* Nodes — crisp bright core */}
       <points geometry={nodeGeo}>
         <pointsMaterial
           color="#2ECC71"
-          size={0.1}
+          size={0.13}
           sizeAttenuation
           transparent
-          opacity={0.95}
+          opacity={1}
         />
       </points>
     </group>
