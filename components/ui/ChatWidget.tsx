@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback, lazy, Suspense } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
-
-const Spline = lazy(() => import('@splinetool/react-spline/next'));
 
 interface Message {
   role: 'user' | 'assistant';
@@ -34,7 +32,152 @@ const LABELS = {
   },
 };
 
-const SPLINE_SCENE = 'https://prod.spline.design/0fnie1FxSKy58982/scene.splinecode';
+// ─── R4X-Style Fördinand Bot — Premium SVG with eye-tracking ─────────────────
+function FordinandBot({ eyeX, eyeY, isHovered }: { eyeX: number; eyeY: number; isHovered: boolean }) {
+  return (
+    <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        {/* R4X Dome — warm pink → orange → yellow → green glow */}
+        <radialGradient id="r4x-dome" cx="0.45" cy="0.38" r="0.55">
+          <stop offset="0%" stopColor="#ffb07a" stopOpacity="1" />
+          <stop offset="30%" stopColor="#ff7e6b" stopOpacity="0.85" />
+          <stop offset="60%" stopColor="#e85d6f" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#27AE60" stopOpacity="0.25" />
+        </radialGradient>
+        {/* Dome inner light — hot center */}
+        <radialGradient id="dome-inner" cx="0.4" cy="0.35" r="0.35">
+          <stop offset="0%" stopColor="#ffe4a0" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#ff9060" stopOpacity="0" />
+        </radialGradient>
+        {/* Soft outer glow */}
+        <filter id="dome-glow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        {/* Eye neon glow */}
+        <filter id="eye-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="1.8" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        {/* Body — R4X cream white with 3D depth */}
+        <radialGradient id="r4x-body" cx="0.4" cy="0.3" r="0.7">
+          <stop offset="0%" stopColor="#f8f9fa" />
+          <stop offset="60%" stopColor="#e8eaed" />
+          <stop offset="100%" stopColor="#cdd0d4" />
+        </radialGradient>
+        {/* Head 3D gradient */}
+        <radialGradient id="r4x-head" cx="0.42" cy="0.3" r="0.65">
+          <stop offset="0%" stopColor="#f8f9fa" />
+          <stop offset="70%" stopColor="#e4e7ea" />
+          <stop offset="100%" stopColor="#d0d4d8" />
+        </radialGradient>
+        {/* Shadow under head */}
+        <filter id="head-shadow" x="-10%" y="-5%" width="120%" height="130%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#0B1622" floodOpacity="0.15" />
+        </filter>
+        {/* Shadow under body */}
+        <filter id="body-shadow" x="-10%" y="-5%" width="120%" height="130%">
+          <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#0B1622" floodOpacity="0.2" />
+        </filter>
+      </defs>
+
+      {/* === GROUND SHADOW === */}
+      <ellipse cx="40" cy="73" rx="18" ry="3" fill="#0B1622" opacity="0.12" />
+
+      {/* === BODY (BB-8 sphere) === */}
+      <circle cx="40" cy="56" r="15" fill="url(#r4x-body)" filter="url(#body-shadow)" />
+      {/* Body highlight arc */}
+      <ellipse cx="36" cy="49" rx="8" ry="5" fill="white" opacity="0.12" />
+      {/* Body seam */}
+      <ellipse cx="40" cy="56" rx="14.5" ry="0.4" fill="#c0c4c8" opacity="0.4" />
+      {/* Surface texture dots (BB-8 style) */}
+      <circle cx="34" cy="52" r="0.7" fill="#c8ccd0" />
+      <circle cx="46" cy="54" r="0.5" fill="#c8ccd0" />
+      <circle cx="38" cy="60" r="0.6" fill="#c8ccd0" />
+      <circle cx="44" cy="49" r="0.4" fill="#c8ccd0" />
+      <circle cx="36" cy="63" r="0.5" fill="#c8ccd0" />
+      <circle cx="48" cy="60" r="0.6" fill="#c8ccd0" />
+      {/* Chest indicator — pulsing verde ring */}
+      <circle cx="40" cy="56" r="3" fill="none" stroke="#27AE60" strokeWidth="0.5" opacity="0.3">
+        <animate attributeName="r" values="2.5;4;2.5" dur="2.5s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="40" cy="56" r="1.5" fill="#e8656a" opacity="0.85">
+        <animate attributeName="fill" values="#e8656a;#27AE60;#e8656a" dur="5s" repeatCount="indefinite" />
+      </circle>
+
+      {/* === HEAD (rounded capsule) === */}
+      <rect x="23" y="24" width="34" height="20" rx="10" fill="url(#r4x-head)" filter="url(#head-shadow)" />
+      {/* Head highlight */}
+      <rect x="27" y="25" width="20" height="6" rx="3" fill="white" opacity="0.1" />
+
+      {/* === DOME (glass hemisphere — R4X signature) === */}
+      <ellipse cx="40" cy="22" rx="15" ry="13" fill="url(#r4x-dome)" filter="url(#dome-glow)" opacity={isHovered ? 1 : 0.8}>
+        <animate attributeName="opacity" values={isHovered ? "1;0.88;1" : "0.7;0.85;0.7"} dur="2.5s" repeatCount="indefinite" />
+      </ellipse>
+      {/* Dome inner hotspot */}
+      <ellipse cx="38" cy="19" rx="8" ry="6" fill="url(#dome-inner)" />
+      {/* Glass specular highlight — top-left */}
+      <ellipse cx="34" cy="15" rx="5" ry="3" fill="white" opacity="0.22" />
+      {/* Secondary highlight — smaller */}
+      <ellipse cx="46" cy="20" rx="2.5" ry="1.5" fill="white" opacity="0.1" />
+      {/* Dome rim */}
+      <ellipse cx="40" cy="28" rx="14" ry="2" fill="#d0d4d8" opacity="0.4" />
+
+      {/* === FACE PLATE (dark visor) === */}
+      <rect x="27" y="28" width="26" height="13" rx="6.5" fill="#0d1117" opacity="0.92" />
+      {/* Visor edge highlight */}
+      <rect x="28" y="28.5" width="24" height="0.8" rx="0.4" fill="white" opacity="0.06" />
+
+      {/* === EYES — R4X large green-yellow, cursor-tracking === */}
+      <g filter="url(#eye-glow)">
+        {/* Left eye socket */}
+        <circle cx="35" cy="34.5" r="4.8" fill="#0a0e14" />
+        {/* Left iris — gradient feel via layered circles */}
+        <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
+        <circle cx={35 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
+          <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" />
+        </circle>
+        {/* Left specular */}
+        <circle cx={33.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
+        <circle cx={35.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
+
+        {/* Right eye socket */}
+        <circle cx="45" cy="34.5" r="4.8" fill="#0a0e14" />
+        {/* Right iris */}
+        <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 3.5 : 2.8} fill="#1a8a4a" />
+        <circle cx={45 + eyeX * 2.2} cy={34.5 + eyeY * 1.5} r={isHovered ? 2.5 : 2} fill="#2ECC71">
+          <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite" begin="0.4s" />
+        </circle>
+        {/* Right specular */}
+        <circle cx={43.8 + eyeX * 1.2} cy={33 + eyeY * 0.6} r="1" fill="white" opacity="0.8" />
+        <circle cx={45.5 + eyeX * 1.5} cy={33.5 + eyeY * 0.8} r="0.5" fill="white" opacity="0.4" />
+      </g>
+
+      {/* === NECK connector === */}
+      <rect x="36" y="43" width="8" height="4" rx="2" fill="#dde0e3" stroke="#c4c8cc" strokeWidth="0.4" />
+
+      {/* === EAR SENSORS === */}
+      <circle cx="22" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
+      <circle cx="22" cy="33" r="1" fill="#27AE60" opacity="0.4">
+        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="58" cy="33" r="2.5" fill="#e4e7ea" stroke="#c0c4c8" strokeWidth="0.5" />
+      <circle cx="58" cy="33" r="1" fill="#27AE60" opacity="0.4">
+        <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="1.5s" />
+      </circle>
+
+      {/* === TRACKING FRAME (R4X corner brackets) === */}
+      <g stroke="#27AE60" strokeWidth="1.2" opacity={isHovered ? 0.65 : 0.2} strokeLinecap="round"
+         style={{ transition: 'opacity 0.3s ease' }}>
+        <path d="M8 8 L8 15" /><path d="M8 8 L15 8" />
+        <path d="M72 8 L72 15" /><path d="M72 8 L65 8" />
+        <path d="M8 74 L8 67" /><path d="M8 74 L15 74" />
+        <path d="M72 74 L72 67" /><path d="M72 74 L65 74" />
+      </g>
+    </svg>
+  );
+}
 
 // ─── Chat Widget ─────────────────────────────────────────────────────────────
 export default function ChatWidget() {
@@ -45,33 +188,51 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([{ role: 'assistant', content: labels.greeting }]);
   const [input, setInput]       = useState('');
   const [loading, setLoading]   = useState(false);
-  const [splineReady, setSplineReady] = useState(false);
-  const [isTouch, setIsTouch]   = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef       = useRef<HTMLTextAreaElement>(null);
   const abortRef       = useRef<AbortController | null>(null);
-  const splineRef      = useRef<unknown>(null);
+  const botRef         = useRef<HTMLButtonElement>(null);
 
-  // ── Detect touch devices ──
+  // ── Eye tracking with spring physics ──
+  const rawEyeX = useMotionValue(0);
+  const rawEyeY = useMotionValue(0);
+  const eyeX = useSpring(rawEyeX, { stiffness: 120, damping: 18 });
+  const eyeY = useSpring(rawEyeY, { stiffness: 120, damping: 18 });
+  const [eyePos, setEyePos] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
-    setIsTouch(window.matchMedia('(pointer: coarse)').matches);
-  }, []);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!botRef.current) return;
+      const rect = botRef.current.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const maxDist = 500;
+      const factor = Math.min(dist / maxDist, 1);
+      const angle = Math.atan2(dy, dx);
+      rawEyeX.set(Math.cos(angle) * factor);
+      rawEyeY.set(Math.sin(angle) * factor);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [rawEyeX, rawEyeY]);
+
+  // Sync spring values to state for SVG rendering
+  useEffect(() => {
+    const unsubX = eyeX.on('change', (x) => setEyePos(prev => ({ ...prev, x })));
+    const unsubY = eyeY.on('change', (y) => setEyePos(prev => ({ ...prev, y })));
+    return () => { unsubX(); unsubY(); };
+  }, [eyeX, eyeY]);
 
   // ── Chat scroll / focus / lang ──
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, loading]);
   useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 300); }, [open]);
   useEffect(() => { setMessages([{ role: 'assistant', content: labels.greeting }]); }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // ── Emit event to Spline when chat opens/closes ──
-  useEffect(() => {
-    const app = splineRef.current as { emitEvent?: (event: string, name: string) => void } | null;
-    if (app?.emitEvent) {
-      try {
-        app.emitEvent(open ? 'mouseDown' : 'mouseUp', 'Robot');
-      } catch { /* ignore if object not found */ }
-    }
-  }, [open]);
 
   // ── Send message ──
   const sendMessage = useCallback(async () => {
@@ -117,24 +278,9 @@ export default function ChatWidget() {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSplineLoad = useCallback((splineApp: any) => {
-    splineRef.current = splineApp;
-    setSplineReady(true);
-
-    // Listen for mouse clicks on the Robot object in Spline → toggle chat
-    try {
-      splineApp.addEventListener('mouseDown', (e: { target?: { name?: string } }) => {
-        if (e.target?.name === 'Robot') {
-          setOpen(prev => !prev);
-        }
-      });
-    } catch { /* Spline event API may vary */ }
-  }, []);
-
   return (
     <>
-      {/* ── Chat Panel (fixed bottom-right) ── */}
+      {/* ── Chat Panel ── */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -143,11 +289,11 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed bottom-36 right-4 sm:right-6 z-[52] w-[calc(100vw-2rem)] sm:w-[380px] max-h-[70vh] flex flex-col"
+            className="fixed bottom-[6rem] right-4 sm:right-6 z-[52] w-[calc(100vw-2rem)] sm:w-[380px] max-h-[70vh] flex flex-col"
             style={{
-              background: 'rgba(11,22,34,0.87)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
+              background: 'rgba(11,22,34,0.92)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
               border: '1px solid rgba(39,174,96,0.25)',
               borderRadius: '20px',
               boxShadow: '0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(39,174,96,0.1), inset 0 1px 0 rgba(255,255,255,0.05)',
@@ -156,8 +302,17 @@ export default function ChatWidget() {
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 border-b" style={{ borderColor: 'rgba(39,174,96,0.2)' }}>
               <div className="relative flex-shrink-0">
-                <div className="w-8 h-8 rounded-full bg-[#27AE60]/20 flex items-center justify-center">
-                  <span className="text-sm">&#x1F916;</span>
+                <div className="w-9 h-9 rounded-full bg-[#1a1f25] flex items-center justify-center overflow-hidden border border-[#27AE60]/30">
+                  <svg width="26" height="26" viewBox="18 18 44 48" fill="none">
+                    <circle cx="40" cy="48" r="10" fill="#e8eaed" />
+                    <rect x="25" y="26" width="30" height="17" rx="8.5" fill="#e8eaed" />
+                    <ellipse cx="40" cy="24" rx="12" ry="10" fill="#ff9070" opacity="0.7" />
+                    <rect x="29" y="30" width="22" height="11" rx="5.5" fill="#0d1117" opacity="0.9" />
+                    <circle cx="36" cy="35.5" r="3" fill="#0a0e14" />
+                    <circle cx="36" cy="35.5" r="1.8" fill="#2ECC71" />
+                    <circle cx="44" cy="35.5" r="3" fill="#0a0e14" />
+                    <circle cx="44" cy="35.5" r="1.8" fill="#2ECC71" />
+                  </svg>
                 </div>
                 <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#27AE60] border-2 border-[#0B1622]" />
               </div>
@@ -255,77 +410,58 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* ── 3D Spline R4X Bot — Full viewport canvas for cursor-following ── */}
-      {!isTouch && (
-        <div
-          className="fixed inset-0 z-50"
-          style={{
-            pointerEvents: 'none',
-            opacity: splineReady ? 1 : 0,
-            transition: 'opacity 0.6s ease',
-          }}
-        >
-          <Suspense fallback={null}>
-            <Spline
-              scene={SPLINE_SCENE}
-              onLoad={handleSplineLoad}
-              style={{
-                width: '100vw',
-                height: '100vh',
-                pointerEvents: 'auto',
-              }}
-            />
-          </Suspense>
-        </div>
-      )}
-
-      {/* ── Touch fallback: static bot button ── */}
-      {isTouch && (
-        <button
-          onClick={() => setOpen(prev => !prev)}
-          className="fixed bottom-4 right-4 z-50 w-16 h-16 rounded-full flex items-center justify-center"
-          style={{
-            background: 'radial-gradient(circle, rgba(39,174,96,0.2) 0%, rgba(11,22,34,0.9) 70%)',
-            border: '2px solid rgba(39,174,96,0.4)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-          }}
-          aria-label={open ? labels.close : labels.title}
-          aria-expanded={open}
-        >
-          <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              {/* Simple bot face for mobile */}
-              <circle cx="16" cy="18" r="12" fill="#0B1622" stroke="#27AE60" strokeWidth="1.5" />
-              <circle cx="16" cy="10" r="8" fill="#0B1622" stroke="#27AE60" strokeWidth="1.5" />
-              <circle cx="12.5" cy="10" r="2" fill="#27AE60" />
-              <circle cx="19.5" cy="10" r="2" fill="#27AE60" />
-              <path d="M13 14 Q16 16 19 14" stroke="#27AE60" strokeWidth="1" strokeLinecap="round" fill="none" />
-              <line x1="16" y1="2" x2="16" y2="0" stroke="#27AE60" strokeWidth="1.5" strokeLinecap="round" />
-              <circle cx="16" cy="0" r="1.5" fill="#27AE60" />
-            </svg>
-          </motion.div>
-        </button>
-      )}
-
-      {/* ── Loading indicator (before Spline loads) ── */}
-      {!splineReady && !isTouch && (
-        <div className="fixed bottom-6 right-6 z-50">
-          <motion.div
-            className="w-14 h-14 rounded-full flex items-center justify-center"
-            style={{
-              background: 'radial-gradient(circle, rgba(39,174,96,0.15) 0%, rgba(11,22,34,0.8) 70%)',
-              border: '1.5px solid rgba(39,174,96,0.3)',
-            }}
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <div className="w-5 h-5 rounded-full bg-[#27AE60]/40" />
-          </motion.div>
-        </div>
-      )}
+      {/* ── R4X Fördinand Bot — SVG with eye-tracking ── */}
+      <motion.button
+        ref={botRef}
+        onClick={() => setOpen(prev => !prev)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="fixed bottom-4 right-4 z-50 w-[76px] h-[76px] rounded-2xl flex items-center justify-center cursor-pointer"
+        style={{
+          background: 'radial-gradient(circle at 45% 40%, rgba(255,255,255,0.08) 0%, rgba(11,22,34,0.95) 70%)',
+          border: isHovered ? '1.5px solid rgba(39,174,96,0.5)' : '1.5px solid rgba(255,255,255,0.1)',
+          boxShadow: isHovered
+            ? '0 12px 40px rgba(39,174,96,0.25), 0 0 30px rgba(39,174,96,0.1), inset 0 1px 0 rgba(255,255,255,0.06)'
+            : '0 8px 32px rgba(0,0,0,0.5), 0 0 16px rgba(39,174,96,0.06), inset 0 1px 0 rgba(255,255,255,0.04)',
+          transition: 'box-shadow 0.4s ease, border-color 0.4s ease',
+        }}
+        animate={open
+          ? { scale: 1 }
+          : { y: [0, -3, 0] }
+        }
+        transition={open
+          ? { duration: 0.2 }
+          : { duration: 4, repeat: Infinity, ease: 'easeInOut' }
+        }
+        aria-label={open ? labels.close : labels.title}
+        aria-expanded={open}
+      >
+        <AnimatePresence mode="wait">
+          {open ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6 6l12 12M18 6L6 18" stroke="#27AE60" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="bot"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <FordinandBot eyeX={eyePos.x} eyeY={eyePos.y} isHovered={isHovered} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
     </>
   );
 }
