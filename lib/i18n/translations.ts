@@ -15,9 +15,9 @@ export const translations = {
     // ─── HeroSection ───
     hero: {
       tag: "Nachhaltigkeit · Cleantech · Innovation · ZIM",
-      headline: "Förderberatung für KMU — mit fertigem Konzept statt Erstgespräch.",
+      headline: "Förderberatung für KMU.",
       sub: "Konzept vor dem Erstgespräch. Honorar erst bei Bewilligung.",
-      body: "Bevor wir ins Gespräch kommen, haben wir Ihr Förderpotenzial bereits analysiert. Sie erhalten ein ausgearbeitetes Konzept mit passenden Programmen, realistischen Quoten und konkretem Fahrplan. Unser Honorar wird erst bei Bewilligung fällig.",
+      body: "Bevor wir ins Gespräch kommen, haben wir Ihr Förderpotenzial bereits analysiert. Sie erhalten ein ausgearbeitetes Konzept mit passenden Programmen, realistischen Quoten und konkretem Fahrplan.",
       ctaPrimary: "Förderpotenzial prüfen — kostenlos →",
       ctaSecondary: "Leistungen",
       imgAlt: "Verde Onda – die Grüne Welle",
@@ -544,9 +544,9 @@ export const translations = {
     // ─── HeroSection ───
     hero: {
       tag: "Sustainability · Cleantech · Innovation · ZIM",
-      headline: "German Grant Consulting for SMEs — with a tailored proposal before the first meeting.",
+      headline: "German Grant Consulting for SMEs.",
       sub: "Tailored Proposals. Hands-on Expertise. No Win, No Fee.",
-      body: "Before we meet, we've already analysed your funding potential. You receive a tailored proposal with matching programmes, realistic grant rates, and a concrete roadmap. Our fee is only due upon approval.",
+      body: "Before we meet, we've already analysed your funding potential. You receive a tailored proposal with matching programmes, realistic grant rates, and a concrete roadmap.",
       ctaPrimary: "Check your funding potential — free →",
       ctaSecondary: "Services",
       imgAlt: "Verde Onda – The Green Wave",

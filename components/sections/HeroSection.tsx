@@ -17,16 +17,12 @@ export default function HeroSection() {
 
   const imageY     = useTransform(scrollYProgress, [0, 0.2, 1], ["-18%", "0%", "35%"]);
   const imageScale = useTransform(scrollYProgress, [0, 0.25, 1], [1.15, 1.0, 1.0]);
-  const headlineY  = useTransform(scrollYProgress, [0, 0.2],  ["40px", "0px"]);
-  const headlineOp = useTransform(scrollYProgress, [0.05, 0.22], [0, 1]);
-  const subTextOp  = useTransform(scrollYProgress, [0.12, 0.28], [0, 1]);
-  const ctaOp      = useTransform(scrollYProgress, [0.18, 0.32], [0, 1]);
-  const overlayOp  = useTransform(scrollYProgress, [0, 0.5], [0.3, 0.82]);
-  const verdeGlow  = useTransform(scrollYProgress, [0.1, 0.18, 0.28], [0, 1, 0]);
+  const headlineY  = useTransform(scrollYProgress, [0, 0.2],  ["0px", "-20px"]);
+  const overlayOp  = useTransform(scrollYProgress, [0, 0.5], [0.75, 0.92]);
+  const verdeGlow  = useTransform(scrollYProgress, [0, 0.15, 0.3], [0.4, 1, 0]);
 
   // Parallax layers based on scroll
   const layer1Y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const layer2Y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const layer3Y = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   // Mouse parallax for depth
@@ -119,7 +115,7 @@ export default function HeroSection() {
         width: "140%",
         height: "1px",
         background: "linear-gradient(90deg, transparent 0%, rgba(46,204,113,0.15) 30%, rgba(46,204,113,0.3) 50%, rgba(46,204,113,0.15) 70%, transparent 100%)",
-        opacity: headlineOp,
+        opacity: 0.5,
         y: layer3Y,
         zIndex: 3,
         pointerEvents: "none",
@@ -135,7 +131,12 @@ export default function HeroSection() {
         zIndex: 4,
       }}>
         {/* Tag */}
-        <motion.div style={{ opacity: headlineOp, marginBottom: "1.5rem" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          style={{ marginBottom: "1.25rem" }}
+        >
           <span style={{
             fontFamily: "'Roboto Mono', monospace",
             fontSize: "0.68rem",
@@ -155,13 +156,13 @@ export default function HeroSection() {
         {/* Kinetic Headline — word by word */}
         <h1 style={{
           fontFamily: "'Montserrat', sans-serif",
-          fontSize: "clamp(3.5rem, 9vw, 7rem)",
+          fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)",
           fontWeight: 900,
           color: "white",
-          lineHeight: 0.95,
+          lineHeight: 1.0,
           letterSpacing: "-0.02em",
-          marginBottom: "1.5rem",
-          maxWidth: "800px",
+          marginBottom: "1.25rem",
+          maxWidth: "760px",
           display: "flex",
           flexWrap: "wrap",
           gap: "0 0.3em",
@@ -169,17 +170,12 @@ export default function HeroSection() {
           {words.map((word, i) => (
             <motion.span
               key={i}
-              style={{
-                y: headlineY,
-                opacity: headlineOp,
-                display: "inline-block",
-              }}
-              initial={{ opacity: 0, y: 40, rotateX: -40 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
+              style={{ y: headlineY, display: "inline-block" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{
-                duration: 0.7,
-                delay: 0.15 + i * 0.08,
+                duration: 0.6,
+                delay: 0.2 + i * 0.07,
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
@@ -189,28 +185,41 @@ export default function HeroSection() {
         </h1>
 
         {/* Sub-headline */}
-        <motion.p style={{
-          opacity: subTextOp,
-          fontFamily: "'Montserrat', sans-serif",
-          fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
-          fontWeight: 700, color: "rgba(255,255,255,0.82)", lineHeight: 1.25,
-          marginBottom: "1rem", maxWidth: "600px",
-        }}>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: "clamp(1rem, 2vw, 1.35rem)",
+            fontWeight: 700, color: "rgba(255,255,255,0.88)", lineHeight: 1.3,
+            marginBottom: "0.85rem", maxWidth: "560px",
+          }}
+        >
           {t.hero.sub}
         </motion.p>
 
-        <motion.p style={{
-          opacity: subTextOp,
-          fontFamily: "'Open Sans', sans-serif",
-          fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)",
-          color: "rgba(255,255,255,0.62)", lineHeight: 1.65,
-          marginBottom: "2.5rem", maxWidth: "520px",
-        }}>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: "'Open Sans', sans-serif",
+            fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)",
+            color: "rgba(255,255,255,0.65)", lineHeight: 1.65,
+            marginBottom: "2rem", maxWidth: "500px",
+          }}
+        >
           {t.hero.body}
         </motion.p>
 
         {/* CTAs — Magnetic effect */}
-        <motion.div style={{ opacity: ctaOp, display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.82, ease: [0.16, 1, 0.3, 1] }}
+          style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
+        >
           <MagneticButton href="#quick-check" primary>
             {t.hero.ctaPrimary}
           </MagneticButton>
@@ -221,11 +230,16 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Scroll indicator */}
-      <motion.div style={{
-        position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)",
-        opacity: headlineOp, display: "flex", flexDirection: "column", alignItems: "center", gap: "6px",
-        zIndex: 5,
-      }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        style={{
+          position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)",
+          display: "flex", flexDirection: "column", alignItems: "center", gap: "6px",
+          zIndex: 5,
+        }}
+      >
         <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.15em" }}>SCROLL</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
 
@@ -20,10 +20,12 @@ function ServiceCard({
   channel,
   href,
   index,
+  visible,
 }: {
   channel: { label: string; title: string; desc: string; tags: readonly string[] };
   href: string;
   index: number;
+  visible: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
@@ -44,17 +46,16 @@ function ServiceCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: 0.08 * index }}
+      initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+      animate={visible ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+      transition={{ duration: 0.5, delay: index * 0.09, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setTilt({ rotateX: 0, rotateY: 0 });
         setIsHovered(false);
       }}
-      style={{ perspective: "800px" }}
+      style={{ perspective: "800px", height: "100%" }}
     >
       <motion.a
         ref={ref}
@@ -71,7 +72,9 @@ function ServiceCard({
           borderRadius: "12px",
           padding: "2rem",
           textDecoration: "none",
-          display: "block",
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
           transformStyle: "preserve-3d",
           position: "relative",
           overflow: "hidden",
@@ -92,7 +95,7 @@ function ServiceCard({
           }} />
         )}
 
-        <div style={{ position: "relative", transform: "translateZ(15px)" }}>
+        <div style={{ position: "relative", transform: "translateZ(15px)", display: "flex", flexDirection: "column", flex: 1 }}>
           <div style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem", color: "var(--verde-bright)", letterSpacing: "0.15em", marginBottom: "1.25rem" }}>
             {channel.label}
           </div>
@@ -106,7 +109,7 @@ function ServiceCard({
           }}>
             {channel.title}
           </h3>
-          <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.65, marginBottom: "1.5rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.65, marginBottom: "1.5rem", flex: 1 }}>
             {channel.desc}
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "1.25rem" }}>
@@ -148,6 +151,68 @@ function ServiceCard({
   );
 }
 
+function ArrowButton({
+  direction,
+  onClick,
+  visible,
+}: {
+  direction: "left" | "right";
+  onClick: () => void;
+  visible: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      initial={false}
+      animate={{ opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}
+      transition={{ duration: 0.2 }}
+      aria-label={direction === "left" ? "Previous" : "Next"}
+      style={{
+        position: "absolute",
+        top: "50%",
+        [direction]: "-20px",
+        transform: "translateY(-50%)",
+        zIndex: 10,
+        width: "40px",
+        height: "40px",
+        borderRadius: "50%",
+        border: `1px solid ${hovered ? "rgba(39,174,96,0.5)" : "rgba(255,255,255,0.12)"}`,
+        background: hovered ? "rgba(39,174,96,0.12)" : "rgba(13,27,42,0.8)",
+        backdropFilter: "blur(8px)",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        transition: "border-color 0.2s, background 0.2s",
+        padding: 0,
+      }}
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        style={{ transform: direction === "left" ? "rotate(180deg)" : "none" }}
+      >
+        <path
+          d="M6 3l5 5-5 5"
+          stroke={hovered ? "#2ECC71" : "rgba(255,255,255,0.7)"}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </motion.button>
+  );
+}
+
+const CARD_WIDTH = 340;
+const CARD_GAP = 20;
+const CARD_STEP = CARD_WIDTH + CARD_GAP;
+
 export default function SolutionSection() {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
@@ -155,6 +220,11 @@ export default function SolutionSection() {
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const [activeCard, setActiveCard] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartRef = useRef({ x: 0, scrollLeft: 0 });
+
+  // Trigger card entry animations when section enters view
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -189,10 +259,7 @@ export default function SolutionSection() {
       return;
     }
     setScrollProgress(scrollLeft / maxScroll);
-
-    // Determine active card based on scroll position
-    const cardWidth = 340 + 20; // minWidth + gap
-    const index = Math.round(scrollLeft / cardWidth);
+    const index = Math.round(scrollLeft / CARD_STEP);
     setActiveCard(Math.min(index, t.solution.channels.length - 1));
   }, [t.solution.channels.length]);
 
@@ -206,9 +273,46 @@ export default function SolutionSection() {
   const scrollToCard = useCallback((index: number) => {
     const container = carouselRef.current;
     if (!container) return;
-    const cardWidth = 340 + 20; // minWidth + gap
-    container.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+    container.scrollTo({ left: index * CARD_STEP, behavior: "smooth" });
   }, []);
+
+  const goNext = useCallback(() => {
+    scrollToCard(Math.min(activeCard + 1, t.solution.channels.length - 1));
+  }, [activeCard, scrollToCard, t.solution.channels.length]);
+
+  const goPrev = useCallback(() => {
+    scrollToCard(Math.max(activeCard - 1, 0));
+  }, [activeCard, scrollToCard]);
+
+  // Mouse drag-to-scroll
+  const handlePointerDown = (e: React.PointerEvent) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    setIsDragging(true);
+    dragStartRef.current = { x: e.clientX, scrollLeft: container.scrollLeft };
+    container.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    const container = carouselRef.current;
+    if (!container) return;
+    const dx = e.clientX - dragStartRef.current.x;
+    container.scrollLeft = dragStartRef.current.scrollLeft - dx;
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const container = carouselRef.current;
+    if (!container) return;
+    container.releasePointerCapture(e.pointerId);
+    // Snap to nearest card
+    const index = Math.round(container.scrollLeft / CARD_STEP);
+    scrollToCard(Math.max(0, Math.min(index, t.solution.channels.length - 1)));
+  };
+
+  const links = ["/foerderberatung", "/zim-foerderung", "/bafa-foerderung", "/csrd-beratung", "/nachhaltigkeitsstrategie"];
 
   return (
     <section
@@ -351,9 +455,9 @@ export default function SolutionSection() {
             top: 0,
             left: 0,
             bottom: 0,
-            width: "60px",
-            background: "linear-gradient(to right, var(--navy), transparent)",
-            zIndex: 3,
+            width: "80px",
+            background: "linear-gradient(to right, var(--navy) 0%, transparent 100%)",
+            zIndex: 5,
             pointerEvents: "none",
             opacity: scrollProgress > 0.02 ? 1 : 0,
             transition: "opacity 0.3s ease",
@@ -364,97 +468,126 @@ export default function SolutionSection() {
             top: 0,
             right: 0,
             bottom: 0,
-            width: "60px",
-            background: "linear-gradient(to left, var(--navy), transparent)",
-            zIndex: 3,
+            width: "80px",
+            background: "linear-gradient(to left, var(--navy) 0%, transparent 100%)",
+            zIndex: 5,
             pointerEvents: "none",
             opacity: scrollProgress < 0.98 ? 1 : 0,
             transition: "opacity 0.3s ease",
           }} />
 
+          {/* Arrow navigation */}
+          <ArrowButton direction="left" onClick={goPrev} visible={activeCard > 0} />
+          <ArrowButton direction="right" onClick={goNext} visible={activeCard < t.solution.channels.length - 1} />
+
+          {/* Carousel track */}
           <div
             ref={carouselRef}
             className="solution-carousel-scroll"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerUp}
             style={{
               display: "flex",
-              gap: "1.25rem",
+              gap: `${CARD_GAP}px`,
               overflowX: "auto",
               scrollSnapType: "x mandatory",
-              scrollBehavior: "smooth",
               paddingLeft: "1.5rem",
               paddingRight: "1.5rem",
-              paddingTop: "0.5rem",
-              paddingBottom: "0.5rem",
+              paddingTop: "0.75rem",
+              paddingBottom: "1rem",
               margin: "0 -1.5rem",
+              cursor: isDragging ? "grabbing" : "grab",
+              userSelect: "none",
             }}
           >
-            {t.solution.channels.map((c, i) => {
-              const links = ["/foerderberatung", "/zim-foerderung", "/bafa-foerderung", "/csrd-beratung", "/nachhaltigkeitsstrategie"];
-              return (
-                <div
-                  key={i}
-                  style={{
-                    scrollSnapAlign: "start",
-                    minWidth: "340px",
-                    maxWidth: "380px",
-                    flexShrink: 0,
-                  }}
-                >
-                  <ServiceCard
-                    channel={c}
-                    href={links[i] || "#"}
-                    index={i}
-                  />
-                </div>
-              );
-            })}
+            {t.solution.channels.map((c, i) => (
+              <div
+                key={i}
+                style={{
+                  scrollSnapAlign: "start",
+                  minWidth: `${CARD_WIDTH}px`,
+                  maxWidth: "380px",
+                  flexShrink: 0,
+                }}
+              >
+                <ServiceCard
+                  channel={c}
+                  href={links[i] || "#"}
+                  index={i}
+                  visible={isInView}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Scroll indicator dots */}
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "8px",
-          marginTop: "1.5rem",
-        }}>
-          {t.solution.channels.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollToCard(i)}
-              aria-label={`Go to card ${i + 1}`}
+        {/* Scroll indicator dots + progress */}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", marginTop: "1.75rem" }}>
+          {/* Dots */}
+          <div style={{ display: "flex", gap: "8px" }}>
+            {t.solution.channels.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToCard(i)}
+                aria-label={`Go to card ${i + 1}`}
+                style={{
+                  width: activeCard === i ? "28px" : "8px",
+                  height: "8px",
+                  borderRadius: "4px",
+                  border: "none",
+                  background: activeCard === i ? "var(--verde-bright)" : "rgba(255,255,255,0.2)",
+                  cursor: "pointer",
+                  padding: 0,
+                  transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                  opacity: activeCard === i ? 1 : 0.5,
+                }}
+              />
+            ))}
+          </div>
+          {/* Progress bar */}
+          <div style={{
+            width: "120px",
+            height: "2px",
+            background: "rgba(255,255,255,0.08)",
+            borderRadius: "1px",
+            overflow: "hidden",
+          }}>
+            <motion.div
               style={{
-                width: activeCard === i ? "24px" : "8px",
-                height: "8px",
-                borderRadius: "4px",
-                border: "none",
-                background: activeCard === i ? "var(--verde-bright)" : "rgba(255,255,255,0.2)",
-                cursor: "pointer",
-                padding: 0,
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                opacity: activeCard === i ? 1 : 0.6,
+                height: "100%",
+                background: "var(--verde-bright)",
+                borderRadius: "1px",
+                originX: 0,
               }}
+              animate={{ scaleX: scrollProgress === 0 ? 1 / t.solution.channels.length : scrollProgress }}
+              transition={{ duration: 0.15, ease: "linear" }}
             />
-          ))}
+          </div>
         </div>
 
-        {/* Hide scrollbar CSS */}
-        <style>{`
+      </div>
+
+      <style>{`
+        .solution-carousel-scroll {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .solution-carousel-scroll::-webkit-scrollbar {
+          display: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
           .solution-carousel-scroll {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            scroll-behavior: auto;
           }
-          .solution-carousel-scroll::-webkit-scrollbar {
+        }
+        @media (max-width: 768px) {
+          .solution-carousel-arrow {
             display: none;
           }
-          @media (prefers-reduced-motion: reduce) {
-            .solution-carousel-scroll {
-              scroll-behavior: auto;
-            }
-          }
-        `}</style>
-
-      </div>
+        }
+      `}</style>
     </section>
   );
 }
