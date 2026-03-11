@@ -16,6 +16,11 @@ export default function BafaFoerderungClient() {
       process={t.bafaFoerderung.process}
       facts={t.bafaFoerderung.facts}
       tags={t.bafaFoerderung.types}
+      relatedLinks={[
+        { href: "/foerderberatung",       title: t.foerderberatung.heroHeadline },
+        { href: "/zim-foerderung",        title: t.zimFoerderung.heroHeadline },
+        { href: "/nachhaltigkeitsstrategie", title: t.nachhaltigkeitsstrategie.heroHeadline },
+      ]}
     />
   );
 }

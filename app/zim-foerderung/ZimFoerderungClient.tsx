@@ -63,6 +63,10 @@ export default function ZimFoerderungClient() {
       facts={t.zimFoerderung.facts}
       tags={t.zimFoerderung.types}
       extraSection={experienceSection}
+      relatedLinks={[
+        { href: "/foerderberatung", title: t.foerderberatung.heroHeadline },
+        { href: "/bafa-foerderung", title: t.bafaFoerderung.heroHeadline },
+      ]}
     />
   );
 }

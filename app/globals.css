@@ -39,11 +39,11 @@
   /* ─── Kontrast-Standard (einmalig festgelegt – nie wieder manuell anpassen) ───
      Gilt für alle Dark-Backgrounds (Navy, Navy-Dark).
      Alle Text-Elemente auf dunklem Hintergrund MÜSSEN eine dieser Variablen verwenden.
-     WCAG 2.1 AA: --ct1 und --ct2 ✓ AAA, --ct3 ✓ AA, --ct4 nur für Dekoration.        */
+     WCAG 2.1 AA: --ct1 und --ct2 ✓ AAA, --ct3 ✓ AA ≥5.5:1, --ct4 ✓ AA ≥4.5:1.       */
   --ct1:  #F0F2F4;   /* Haupttext      – fast weiß    · WCAG AAA ≥ 7:1  */
   --ct2:  #C8D0D8;   /* Sekundärtext   – hell grau    · WCAG AAA ≥ 7:1  */
-  --ct3:  #8E9BAA;   /* Labels / Tags  – mittel grau  · WCAG AA  ≥ 4.5:1 */
-  --ct4:  #5A6470;   /* Dezente Hints  – dunkel grau  · nur Deko, nie Fließtext */
+  --ct3:  #A2ADB9;   /* Labels / Tags  – mittel grau  · WCAG AA  ≥ 5.5:1 */
+  --ct4:  #7B8896;   /* Dezente Hints  – dunkel grau  · WCAG AA  ≥ 4.5:1 */
   --ct-accent: var(--verde-bright); /* Akzent-Grün auf Navy: #2ECC71   */
 }
 

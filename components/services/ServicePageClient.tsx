@@ -19,6 +19,11 @@ interface Fact {
   label: string;
 }
 
+interface RelatedLink {
+  href: string;
+  title: string;
+}
+
 interface ServicePageClientProps {
   heroLabel: string;
   heroHeadline: string;
@@ -30,6 +35,8 @@ interface ServicePageClientProps {
   tags: readonly string[];
   /** Extra section between facts and CTA */
   extraSection?: React.ReactNode;
+  /** Cross-links to related service pages */
+  relatedLinks?: readonly RelatedLink[];
 }
 
 /* ─── Shared icon set (inline SVGs) ─── */
@@ -54,6 +61,7 @@ export default function ServicePageClient({
   facts,
   tags,
   extraSection,
+  relatedLinks,
 }: ServicePageClientProps) {
   const { t } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
@@ -511,6 +519,54 @@ export default function ServicePageClient({
 
       {/* ━━━ EXTRA SECTION (optional) ━━━ */}
       {extraSection}
+
+      {/* ━━━ RELATED LINKS (optional) ━━━ */}
+      {relatedLinks && relatedLinks.length > 0 && (
+        <section style={{ background: "var(--navy)", padding: "2.5rem 8vw", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+            <p style={{
+              fontFamily: "'Roboto Mono', monospace",
+              fontSize: "0.62rem",
+              letterSpacing: "0.18em",
+              color: "var(--verde-bright)",
+              textTransform: "uppercase",
+              marginBottom: "1.25rem",
+            }}>
+              {t.services.relatedLabel}
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+              {relatedLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: "0.85rem",
+                    fontWeight: 700,
+                    color: "var(--ct2)",
+                    textDecoration: "none",
+                    padding: "0.6rem 1.25rem",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    borderRadius: "var(--radius)",
+                    background: "rgba(255,255,255,0.03)",
+                    transition: "border-color 0.2s, color 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--verde)";
+                    e.currentTarget.style.color = "var(--verde-bright)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                    e.currentTarget.style.color = "var(--ct2)";
+                  }}
+                >
+                  {link.title} →
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ━━━ CTA ━━━ */}
       <section style={{ background: "var(--navy-dark)", padding: "6rem 8vw" }}>

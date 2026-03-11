@@ -209,9 +209,8 @@ export default function HeroSection() {
             color: "rgba(255,255,255,0.65)", lineHeight: 1.65,
             marginBottom: "2rem", maxWidth: "500px",
           }}
-        >
-          {t.hero.body}
-        </motion.p>
+          dangerouslySetInnerHTML={{ __html: t.hero.body }}
+        />
 
         {/* CTAs — Magnetic effect */}
         <motion.div

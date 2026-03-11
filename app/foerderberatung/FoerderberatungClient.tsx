@@ -16,6 +16,11 @@ export default function FoerderberatungClient() {
       process={t.foerderberatung.process}
       facts={t.foerderberatung.facts}
       tags={t.foerderberatung.programs}
+      relatedLinks={[
+        { href: "/zim-foerderung", title: t.zimFoerderung.heroHeadline },
+        { href: "/bafa-foerderung", title: t.bafaFoerderung.heroHeadline },
+        { href: "/csrd-beratung",   title: t.csrdBeratung.heroHeadline },
+      ]}
     />
   );
 }

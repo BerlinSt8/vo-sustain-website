@@ -17,7 +17,7 @@ export const translations = {
       tag: "ZIM · BAFA · Cleantech · Berlin",
       headline: "Fertiges Förderkonzept vor dem ersten Gespräch.",
       sub: "Aktiver ZIM-Netzwerkmanager. Kein Honorar ohne Bewilligung.",
-      body: "Bevor Sie eine Stunde investieren, haben wir Ihr Förderpotenzial bereits geprüft. Sie erhalten ein Konzept mit konkreten Programmen (ZIM, BAFA, EFRE), realistischen Quoten und Finanzierungsplan — als Entscheidungsgrundlage, nicht als Verkaufsgespräch.",
+      body: `Bevor Sie eine Stunde investieren, haben wir Ihr Förderpotenzial bereits geprüft. Sie erhalten ein Konzept mit konkreten Programmen (<a href="/zim-foerderung" style="color:#2ECC71;text-decoration:none;border-bottom:1px solid rgba(46,204,113,0.35)">ZIM</a>, <a href="/bafa-foerderung" style="color:#2ECC71;text-decoration:none;border-bottom:1px solid rgba(46,204,113,0.35)">BAFA</a>, EFRE), realistischen Quoten und Finanzierungsplan — als Entscheidungsgrundlage, nicht als Verkaufsgespräch.`,
       ctaPrimary: "Mein Förderpotenzial entdecken →",
       ctaSecondary: "Leistungen",
       imgAlt: "Verde Onda – die Grüne Welle",
@@ -292,7 +292,7 @@ export const translations = {
           a: "ZIM richtet sich an gewerbliche Unternehmen mit bis zu 499 Mitarbeitenden und weniger als 100 Mio. € Jahresumsatz — das ist bewusst breiter als die EU-KMU-Definition. Das Kernkriterium: Das Projekt muss echten F&E-Charakter haben, d.h. technisches Risiko (kein gesichertes Ergebnis), Neuheitsgrad gegenüber dem Stand der Technik und das Ziel eines neuen Produkts, Verfahrens oder einer neuen technischen Dienstleistung. Reine Investitionen, Marktanpassungen oder Software-Customizing reichen nicht. Fördersatz: 25–45 % (mittlere Unternehmen West) bis 55–60 % (kleine Unternehmen neue Bundesländer). De-minimis-Spielraum (300.000 € / 3 Jahre) muss vorab geprüft werden — alternativ greift die AGVO (Allgemeine Gruppenfreistellungsverordnung).",
         },
         {
-          q: "Was ist der Unterschied zwischen Zuschuss, Darlehen und Steuervorteil?",
+          q: "Zuschuss, Darlehen oder Steuervorteil — was ist besser?",
           a: "Drei Förderformen mit unterschiedlicher Wirkung: Zuschüsse (z.B. ZIM, BAFA EEW) müssen nicht zurückgezahlt werden — sie sind echter Kapitalzufluss und erhöhen die Liquidität sofort nach Auszahlung. Zinsgünstige Darlehen (z.B. KfW-Programme) müssen zurückgezahlt werden, bieten aber deutlich bessere Konditionen als Bankdarlehen und schonen die Kreditlinie. Steuerliche Gutschriften (Forschungszulage nach FZulG) werden direkt mit der Körperschaft- oder Einkommensteuer verrechnet — auch bei Verlust im Gründungsjahr als Erstattung auszahlbar. Viele Projekte nutzen alle drei Säulen: ZIM-Zuschuss für F&E-Kosten, Forschungszulage für Personalkosten und KfW-Kredit für Investitionen — bei korrekter Kumulierungsprüfung rechtlich zulässig.",
         },
         {
@@ -304,35 +304,35 @@ export const translations = {
           a: "BAFA bietet drei relevante Programme: BAFA EEW (Energie- und Ressourceneffizienz in der Wirtschaft) fördert Prozesswärme, Abwärmenutzung, Druckluftsysteme und Antriebstechnik mit bis zu 55 % Zuschuss (KMU-Bonus inklusive) — Mindestinvestition 20.000 €, kombinierbar mit KfW-Kredit. BAFA Energieberatung Mittelstand fördert externe Energieberatungen mit bis zu 80 % (max. 8.000 € Zuschuss für KMU) — Grundlage für viele Investitionsanträge. BAFA Transformationskonzepte fördert Dekarbonisierungsroadmaps für energieintensive Betriebe mit bis zu 60 %. Alle drei Programme sind kumulierbar mit EFRE-Landesförderung (SAB, TAB, IBB), solange De-minimis-Grenzen eingehalten werden und die Gesamtförderquote den beihilferechtlichen Höchstsatz nicht übersteigt.",
         },
         {
-          q: "Wie arbeitet VO Sustain — und was unterscheidet Sie von klassischen Beratern?",
+          q: "Was unterscheidet VO Sustain von anderen Beratern?",
           a: "VO Sustain ist auf KMU im Nachhaltigkeitsbereich spezialisiert und kombiniert eigene Praxiserfahrung mit KI-gestützter Recherche. Der Gründer Denis Jänicke ist aktiver ZIM-Netzwerkmanager (SEAWEED DECARBON POLYMER, 12+ Partner) und kennt die Prozesse aus erster Hand — nicht nur aus Handbüchern. Der Ablauf: Kostenloser Quick-Check → Tiefenanalyse mit Programm-Matching → Antragsbegleitung bis zum Verwendungsnachweis. Kein Unternehmensberatungsvolumen, keine anonymen Teams — Sie arbeiten direkt mit der Fachkraft, die Ihren Antrag schreibt. Das Modell: Success-Fee, fällig erst bei Bewilligung. Kein finanzielles Risiko für Sie.",
         },
         {
-          q: "Wie ist die Vergütung aufgebaut — was sind die konkreten Konditionen?",
+          q: "Wie ist die Vergütung aufgebaut?",
           a: "Kein Retainer, keine Vorauszahlung, keine Gebühr bei Ablehnung. Die Vergütung ist eine Erfolgsprovision auf die bewilligte Fördersumme — und je größer die bewilligte Summe, desto niedriger der Prozentsatz: bis 100.000 € sind es 10 %, von 100.001 bis 300.000 € 7 %, von 300.001 bis 600.000 € 5 %, darüber hinaus 3,5 %. Das funktioniert wie ein Steuerstufenmodell: Jede Stufe gilt nur für den jeweiligen Teilbetrag. Bei einer bewilligten Förderung von beispielsweise 150.000 € ergibt sich: 10 % auf 100.000 € + 7 % auf 50.000 € = 13.500 €. Fälligkeit entsteht erst bei tatsächlicher Auszahlung der Fördermittel. Werden mehrere Programme bewilligt (z.B. ZIM und BAFA), wird jeder Bescheid separat berechnet.",
         },
         {
-          q: "Was ist De-minimis und warum ist es für Förderanträge wichtig?",
+          q: "Was ist De-minimis — und wann wird es relevant?",
           a: "De-minimis ist eine EU-Beihilferegelung: Jedes Unternehmen (inkl. verbundener Unternehmen im EU-Sinne) darf innerhalb von drei Steuerkalenderjahren maximal 300.000 € an De-minimis-Beihilfen erhalten — eine 2024 auf 300.000 € angehobene Grenze (vorher 200.000 €). Viele kleine BAFA-, SAB- und KfW-Programme laufen unter De-minimis. Wer diese Grenze bereits ausgeschöpft hat, kann bestimmte Programme nicht mehr nutzen oder muss auf AGVO (Allgemeine Gruppenfreistellungsverordnung) ausweichen, die höhere Beträge erlaubt, aber strengere Kriterien stellt. Falsch kumulierte Programme können zur Rückforderung der gesamten Beihilfe führen — rückwirkend für alle drei Jahre. VO Sustain prüft den De-minimis-Status vor jeder Empfehlung.",
         },
         {
-          q: "Welche Förderprogramme gibt es speziell für Cleantech-Unternehmen in Deutschland?",
+          q: "Welche Förderung gibt es für Cleantech-Unternehmen?",
           a: "Cleantech-Unternehmen (Energie, Kreislaufwirtschaft, Bioökonomie, Wasserstoff, CO₂-Reduktion) haben Zugang zu einem überdurchschnittlich breiten Förderspektrum: ZIM fördert F&E-Projekte mit bis zu 60 % — besonders relevant für Cleantech-Innovationen mit technischem Neuheitsgrad. BAFA EEW fördert Investitionen in Prozesswärme, Abwärmenutzung und Druckluft mit bis zu 55 %. Das BMWK-Programm »Dekarbonisierung der Industrie« fördert Transformationskonzepte mit bis zu 60 %. Auf EU-Ebene bieten Horizon Europe (Cluster 5: Klima & Energie) und das LIFE-Programm Zugang zu europäischen Projektmitteln. Hinzu kommen EFRE-Landesförderungen (SAB in Sachsen, TAB in Thüringen, IBB in Berlin) mit Zuschüssen zwischen 30–50 %. Cleantech-Unternehmen können oft mehrere Programme kumulieren — vorausgesetzt, Beihilfegrenzen nach AGVO und De-minimis werden eingehalten. Entscheidend ist die richtige Programmkombination: Nicht jede Kombination ist zulässig.",
         },
         {
-          q: "Wie können KMU von der Energiewende profitieren — welche Förderung gibt es?",
+          q: "Welche Förderung gibt es für Energiewende-Projekte?",
           a: "Die Energiewende ist für KMU ein doppelter Hebel: als Investitionsthema (Effizienz, Erneuerbare) und als Innovationsthema (F&E in neuen Technologien). Auf der Investitionsseite fördert BAFA EEW bis zu 55 % auf Prozesswärme, Abwärmenutzung und Antriebstechnik (Mindestinvestition 20.000 €). KfW-Kredite (KfW 295 Energieeffizienz Produktion) bieten zusätzliche zinsgünstige Finanzierung. Für Energieberatungen fördert BAFA bis zu 80 % (max. 8.000 €) — oft der erste Schritt, bevor Investitionsanträge gestellt werden. Auf der Innovationsseite fördert ZIM F&E-Projekte im Bereich erneuerbare Energien und Energieeffizienz mit 25–60 %. Die Forschungszulage (35 % der F&E-Personalkosten) ist dabei zusätzlich nutzbar. Richtig kombiniert lässt sich ein Energieeffizienzprojekt mit Zuschuss, Steuergutschrift und zinsgünstigem Darlehen gleichzeitig finanzieren — legal, wenn Kumulierungsregeln beachtet werden.",
         },
         {
-          q: "Was ist ein ZIM-Innovationsnetzwerk — und wie gründet man eines?",
+          q: "Was ist ein ZIM-Innovationsnetzwerk?",
           a: "Ein ZIM-Innovationsnetzwerk ist ein geförderter Verbund aus mindestens sechs Unternehmen und Forschungseinrichtungen, die gemeinsam an einem technologischen Themenschwerpunkt arbeiten. Das Netzwerk wird von einem Netzwerkmanager koordiniert, der die Kommunikation, Projektentwicklung und Förderantragsstellung übernimmt. Das BMWK fördert ZIM-Netzwerke in zwei Phasen: Phase 1 (Aufbau, max. 12 Monate, bis zu 380.000 € Zuschuss) und Phase 2 (Technologieentwicklung, bis zu 24 Monate). Voraussetzungen: Mindestens sechs Partner, klares technologisches Verbundziel, Neuheitsnachweis. VO Sustain managt aktiv ein ZIM-Innovationsnetzwerk (SEAWEED DECARBON POLYMER, 12+ Partner) und begleitet Unternehmen beim Aufbau eigener Netzwerke — von der Partneridentifikation bis zum Erstantrag.",
         },
         {
-          q: "Was kostet eine Förderberatung auf Erfolgsbasis — und worauf sollte man achten?",
+          q: "Was kostet erfolgsbasierte Förderberatung?",
           a: "Erfolgsbasierte Förderberatung bedeutet: kein Honorar bei Ablehnung, Gebühr nur bei Bewilligung. Marktübliche Sätze liegen zwischen 5–15 % des bewilligten Fördervolumens. VO Sustain arbeitet mit Staffelprovision: 10 % bis 100.000 €, 7 % von 100.001–300.000 €, 5 % von 300.001–600.000 €, 3,5 % darüber — transparent und BGH-konform. Worauf man achten sollte: Erstens, ob Vorauszahlungen oder Retainer verlangt werden (bei reinem Erfolgshonorar-Modell nicht legitim). Zweitens, ob der Berater den Antrag selbst schreibt oder nur koordiniert — der Unterschied ist erheblich für die Bewilligungswahrscheinlichkeit. Drittens, ob die Honorarfälligkeit an die tatsächliche Auszahlung (nicht Bewilligung) geknüpft ist. Bei VO Sustain: Fälligkeit entsteht erst bei Mittelauszahlung. Kein Retainer, kein Quick-Check-Honorar.",
         },
         {
-          q: "Gibt es Förderprogramme für Bioökonomie und nachhaltige Produktion in Deutschland?",
+          q: "Welche Förderung gibt es für Bioökonomie-KMU?",
           a: "Ja — und dieser Bereich ist fördertechnisch einer der am stärksten wachsenden. Das BMBF fördert Bioökonomie-F&E-Projekte im Rahmenprogramm Bioökonomiestrategie 2030 direkt (bis 60 %). ZIM ist für Bioökonomie-Unternehmen mit F&E-Charakter einsetzbar — besonders für Verfahrensinnovationen in Fermentation, Biopolymere und biobasierte Materialien. LIFE (EU) fördert Demonstrations- und Pilotprojekte im Bereich Kreislaufwirtschaft und nachhaltige Bioökonomie. Das BMWK-Programm »Biobasierte Produkte und Prozesse« bietet projektbasierte Förderung für Skalierungsprojekte. Auf Landesebene gibt es starke Förderung über EFRE: Sachsen (SAB), Thüringen (TAB), Mecklenburg-Vorpommern. Bioökonomie-Projekte haben einen strukturellen Vorteil: Viele lassen sich sowohl als F&E-Projekt (ZIM) als auch als Umweltschutzmaßnahme (BAFA/BMWK) qualifizieren, was Kumulierungsmöglichkeiten eröffnet.",
         },
       ],
@@ -378,6 +378,7 @@ export const translations = {
       factsHeadline: "Das spricht für sich.",
       scopeLabel: "LEISTUNGSUMFANG",
       scopeHeadline: "Was wir für Sie tun.",
+      relatedLabel: "WEITERE LEISTUNGEN",
     },
     foerderberatung: {
       heroLabel: "INDIVIDUELLE FÖRDERBERATUNG",
@@ -546,7 +547,7 @@ export const translations = {
       tag: "ZIM · BAFA · Cleantech · Berlin",
       headline: "Your grant proposal — ready before the first meeting.",
       sub: "Active ZIM Network Manager. No win, no fee.",
-      body: "Before you invest an hour, we've already assessed your funding potential. You receive a tailored proposal with specific programmes (ZIM, BAFA, EFRE), realistic grant rates, and a financing plan — a basis for decision, not a sales pitch.",
+      body: `Before you invest an hour, we've already assessed your funding potential. You receive a tailored proposal with specific programmes (<a href="/zim-foerderung" style="color:#2ECC71;text-decoration:none;border-bottom:1px solid rgba(46,204,113,0.35)">ZIM</a>, <a href="/bafa-foerderung" style="color:#2ECC71;text-decoration:none;border-bottom:1px solid rgba(46,204,113,0.35)">BAFA</a>, EFRE), realistic grant rates, and a financing plan — a basis for decision, not a sales pitch.`,
       ctaPrimary: "Discover my funding potential →",
       ctaSecondary: "Services",
       imgAlt: "Verde Onda – The Green Wave",
@@ -821,7 +822,7 @@ export const translations = {
           a: "ZIM targets commercial enterprises with up to 499 employees and less than €100M annual turnover — deliberately broader than the EU SME definition. The core criterion: genuine R&D character, meaning technical risk (no guaranteed outcome), novelty beyond the state of the art, and the goal of a new product, process, or technical service. Pure investments, market adaptations, or software customisation do not qualify. Funding rate: 25–45% (medium enterprises, West) up to 55–60% (small enterprises, new federal states). De minimis headroom (€300,000 / 3 years) must be verified in advance — alternatively, GBER (General Block Exemption Regulation) applies.",
         },
         {
-          q: "What is the difference between grants, loans, and tax incentives?",
+          q: "Grants, loans, or tax credits — what's the difference?",
           a: "Three funding types with different effects: Grants (e.g. ZIM, BAFA EEW) are non-repayable — they are true capital inflows that improve liquidity immediately on disbursement. Low-interest loans (e.g. KfW programmes) must be repaid, but offer significantly better terms than commercial bank loans and preserve credit lines. Tax credits (Research Allowance under FZulG) are offset directly against corporate or income tax — payable as a refund even in loss years. Many projects use all three pillars: ZIM grant for R&D costs, Research Allowance for personnel costs, and KfW loan for investment — legally permissible with correct cumulation analysis.",
         },
         {
@@ -833,7 +834,7 @@ export const translations = {
           a: "BAFA offers three relevant programmes: BAFA EEW (Energie- und Ressourceneffizienz in der Wirtschaft) funds process heat, waste heat recovery, compressed air systems, and drive technology with up to 55% grant (SME bonus included) — minimum investment €20,000, combinable with KfW loan. BAFA Energy Consulting for SMEs funds external energy audits with up to 80% (max. €8,000 grant) — a prerequisite for many investment applications. BAFA Transformation Concepts funds decarbonisation roadmaps for energy-intensive businesses with up to 60%. All three programmes can be combined with EFRE regional funding (SAB, TAB, IBB), provided de minimis limits are respected and total aid intensity does not exceed the GBER ceiling.",
         },
         {
-          q: "How does VO Sustain work — and what sets you apart from traditional consultants?",
+          q: "What sets VO Sustain apart from traditional consultants?",
           a: "VO Sustain specialises in SMEs in the sustainability sector and combines hands-on expertise with AI-powered research. Founder Denis Jänicke is an active ZIM network manager (SEAWEED DECARBON POLYMER, 12+ partners) — he knows the processes from first-hand experience, not just textbooks. The process: free Quick-Check → deep analysis with programme matching → full application support through to the final financial report. No large consultancy overhead, no anonymous teams — you work directly with the expert writing your application. The model: success fee, due only upon approval. No financial risk for you.",
         },
         {
@@ -841,27 +842,27 @@ export const translations = {
           a: "No retainer, no upfront payment, no fee on rejection. The fee is a success commission on the approved funding amount — and the larger the approved sum, the lower the percentage: up to €100,000 it is 10%, from €100,001 to €300,000 it is 7%, from €300,001 to €600,000 it is 5%, and 3.5% on everything above. This works like a tax bracket model: each rate applies only to that portion of the amount. For an approved grant of, say, €150,000: 10% on €100,000 + 7% on €50,000 = €13,500. The fee is due only upon actual disbursement of the funding. If multiple programmes are approved (e.g. ZIM and BAFA), each approval notice is calculated separately.",
         },
         {
-          q: "What is de minimis and why does it matter for funding applications?",
+          q: "What is de minimis — and when does it matter?",
           a: "De minimis is an EU state aid rule: any company (including affiliated enterprises in the EU sense) may receive a maximum of €300,000 in de minimis aid within three fiscal calendar years — a threshold raised to €300,000 in 2024 (previously €200,000). Many smaller BAFA, SAB, and KfW programmes run under de minimis. Companies that have already used up this limit cannot access certain programmes or must switch to GBER (General Block Exemption Regulation), which allows higher amounts but applies stricter criteria. Incorrectly combined programmes can trigger clawback of all aid — retroactively for the full three-year period. VO Sustain verifies de minimis status before any recommendation.",
         },
         {
-          q: "What funding programmes are available specifically for cleantech companies in Germany?",
+          q: "What funding is available for cleantech companies?",
           a: "Cleantech companies (energy, circular economy, bioeconomy, hydrogen, CO₂ reduction) have access to an exceptionally broad funding landscape: ZIM funds R&D projects with up to 60% — particularly relevant for cleantech innovations with genuine technical novelty. BAFA EEW funds investments in process heat, waste heat recovery, and compressed air systems with up to 55%. The BMWK programme 'Decarbonisation of Industry' funds transformation concepts with up to 60%. At EU level, Horizon Europe (Cluster 5: Climate & Energy) and the LIFE programme provide access to European project funding. EFRE regional grants (SAB in Saxony, TAB in Thuringia, IBB in Berlin) add 30–50% co-funding options. Cleantech companies can often stack multiple programmes — provided GBER and de minimis limits are respected. Choosing the right combination is critical: not every combination is permissible.",
         },
         {
-          q: "How can SMEs benefit from the energy transition — what funding is available?",
+          q: "What funding is available for energy transition projects?",
           a: "The energy transition offers SMEs a dual lever: as an investment topic (efficiency, renewables) and as an innovation topic (R&D in new technologies). On the investment side, BAFA EEW funds up to 55% for process heat, waste heat recovery, and drive technology (minimum investment €20,000). KfW loans (KfW 295 Energy Efficiency in Production) offer additional low-interest financing. For energy audits, BAFA funds up to 80% (max. €8,000) — often the first step before investment applications. On the innovation side, ZIM funds R&D projects in renewable energy and energy efficiency at 25–60%. The Research Allowance (35% of R&D personnel costs) is additionally usable. Correctly combined, an energy efficiency project can be financed simultaneously with a grant, a tax credit, and a low-interest loan — legally permissible when cumulation rules are followed.",
         },
         {
-          q: "What is a ZIM innovation network — and how do you set one up?",
+          q: "What is a ZIM innovation network?",
           a: "A ZIM innovation network is a funded consortium of at least six companies and research institutions collaborating on a shared technology focus. The network is coordinated by a network manager who handles communication, project development, and grant applications. BMWK funds ZIM networks in two phases: Phase 1 (setup, up to 12 months, up to €380,000 grant) and Phase 2 (technology development, up to 24 months). Requirements: at least six partners, a clearly defined technology objective, and proof of novelty. VO Sustain actively manages a ZIM innovation network (SEAWEED DECARBON POLYMER, 12+ partners) and supports companies in building their own networks — from partner identification to the first application.",
         },
         {
-          q: "What does success-based grant consulting cost — and what should you watch out for?",
+          q: "What does success-based grant consulting cost?",
           a: "Success-based grant consulting means: no fee on rejection, payment only upon approval. Market rates range from 5–15% of the approved funding amount. VO Sustain uses a tiered structure: 10% up to €100,000; 7% from €100,001–€300,000; 5% from €300,001–€600,000; 3.5% above that — transparent and legally compliant. What to watch out for: first, whether upfront payments or retainers are required (not legitimate in a pure success-fee model). Second, whether the consultant writes the application themselves or merely coordinates — this matters significantly for approval probability. Third, whether the fee falls due on actual disbursement (not just approval). At VO Sustain: fee is due only upon actual payout. No retainer, no fee for the Quick-Check.",
         },
         {
-          q: "Are there funding programmes for bioeconomy and sustainable production in Germany?",
+          q: "What funding is available for bioeconomy SMEs?",
           a: "Yes — and this area is one of the fastest-growing in terms of available funding. The BMBF funds bioeconomy R&D projects under the National Bioeconomy Strategy 2030 directly (up to 60%). ZIM is applicable for bioeconomy companies with genuine R&D character — particularly for process innovations in fermentation, biopolymers, and bio-based materials. LIFE (EU) funds demonstration and pilot projects in circular economy and sustainable bioeconomy. The BMWK programme 'Bio-based Products and Processes' offers project funding for scale-up activities. At state level, EFRE provides strong co-funding: Saxony (SAB), Thuringia (TAB), Mecklenburg-Vorpommern. Bioeconomy projects have a structural advantage: many qualify both as R&D projects (ZIM) and as environmental protection measures (BAFA/BMWK), opening stacking opportunities.",
         },
       ],
@@ -907,6 +908,7 @@ export const translations = {
       factsHeadline: "The numbers speak.",
       scopeLabel: "SCOPE OF SERVICES",
       scopeHeadline: "What we do for you.",
+      relatedLabel: "RELATED SERVICES",
     },
     foerderberatung: {
       heroLabel: "INDIVIDUAL GRANT ADVISORY",
