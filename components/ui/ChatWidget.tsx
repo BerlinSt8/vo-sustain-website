@@ -33,14 +33,15 @@ const LABELS = {
 };
 
 // ─── Home position (bottom-right corner) ─────────────────────────────────────
-const BOT_SIZE = 140;
+const DESKTOP_BOT_SIZE = 140;
+const MOBILE_BOT_SIZE = 90;
 const HOME_MARGIN = 16; // distance from edge
 
-function getHomePos() {
+function getHomePos(botSize: number) {
   if (typeof window === 'undefined') return { x: 0, y: 0 };
   return {
-    x: window.innerWidth - BOT_SIZE - HOME_MARGIN,
-    y: window.innerHeight - BOT_SIZE - HOME_MARGIN,
+    x: window.innerWidth - botSize - HOME_MARGIN,
+    y: window.innerHeight - botSize - HOME_MARGIN,
   };
 }
 
@@ -191,6 +192,16 @@ export default function ChatWidget() {
   const [input, setInput]       = useState('');
   const [loading, setLoading]   = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  const botSize = isMobile ? MOBILE_BOT_SIZE : DESKTOP_BOT_SIZE;
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef       = useRef<HTMLTextAreaElement>(null);
@@ -204,8 +215,8 @@ export default function ChatWidget() {
   const [isIdle, setIsIdle] = useState(true);
 
   // Layer 2: Bot position — follows cursor with high damping (like Target Movement, damping 250)
-  const rawBotX = useMotionValue(getHomePos().x);
-  const rawBotY = useMotionValue(getHomePos().y);
+  const rawBotX = useMotionValue(getHomePos(DESKTOP_BOT_SIZE).x);
+  const rawBotY = useMotionValue(getHomePos(DESKTOP_BOT_SIZE).y);
   const botX = useSpring(rawBotX, { stiffness: 8, damping: 30 });  // very sluggish — R4X body feel
   const botY = useSpring(rawBotY, { stiffness: 8, damping: 30 });
 
@@ -222,12 +233,15 @@ export default function ChatWidget() {
   // Synced state values for SVG rendering
   const [eyePos, setEyePos] = useState({ x: 0, y: 0 });
   const [headRotate, setHeadRotate] = useState(0);
-  const [botPos, setBotPos] = useState(getHomePos);
+  const [botPos, setBotPos] = useState(() => getHomePos(DESKTOP_BOT_SIZE));
   const [proximity, setProximity] = useState(0);
 
   // ── Mouse tracking — drives all 3 layers ──
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      // No mouse tracking on touch devices
+      if (window.innerWidth < 768) return;
+
       cursorRef.current = { x: e.clientX, y: e.clientY };
 
       // Reset idle timer — returns home after 1.2s without mouse movement
@@ -236,8 +250,9 @@ export default function ChatWidget() {
       idleTimerRef.current = setTimeout(() => setIsIdle(true), 1200);
 
       // Get current bot center for relative calculations
-      const bx = botX.get() + BOT_SIZE / 2;
-      const by = botY.get() + BOT_SIZE / 2;
+      const currentBotSize = DESKTOP_BOT_SIZE;
+      const bx = botX.get() + currentBotSize / 2;
+      const by = botY.get() + currentBotSize / 2;
       const dx = e.clientX - bx;
       const dy = e.clientY - by;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -259,13 +274,13 @@ export default function ChatWidget() {
       // Layer 2: Bot position — gentle attraction toward cursor, strong home gravity
       if (!open) {
         const followStrength = 0.15; // subtle — bot mostly stays home, just leans toward cursor
-        const home = getHomePos();
-        const targetX = home.x + (e.clientX - home.x - BOT_SIZE / 2) * followStrength;
-        const targetY = home.y + (e.clientY - home.y - BOT_SIZE / 2) * followStrength;
+        const home = getHomePos(currentBotSize);
+        const targetX = home.x + (e.clientX - home.x - currentBotSize / 2) * followStrength;
+        const targetY = home.y + (e.clientY - home.y - currentBotSize / 2) * followStrength;
 
         // Clamp to viewport
-        const clampedX = Math.max(8, Math.min(window.innerWidth - BOT_SIZE - 8, targetX));
-        const clampedY = Math.max(8, Math.min(window.innerHeight - BOT_SIZE - 8, targetY));
+        const clampedX = Math.max(8, Math.min(window.innerWidth - currentBotSize - 8, targetX));
+        const clampedY = Math.max(8, Math.min(window.innerHeight - currentBotSize - 8, targetY));
 
         rawBotX.set(clampedX);
         rawBotY.set(clampedY);
@@ -288,20 +303,20 @@ export default function ChatWidget() {
   // ── Return to home when idle or chat open ──
   useEffect(() => {
     if (isIdle || open) {
-      const home = getHomePos();
+      const home = getHomePos(botSize);
       rawBotX.set(home.x);
       rawBotY.set(home.y);
       rawHeadRotate.set(0);
       rawEyeX.set(0);
       rawEyeY.set(0);
     }
-  }, [isIdle, open, rawBotX, rawBotY, rawHeadRotate, rawEyeX, rawEyeY]);
+  }, [isIdle, open, botSize, rawBotX, rawBotY, rawHeadRotate, rawEyeX, rawEyeY]);
 
   // ── Periodic home gravity — bot drifts back every 4s even during activity ──
   useEffect(() => {
     if (open) return;
     const interval = setInterval(() => {
-      const home = getHomePos();
+      const home = getHomePos(botSize);
       const currentX = rawBotX.get();
       const currentY = rawBotY.get();
       // Blend 60% toward home — gentle rubber-band pull
@@ -309,20 +324,20 @@ export default function ChatWidget() {
       rawBotY.set(currentY + (home.y - currentY) * 0.6);
     }, 8000);
     return () => clearInterval(interval);
-  }, [open, rawBotX, rawBotY]);
+  }, [open, botSize, rawBotX, rawBotY]);
 
   // ── Handle window resize — update home position ──
   useEffect(() => {
     const handleResize = () => {
       if (isIdle || open) {
-        const home = getHomePos();
+        const home = getHomePos(botSize);
         rawBotX.set(home.x);
         rawBotY.set(home.y);
       }
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [isIdle, open, rawBotX, rawBotY]);
+  }, [isIdle, open, botSize, rawBotX, rawBotY]);
 
   // ── Sync spring values to state for rendering ──
   useEffect(() => {
@@ -394,8 +409,9 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed bottom-[10rem] right-4 sm:right-6 z-[52] w-[calc(100vw-2rem)] sm:w-[380px] max-h-[60vh] flex flex-col"
+            className="fixed right-4 sm:right-6 z-[52] w-[calc(100vw-2rem)] sm:w-[380px] max-h-[60vh] flex flex-col"
             style={{
+              bottom: isMobile ? `${MOBILE_BOT_SIZE + HOME_MARGIN + 12}px` : `${DESKTOP_BOT_SIZE + HOME_MARGIN - 28}px`,
               background: 'rgba(11,22,34,0.92)',
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
@@ -519,8 +535,8 @@ export default function ChatWidget() {
         style={{
           left: botPos.x,
           top: botPos.y,
-          width: BOT_SIZE,
-          height: BOT_SIZE,
+          width: botSize,
+          height: botSize,
           background: 'transparent',
           border: 'none',
           willChange: 'left, top',
@@ -544,7 +560,7 @@ export default function ChatWidget() {
               animate={{ rotate: 0, opacity: 1, scale: 1 }}
               exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.2 }}
-              className="w-14 h-14 rounded-full flex items-center justify-center"
+              className={`${isMobile ? 'w-10 h-10' : 'w-14 h-14'} rounded-full flex items-center justify-center`}
               style={{
                 background: 'rgba(11,22,34,0.9)',
                 border: '1.5px solid rgba(39,174,96,0.4)',
@@ -552,7 +568,7 @@ export default function ChatWidget() {
                 backdropFilter: 'blur(12px)',
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <svg width={isMobile ? 18 : 24} height={isMobile ? 18 : 24} viewBox="0 0 24 24" fill="none">
                 <path d="M6 6l12 12M18 6L6 18" stroke="#27AE60" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
             </motion.div>
@@ -563,6 +579,10 @@ export default function ChatWidget() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.25 }}
+              style={{
+                transform: isMobile ? `scale(${MOBILE_BOT_SIZE / DESKTOP_BOT_SIZE})` : undefined,
+                transformOrigin: 'bottom right',
+              }}
             >
               <FordinandBot
                 eyeX={eyePos.x}
