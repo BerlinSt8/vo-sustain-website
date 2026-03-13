@@ -137,6 +137,27 @@ export default function FooterSection({ sticky = false }: { sticky?: boolean }) 
                   {l.label}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  localStorage.removeItem("vo-cookie-consent");
+                  window.location.reload();
+                }}
+                style={{
+                  fontFamily: "'Roboto Mono', monospace",
+                  fontSize: "0.6rem",
+                  color: "rgba(255,255,255,0.32)",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  letterSpacing: "0.06em",
+                  padding: 0,
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.62)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.32)")}
+              >
+                {t.footer.cookieSettings}
+              </button>
             </div>
           </div>
         </div>
