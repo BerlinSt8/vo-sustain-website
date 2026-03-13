@@ -528,6 +528,14 @@ export const translations = {
       copyright: "© 2026 VO Sustain · Denis Jänicke",
       impressum: "Impressum",
       datenschutz: "Datenschutz",
+      cookieSettings: "Cookie-Einstellungen",
+    },
+
+    // ─── CookieBanner ───
+    cookie: {
+      text: "Diese Website verwendet nur technisch notwendige Cookies.",
+      privacyLink: "Datenschutz",
+      accept: "Verstanden",
     },
   },
 
@@ -1058,6 +1066,14 @@ export const translations = {
       copyright: "© 2026 VO Sustain · Denis Jänicke",
       impressum: "Legal Notice",
       datenschutz: "Privacy Policy",
+      cookieSettings: "Cookie Settings",
+    },
+
+    // ─── CookieBanner ───
+    cookie: {
+      text: "This website uses only essential cookies.",
+      privacyLink: "Privacy Policy",
+      accept: "Got it",
     },
   },
 } as const;
