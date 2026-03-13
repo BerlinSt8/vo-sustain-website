@@ -137,20 +137,44 @@ export default function NavBar() {
         }}
       >
         {/* Logo */}
-        <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.625rem" }}>
+        <a
+          href="/"
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.625rem",
+            background: "rgba(8,15,26,0.55)",
+            border: "1px solid rgba(39,174,96,0.22)",
+            borderRadius: "10px",
+            padding: "5px 12px 5px 6px",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            transition: "border-color 0.2s, box-shadow 0.2s",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(39,174,96,0.45)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 16px rgba(39,174,96,0.12)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(39,174,96,0.22)";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+          }}
+        >
           <img
             src="/vo-iv.png"
             alt="VO Sustain Logo"
-            style={{ height: "32px", width: "auto", display: "block", borderRadius: "3px" }}
+            style={{
+              height: "32px",
+              width: "auto",
+              display: "block",
+              borderRadius: "5px",
+              boxShadow: "0 0 14px rgba(39,174,96,0.45), 0 0 4px rgba(39,174,96,0.25)",
+            }}
           />
-          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
-            <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1rem", fontWeight: 900, color: "white", letterSpacing: "0.05em" }}>
-              VO SUSTAIN
-            </span>
-            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.5rem", color: "var(--verde-bright)", letterSpacing: "0.18em", marginTop: "1px" }}>
-              VERDE ONDA
-            </span>
-          </div>
+          <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1rem", fontWeight: 900, color: "white", letterSpacing: "0.05em" }}>
+            VO SUSTAIN
+          </span>
         </a>
 
         {/* Desktop Nav */}
