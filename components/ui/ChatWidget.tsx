@@ -187,6 +187,7 @@ export default function ChatWidget() {
   const { lang } = useLanguage();
   const labels = lang === 'en' ? LABELS.en : LABELS.de;
 
+  const [mounted, setMounted]   = useState(false);
   const [open, setOpen]         = useState(false);
   const [messages, setMessages] = useState<Message[]>([{ role: 'assistant', content: labels.greeting }]);
   const [input, setInput]       = useState('');
@@ -195,6 +196,7 @@ export default function ChatWidget() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener('resize', check);
@@ -397,6 +399,9 @@ export default function ChatWidget() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   };
+
+  // SSR-Guard: don't render until window is available (position depends on viewport)
+  if (!mounted) return null;
 
   return (
     <>
