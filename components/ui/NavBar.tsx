@@ -161,17 +161,28 @@ export default function NavBar() {
             (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
           }}
         >
-          <img
-            src="/vo-iv.png"
-            alt="VO Sustain Logo"
-            style={{
-              height: "32px",
-              width: "auto",
-              display: "block",
-              borderRadius: "5px",
-              boxShadow: "0 0 14px rgba(39,174,96,0.45), 0 0 4px rgba(39,174,96,0.25)",
-            }}
-          />
+          <div style={{
+            background: "rgba(39,174,96,0.18)",
+            border: "1px solid rgba(39,174,96,0.5)",
+            borderRadius: "6px",
+            padding: "3px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}>
+            <img
+              src="/vo-iv.png"
+              alt="VO Sustain Logo"
+              style={{
+                height: "28px",
+                width: "auto",
+                display: "block",
+                borderRadius: "3px",
+                filter: "brightness(1.3)",
+              }}
+            />
+          </div>
           <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1rem", fontWeight: 900, color: "white", letterSpacing: "0.05em" }}>
             VO SUSTAIN
           </span>
