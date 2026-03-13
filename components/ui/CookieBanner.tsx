@@ -14,7 +14,8 @@ function hasValidConsent(): boolean {
     if (!raw) return false;
     const data = JSON.parse(raw);
     if (!data?.timestamp) return false;
-    return Date.now() - new Date(data.timestamp).getTime() < EXPIRY_MS;
+    const ts = new Date(data.timestamp).getTime();
+    return isFinite(ts) && Date.now() - ts < EXPIRY_MS;
   } catch {
     return false;
   }
