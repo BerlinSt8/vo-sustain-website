@@ -73,6 +73,9 @@ export default function DatenschutzPage() {
           <p style={{ lineHeight: 1.75 }}>
             Diese Website verwendet <strong>keine Tracking-Cookies</strong> und setzt kein Web-Analytics (z.B. Google Analytics) ein. Es werden keine Nutzerprofile erstellt.
           </p>
+          <p style={{ marginTop: "1rem", lineHeight: 1.75 }}>
+            Zur Verwaltung Ihrer Cookie-Einstellungen speichern wir einen technisch notwendigen Eintrag im localStorage Ihres Browsers (<code>vo-cookie-consent</code>). Dieser enthält ausschließlich Ihre Zustimmung zu essenziellen Cookies sowie einen Zeitstempel. Keine personenbezogenen Daten werden gespeichert. Sie können diesen Eintrag jederzeit über „Cookie-Einstellungen" im Footer oder die Browser-Einstellungen löschen.
+          </p>
         </Section>
 
         <Section title="6. Ihre Rechte">
