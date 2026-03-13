@@ -5,6 +5,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import CursorGlow from "@/components/ui/CursorGlow";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ChatWidget from "@/components/ui/ChatWidget";
+import CookieBanner from "@/components/ui/CookieBanner";
 
 const BASE_URL = "https://www.vosustain.de";
 
@@ -169,6 +170,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
           <ChatWidget />
+          <CookieBanner />
         </LanguageProvider>
         <script
           type="application/ld+json"
