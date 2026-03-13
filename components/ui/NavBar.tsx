@@ -162,14 +162,15 @@ export default function NavBar() {
           }}
         >
           <div style={{
-            background: "rgba(39,174,96,0.18)",
-            border: "1px solid rgba(39,174,96,0.5)",
-            borderRadius: "6px",
-            padding: "3px",
+            background: "rgba(39,174,96,0.25)",
+            border: "1.5px solid #27AE60",
+            borderRadius: "7px",
+            padding: "4px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
+            boxShadow: "0 0 12px rgba(39,174,96,0.4), inset 0 0 8px rgba(39,174,96,0.1)",
           }}>
             <img
               src="/vo-iv.png"
@@ -179,7 +180,7 @@ export default function NavBar() {
                 width: "auto",
                 display: "block",
                 borderRadius: "3px",
-                filter: "brightness(1.3)",
+                filter: "brightness(3) saturate(1.2)",
               }}
             />
           </div>
