@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import CountUp from "@/components/ui/CountUp";
@@ -113,7 +114,7 @@ export default function AboutSection() {
                 pointerEvents: "none",
               }} />
               <div style={{ position: "relative", overflow: "hidden" }}>
-                <img src="/vo-crystal.png" alt="VO Sustain" className="crystal-img" />
+                <Image src="/vo-crystal.png" alt="VO Sustain" width={240} height={240} className="crystal-img" />
                 <div className="crystal-shimmer" />
               </div>
               {SPARKLES.map((s, i) => (
@@ -145,9 +146,11 @@ export default function AboutSection() {
                 position: "relative",
               }}
             >
-              <img
+              <Image
                 src="/denis.png"
                 alt={t.about.imgAlt}
+                width={300}
+                height={400}
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
               />
               {/* Subtle verde overlay on bottom */}

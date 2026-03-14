@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { motion } from "framer-motion";
 
@@ -30,7 +31,7 @@ export default function FooterSection({ sticky = false }: { sticky?: boolean }) 
             {/* Brand */}
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-                <img src="/vo-crystal.png" alt="VO Sustain" style={{ height: "36px", width: "auto", borderRadius: "3px" }} />
+                <Image src="/vo-crystal.png" alt="VO Sustain" width={36} height={36} style={{ borderRadius: "3px" }} />
                 <div>
                   <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.1rem", fontWeight: 900, color: "white", letterSpacing: "0.05em", lineHeight: 1.1 }}>
                     VO SUSTAIN

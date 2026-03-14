@@ -18,6 +18,11 @@ export const metadata = {
     url: `${BASE_URL}/zim-foerderung`,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "ZIM-Förderung & Netzwerkmanagement | VO Sustain",
+    description: "ZIM-Einzelprojekte, Kooperationen, Netzwerke. Bis 500.000 EUR. Aktiver Netzwerkmanager mit 12+ Partnern.",
+  },
 };
 
 const breadcrumbSchema = {

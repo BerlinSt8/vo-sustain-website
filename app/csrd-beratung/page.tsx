@@ -18,6 +18,11 @@ export const metadata = {
     url: `${BASE_URL}/csrd-beratung`,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "CSRD-Beratung für KMU | VO Sustain",
+    description: "CSRD nach VSME-Standard. Berichtspflicht-Check, Wesentlichkeitsanalyse, ESG-Daten — proportional und audit-sicher.",
+  },
 };
 
 const breadcrumbSchema = {

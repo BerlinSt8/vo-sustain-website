@@ -18,6 +18,11 @@ export const metadata = {
     url: `${BASE_URL}/foerderberatung`,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Förderberatung für KMU | VO Sustain",
+    description: "64+ Programme (ZIM, BAFA, EFRE). Bis 55% Zuschuss. Schlüsselfertig und audit-sicher.",
+  },
 };
 
 const breadcrumbSchema = {

@@ -16,6 +16,11 @@ export default function CsrdBeratungClient() {
       process={t.csrdBeratung.process}
       facts={t.csrdBeratung.facts}
       tags={t.csrdBeratung.standards}
+      relatedLinks={[
+        { title: "Nachhaltigkeitsstrategie", href: "/nachhaltigkeitsstrategie" },
+        { title: "Förderberatung", href: "/foerderberatung" },
+        { title: "BAFA-Förderung", href: "/bafa-foerderung" },
+      ]}
     />
   );
 }

@@ -18,6 +18,11 @@ export const metadata = {
     url: `${BASE_URL}/nachhaltigkeitsstrategie`,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Nachhaltigkeitsstrategie für KMU | VO Sustain",
+    description: "THG-Bilanz, Wesentlichkeitsanalyse und förderfinanzierte 3-Jahres-Roadmap. Bis 80% Zuschuss.",
+  },
 };
 
 const breadcrumbSchema = {

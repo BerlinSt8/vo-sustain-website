@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import FloatingOrbs from "@/components/ui/FloatingOrbs";
@@ -431,7 +432,7 @@ export default function SolutionSection() {
               }} />
               {/* Image + shimmer */}
               <div style={{ position: "relative", overflow: "hidden" }}>
-                <img src="/vo-crystal.png" alt="VO Sustain" className="crystal-img" />
+                <Image src="/vo-crystal.png" alt="VO Sustain" width={360} height={360} className="crystal-img" />
                 <div className="crystal-shimmer" />
               </div>
               {/* Sparkles */}

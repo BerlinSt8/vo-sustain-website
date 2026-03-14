@@ -170,6 +170,15 @@ const organizationSchema = {
         name: "Deutschland",
       },
     },
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      url: BASE_URL,
+      name: "VO Sustain",
+      description: "KI-gestützte Förderberatung für deutsche KMU",
+      publisher: { "@id": `${BASE_URL}/#organization` },
+      inLanguage: "de-DE",
+    },
   ],
 };
 

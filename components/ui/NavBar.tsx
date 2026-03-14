@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
@@ -172,12 +173,12 @@ export default function NavBar() {
             flexShrink: 0,
             boxShadow: "0 0 12px rgba(39,174,96,0.4), inset 0 0 8px rgba(39,174,96,0.1)",
           }}>
-            <img
+            <Image
               src="/vo-iv.png"
               alt="VO Sustain Logo"
+              width={28}
+              height={28}
               style={{
-                height: "28px",
-                width: "auto",
                 display: "block",
                 borderRadius: "3px",
                 filter: "brightness(3) saturate(1.2)",

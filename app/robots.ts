@@ -8,6 +8,16 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/"],
       },
+      // AI Search Crawlers — explicitly allowed
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "OAI-SearchBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
+      // Training-only crawlers — blocked
+      { userAgent: "CCBot", disallow: "/" },
+      { userAgent: "Bytespider", disallow: "/" },
     ],
     sitemap: "https://www.vosustain.de/sitemap.xml",
   };

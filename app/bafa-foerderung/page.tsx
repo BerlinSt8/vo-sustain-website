@@ -18,6 +18,11 @@ export const metadata = {
     url: `${BASE_URL}/bafa-foerderung`,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "BAFA-Förderung: EEW, BEG & Energieberatung | VO Sustain",
+    description: "Bis 80% Energieberatung, bis 55% EEW. Antragskoordination vor Vorhabenbeginn.",
+  },
 };
 
 const breadcrumbSchema = {
