@@ -117,6 +117,19 @@ export default function ArtikelHero({ artikel }: ArtikelHeroProps) {
           }}>
             {formatDate(artikel.date, lang)}
           </span>
+          <span style={{ color: "rgba(255,255,255,0.25)" }}>·</span>
+          <a
+            href="/#ueber-uns"
+            style={{
+              fontFamily: "'Roboto Mono', monospace", fontSize: "0.65rem",
+              color: "rgba(255,255,255,0.45)", textDecoration: "none",
+              letterSpacing: "0.04em", transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = accent)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+          >
+            {t.artikel.author}
+          </a>
         </div>
 
         {/* Titel */}

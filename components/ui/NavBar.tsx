@@ -346,7 +346,7 @@ export default function NavBar() {
 
             {/* Other links */}
             {[
-              { href: "/#ueber-uns", label: t.nav.ueberUns },
+              { href: "/ueber-uns", label: t.nav.ueberUns },
               { href: "/aktuell", label: t.nav.aktuell },
             ].map((link) => (
               <a
@@ -537,7 +537,7 @@ export default function NavBar() {
               </div>
 
               {[
-                { href: "/#ueber-uns", label: t.nav.ueberUns },
+                { href: "/ueber-uns", label: t.nav.ueberUns },
                 { href: "/aktuell", label: t.nav.aktuell },
               ].map((link, i) => (
                 <a

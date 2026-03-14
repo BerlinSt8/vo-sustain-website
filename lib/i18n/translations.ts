@@ -243,6 +243,7 @@ export const translations = {
 
     // ─── Artikel-Detail ───
     artikel: {
+      author: "Von Denis Jänicke",
       deadline: "Antragsfrist",
       source: "Quelle:",
       ctaHeadline: "Passt das zu Ihrem Unternehmen?",
@@ -394,7 +395,7 @@ export const translations = {
       heroLabel: "INDIVIDUELLE FÖRDERBERATUNG",
       heroHeadline: "Individuelle Förderberatung für KMU.",
       heroSub: "Professionelle Beratung schützt vor Antragsfehlern, Sperrfristen und entgangener Förderung — wo Selbstrecherche aufhört, beginnt echte Expertise.",
-      heroBody: "Über 2.000 Förderprogramme in Deutschland, jedes mit eigenen Fristen, Kumulierungsregeln und Antragspflichten. Falsche Programmwahl oder Formfehler bedeuten Ablehnung und Sperrfrist. Wir matchen Ihr Vorhaben gegen 64+ geprüfte Programme — von ZIM (bis 60 %) über die Forschungszulage (35 % für KMU, steuerlich anrechenbar) bis zum EIC Accelerator (100 % Zuschuss bis 2,5 Mio. €).",
+      heroBody: "Über 2.000 Förderprogramme in Deutschland, jedes mit eigenen Fristen, Kumulierungsregeln und Antragspflichten. Falsche Programmwahl oder Formfehler bedeuten Ablehnung und Sperrfrist. Wir matchen Ihr Vorhaben gegen 64+ geprüfte Programme — von ZIM (bis 60 %, Quelle: ZIM-Richtlinie, BMWK) über die Forschungszulage (35 % für KMU, steuerlich anrechenbar, Quelle: FZulG) bis zum EIC Accelerator (100 % Zuschuss bis 2,5 Mio. €, Quelle: EU Horizon Europe).",
       scope: [
         { title: "Förderpotenzial-Analyse", desc: "Systematische Prüfung gegen 64+ Bundes-, Landes- und EU-Programme. Kumulierungsprüfung nach De-minimis (300.000 € / 3 Jahre) und AGVO inklusive — denn falsch kombinierte Programme riskieren Rückforderungen." },
         { title: "Programm-Matching", desc: "Direktvergleich von Fördersätzen, Volumen und Antragsbedingungen: ZIM bis 60 % (kleine Unternehmen Ost), BAFA EEW bis 55 %, BAFA Energieberatung bis 80 %, KfW Klimaschutz ab 2,19 % eff. p.a. De-minimis-Spielraum wird vor jeder Empfehlung geprüft." },
@@ -409,8 +410,8 @@ export const translations = {
       ],
       facts: [
         { value: "64+", label: "Programme geprüft & aktuell" },
-        { value: "bis 80 %", label: "max. Zuschuss (BAFA Energieberatung)" },
-        { value: "35 %", label: "Forschungszulage für KMU (steuerlich)" },
+        { value: "bis 80 %", label: "max. Zuschuss (BAFA Energieberatung, Quelle: BAFA Energieberatung)" },
+        { value: "35 %", label: "Forschungszulage für KMU (steuerlich, Quelle: FZulG)" },
         { value: "0 €", label: "Risiko — Success-Fee erst bei Bewilligung" },
       ],
       programs: ["ZIM", "BAFA EEW", "Forschungszulage", "EFRE", "SAB", "INNO-KOM", "KfW 293", "Horizon Europe EIC", "LIFE", "TAB/FTI", "BAFA Energieberatung"],
@@ -419,7 +420,7 @@ export const translations = {
       heroLabel: "CSRD & NACHHALTIGKEITSBERICHTERSTATTUNG",
       heroHeadline: "CSRD-Beratung nach VSME-Standard für KMU.",
       heroSub: "Für die meisten KMU gilt: keine direkte Berichtspflicht — aber Großkunden und Banken fordern ESG-Daten. Wir sichern Ihre Lieferketten-Position mit minimalem Aufwand.",
-      heroBody: "Omnibus I (Feb. 2026) hat die CSRD-Schwellen auf 1.000 Mitarbeitende UND 450 Mio. EUR Umsatz angehoben — ca. 90 % weniger betroffene Unternehmen. Für nicht-börsennotierte KMU besteht bis zur vollständigen Umsetzung keine direkte Berichtspflicht. Trotzdem: Wer als Zulieferer oder Kreditnehmer gefragt wird, braucht belastbare Antworten. Wir liefern sie — nach VSME-Standard, proportional und lieferkettenfähig.",
+      heroBody: "Omnibus I (Feb. 2026, Quelle: EU-Omnibus I, Feb. 2026) hat die CSRD-Schwellen auf 1.000 Mitarbeitende UND 450 Mio. EUR Umsatz angehoben — ca. 90 % weniger betroffene Unternehmen. Für nicht-börsennotierte KMU besteht bis zur vollständigen Umsetzung keine direkte Berichtspflicht. Trotzdem: Wer als Zulieferer oder Kreditnehmer gefragt wird, braucht belastbare Antworten. Wir liefern sie — nach VSME-Standard, proportional und lieferkettenfähig.",
       scope: [
         { title: "Berichtspflicht-Check", desc: "Direkt oder indirekt betroffen? Wir prüfen gegen die Omnibus I-Schwellen (≥1.000 MA UND ≥450 Mio. EUR Umsatz), den aktuellen Stop-the-Clock-Status (Berichtsjahre 2025/2026 ausgesetzt) und Ihre konkreten Lieferketten-Anfragen. Ergebnis: klare Einordnung und Handlungsempfehlung — keine Rechtsmeinung." },
         { title: "Wesentlichkeitsanalyse", desc: "Double Materiality Assessment nach ESRS-Logik: Impact Materiality (Welche Auswirkungen hat Ihr Unternehmen auf Umwelt und Gesellschaft?) und Financial Materiality (Welche ESG-Risiken und -Chancen wirken auf Ihre Finanzen?). Fokussiert auf das, was für Ihre Branche und Unternehmensgröße tatsächlich zählt." },
@@ -433,7 +434,7 @@ export const translations = {
         { step: "04", title: "Shield-Template", desc: "Lieferkettenfähiger Antwort-Datensatz mit Value-Chain-Cap-Schutz: standardisierte Antworten auf Kundenanfragen, die exakt den VSME-Umfang abdecken — nicht mehr, nicht weniger. Wiederverwendbar für alle Anfragen aus der Lieferkette." },
       ],
       facts: [
-        { value: "~90 %", label: "weniger Betroffene durch Omnibus I" },
+        { value: "~90 %", label: "weniger Betroffene durch Omnibus I (Quelle: EU-Omnibus I, Feb. 2026)" },
         { value: "11", label: "VSME-Basisdatenpunkte (B1–B3)" },
         { value: "61 %", label: "ESRS-Vereinfachung ggü. Ursprungsentwurf" },
         { value: "30 Min", label: "Pflicht-Check — Klarheit sofort" },
@@ -458,9 +459,9 @@ export const translations = {
         { step: "04", title: "Projektbegleitung bis Verwendungsnachweis", desc: "Meilenstein-Reporting, Zwischenberichte und Finanzplan-Überwachung (20 %-Flexibilitätsregel je Kostenart, darüber Umwidmungsantrag). Verwendungsnachweis audit-sicher erstellt." },
       ],
       facts: [
-        { value: "380k", label: "EUR max. Einzelprojekt" },
-        { value: "bis 60 %", label: "Fördersatz (kleine Unternehmen Ost)" },
-        { value: "2,3 Mio.", label: "EUR max. Kooperationsprojekt" },
+        { value: "380k", label: "EUR max. Einzelprojekt (Quelle: ZIM-Richtlinie, BMWK)" },
+        { value: "bis 60 %", label: "Fördersatz kleine Unternehmen Ost (Quelle: ZIM-Richtlinie, BMWK)" },
+        { value: "2,3 Mio.", label: "EUR max. Kooperationsprojekt (Quelle: ZIM-Richtlinie, BMWK)" },
         { value: "12+", label: "Partner im eigenen ZIM-Netzwerk" },
       ],
       experience: "Denis Jänicke ist aktiver ZIM-Netzwerkmanager für das SEAWEED DECARBON POLYMER-Netzwerk — 12+ Partner aus Forschung und Industrie, Phase 1 und 2, MNV-Verhandlung, PT-Kommunikation mit VDI/VDE-IT. Er kennt die typischen Stolpersteine aus der Praxis: unvollständige Antragsunterlagen, QES-Probleme bei Signaturen, Eigenanteil-Risiken bei Partnerausfall und Zeitverzug beim Phase-2-Antrag. Diese Erfahrung fließt direkt in jeden Antrag.",
@@ -485,7 +486,7 @@ export const translations = {
         { step: "04", title: "Umsetzung & Monitoring", desc: "Begleitung der Maßnahmenumsetzung, Förderantragsstellung für priorisierte Investitionen, quartalsweises KPI-Reporting und Anpassung bei regulatorischen Änderungen." },
       ],
       facts: [
-        { value: "bis 80 %", label: "Förderquote für Energieeffizienzmaßnahmen (BAFA)" },
+        { value: "bis 80 %", label: "Förderquote Energieeffizienzmaßnahmen (Quelle: BAFA Energieberatung)" },
         { value: "3 Jahre", label: "Typischer Roadmap-Horizont" },
         { value: "Scope 1+2", label: "THG-Bilanzierung als Ausgangspunkt" },
         { value: "0 €", label: "Risiko — Success-Fee erst bei Förder-Bewilligung" },
@@ -511,9 +512,9 @@ export const translations = {
         { step: "04", title: "Verwendungsnachweis & Auszahlung", desc: "Vollständige Zusammenstellung aller Nachweisdokumente (Rechnungen, Liefernachweise, Energiedatenvergleich). Technische Nachweise gemäß BAFA-Anforderungen (Effizienzklassen, Messkonzept). Abruf des Zuschusses nach Prüfung." },
       ],
       facts: [
-        { value: "bis 80 %", label: "Zuschuss Energieberatung Mittelstand" },
-        { value: "bis 55 %", label: "für EEW-Investitionen" },
-        { value: "bis 70 %", label: "Heizungsförderung BEG" },
+        { value: "bis 80 %", label: "Zuschuss Energieberatung Mittelstand (Quelle: BAFA Energieberatung)" },
+        { value: "bis 55 %", label: "für EEW-Investitionen (Quelle: BAFA EEW-Richtlinie)" },
+        { value: "bis 70 %", label: "Heizungsförderung BEG (Quelle: BAFA BEG-Richtlinie)" },
         { value: "0 €", label: "Risiko — Erfolgshonorar erst bei Bewilligung" },
       ],
       types: ["BAFA Energieberatung", "BAFA EEW", "BAFA BEG", "Transformationsprogramm", "Wärmepumpe", "Abwärmenutzung", "Druckluft", "Dekarbonisierung"],
@@ -546,6 +547,68 @@ export const translations = {
       text: "Diese Website verwendet nur technisch notwendige Cookies.",
       privacyLink: "Datenschutz",
       accept: "Verstanden",
+    },
+
+    // ─── Über-uns-Seite ───
+    ueberUns: {
+      heroLabel: "ÜBER UNS",
+      heroHeadline: "Denis Jänicke.",
+      heroSub: "Gründer & Senior Förderberater. Aktiver ZIM-Netzwerkmanager. Berlin.",
+      imgAlt: "Denis Jänicke — Gründer & Senior Förderberater, VO Sustain",
+      bioHeadline: "Denis Jänicke",
+      bioSubtitle: "Gründer · VO Sustain · Berlin",
+      quote: "Als aktiver ZIM-Netzwerkmanager schreibe ich die Anträge, die ich begutachten lasse. Ich kenne beide Seiten des Prozesses — und genau da liegt der Unterschied.",
+      bioParagraphs: [
+        "Förderberater mit Schwerpunkt ZIM, BAFA und EU-Förderung. Aktiver Netzwerkmanager für das ZIM-Innovationsnetzwerk SEAWEED DECARBON POLYMER — ein internationales Konsortium mit 12+ Partnern aus Forschung und Industrie in 4 Ländern.",
+        "Erfahrung aus der vollständigen Förderkette: Programmauswahl, Antragstellung mit Neuheitsnachweis und technischem Risiko, Projektträger-Kommunikation, Mittelabruf, Zwischennachweise und Verwendungsnachweis. Programme: ZIM, INNO-KOM, TAB/FTI, EFRE, SAB, BAFA (EEW, BEG, Energieberatung), Forschungszulage, Horizon Europe, LIFE und BMWK-Sonderprogramme.",
+        "Spezialisierung auf KMU im Nachhaltigkeitsbereich: Cleantech, Kreislaufwirtschaft, Bioökonomie, Energieeffizienz und Dekarbonisierung. KI-gestützte Programmrecherche über 349 Förderprogramme — Bund, Länder und EU.",
+      ],
+      statsLabel: "IN ZAHLEN",
+      stats: [
+        { value: "12+ Partner", label: "Im aktiven ZIM-Netzwerk" },
+        { value: "349 Programme", label: "In der Förderdatenbank" },
+        { value: "4 Länder", label: "Internationale Netzwerkpartner" },
+        { value: "8+ Programme", label: "Kernexpertise Förderprogramme" },
+      ],
+      expertiseLabel: "EXPERTISE",
+      expertiseHeadline: "Programme, die wir beherrschen.",
+      expertiseCards: [
+        {
+          title: "ZIM-Förderung",
+          desc: "Einzelprojekte, Kooperationsprojekte und Innovationsnetzwerke. Bis 60 % Zuschuss für F&E-Vorhaben mit technischem Risiko und Neuheitsgrad.",
+          tags: ["ZIM", "F&E", "BMWK", "bis 60 %"],
+        },
+        {
+          title: "BAFA EEW & Energieberatung",
+          desc: "Energie- und Ressourceneffizienz, Prozesswärme, Abwärmenutzung, BEG-Sanierung. Bis 55 % Investitionszuschuss plus Energieberatungsförderung.",
+          tags: ["BAFA", "EEW", "BEG", "bis 55 %"],
+        },
+        {
+          title: "EFRE & Landesförderung",
+          desc: "SAB (Sachsen), TAB/FTI (Thüringen), IBB (Berlin) und weitere Landesprogramme. 30–50 % Zuschuss, kumulierbar mit Bundesmitteln.",
+          tags: ["EFRE", "SAB", "TAB", "IBB"],
+        },
+        {
+          title: "Horizon Europe & LIFE",
+          desc: "EU-Förderung für Forschung, Innovation und Umweltprojekte. Cluster 5 (Klima & Energie), LIFE-Programm für Kreislaufwirtschaft und Biodiversität.",
+          tags: ["EU", "Horizon", "LIFE", "Cluster 5"],
+        },
+        {
+          title: "Forschungszulage (FZulG)",
+          desc: "Steuerliche F&E-Förderung: 35 % der Personalkosten für KMU, direkt mit der Steuerschuld verrechenbar. Auch bei Verlusten als Erstattung auszahlbar.",
+          tags: ["FZulG", "35 %", "Steuer", "KMU-Bonus"],
+        },
+        {
+          title: "CSRD & Nachhaltigkeitsstrategie",
+          desc: "VSME-Standard für Zulieferer, Double Materiality, ESG-Datenpunkte (B1–B11). Pragmatische Umsetzung, die Lieferkettenanforderungen erfüllt.",
+          tags: ["CSRD", "VSME", "ESG", "Omnibus I"],
+        },
+      ],
+      ctaHeadline: "Lassen Sie uns Ihr Förderpotenzial prüfen.",
+      ctaBody: "Der Quick-Check ist kostenlos. Sie erhalten eine erste Einschätzung, welche Programme für Ihr Vorhaben infrage kommen — mit konkreten Zahlen, nicht mit allgemeinen Versprechen.",
+      ctaButton: "Kostenlosen Quick-Check starten",
+      ctaEmail: "denis@vosustain.de",
+      email: "denis@vosustain.de",
     },
   },
 
@@ -791,6 +854,7 @@ export const translations = {
 
     // ─── Artikel-Detail ───
     artikel: {
+      author: "By Denis Jänicke",
       deadline: "Application Deadline",
       source: "Source:",
       ctaHeadline: "Does this fit your company?",
@@ -1094,6 +1158,68 @@ export const translations = {
       text: "This website uses only essential cookies.",
       privacyLink: "Privacy Policy",
       accept: "Got it",
+    },
+
+    // ─── About Page ───
+    ueberUns: {
+      heroLabel: "ABOUT US",
+      heroHeadline: "Denis Jänicke.",
+      heroSub: "Founder & Senior Grant Consultant. Active ZIM Network Manager. Berlin.",
+      imgAlt: "Denis Jänicke — Founder & Senior Grant Consultant, VO Sustain",
+      bioHeadline: "Denis Jänicke",
+      bioSubtitle: "Founder · VO Sustain · Berlin",
+      quote: "As an active ZIM network manager, I write the applications I have reviewed. I know both sides of the process — and that's what makes the difference.",
+      bioParagraphs: [
+        "Grant consultant specialising in ZIM, BAFA, and EU funding. Active network manager for the ZIM Innovation Network SEAWEED DECARBON POLYMER — an international consortium of 12+ research and industry partners across 4 countries.",
+        "Hands-on experience across the full grant lifecycle: programme selection, application with proof of novelty and technical risk, project sponsor communication, disbursement, interim reports, and final financial reporting. Programmes: ZIM, INNO-KOM, TAB/FTI, EFRE, SAB, BAFA (EEW, BEG, Energy Consulting), Research Allowance, Horizon Europe, LIFE, and BMWK special programmes.",
+        "Specialisation in SMEs in the sustainability sector: cleantech, circular economy, bioeconomy, energy efficiency, and decarbonisation. AI-powered programme research across 349 funding programmes — federal, state, and EU.",
+      ],
+      statsLabel: "BY THE NUMBERS",
+      stats: [
+        { value: "12+ Partners", label: "In the active ZIM network" },
+        { value: "349 Programmes", label: "In the funding database" },
+        { value: "4 Countries", label: "International network partners" },
+        { value: "8+ Programmes", label: "Core funding expertise" },
+      ],
+      expertiseLabel: "EXPERTISE",
+      expertiseHeadline: "Programmes we master.",
+      expertiseCards: [
+        {
+          title: "ZIM Funding",
+          desc: "Individual projects, cooperation projects, and innovation networks. Up to 60% grant for R&D projects with technical risk and novelty.",
+          tags: ["ZIM", "R&D", "BMWK", "up to 60%"],
+        },
+        {
+          title: "BAFA EEW & Energy Consulting",
+          desc: "Energy and resource efficiency, process heat, waste heat recovery, BEG renovation. Up to 55% investment grant plus energy consulting funding.",
+          tags: ["BAFA", "EEW", "BEG", "up to 55%"],
+        },
+        {
+          title: "EFRE & Regional Funding",
+          desc: "SAB (Saxony), TAB/FTI (Thuringia), IBB (Berlin), and other state programmes. 30–50% grant, combinable with federal funding.",
+          tags: ["EFRE", "SAB", "TAB", "IBB"],
+        },
+        {
+          title: "Horizon Europe & LIFE",
+          desc: "EU funding for research, innovation, and environmental projects. Cluster 5 (Climate & Energy), LIFE programme for circular economy and biodiversity.",
+          tags: ["EU", "Horizon", "LIFE", "Cluster 5"],
+        },
+        {
+          title: "Research Allowance (FZulG)",
+          desc: "Tax-based R&D funding: 35% of personnel costs for SMEs, offset directly against tax liability. Payable as refund even in loss-making years.",
+          tags: ["FZulG", "35%", "Tax", "SME Bonus"],
+        },
+        {
+          title: "CSRD & Sustainability Strategy",
+          desc: "VSME standard for suppliers, double materiality, ESG data points (B1–B11). Pragmatic implementation that meets supply chain requirements.",
+          tags: ["CSRD", "VSME", "ESG", "Omnibus I"],
+        },
+      ],
+      ctaHeadline: "Let us assess your funding potential.",
+      ctaBody: "The Quick-Check is free. You'll receive an initial assessment of which programmes suit your project — with concrete figures, not generic promises.",
+      ctaButton: "Start Free Quick-Check",
+      ctaEmail: "denis@vosustain.de",
+      email: "denis@vosustain.de",
     },
   },
 } as const;
