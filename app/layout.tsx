@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-        width: 1376,
-        height: 768,
+        width: 1200,
+        height: 630,
         alt: "VO Sustain — Förderberatung für deutsche KMU",
       },
     ],

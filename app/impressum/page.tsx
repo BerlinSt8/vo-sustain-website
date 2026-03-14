@@ -1,3 +1,10 @@
+export const metadata = {
+  title: "Impressum",
+  description: "Impressum von VO Sustain — Denis Jänicke, Förderberatung für KMU, Berlin.",
+  alternates: { canonical: "https://www.vosustain.de/impressum" },
+  robots: { index: true, follow: true },
+};
+
 export default function ImpressumPage() {
   return (
     <main style={{ background: "var(--off-white)", minHeight: "100vh", padding: "8rem 8vw 6rem" }}>

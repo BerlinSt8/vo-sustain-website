@@ -223,7 +223,7 @@ export const translations = {
     // ─── Aktuell ───
     aktuell: {
       heroLabel: "NEWS & UPDATES",
-      heroHeadline: "Aktuell.",
+      heroHeadline: "Förderaufrufe & CSRD-News.",
       heroBody: "Förderaufrufe mit Fristen, CSRD-Updates und Neuigkeiten aus der deutschen Förderlandschaft — wöchentlich aktualisiert.",
       scroll: "Scroll",
       readMore: "Lesen →",
@@ -771,7 +771,7 @@ export const translations = {
     // ─── Aktuell ───
     aktuell: {
       heroLabel: "NEWS & UPDATES",
-      heroHeadline: "News.",
+      heroHeadline: "Funding Calls & CSRD News.",
       heroBody: "Grant calls with deadlines, CSRD updates and news from the German funding landscape — updated weekly.",
       scroll: "Scroll",
       readMore: "Read →",

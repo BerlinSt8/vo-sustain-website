@@ -1,3 +1,10 @@
+export const metadata = {
+  title: "Datenschutzerklärung",
+  description: "Datenschutzerklärung von VO Sustain gemäß DSGVO. Verantwortlicher: Denis Jänicke, Berlin.",
+  alternates: { canonical: "https://www.vosustain.de/datenschutz" },
+  robots: { index: true, follow: true },
+};
+
 export default function DatenschutzPage() {
   return (
     <main style={{ background: "var(--off-white)", minHeight: "100vh", padding: "8rem 8vw 6rem" }}>

@@ -154,7 +154,9 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Kinetic Headline — word by word */}
-        <h1 style={{
+        <h1
+          aria-label={t.hero.headline}
+          style={{
           fontFamily: "'Montserrat', sans-serif",
           fontSize: "clamp(2.2rem, 4.8vw, 4rem)",
           fontWeight: 900,

@@ -31,6 +31,21 @@ const breadcrumbSchema = {
   ],
 };
 
+function buildItemListSchema(articles: Artikel[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Aktuelle Förderaufrufe & CSRD-News",
+    numberOfItems: articles.length,
+    itemListElement: articles.slice(0, 10).map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://www.vosustain.de/aktuell/${a.slug}`,
+      name: a.title,
+    })),
+  };
+}
+
 export default function AktuellPage() {
   const articles = (artikelData as Artikel[]).sort(
     (a, b) => b.date.localeCompare(a.date)
@@ -41,6 +56,10 @@ export default function AktuellPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildItemListSchema(articles)) }}
       />
       <NavBar />
       <main>
