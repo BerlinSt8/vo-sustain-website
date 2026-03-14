@@ -203,6 +203,10 @@ export default function ServicePageClient({
             {heroBody}
           </p>
 
+          <p style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "0.6rem", color: "rgba(255,255,255,0.3)", marginTop: "1rem", letterSpacing: "0.06em" }}>
+            Stand: März 2026
+          </p>
+
           {/* Tags */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
             {tags.map((tag) => (
