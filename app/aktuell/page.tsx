@@ -12,11 +12,6 @@ export const metadata = {
     "Aktuelle Förderaufrufe mit Fristen, CSRD-Updates (Omnibus I, VSME) und Neuigkeiten aus der deutschen Förderlandschaft — wöchentlich aktualisiert.",
   alternates: {
     canonical: "https://www.vosustain.de/aktuell",
-    languages: {
-      de: "https://www.vosustain.de/aktuell",
-      en: "https://www.vosustain.de/aktuell",
-      "x-default": "https://www.vosustain.de/aktuell",
-    },
   },
   openGraph: {
     title: "Aktuell — Förderaufrufe & CSRD-News | VO Sustain",

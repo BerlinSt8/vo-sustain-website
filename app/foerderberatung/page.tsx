@@ -10,11 +10,6 @@ export const metadata = {
     "Förderberatung für deutsche KMU. 64+ Programme (ZIM, BAFA, EFRE, Horizon Europe) — von der Potenzialanalyse bis zum Verwendungsnachweis. Schlüsselfertig.",
   alternates: {
     canonical: `${BASE_URL}/foerderberatung`,
-    languages: {
-      de: `${BASE_URL}/foerderberatung`,
-      en: `${BASE_URL}/foerderberatung`,
-      "x-default": `${BASE_URL}/foerderberatung`,
-    },
   },
   openGraph: {
     title: "Förderberatung für KMU | VO Sustain",

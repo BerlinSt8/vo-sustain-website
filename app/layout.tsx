@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Montserrat, Open_Sans, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -6,6 +7,27 @@ import CursorGlow from "@/components/ui/CursorGlow";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ChatWidget from "@/components/ui/ChatWidget";
 import CookieBanner from "@/components/ui/CookieBanner";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  display: "swap",
+  variable: "--font-opensans",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
 
 const BASE_URL = "https://www.vosustain.de";
 
@@ -24,11 +46,6 @@ export const metadata: Metadata = {
   publisher: "VO Sustain",
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      de: BASE_URL,
-      en: BASE_URL,
-      "x-default": BASE_URL,
-    },
   },
   openGraph: {
     title: "VO Sustain | Förderberatung für KMU",
@@ -162,7 +179,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de">
+    <html lang="de" className={`${montserrat.variable} ${openSans.variable} ${robotoMono.variable}`}>
       <body className="grain-overlay">
         <CursorGlow />
         <CustomCursor />

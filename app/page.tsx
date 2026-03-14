@@ -10,8 +10,6 @@ import QuickCheckSection from "@/components/sections/QuickCheckSection";
 import AboutSection from "@/components/sections/AboutSection";
 import FaqSection from "@/components/sections/FaqSection";
 import FooterSection from "@/components/sections/FooterSection";
-import { translations } from "@/lib/i18n/translations";
-
 export const metadata = {
   title: "Förderberatung Cleantech KMU: ZIM, BAFA & CSRD | VO Sustain",
   description: "KI-gestützte Förderberatung für Cleantech & Nachhaltigkeit KMU. ZIM bis 600.000 €, BAFA bis 55 %, Erfolgshonorar. Fertige Konzepte in 48h — Quick-Check kostenlos.",
@@ -21,28 +19,16 @@ export const metadata = {
     url: "https://www.vosustain.de",
     type: "website" as const,
   },
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: translations.de.faq.items.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Förderberatung Cleantech KMU: ZIM, BAFA & CSRD | VO Sustain",
+    description: "KI-gestützte Förderberatung für Cleantech KMU. ZIM bis 600.000 €, BAFA bis 55 %. Quick-Check kostenlos.",
+  },
 };
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <NavBar />
       <main style={{ position: "relative", zIndex: 1, background: "var(--navy-dark)" }}>
         {/* 1 – Hero: brechende Welle */}

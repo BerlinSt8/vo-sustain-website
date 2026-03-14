@@ -35,10 +35,6 @@ export async function generateMetadata({
     description: artikel.teaser,
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        de: canonicalUrl,
-        "x-default": canonicalUrl,
-      },
     },
     openGraph: {
       title: artikel.title,

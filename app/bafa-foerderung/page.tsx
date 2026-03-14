@@ -10,11 +10,6 @@ export const metadata = {
     "BAFA-Förderung für KMU: Bis 80 % für Energieberatung, bis 55 % für Effizienzinvestitionen (EEW), bis 70 % für Heizungsförderung (BEG). Antragstellung vor Vorhabenbeginn — wir koordinieren alles.",
   alternates: {
     canonical: `${BASE_URL}/bafa-foerderung`,
-    languages: {
-      de: `${BASE_URL}/bafa-foerderung`,
-      en: `${BASE_URL}/bafa-foerderung`,
-      "x-default": `${BASE_URL}/bafa-foerderung`,
-    },
   },
   openGraph: {
     title: "BAFA-Förderung: Energieberatung, EEW & Transformation | VO Sustain",

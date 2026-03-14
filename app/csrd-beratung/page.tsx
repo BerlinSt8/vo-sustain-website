@@ -10,11 +10,6 @@ export const metadata = {
     "CSRD-Beratung für KMU nach VSME-Standard. Wesentlichkeitsanalyse, ESG-Datenmanagement, Berichtspflicht-Check in 30 Minuten — proportional und audit-sicher.",
   alternates: {
     canonical: `${BASE_URL}/csrd-beratung`,
-    languages: {
-      de: `${BASE_URL}/csrd-beratung`,
-      en: `${BASE_URL}/csrd-beratung`,
-      "x-default": `${BASE_URL}/csrd-beratung`,
-    },
   },
   openGraph: {
     title: "CSRD-Beratung für KMU | VO Sustain",

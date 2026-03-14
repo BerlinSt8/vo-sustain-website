@@ -10,11 +10,6 @@ export const metadata = {
     "ZIM-Förderung für KMU: Einzelprojekte, Kooperationen, Netzwerke. Bis 500.000 EUR pro Unternehmen, bis 55 % Fördersatz. Aktiver Netzwerkmanager, 12+ Partner.",
   alternates: {
     canonical: `${BASE_URL}/zim-foerderung`,
-    languages: {
-      de: `${BASE_URL}/zim-foerderung`,
-      en: `${BASE_URL}/zim-foerderung`,
-      "x-default": `${BASE_URL}/zim-foerderung`,
-    },
   },
   openGraph: {
     title: "ZIM-Förderung & Netzwerkmanagement | VO Sustain",

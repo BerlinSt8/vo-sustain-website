@@ -10,11 +10,6 @@ export const metadata = {
     "Nachhaltigkeitsstrategie für KMU: THG-Bilanz, Wesentlichkeitsanalyse, förderfinanzierte Roadmap. Bis 80 % Zuschuss für Energieeffizienzmaßnahmen — schlüsselfertig.",
   alternates: {
     canonical: `${BASE_URL}/nachhaltigkeitsstrategie`,
-    languages: {
-      de: `${BASE_URL}/nachhaltigkeitsstrategie`,
-      en: `${BASE_URL}/nachhaltigkeitsstrategie`,
-      "x-default": `${BASE_URL}/nachhaltigkeitsstrategie`,
-    },
   },
   openGraph: {
     title: "Nachhaltigkeitsstrategie für KMU | VO Sustain",
