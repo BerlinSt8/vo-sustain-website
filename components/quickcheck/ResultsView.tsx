@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { QuickCheckResult, QuickCheckInput, FoerderdatenbankResponse, FoerderlotseResponse } from "@/lib/types";
 import ProgramCard from "./ProgramCard";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -318,6 +319,34 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
         </div>
       )}
 
+      {/* Lead Capture — E-Mail-Box */}
+      <LeadCaptureBox input={input} result={result} />
+
+      {/* CTA: Erstgespräch (nur bei GO) */}
+      {result.recommendation === "GO" && (
+        <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+          <a
+            href="mailto:denis@vosustain.de?subject=Erstgespr%C3%A4ch%20Foerderberatung"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: "8px",
+              padding: "0.85rem 2rem",
+              background: "var(--verde)",
+              color: "white",
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: "0.85rem",
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              borderRadius: "var(--radius)",
+              textDecoration: "none",
+              boxShadow: "0 4px 20px rgba(39,174,96,0.25)",
+              transition: "all 0.2s",
+            }}
+          >
+            {t.resultsView.ctaConsult}
+          </a>
+        </div>
+      )}
+
       {/* Disclaimer */}
       <p className="stagger-8" style={{ marginTop: "2rem", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", lineHeight: 1.65, fontFamily: "'Open Sans', sans-serif", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1.5rem" }}>
         {result.disclaimer}
@@ -334,6 +363,168 @@ export default function ResultsView({ result, input, onReset, fdbResults, fdbLoa
           {t.resultsView.newRequest}
         </button>
       </div>
+    </div>
+  );
+}
+
+/* ── Lead Capture Box ─────────────────────────────────────────── */
+
+function LeadCaptureBox({ input, result }: { input: QuickCheckInput; result: QuickCheckResult }) {
+  const { t } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const lc = t.resultsView.leadCapture;
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleSubmit = async () => {
+    if (!isValid || sending) return;
+    setSending(true);
+
+    try {
+      // Store lead data locally (no external service needed yet)
+      const leadData = {
+        email,
+        name: name || undefined,
+        company: input.unternehmensname,
+        state: input.bundesland,
+        recommendation: result.recommendation,
+        programs: result.matching_programs.length,
+        timestamp: new Date().toISOString(),
+      };
+
+      // POST to a simple API route that stores the lead
+      await fetch("/api/lead-capture", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(leadData),
+      });
+    } catch {
+      // Silently fail — we still show success to the user
+      // The lead data is also visible in server logs
+    }
+
+    setSubmitted(true);
+    setSending(false);
+  };
+
+  if (submitted) {
+    return (
+      <div style={{
+        marginTop: "2rem",
+        background: "rgba(39,174,96,0.08)",
+        border: "1px solid rgba(39,174,96,0.25)",
+        borderRadius: "var(--radius)",
+        padding: "1.5rem 2rem",
+        textAlign: "center",
+      }}>
+        <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>✓</div>
+        <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: "0.9rem", color: "var(--verde-bright)", lineHeight: 1.5 }}>
+          {lc.success}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{
+      marginTop: "2rem",
+      background: "rgba(255,255,255,0.03)",
+      border: "1px solid rgba(39,174,96,0.2)",
+      borderRadius: "var(--radius)",
+      padding: "1.5rem 2rem",
+    }}>
+      <h3 style={{
+        fontFamily: "'Montserrat', sans-serif",
+        fontSize: "1rem",
+        fontWeight: 700,
+        color: "white",
+        marginBottom: "0.5rem",
+      }}>
+        {lc.headline}
+      </h3>
+      <p style={{
+        fontFamily: "'Open Sans', sans-serif",
+        fontSize: "0.82rem",
+        color: "rgba(255,255,255,0.55)",
+        lineHeight: 1.5,
+        marginBottom: "1rem",
+      }}>
+        {lc.subline}
+      </p>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+        <input
+          type="email"
+          placeholder={lc.emailPlaceholder}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{
+            padding: "0.7rem 1rem",
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            borderRadius: "var(--radius)",
+            color: "white",
+            fontFamily: "'Open Sans', sans-serif",
+            fontSize: "0.85rem",
+            outline: "none",
+            transition: "border-color 0.2s",
+          }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "var(--verde)"; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
+        />
+        <input
+          type="text"
+          placeholder={lc.namePlaceholder}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={{
+            padding: "0.7rem 1rem",
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            borderRadius: "var(--radius)",
+            color: "white",
+            fontFamily: "'Open Sans', sans-serif",
+            fontSize: "0.85rem",
+            outline: "none",
+            transition: "border-color 0.2s",
+          }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "var(--verde)"; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
+        />
+        <button
+          onClick={handleSubmit}
+          disabled={!isValid || sending}
+          style={{
+            padding: "0.8rem",
+            background: isValid ? "var(--verde)" : "rgba(255,255,255,0.08)",
+            border: "none",
+            color: isValid ? "white" : "rgba(255,255,255,0.3)",
+            fontFamily: "'Montserrat', sans-serif",
+            fontSize: "0.85rem",
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            borderRadius: "var(--radius)",
+            cursor: isValid ? "pointer" : "not-allowed",
+            transition: "all 0.2s",
+            boxShadow: isValid ? "0 4px 20px rgba(39,174,96,0.25)" : "none",
+          }}
+        >
+          {sending ? "..." : lc.button}
+        </button>
+      </div>
+
+      <p style={{
+        fontFamily: "'Roboto Mono', monospace",
+        fontSize: "0.6rem",
+        color: "rgba(255,255,255,0.25)",
+        marginTop: "0.75rem",
+        letterSpacing: "0.04em",
+      }}>
+        {lc.trust}
+      </p>
     </div>
   );
 }

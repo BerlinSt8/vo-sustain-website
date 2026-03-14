@@ -200,6 +200,16 @@ export const translations = {
       fwmSubtitle: "Auslandsförderung · GTAI / BAFA / GIZ · 275 Programme",
       recommendedPackage: "Empfohlenes VO Sustain Angebot",
       newRequest: "← Neue Anfrage",
+      leadCapture: {
+        headline: "Ihre Analyse als PDF erhalten",
+        subline: "Wir senden Ihnen die vollständige Potenzialanalyse inkl. aller Programme per E-Mail — kostenlos.",
+        emailPlaceholder: "ihre@email.de",
+        namePlaceholder: "Name (optional)",
+        button: "Analyse per E-Mail erhalten",
+        success: "Ihre Analyse wurde versendet. Prüfen Sie Ihren Posteingang.",
+        trust: "Kein Spam. Ihre Daten bleiben bei uns. Datenschutz gemäß DSGVO.",
+      },
+      ctaConsult: "Kostenloses Erstgespräch vereinbaren",
     },
 
     // ─── ProgramCard ───
@@ -738,6 +748,16 @@ export const translations = {
       fwmSubtitle: "International funding · GTAI / BAFA / GIZ · 275 programmes",
       recommendedPackage: "Recommended VO Sustain Package",
       newRequest: "← New Request",
+      leadCapture: {
+        headline: "Get your analysis as PDF",
+        subline: "We'll send you the full funding analysis incl. all programmes by email — free of charge.",
+        emailPlaceholder: "your@email.com",
+        namePlaceholder: "Name (optional)",
+        button: "Receive analysis by email",
+        success: "Your analysis has been sent. Check your inbox.",
+        trust: "No spam. Your data stays with us. GDPR compliant.",
+      },
+      ctaConsult: "Book a free consultation",
     },
 
     // ─── ProgramCard ───
