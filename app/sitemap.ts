@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import artikelData from "@/data/aktuell.json";
+import programmeData from "@/data/foerderprogramme.json";
 import type { Artikel } from "@/lib/types";
 
 const BASE_URL = "https://www.vosustain.de";
@@ -107,5 +108,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticPages, ...articlePages];
+  const foerderprogrammeHub: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/foerderprogramme`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+  ];
+
+  const foerderprogrammePages: MetadataRoute.Sitemap = programmeData.map(
+    (programm) => ({
+      url: `${BASE_URL}/foerderprogramme/${programm.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })
+  );
+
+  return [...staticPages, ...articlePages, ...foerderprogrammeHub, ...foerderprogrammePages];
 }
