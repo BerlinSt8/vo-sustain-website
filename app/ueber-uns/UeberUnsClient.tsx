@@ -266,6 +266,184 @@ export default function UeberUnsClient() {
         `}</style>
       </section>
 
+      {/* ── Karriere-Timeline ── */}
+      <section
+        style={{
+          background: "var(--navy-dark, #080F1A)",
+          padding: "5rem 8vw",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            style={{
+              fontFamily: "'Roboto Mono', monospace",
+              fontSize: "0.65rem",
+              letterSpacing: "0.18em",
+              color: "var(--verde-bright, #2ECC71)",
+              textTransform: "uppercase",
+              display: "block",
+              marginBottom: "1rem",
+            }}
+          >
+            WERDEGANG
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+              fontWeight: 900,
+              color: "white",
+              lineHeight: 1.1,
+              marginBottom: "3rem",
+            }}
+          >
+            Vom Labor über Indonesien in die Förderberatung.
+          </motion.h2>
+
+          {/* Timeline */}
+          <div style={{ position: "relative", paddingLeft: "2.5rem" }}>
+            {/* Verde line */}
+            <div
+              style={{
+                position: "absolute",
+                left: "5px",
+                top: "6px",
+                bottom: "6px",
+                width: "2px",
+                background: "var(--verde, #27AE60)",
+                opacity: 0.5,
+              }}
+            />
+
+            {[
+              {
+                year: "2006–2014",
+                title: "Chemisch-Technischer Assistent",
+                org: "ASCA GmbH, Berlin-Adlershof",
+                desc: "Organische Synthese, HPLC/MS-Analytik, Laborleitung. 8 Jahre chemisch-analytische Grundlage für die Bewertung von F&E-Konzepten in Förderprojekten.",
+              },
+              {
+                year: "2014–2019",
+                title: "Supply Chain & Compliance Manager",
+                org: "Indonesien",
+                desc: "EU/NOP-Bio-Zertifizierung für 170+ Kleinbauern auf 280 ha. Aufbau von Audit-, Dokumentations- und Rückverfolgbarkeitssystemen — heute Blueprint für Grant Compliance.",
+              },
+              {
+                year: "2019–2021",
+                title: "Operations Project Manager",
+                org: "Strukturpartner Pro GmbH",
+                desc: "8+ Transformationsprojekte, industrielles Hanf-Pilotprojekt (70 ha, 8 Landwirte). Prozessoptimierung und Remote-Workflows für verteilte Teams.",
+              },
+              {
+                year: "2021–heute",
+                title: "Senior Grant Manager & ZIM-Netzwerkmanager",
+                org: "Jena / Remote",
+                desc: "6+ bewilligte Förderprojekte (>€0,8M). Netzwerkmanager SEAWEED DECARBON POLYMER: 12+ Partner in 4 Ländern, ~95% Förderquote Phase 1.",
+              },
+              {
+                year: "2025",
+                title: "Gründer VO Sustain",
+                org: "Berlin",
+                desc: "KI-gestützte Förderberatung für Cleantech-KMU. Concept-Led Outreach: fertiges Förderkonzept vor dem Erstgespräch.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: 0.12 * i, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  position: "relative",
+                  paddingBottom: i < 4 ? "2.5rem" : "0",
+                }}
+              >
+                {/* Circle */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-2.5rem",
+                    top: "4px",
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    background: "var(--verde-bright, #2ECC71)",
+                    boxShadow: "0 0 8px rgba(46,204,113,0.4)",
+                    transform: "translateX(-5px)",
+                  }}
+                />
+
+                {/* Year */}
+                <span
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: "0.85rem",
+                    fontWeight: 900,
+                    color: "var(--verde-bright, #2ECC71)",
+                    display: "block",
+                    marginBottom: "0.3rem",
+                  }}
+                >
+                  {item.year}
+                </span>
+
+                {/* Title */}
+                <span
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    color: "white",
+                    display: "block",
+                    marginBottom: "0.2rem",
+                  }}
+                >
+                  {item.title}
+                </span>
+
+                {/* Organization */}
+                <span
+                  style={{
+                    fontFamily: "'Roboto Mono', monospace",
+                    fontSize: "0.7rem",
+                    color: "rgba(255,255,255,0.5)",
+                    display: "block",
+                    marginBottom: "0.5rem",
+                    letterSpacing: "0.03em",
+                  }}
+                >
+                  {item.org}
+                </span>
+
+                {/* Description */}
+                <p
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "0.85rem",
+                    color: "rgba(255,255,255,0.65)",
+                    lineHeight: 1.65,
+                    margin: 0,
+                    maxWidth: "600px",
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Zahlen-Sektion ── */}
       <section
         style={{
