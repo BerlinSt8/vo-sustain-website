@@ -522,6 +522,33 @@ export const translations = {
       types: ["BAFA Energieberatung", "BAFA EEW", "BAFA BEG", "Transformationsprogramm", "Wärmepumpe", "Abwärmenutzung", "Druckluft", "Dekarbonisierung"],
     },
 
+    // ─── Förderberatung Berlin (Local SEO) ───
+    foerderberatungBerlin: {
+      heroLabel: "FÖRDERBERATUNG BERLIN",
+      heroHeadline: "Förderberatung für Berliner KMU.",
+      heroSub: "Berlin hat eine der dichtesten Förderlandschaften Deutschlands — IBB, ProFIT, GRW, EFRE Berlin und Transfer BONUS ergänzen die Bundesprogramme ZIM und BAFA. Wir kennen beide Ebenen.",
+      heroBody: "Berlin ist der größte Startup- und Innovationsstandort Deutschlands — und gleichzeitig einer der förderstärksten. Die Investitionsbank Berlin (IBB) verwaltet die Berliner Landesförderung und ist erste Anlaufstelle für KMU, die in Innovation, Digitalisierung oder Nachhaltigkeit investieren wollen. Doch die Berliner Förderlandschaft ist komplex: Landesprogramme wie ProFIT (Projektfinanzierung und Innovationsförderung durch Technologie) bieten zinsgünstige Darlehen und Zuschüsse für F&E-Projekte Berliner Unternehmen — von der Machbarkeitsstudie bis zur Markteinführung (Quelle: IBB, ProFIT-Richtlinie).\n\nDie Gemeinschaftsaufgabe Regionale Wirtschaftsstruktur (GRW) Berlin-Brandenburg fördert Investitionen in strukturschwachen Regionen mit bis zu 30 % Zuschuss für KMU — insbesondere in den Berliner Randgebieten und im Berliner Umland (Quelle: BMWK, GRW-Koordinierungsrahmen). Der Europäische Fonds für regionale Entwicklung (EFRE Berlin) stellt in der Förderperiode 2021–2027 rund 854 Mio. EUR für Berlin bereit — mit Schwerpunkten auf Innovation, Klimaschutz und nachhaltige Stadtentwicklung (Quelle: Senatsverwaltung für Wirtschaft, EFRE Berlin 2021–2027).\n\nTransfer BONUS fördert die Zusammenarbeit zwischen Berliner KMU und Wissenschaftseinrichtungen mit bis zu 45.000 EUR pro Kooperationsprojekt — ein niedrigschwelliger Einstieg in Innovationsförderung, der oft als Sprungbrett für größere ZIM- oder ProFIT-Anträge dient (Quelle: IBB, Transfer BONUS-Richtlinie). Das Berliner Startup-Stipendium richtet sich primär an Gründerinnen und Gründer, kann aber für innovationsstarke KMU in der Frühphase relevant sein.\n\nAuf Bundesebene kommen Programme wie ZIM (bis 380.000 EUR Einzelprojekt, bis 60 % Fördersatz, Quelle: ZIM-Richtlinie, BMWK), BAFA EEW (bis 55 % für Energieeffizienzinvestitionen, Quelle: BAFA EEW-Richtlinie) und die Forschungszulage (35 % steuerlich für KMU, Quelle: FZulG) hinzu. Die Kunst liegt in der intelligenten Kumulierung: Berliner Landesprogramme lassen sich unter Beachtung der De-minimis-Verordnung (300.000 EUR / 3 Jahre) und AGVO-Beihilferegeln mit Bundesprogrammen kombinieren — aber nur, wenn die Kumulierungsgrenzen eingehalten werden.\n\nVO Sustain sitzt in Berlin und berät Berliner KMU mit lokalem Netzwerk und direktem Zugang zu IBB-Ansprechpartnern. Kein Wettbewerber in der Berliner Förderberatung verbindet lokale Berliner Landesprogramme mit Bundesmitteln und KI-gestütztem Programm-Matching. Unser Standortvorteil: kurze Wege zu IBB, Senatsverwaltung und Berliner Projektträgern — und die Erfahrung, beide Förderebenen so zu verzahnen, dass Sie das Maximum herausholen.",
+      scope: [
+        { title: "Berliner Landesprogramme", desc: "IBB Innovationsförderung, ProFIT (Darlehen + Zuschüsse für F&E), GRW Berlin-Brandenburg (bis 30 % Investitionszuschuss), EFRE Berlin (854 Mio. EUR Förderperiode 2021–2027), Transfer BONUS (bis 45.000 EUR für KMU-Wissenschaft-Kooperationen). Kumulierungsprüfung mit Bundesmitteln inklusive." },
+        { title: "Bundesprogramme", desc: "ZIM (bis 380.000 EUR, 60 % Fördersatz), BAFA EEW (bis 55 % für Energieeffizienz), Forschungszulage (35 % steuerlich), INNO-KOM, KfW Klimaschutz. Berliner KMU profitieren oft von höheren Fördersätzen durch Ost-Zuschläge und De-minimis-Optimierung." },
+        { title: "EU-Programme", desc: "EFRE Berlin, Horizon Europe (EIC Accelerator bis 2,5 Mio. EUR Zuschuss), LIFE für Umwelt- und Klimaprojekte. Berlin als Innovationsstandort qualifiziert für zahlreiche EU-Calls — wir identifizieren die passenden." },
+        { title: "Antragstellung & Kumulierung", desc: "Vollständige Antragserstellung für alle Ebenen: Projektbeschreibung, Finanzierungsplan, AGVO-Erklärungen. Kumulierungsprüfung über De-minimis, AGVO und programmspezifische Regeln — damit kein Förderpotenzial verloren geht und keine Rückforderungen drohen." },
+      ],
+      process: [
+        { step: "01", title: "Erstgespräch (kostenlos)", desc: "Standort Berlin, Branche, Vorhaben und De-minimis-Status klären. Erste Einschätzung: Welche Berliner Landesprogramme und welche Bundesmittel passen? Ergebnis: Förderpotenzial-Überblick — ohne Verpflichtung." },
+        { step: "02", title: "Berliner Förder-Matching", desc: "Systematischer Abgleich gegen IBB-Programme, ProFIT, GRW, EFRE Berlin, Transfer BONUS und 64+ Bundesprogramme. Kumulierungsprüfung und optimale Kombination. Ergebnis: priorisierte Shortlist mit Fördersätzen und konkreten nächsten Schritten." },
+        { step: "03", title: "Antragstellung", desc: "Projektbeschreibung, Arbeitspakete, Kalkulation und alle programmspezifischen Unterlagen — für IBB, BAFA, BMWK oder EU-Projektträger. Einreichungsreif und fristgerecht." },
+        { step: "04", title: "Bewilligung bis Verwendungsnachweis", desc: "Projektträger-Kommunikation (IBB, VDI/VDE-IT, BAFA), Auflagen-Handling, Meilenstein-Tracking und audit-sicherer Verwendungsnachweis. Success-Fee: erst bei Bewilligung fällig." },
+      ],
+      facts: [
+        { value: "854 Mio.", label: "EUR EFRE Berlin 2021–2027 (Quelle: Senatsverwaltung für Wirtschaft)" },
+        { value: "bis 60 %", label: "ZIM-Fördersatz für kleine Berliner Unternehmen (Quelle: BMWK)" },
+        { value: "45.000 €", label: "Transfer BONUS pro Kooperationsprojekt (Quelle: IBB)" },
+        { value: "0 €", label: "Risiko — Success-Fee erst bei Bewilligung" },
+      ],
+      tags: ["IBB", "ProFIT", "GRW", "EFRE Berlin", "ZIM", "BAFA", "Transfer BONUS"],
+    },
+
     // ─── FooterSection ───
     footer: {
       tagline: "Förderberatung für deutsche KMU. Fördermittelmanagement · CSRD · Nachhaltigkeitsstrategie.",
@@ -1131,6 +1158,33 @@ export const translations = {
         { value: "€0", label: "risk — success fee only upon approval" },
       ],
       types: ["BAFA Energy Consulting", "BAFA EEW", "BAFA BEG", "Transformation Programme", "Heat Pump", "Waste Heat Recovery", "Compressed Air", "Decarbonisation"],
+    },
+
+    // ─── Grant Advisory Berlin (Local SEO) ───
+    foerderberatungBerlin: {
+      heroLabel: "GRANT ADVISORY BERLIN",
+      heroHeadline: "Grant Advisory for Berlin-Based SMEs.",
+      heroSub: "Berlin has one of Germany's richest funding landscapes — IBB, ProFIT, GRW, EFRE Berlin, and Transfer BONUS complement federal programmes like ZIM and BAFA. We know both levels.",
+      heroBody: "Berlin is Germany's largest startup and innovation hub — and one of its most funding-rich cities. The Investitionsbank Berlin (IBB) administers Berlin's state-level funding and is the first point of contact for SMEs investing in innovation, digitalisation, or sustainability. The Berlin funding landscape is complex: state programmes like ProFIT (Project Financing and Innovation Funding through Technology) offer low-interest loans and grants for R&D projects by Berlin-based companies — from feasibility studies to market launch (Source: IBB, ProFIT Guidelines).\n\nThe Joint Task for Regional Economic Structure (GRW) Berlin-Brandenburg supports investments in structurally weak regions with up to 30% grants for SMEs — particularly in Berlin's peripheral areas and surrounding region (Source: BMWK, GRW Coordination Framework). The European Regional Development Fund (ERDF Berlin) allocates approximately EUR 854 million for Berlin in the 2021–2027 funding period — focusing on innovation, climate protection, and sustainable urban development (Source: Senate Department for Economic Affairs, ERDF Berlin 2021–2027).\n\nTransfer BONUS funds cooperation between Berlin SMEs and research institutions with up to EUR 45,000 per project — a low-threshold entry into innovation funding that often serves as a springboard for larger ZIM or ProFIT applications (Source: IBB, Transfer BONUS Guidelines). The Berlin Startup Stipend primarily targets founders but can be relevant for innovation-driven early-stage SMEs.\n\nAt the federal level, programmes like ZIM (up to EUR 380,000 per project, up to 60% funding rate, Source: ZIM Guidelines, BMWK), BAFA EEW (up to 55% for energy efficiency investments, Source: BAFA EEW Guidelines), and the Research Allowance (35% tax credit for SMEs, Source: FZulG) complement the picture. The key lies in intelligent stacking: Berlin state programmes can be combined with federal programmes under de minimis rules (EUR 300,000 / 3 years) and GBER state aid rules — but only when cumulation limits are respected.\n\nVO Sustain is based in Berlin and advises Berlin SMEs with a local network and direct access to IBB contacts. No competitor in Berlin grant advisory combines local Berlin state programmes with federal funding and AI-powered programme matching. Our location advantage: short paths to IBB, Senate Administration, and Berlin project sponsors — and the experience to interlock both funding levels for maximum impact.",
+      scope: [
+        { title: "Berlin State Programmes", desc: "IBB Innovation Funding, ProFIT (loans + grants for R&D), GRW Berlin-Brandenburg (up to 30% investment grant), ERDF Berlin (EUR 854M, 2021–2027 period), Transfer BONUS (up to EUR 45,000 for SME-science cooperation). Cumulation check with federal funding included." },
+        { title: "Federal Programmes", desc: "ZIM (up to EUR 380,000, 60% funding rate), BAFA EEW (up to 55% for energy efficiency), Research Allowance (35% tax credit), INNO-KOM, KfW Climate Programme. Berlin SMEs often benefit from higher rates through East Germany bonuses and de minimis optimisation." },
+        { title: "EU Programmes", desc: "ERDF Berlin, Horizon Europe (EIC Accelerator up to EUR 2.5M grant), LIFE for environmental and climate projects. Berlin as an innovation hub qualifies for numerous EU calls — we identify the right ones." },
+        { title: "Application & Cumulation", desc: "Complete application preparation across all levels: project description, financing plan, GBER declarations. Cumulation check across de minimis, GBER, and programme-specific rules — ensuring no funding potential is lost and no clawbacks arise." },
+      ],
+      process: [
+        { step: "01", title: "Initial Consultation (free)", desc: "Berlin location, sector, project, and de minimis status. First assessment: which Berlin state programmes and federal funds fit? Result: funding potential overview — no commitment." },
+        { step: "02", title: "Berlin Funding Matching", desc: "Systematic matching against IBB programmes, ProFIT, GRW, ERDF Berlin, Transfer BONUS, and 64+ federal programmes. Cumulation check and optimal combination. Result: prioritised shortlist with funding rates and concrete next steps." },
+        { step: "03", title: "Application Preparation", desc: "Project description, work packages, budgeting, and all programme-specific documents — for IBB, BAFA, BMWK, or EU project sponsors. Submission-ready and on deadline." },
+        { step: "04", title: "Approval through Final Reporting", desc: "Project sponsor communication (IBB, VDI/VDE-IT, BAFA), conditions handling, milestone tracking, and audit-proof final report. Success fee: payable only upon approval." },
+      ],
+      facts: [
+        { value: "€854M", label: "ERDF Berlin 2021–2027 (Source: Senate Dept. for Economic Affairs)" },
+        { value: "up to 60%", label: "ZIM funding rate for small Berlin enterprises (Source: BMWK)" },
+        { value: "€45,000", label: "Transfer BONUS per cooperation project (Source: IBB)" },
+        { value: "€0", label: "Risk — success fee only upon approval" },
+      ],
+      tags: ["IBB", "ProFIT", "GRW", "ERDF Berlin", "ZIM", "BAFA", "Transfer BONUS"],
     },
 
     // ─── FooterSection ───

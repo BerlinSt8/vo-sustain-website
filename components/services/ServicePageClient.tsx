@@ -24,6 +24,11 @@ interface RelatedLink {
   title: string;
 }
 
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
 interface ServicePageClientProps {
   heroLabel: string;
   heroHeadline: string;
@@ -35,6 +40,8 @@ interface ServicePageClientProps {
   tags: readonly string[];
   /** Extra section between facts and CTA */
   extraSection?: React.ReactNode;
+  /** Page-specific FAQ items */
+  faq?: readonly FaqItem[];
   /** Cross-links to related service pages */
   relatedLinks?: readonly RelatedLink[];
 }
@@ -61,6 +68,7 @@ export default function ServicePageClient({
   facts,
   tags,
   extraSection,
+  faq,
   relatedLinks,
 }: ServicePageClientProps) {
   const { t } = useLanguage();
@@ -523,6 +531,75 @@ export default function ServicePageClient({
 
       {/* ━━━ EXTRA SECTION (optional) ━━━ */}
       {extraSection}
+
+      {/* ━━━ FAQ (optional) ━━━ */}
+      {faq && faq.length > 0 && (
+        <section style={{ background: "var(--navy)", padding: "6rem 8vw" }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+            <div style={{ marginBottom: "1.5rem" }}>
+              <span
+                style={{
+                  fontFamily: "'Roboto Mono', monospace",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.18em",
+                  color: "var(--verde-bright)",
+                  textTransform: "uppercase",
+                }}
+              >
+                HÄUFIGE FRAGEN
+              </span>
+            </div>
+            <h2
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+                fontWeight: 900,
+                color: "var(--ct1)",
+                lineHeight: 1.1,
+                marginBottom: "3.5rem",
+              }}
+            >
+              Fragen & Antworten
+            </h2>
+
+            <div style={{ display: "grid", gap: "2.5rem" }}>
+              {faq.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    borderLeft: "2px solid var(--verde)",
+                    paddingLeft: "1.5rem",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontFamily: "'Montserrat', sans-serif",
+                      fontSize: "1.05rem",
+                      fontWeight: 800,
+                      color: "var(--ct1)",
+                      marginBottom: "0.75rem",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {item.q}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "'Open Sans', sans-serif",
+                      fontSize: "0.925rem",
+                      color: "var(--ct3)",
+                      lineHeight: 1.7,
+                      maxWidth: "720px",
+                    }}
+                  >
+                    {item.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ━━━ RELATED LINKS (optional) ━━━ */}
       {relatedLinks && relatedLinks.length > 0 && (
