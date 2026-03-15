@@ -43,7 +43,7 @@ const localBusinessSchema = {
   description:
     "KI-gestützte Förderberatung für Berliner KMU. IBB-Programme, ProFIT, GRW Berlin-Brandenburg, EFRE Berlin, ZIM und BAFA — von der Potenzialanalyse bis zum Verwendungsnachweis.",
   url: `${BASE_URL}/foerderberatung-berlin`,
-  telephone: "+49-30-12345678",
+  telephone: "+49-15679-615868",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Sadowastr. 22",

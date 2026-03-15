@@ -63,6 +63,7 @@ export default function FoerderberatungClient() {
       tags={t.foerderberatung.programs}
       extraSection={comparisonTable}
       relatedLinks={[
+        { href: "/foerderberatung-berlin", title: t.foerderberatungBerlin.heroHeadline },
         { href: "/zim-foerderung", title: t.zimFoerderung.heroHeadline },
         { href: "/bafa-foerderung", title: t.bafaFoerderung.heroHeadline },
         { href: "/csrd-beratung",   title: t.csrdBeratung.heroHeadline },
