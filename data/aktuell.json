@@ -1,5 +1,161 @@
 [
   {
+    "id": "008",
+    "slug": "zim-netzwerk-aufbau-foerderung-praxiserfahrung",
+    "title": "ZIM Netzwerk: Aufbau, Förderung & Praxiserfahrung",
+    "title_en": "ZIM Innovation Network: Structure, Funding & Practical Insights",
+    "category": "Marktinfo",
+    "date": "2026-03-15",
+    "deadline": null,
+    "teaser": "Das ZIM-Innovationsnetzwerk bringt mindestens sechs KMU und Forschungspartner zusammen, um marktnahe Technologien zu entwickeln. Bis zu 490.000 EUR Netzwerkmanagement-Förderung, degressiver Fördersatz und separate FuE-Projektförderung. Ein Praxisbericht aus dem SEAWEED DECARBON POLYMER-Netzwerk.",
+    "teaser_en": "The ZIM innovation network brings together at least six SMEs and research partners to develop market-ready technologies. Up to EUR 490,000 for network management, degressive funding rates and separate R&D project funding. A practical report from the SEAWEED DECARBON POLYMER network.",
+    "image": null,
+    "facts": [
+      {
+        "label": "Programm",
+        "value": "ZIM Innovationsnetzwerke (BMWK)",
+        "icon": "🏛️"
+      },
+      {
+        "label": "NW-Management",
+        "value": "bis 490.000 EUR (national)",
+        "icon": "💶"
+      },
+      {
+        "label": "International",
+        "value": "bis 600.000 EUR (4 DE + 2 ausl.)",
+        "icon": "🌍"
+      },
+      {
+        "label": "Phase 1",
+        "value": "max. 12 Monate, 90 % Förderung",
+        "icon": "📅"
+      },
+      {
+        "label": "Budget 2026",
+        "value": "558 Mio. EUR (Gesamtprogramm)",
+        "icon": "📊"
+      },
+      {
+        "label": "Projektträger",
+        "value": "VDI/VDE Innovation + Technik",
+        "icon": "🤝"
+      }
+    ],
+    "facts_en": [
+      {
+        "label": "Programme",
+        "value": "ZIM Innovation Networks (BMWK)",
+        "icon": "🏛️"
+      },
+      {
+        "label": "NW Management",
+        "value": "up to EUR 490,000 (national)",
+        "icon": "💶"
+      },
+      {
+        "label": "International",
+        "value": "up to EUR 600,000 (4 DE + 2 foreign)",
+        "icon": "🌍"
+      },
+      {
+        "label": "Phase 1",
+        "value": "max. 12 months, 90% funding",
+        "icon": "📅"
+      },
+      {
+        "label": "Budget 2026",
+        "value": "EUR 558m (total programme)",
+        "icon": "📊"
+      },
+      {
+        "label": "Project Sponsor",
+        "value": "VDI/VDE Innovation + Technik",
+        "icon": "🤝"
+      }
+    ],
+    "content": [
+      "ZIM-Innovationsnetzwerke gehören zu den wirkungsvollsten Instrumenten der deutschen Innovationsförderung. Sie ermöglichen es KMU, gemeinsam mit Forschungseinrichtungen technologische Herausforderungen anzugehen, die ein einzelnes Unternehmen weder finanziell noch personell stemmen könnte. Das Zentrale Innovationsprogramm Mittelstand (ZIM) fördert diese Netzwerke mit bis zu 490.000 EUR für das Netzwerkmanagement und zusätzlicher Projektförderung für die FuE-Vorhaben der Partner. Seit Programmstart wurden über 40.000 ZIM-Projekte bewilligt — mit einer Bewilligungsquote von bis zu 86 Prozent. Besonders für Cleantech-KMU, die an komplexen Wertschöpfungsketten arbeiten, bietet das Netzwerkformat einen strukturellen Vorteil gegenüber Einzelprojekten. Dieser Artikel erklärt den Aufbau, die Fördermechanik und die Praxis eines ZIM-Netzwerks aus der Perspektive eines aktiven Netzwerkmanagers. (Quelle: ZIM-Richtlinie 2025, BMWK)",
+      "## Was ist ein ZIM Innovationsnetzwerk?",
+      "Ein ZIM Innovationsnetzwerk ist ein technologieorientierter Verbund von mindestens sechs voneinander unabhängigen kleinen und mittleren Unternehmen, die gemeinsam mit Forschungseinrichtungen an einem definierten Innovationsthema arbeiten. Anders als bei einer losen Kooperation verpflichten sich die Partner zu einer strukturierten Zusammenarbeit über mehrere Jahre. Das Netzwerk wird von einem professionellen Netzwerkmanager koordiniert, der die Technologie-Roadmap entwickelt, FuE-Projekte initiiert und die Zusammenarbeit zwischen Wirtschaft und Wissenschaft orchestriert. Der Netzwerkmanager ist das operative Rückgrat — ohne ihn gibt es kein Netzwerk. Jedes Netzwerk verfolgt ein gemeinsames technologisches Ziel, das über die Möglichkeiten einzelner Partner hinausgeht. Die Ergebnisse münden in konkrete Produkte, Verfahren oder Dienstleistungen, die von den beteiligten KMU verwertet werden. Eine allgemeine Übersicht über die verschiedenen ZIM-Förderformate bietet unser Artikel zur [ZIM-Förderung im Überblick](/zim-foerderung).",
+      "## ZIM Netzwerk vs. Kooperationsprojekt: Was passt besser?",
+      "Das ZIM-Programm bietet neben Netzwerken auch Einzelprojekte und bilaterale Kooperationsprojekte. Die Unterschiede sind erheblich. Ein Kooperationsprojekt verbindet zwei bis drei Partner für ein einzelnes FuE-Vorhaben mit einer Laufzeit von typischerweise zwei Jahren. Ein Netzwerk hingegen bündelt sechs oder mehr Partner unter einem gemeinsamen Technologiedach und generiert im Laufe der Zeit mehrere FuE-Projekte. Der entscheidende Vorteil des Netzwerks: Die Netzwerkmanagement-Förderung finanziert die strategische Koordination, Partnerakquise und Technologie-Roadmap separat von den einzelnen FuE-Projekten. Dadurch entsteht eine Infrastruktur, die über einzelne Projekte hinaus wirkt. Für Unternehmen, die ein isoliertes FuE-Problem lösen wollen, ist das Kooperationsprojekt effizienter. Wer hingegen ein ganzes Technologiefeld erschließen will — etwa eine neue Wertschöpfungskette oder einen Systemansatz mit mehreren Komponenten — braucht das Netzwerkformat.",
+      "## Voraussetzungen: Wer kann ein ZIM Netzwerk gründen?",
+      "Die ZIM-Richtlinie 2025 definiert klare Anforderungen an die Netzwerkstruktur. Nationale Netzwerke benötigen mindestens sechs voneinander unabhängige KMU als Partner. Internationale Netzwerke erfordern mindestens vier deutsche und zwei ausländische Partner. KMU müssen die EU-Definition erfüllen: weniger als 250 Beschäftigte und entweder maximal 50 Mio. EUR Jahresumsatz oder 43 Mio. EUR Bilanzsumme. Forschungseinrichtungen können als assoziierte Partner teilnehmen, zählen aber nicht zur Mindestanzahl der KMU. Wichtig: Die KMU-Partner müssen voneinander unabhängig sein — verbundene Unternehmen oder Unternehmen mit gemeinsamen Gesellschaftern gelten als ein Partner. Die Branchenherkunft ist nicht festgelegt: heterogene Konsortien mit Partnern aus verschiedenen Branchen sind ausdrücklich erwünscht, da sie die Innovationsdynamik erhöhen. (Quelle: ZIM-Richtlinie 2025, BMWK)",
+      "### Netzwerkmanagement-Einrichtung",
+      "Das Netzwerkmanagement kann von einer externen Einrichtung, einem der beteiligten KMU oder einer Forschungseinrichtung übernommen werden. Entscheidend ist die fachliche Qualifikation: Der Netzwerkmanager muss nachweisbare Erfahrung in der Technologieentwicklung, im Projektmanagement und in der Fördermittelakquise mitbringen. Die Netzwerkmanagement-Einrichtung beantragt die Netzwerkförderung und ist verantwortlich für die strategische Steuerung, die Partnerkoordination, das Monitoring und die Berichterstattung gegenüber dem Projektträger VDI/VDE-IT.",
+      "## Förderung: Bis zu 490.000 EUR für Netzwerkmanagement",
+      "Die Förderung eines ZIM-Netzwerks besteht aus zwei getrennten Komponenten: der Netzwerkmanagement-Förderung und der FuE-Projektförderung. Für das Netzwerkmanagement stehen bei nationalen Netzwerken bis zu 490.000 EUR zur Verfügung, bei internationalen Netzwerken bis zu 600.000 EUR. Dieser Betrag deckt Personal, Reisen, Veranstaltungen, Öffentlichkeitsarbeit und die operative Koordination über die gesamte Laufzeit. (Quelle: ZIM-Richtlinie 2025, BMWK)",
+      "### FuE-Projektförderung der Partner",
+      "Zusätzlich zur Netzwerkförderung können die beteiligten KMU und Forschungseinrichtungen eigene FuE-Projekte beantragen — innerhalb des technologischen Rahmens des Netzwerks, aber als separate Förderprojekte. Die Förderquoten für KMU liegen bei 45 bis 55 Prozent der zuwendungsfähigen Kosten, abhängig von Unternehmensgröße und Standort. Forschungseinrichtungen erhalten bis zu 100 Prozent. Diese Projekte werden individuell beantragt und bewilligt, profitieren aber von der Netzwerkzugehörigkeit: Bewertungsgremien berücksichtigen den Netzwerkkontext als qualitätssicherndes Element.",
+      "## Phase 1 und Phase 2: So läuft ein ZIM Netzwerk ab",
+      "Ein ZIM-Netzwerk durchläuft zwei Phasen mit degressivem Fördersatz — ein bewusster Mechanismus, der Netzwerke zur wirtschaftlichen Eigenständigkeit führen soll.",
+      "### Phase 1: Aufbau und Konzeption",
+      "Phase 1 dauert bei nationalen Netzwerken maximal 12 Monate, bei internationalen Netzwerken bis zu 18 Monate. Der Fördersatz beträgt 90 Prozent der zuwendungsfähigen Kosten. In dieser Phase werden die Technologie-Roadmap erarbeitet, die Partner akquiriert und qualifiziert, erste FuE-Projektskizzen entwickelt und die Netzwerkstrukturen etabliert. Am Ende von Phase 1 steht ein Konzept, das die technologische Ausrichtung, die geplanten FuE-Projekte und die wirtschaftliche Perspektive des Netzwerks beschreibt. Dieses Konzept ist Grundlage für die Beantragung von Phase 2.",
+      "### Phase 2: Umsetzung und Verwertung",
+      "Phase 2 läuft in der Regel zwei bis drei Jahre. Der Fördersatz sinkt degressiv: von 70 Prozent im ersten Jahr über 50 Prozent im zweiten auf 30 Prozent im dritten Jahr. Diese Degression ist gewollt — sie zwingt das Netzwerk, zunehmend eigene Einnahmen zu generieren, etwa durch Mitgliedsbeiträge, Dienstleistungen oder Lizenzerlöse. In Phase 2 werden die FuE-Projekte umgesetzt, Ergebnisse in die Verwertung überführt und neue Partner eingebunden. Der Netzwerkmanager koordiniert die laufenden Projekte, organisiert den Technologietransfer und stellt sicher, dass die Ergebnisse in marktfähige Produkte münden. (Quelle: ZIM-Richtlinie 2025, BMWK)",
+      "## Die Rolle des Netzwerkmanagers",
+      "Der Netzwerkmanager ist deutlich mehr als ein Projektkoordinator. Er ist Stratege, Vermittler, Akquisiteur und Qualitätssicherer in einer Person. Zu seinen Kernaufgaben gehören die Entwicklung und Fortschreibung der Technologie-Roadmap, die Identifikation und Einbindung neuer Partner, die Initiierung und Begleitung von FuE-Projekten, das Management der Schnittstelle zwischen Wirtschaft und Wissenschaft und die Berichterstattung gegenüber dem Projektträger.",
+      "### Was einen guten Netzwerkmanager ausmacht",
+      "Ein erfolgreicher Netzwerkmanager versteht sowohl die Technologie als auch die Fördermechanik. Er kennt die Bewertungskriterien der Gutachter, kann FuE-Projekte so strukturieren, dass sie förderfähig und gleichzeitig wirtschaftlich verwertbar sind, und pflegt ein belastbares Netzwerk zu Forschungseinrichtungen, Industriepartnern und Förderinstitutionen. Die Qualität des Netzwerkmanagements entscheidet maßgeblich über Erfolg oder Scheitern eines Netzwerks — deshalb prüft der Projektträger VDI/VDE-IT die Qualifikation des Managers besonders sorgfältig.",
+      "## Praxisbericht: SEAWEED DECARBON POLYMER",
+      "Theorie ist das eine — die Praxis sieht oft anders aus. Das internationale ZIM-Netzwerk SEAWEED DECARBON POLYMER zeigt, wie ein Netzwerk in der Realität funktioniert. Mit über 12 Partnern aus 4 Ländern arbeitet das Netzwerk an der Bioökonomie-Wertschöpfungskette vom Seetang-Aufschluss bis zum BioMethan. Die Netzwerkstruktur verbindet KMU aus der Verfahrenstechnik, Biotechnologie und Energiewirtschaft mit Forschungseinrichtungen, die auf marine Biomasse und anaerobe Fermentation spezialisiert sind. Die Technologie-Roadmap umfasst vier Kernprozesse: Triple-S (Zellaufschluss in unter einem Tag), die Erzeugung von BLUE OIL als fermentierbarem Zwischenprodukt, E-SYNTH Acidogenese zur Produktion von Biowasserstoff und GREEN OIL, sowie die finale BioMethanisierung zu hochreinem BioMethan mit über 95 Prozent CH4-Gehalt nach dem Sabatier-Prinzip. Das Netzwerk demonstriert, wie heterogene Partner entlang einer Wertschöpfungskette zusammenwirken — jeder Prozessschritt wird von einem anderen Partnercluster bearbeitet.",
+      "### Learnings aus der Netzwerkpraxis",
+      "Drei Erkenntnisse aus der aktiven Netzwerkarbeit, die in keinem Leitfaden stehen. Erstens: Die Partnerakquise dauert länger als geplant. KMU haben operative Prioritäten — ein Forschungsnetzwerk steht selten ganz oben auf der Agenda. Der Netzwerkmanager muss den konkreten wirtschaftlichen Mehrwert für jedes einzelne KMU herausarbeiten, sonst bleibt das Interesse abstrakt. Phase 1 ist knapp bemessen, wenn man gleichzeitig Partner gewinnen und eine Technologie-Roadmap entwickeln muss. Zweitens: Internationale Netzwerke multiplizieren den Koordinationsaufwand. Vier Länder bedeuten vier Rechtssysteme, vier Förderlandschaften und vier Zeitzonen. Die Abstimmung von Arbeitspaketen über Ländergrenzen hinweg erfordert klare Kommunikationsstrukturen und regelmäßige Präsenztreffen. Der Mehrwert ist enorm — der Aufwand auch. Drittens: Die degressive Förderung erzwingt frühzeitiges Nachdenken über Nachhaltigkeit. Ein Netzwerk, das erst in Phase 2 über Einnahmen nachdenkt, hat ein Problem. Die besten Netzwerke planen die Post-Förder-Phase bereits in Phase 1 und entwickeln ein tragfähiges Geschäftsmodell für den Weiterbetrieb nach Auslaufen der Förderung.",
+      "## ZIM-Richtlinie 2025: Was sich für Netzwerke geändert hat",
+      "Die neue ZIM-Richtlinie, die am 1. Januar 2025 in Kraft getreten ist, hat mehrere relevante Änderungen für Netzwerke gebracht. Das Gesamtbudget des ZIM-Programms liegt 2026 bei 558 Mio. EUR — eine der größten Einzelpositionen im Haushalt des BMWK. Der Projektträger ist weiterhin die VDI/VDE Innovation + Technik GmbH in Berlin. Die Bewilligungsquote liegt bei bis zu 86 Prozent, was das ZIM zu einem der verlässlichsten Förderprogramme in Deutschland macht. (Quelle: ZIM-Richtlinie 2025, BMWK)",
+      "### Neuerungen im Detail",
+      "Die Richtlinie 2025 hat die Anforderungen an die Technologie-Roadmap geschärft: Sie muss nun explizit den Verwertungspfad und den Marktzugang der Netzwerkergebnisse adressieren. Gleichzeitig wurde die internationale Komponente gestärkt — internationale Netzwerke erhalten eine höhere Management-Förderung (600.000 statt 490.000 EUR) und eine längere Phase 1 (18 statt 12 Monate). Für KMU, die ihre Innovationsstrategie breiter aufstellen wollen, lohnt sich auch ein Blick auf die [BAFA-Förderung](/bafa-foerderung) für Energieeffizienz und [Nachhaltigkeitsstrategien](/nachhaltigkeitsstrategie) als ergänzende Förderbausteine.",
+      "ZIM-Innovationsnetzwerke sind kein Selbstläufer — aber für KMU, die technologische Herausforderungen im Verbund angehen wollen, eines der attraktivsten Instrumente der deutschen Förderlandschaft. Die Kombination aus Netzwerkmanagement-Förderung und separater FuE-Projektförderung schafft eine Infrastruktur, die über einzelne Projekte hinaus wirkt. Entscheidend ist die Qualität des Netzwerkmanagements und die strategische Passung der Partner. Die Bewilligungsquote von bis zu 86 Prozent zeigt, dass das BMWK aktiv in Netzwerke investieren will — wer ein überzeugendes Technologiethema und die richtigen Partner mitbringt, hat exzellente Chancen. Wenn Sie prüfen möchten, ob ein ZIM-Netzwerk für Ihr Technologiethema in Frage kommt — oder ob ein Kooperationsprojekt der effizientere Weg ist — unterstützt VO Sustain Sie bei der Einschätzung und Antragsvorbereitung. Besuchen Sie unsere Seite zur [Förderberatung für KMU](/foerderberatung) für eine unverbindliche Ersteinschätzung."
+    ],
+    "content_en": [
+      "ZIM innovation networks are among the most effective instruments in German innovation funding. They enable SMEs to tackle technological challenges together with research institutions that no single company could address alone, neither financially nor in terms of personnel. The Central Innovation Programme for SMEs (ZIM) funds these networks with up to EUR 490,000 for network management and additional project funding for the partners' R&D activities. Since the programme's inception, over 40,000 ZIM projects have been approved — with an approval rate of up to 86 per cent. For cleantech SMEs working on complex value chains in particular, the network format offers a structural advantage over individual projects. This article explains the structure, funding mechanics and practice of a ZIM network from the perspective of an active network manager. (Source: ZIM Directive 2025, BMWK)",
+      "## What Is a ZIM Innovation Network?",
+      "A ZIM innovation network is a technology-oriented consortium of at least six independent small and medium-sized enterprises that work together with research institutions on a defined innovation topic. Unlike a loose cooperation, the partners commit to structured collaboration over several years. The network is coordinated by a professional network manager who develops the technology roadmap, initiates R&D projects and orchestrates the collaboration between industry and academia. The network manager is the operational backbone — without one, there is no network. Each network pursues a shared technological goal that exceeds the capabilities of individual partners. The results lead to concrete products, processes or services that are commercialised by the participating SMEs. A general overview of the various ZIM funding formats is available in our article on [ZIM funding](/zim-foerderung).",
+      "## ZIM Network vs. Cooperation Project: Which Fits Better?",
+      "In addition to networks, the ZIM programme also offers single projects and bilateral cooperation projects. The differences are substantial. A cooperation project connects two to three partners for a single R&D undertaking with a typical duration of two years. A network, by contrast, brings together six or more partners under a shared technology umbrella and generates multiple R&D projects over time. The decisive advantage of the network format: network management funding finances strategic coordination, partner acquisition and the technology roadmap separately from the individual R&D projects. This creates an infrastructure that extends beyond single projects. For companies looking to solve an isolated R&D problem, the cooperation project is more efficient. For those seeking to develop an entire technology field — such as a new value chain or a systems approach with multiple components — the network format is essential.",
+      "## Requirements: Who Can Establish a ZIM Network?",
+      "The ZIM Directive 2025 defines clear requirements for network structure. National networks require at least six independent SMEs as partners. International networks require at least four German and two foreign partners. SMEs must meet the EU definition: fewer than 250 employees and either a maximum annual turnover of EUR 50 million or a balance sheet total of EUR 43 million. Research institutions may participate as associated partners but do not count towards the minimum number of SMEs. Important: the SME partners must be independent of each other — affiliated companies or companies with shared shareholders count as a single partner. There is no restriction on industry sector: heterogeneous consortia with partners from different industries are explicitly encouraged, as they increase innovation dynamics. (Source: ZIM Directive 2025, BMWK)",
+      "### Network Management Entity",
+      "Network management can be undertaken by an external organisation, one of the participating SMEs or a research institution. The key criterion is professional qualification: the network manager must demonstrate verifiable experience in technology development, project management and funding acquisition. The network management entity applies for the network funding and is responsible for strategic steering, partner coordination, monitoring and reporting to the project sponsor VDI/VDE-IT.",
+      "## Funding: Up to EUR 490,000 for Network Management",
+      "Funding for a ZIM network consists of two separate components: network management funding and R&D project funding. For network management, national networks can receive up to EUR 490,000, international networks up to EUR 600,000. This amount covers personnel, travel, events, communications and operational coordination over the entire duration. (Source: ZIM Directive 2025, BMWK)",
+      "### R&D Project Funding for Partners",
+      "In addition to network funding, the participating SMEs and research institutions can apply for their own R&D projects — within the technological framework of the network, but as separate funded projects. Funding rates for SMEs range from 45 to 55 per cent of eligible costs, depending on company size and location. Research institutions receive up to 100 per cent. These projects are applied for and approved individually, but benefit from network membership: evaluation panels consider the network context as a quality assurance element.",
+      "## Phase 1 and Phase 2: How a ZIM Network Operates",
+      "A ZIM network progresses through two phases with degressive funding rates — a deliberate mechanism designed to guide networks towards economic self-sufficiency.",
+      "### Phase 1: Setup and Conception",
+      "Phase 1 lasts a maximum of 12 months for national networks and up to 18 months for international networks. The funding rate is 90 per cent of eligible costs. During this phase, the technology roadmap is developed, partners are acquired and qualified, initial R&D project outlines are drafted and the network structures are established. At the end of Phase 1, a concept document describes the technological direction, planned R&D projects and economic perspective of the network. This concept forms the basis for applying for Phase 2.",
+      "### Phase 2: Implementation and Commercialisation",
+      "Phase 2 typically runs for two to three years. The funding rate decreases degressively: from 70 per cent in the first year, to 50 per cent in the second, to 30 per cent in the third year. This degression is intentional — it compels the network to generate increasing own revenue, whether through membership fees, services or licence income. In Phase 2, R&D projects are implemented, results are transferred to commercialisation and new partners are integrated. The network manager coordinates ongoing projects, organises technology transfer and ensures that results lead to marketable products. (Source: ZIM Directive 2025, BMWK)",
+      "## The Role of the Network Manager",
+      "The network manager is considerably more than a project coordinator. The role combines strategist, mediator, acquisition specialist and quality assurer in one person. Core responsibilities include developing and updating the technology roadmap, identifying and integrating new partners, initiating and supporting R&D projects, managing the interface between industry and academia, and reporting to the project sponsor.",
+      "### What Makes a Good Network Manager",
+      "A successful network manager understands both the technology and the funding mechanics. They know the evaluation criteria of the review panels, can structure R&D projects so they are both eligible for funding and commercially viable, and maintain a robust network of contacts with research institutions, industry partners and funding bodies. The quality of network management is the single most important factor determining a network's success or failure — which is why the project sponsor VDI/VDE-IT scrutinises the manager's qualifications with particular care.",
+      "## Case Study: SEAWEED DECARBON POLYMER",
+      "Theory is one thing — practice often looks quite different. The international ZIM network SEAWEED DECARBON POLYMER demonstrates how a network functions in reality. With over 12 partners from 4 countries, the network works on the bioeconomy value chain from seaweed cell disruption to BioMethane. The network structure connects SMEs from process engineering, biotechnology and the energy sector with research institutions specialising in marine biomass and anaerobic fermentation. The technology roadmap comprises four core processes: Triple-S (cell disruption in under one day), the production of BLUE OIL as a fermentable intermediate product, E-SYNTH acidogenesis for generating biohydrogen and GREEN OIL, and the final biomethanisation to high-purity BioMethane with over 95 per cent CH4 content based on the Sabatier principle. The network demonstrates how heterogeneous partners collaborate along a value chain — each process step is handled by a different partner cluster.",
+      "### Lessons from Network Practice",
+      "Three insights from active network work that no guidebook covers. First: partner acquisition takes longer than planned. SMEs have operational priorities — a research network is rarely at the top of the agenda. The network manager must articulate the concrete economic added value for each individual SME, otherwise interest remains abstract. Phase 1 is tight when you need to win partners and develop a technology roadmap simultaneously. Second: international networks multiply coordination effort. Four countries mean four legal systems, four funding landscapes and four time zones. Coordinating work packages across borders requires clear communication structures and regular face-to-face meetings. The added value is enormous — so is the workload. Third: degressive funding forces early thinking about sustainability. A network that only starts considering revenue in Phase 2 has a problem. The best networks plan the post-funding phase already during Phase 1 and develop a viable business model for continued operation after funding expires.",
+      "## ZIM Directive 2025: What Has Changed for Networks",
+      "The new ZIM Directive, which came into force on 1 January 2025, has introduced several relevant changes for networks. The total ZIM programme budget stands at EUR 558 million in 2026 — one of the largest single items in the BMWK's budget. The project sponsor remains VDI/VDE Innovation + Technik GmbH in Berlin. The approval rate is up to 86 per cent, making ZIM one of the most reliable funding programmes in Germany. (Source: ZIM Directive 2025, BMWK)",
+      "### Changes in Detail",
+      "The 2025 Directive has sharpened the requirements for the technology roadmap: it must now explicitly address the commercialisation pathway and market access for network results. At the same time, the international component has been strengthened — international networks receive higher management funding (EUR 600,000 instead of 490,000) and a longer Phase 1 (18 instead of 12 months). For SMEs looking to broaden their innovation strategy, it is also worth considering [BAFA funding](/bafa-foerderung) for energy efficiency and [sustainability strategies](/nachhaltigkeitsstrategie) as complementary funding building blocks.",
+      "ZIM innovation networks are no walk in the park — but for SMEs seeking to tackle technological challenges as a consortium, they are one of the most attractive instruments in the German funding landscape. The combination of network management funding and separate R&D project funding creates an infrastructure that extends beyond individual projects. The decisive factors are the quality of network management and the strategic fit of the partners. The approval rate of up to 86 per cent shows that the BMWK is actively willing to invest in networks — those who bring a compelling technology topic and the right partners have excellent chances. If you would like to assess whether a ZIM network is suitable for your technology topic — or whether a cooperation project might be the more efficient route — VO Sustain supports you with the assessment and application preparation. Visit our [funding advisory page for SMEs](/foerderberatung) for a non-binding initial assessment."
+    ],
+    "tags": [
+      "ZIM",
+      "Innovationsnetzwerk",
+      "Netzwerkmanagement",
+      "BMWK",
+      "KMU",
+      "FuE",
+      "SEAWEED",
+      "Bioökonomie",
+      "Praxisbericht"
+    ],
+    "source": "https://www.zim.de/ZIM/Navigation/DE/Foerderangebote/Netzwerke/netzwerke.html"
+  },
+  {
     "id": "007",
     "slug": "bafa-stark-kohleregionen-transformationstechnologien",
     "title": "BAFA STARK: Bis 90 % Förderung in Kohleregionen — Kategorie 12 erstmals investiv",
@@ -10,20 +166,68 @@
     "teaser": "Das STARK-Programm fördert die Transformation in deutschen Kohleregionen mit bis zu 90 % Zuschuss. Seit der Novelle August 2024 ist erstmals investive Förderung möglich: Kategorie 12 finanziert den Aufbau von Produktionskapazitäten für Batterien, Solarpaneele, Windturbinen, Wärmepumpen und Elektrolyseure — bis 200 Mio. EUR pro Unternehmen.",
     "teaser_en": "The STARK programme funds transformation in German coal regions with up to 90% grants. Since the August 2024 amendment, investment funding is available for the first time: Category 12 finances production capacity for batteries, solar panels, wind turbines, heat pumps and electrolysers — up to €200m per company.",
     "facts": [
-      { "label": "Programm", "value": "BAFA STARK (Novelle Aug. 2024)", "icon": "🏛️" },
-      { "label": "Förderquote", "value": "bis 90 % (Kat. 1–11)", "icon": "💶" },
-      { "label": "Kat. 12 KMU", "value": "bis 40 % (kleine U.)", "icon": "🏭" },
-      { "label": "Max. Beihilfe", "value": "200 Mio. EUR (C-Gebiet)", "icon": "📊" },
-      { "label": "Laufzeit", "value": "bis 31. Dezember 2038", "icon": "📅" },
-      { "label": "Fördergebiet", "value": "Lausitz · Mitteldeutschland · Rheinland", "icon": "📍" }
+      {
+        "label": "Programm",
+        "value": "BAFA STARK (Novelle Aug. 2024)",
+        "icon": "🏛️"
+      },
+      {
+        "label": "Förderquote",
+        "value": "bis 90 % (Kat. 1–11)",
+        "icon": "💶"
+      },
+      {
+        "label": "Kat. 12 KMU",
+        "value": "bis 40 % (kleine U.)",
+        "icon": "🏭"
+      },
+      {
+        "label": "Max. Beihilfe",
+        "value": "200 Mio. EUR (C-Gebiet)",
+        "icon": "📊"
+      },
+      {
+        "label": "Laufzeit",
+        "value": "bis 31. Dezember 2038",
+        "icon": "📅"
+      },
+      {
+        "label": "Fördergebiet",
+        "value": "Lausitz · Mitteldeutschland · Rheinland",
+        "icon": "📍"
+      }
     ],
     "facts_en": [
-      { "label": "Programme", "value": "BAFA STARK (amended Aug. 2024)", "icon": "🏛️" },
-      { "label": "Funding Rate", "value": "up to 90% (Cat. 1–11)", "icon": "💶" },
-      { "label": "Cat. 12 SME", "value": "up to 40% (small enterprises)", "icon": "🏭" },
-      { "label": "Max. Aid", "value": "€200m (C-region)", "icon": "📊" },
-      { "label": "Duration", "value": "until 31 December 2038", "icon": "📅" },
-      { "label": "Eligible Area", "value": "Lusatia · Central Germany · Rhineland", "icon": "📍" }
+      {
+        "label": "Programme",
+        "value": "BAFA STARK (amended Aug. 2024)",
+        "icon": "🏛️"
+      },
+      {
+        "label": "Funding Rate",
+        "value": "up to 90% (Cat. 1–11)",
+        "icon": "💶"
+      },
+      {
+        "label": "Cat. 12 SME",
+        "value": "up to 40% (small enterprises)",
+        "icon": "🏭"
+      },
+      {
+        "label": "Max. Aid",
+        "value": "€200m (C-region)",
+        "icon": "📊"
+      },
+      {
+        "label": "Duration",
+        "value": "until 31 December 2038",
+        "icon": "📅"
+      },
+      {
+        "label": "Eligible Area",
+        "value": "Lusatia · Central Germany · Rhineland",
+        "icon": "📍"
+      }
     ],
     "content": [
       "## Was ist das STARK-Programm?",
@@ -75,7 +279,17 @@
       "## Who Is STARK Relevant For?",
       "For enterprises, the focus is on SMEs — but municipalities, universities, associations, and non-profit organisations are also eligible. For cleantech SMEs in coal regions, Category 12 is particularly attractive: companies building production capacity for green technologies can receive up to 40% of investment costs as a non-repayable grant. Companies also planning R&D projects should consider the [ZIM programme](/aktuell/zim-richtlinie-2025) — the programmes can be strategically combined. VO Sustain checks whether your location falls within an eligible area and guides you from the project outline through to the final financial report. Learn more about our consulting approach on our [funding advisory page](/foerderberatung)."
     ],
-    "tags": ["STARK", "BAFA", "Kohleregionen", "Transformationstechnologien", "Strukturwandel", "KMU", "Lausitz", "Kategorie 12", "Cleantech"],
+    "tags": [
+      "STARK",
+      "BAFA",
+      "Kohleregionen",
+      "Transformationstechnologien",
+      "Strukturwandel",
+      "KMU",
+      "Lausitz",
+      "Kategorie 12",
+      "Cleantech"
+    ],
     "source": "https://www.bafa.de/DE/Wirtschaft/Beratung_Finanzierung/Stark_2/stark_2_node.html"
   },
   {
@@ -89,20 +303,68 @@
     "teaser": "Die Europäische Kommission und ESA haben den Horizon Europe 2026-Workplan gestartet — mit koordinierten Calls für Erdwissenschaften, KI-basierte Erdbeobachtungslösungen und Biodiversität. Erste Deadline bereits am 15. April 2026.",
     "teaser_en": "The European Commission and ESA have launched the Horizon Europe 2026 Work Programme — with coordinated calls for earth sciences, AI-based earth observation solutions, and biodiversity. First deadline already on 15 April 2026.",
     "facts": [
-      { "label": "Programm",     "value": "Horizon Europe 2026",      "icon": "🇪🇺" },
-      { "label": "Call",         "value": "HORIZON-CL5-2026-08",       "icon": "📋" },
-      { "label": "Stage-1-Frist","value": "15. April 2026",            "icon": "⏱" },
-      { "label": "Stage-2-Frist","value": "8. Oktober 2026",           "icon": "📅" },
-      { "label": "Konsortium",   "value": "min. 3 Partner, 3 Länder",  "icon": "🤝" },
-      { "label": "Fokus",        "value": "Erdsystemwissenschaften & Satellitenfernerkundung", "icon": "🛰️" }
+      {
+        "label": "Programm",
+        "value": "Horizon Europe 2026",
+        "icon": "🇪🇺"
+      },
+      {
+        "label": "Call",
+        "value": "HORIZON-CL5-2026-08",
+        "icon": "📋"
+      },
+      {
+        "label": "Stage-1-Frist",
+        "value": "15. April 2026",
+        "icon": "⏱"
+      },
+      {
+        "label": "Stage-2-Frist",
+        "value": "8. Oktober 2026",
+        "icon": "📅"
+      },
+      {
+        "label": "Konsortium",
+        "value": "min. 3 Partner, 3 Länder",
+        "icon": "🤝"
+      },
+      {
+        "label": "Fokus",
+        "value": "Erdsystemwissenschaften & Satellitenfernerkundung",
+        "icon": "🛰️"
+      }
     ],
     "facts_en": [
-      { "label": "Programme",       "value": "Horizon Europe 2026",           "icon": "🇪🇺" },
-      { "label": "Call",            "value": "HORIZON-CL5-2026-08",            "icon": "📋" },
-      { "label": "Stage 1 Deadline","value": "15 April 2026",                  "icon": "⏱" },
-      { "label": "Stage 2 Deadline","value": "8 October 2026",                 "icon": "📅" },
-      { "label": "Consortium",      "value": "min. 3 partners, 3 countries",   "icon": "🤝" },
-      { "label": "Focus",           "value": "Earth System Science & Satellite Remote Sensing", "icon": "🛰️" }
+      {
+        "label": "Programme",
+        "value": "Horizon Europe 2026",
+        "icon": "🇪🇺"
+      },
+      {
+        "label": "Call",
+        "value": "HORIZON-CL5-2026-08",
+        "icon": "📋"
+      },
+      {
+        "label": "Stage 1 Deadline",
+        "value": "15 April 2026",
+        "icon": "⏱"
+      },
+      {
+        "label": "Stage 2 Deadline",
+        "value": "8 October 2026",
+        "icon": "📅"
+      },
+      {
+        "label": "Consortium",
+        "value": "min. 3 partners, 3 countries",
+        "icon": "🤝"
+      },
+      {
+        "label": "Focus",
+        "value": "Earth System Science & Satellite Remote Sensing",
+        "icon": "🛰️"
+      }
     ],
     "content": [
       "## Die EC-ESA Earth System Science Initiative (ESSI)",
@@ -150,7 +412,15 @@
       "## Next Steps and Support from VO Sustain",
       "VO Sustain supports with fit assessment, partner finding through European networks and the NCP infrastructure (National Contact Points), and application submission — especially when a university or research partner is to be involved. For companies looking to use national funding in parallel, we offer integrated [funding advisory services](/foerderberatung) that strategically combine EU and federal programmes."
     ],
-    "tags": ["Horizon Europe", "ESA", "Erdbeobachtung", "ESSI", "Klimaforschung", "EU-Call", "Two-Stage"],
+    "tags": [
+      "Horizon Europe",
+      "ESA",
+      "Erdbeobachtung",
+      "ESSI",
+      "Klimaforschung",
+      "EU-Call",
+      "Two-Stage"
+    ],
     "source": "https://eo4society.esa.int/2026/02/06/get-ready-for-new-coordinated-eu-esa-science-actions-with-recently-launched-horizon-europe-2026-call/"
   },
   {
@@ -164,20 +434,68 @@
     "teaser": "Das BAFA fördert bis zu 55% der Investitionskosten für Energieeffizienzmaßnahmen in Unternehmen. KMU erhalten einen zusätzlichen Bonus. Antragstellung jetzt möglich.",
     "teaser_en": "BAFA funds up to 55% of investment costs for energy efficiency measures in companies. SMEs receive an additional bonus. Applications now open.",
     "facts": [
-      { "label": "Fördergeber",        "value": "BAFA",                          "icon": "🏛️" },
-      { "label": "Max. Förderquote",   "value": "bis zu 55% (inkl. KMU-Bonus)",  "icon": "💶" },
-      { "label": "Mindestinvestition", "value": "20.000 € netto",                "icon": "📊" },
-      { "label": "Antragsfrist",       "value": "30. April 2026",                "icon": "⏱" },
-      { "label": "Förderart",          "value": "Investitionszuschuss",           "icon": "✅" },
-      { "label": "Zielgruppe",         "value": "Unternehmen aller Branchen",    "icon": "🏭" }
+      {
+        "label": "Fördergeber",
+        "value": "BAFA",
+        "icon": "🏛️"
+      },
+      {
+        "label": "Max. Förderquote",
+        "value": "bis zu 55% (inkl. KMU-Bonus)",
+        "icon": "💶"
+      },
+      {
+        "label": "Mindestinvestition",
+        "value": "20.000 € netto",
+        "icon": "📊"
+      },
+      {
+        "label": "Antragsfrist",
+        "value": "30. April 2026",
+        "icon": "⏱"
+      },
+      {
+        "label": "Förderart",
+        "value": "Investitionszuschuss",
+        "icon": "✅"
+      },
+      {
+        "label": "Zielgruppe",
+        "value": "Unternehmen aller Branchen",
+        "icon": "🏭"
+      }
     ],
     "facts_en": [
-      { "label": "Funding Authority",  "value": "BAFA",                          "icon": "🏛️" },
-      { "label": "Max. Funding Rate",  "value": "up to 55% (incl. SME bonus)",   "icon": "💶" },
-      { "label": "Min. Investment",    "value": "€20,000 net",                   "icon": "📊" },
-      { "label": "Application Deadline","value": "30 April 2026",                "icon": "⏱" },
-      { "label": "Funding Type",       "value": "Investment Grant",              "icon": "✅" },
-      { "label": "Target Group",       "value": "Companies of all sectors",      "icon": "🏭" }
+      {
+        "label": "Funding Authority",
+        "value": "BAFA",
+        "icon": "🏛️"
+      },
+      {
+        "label": "Max. Funding Rate",
+        "value": "up to 55% (incl. SME bonus)",
+        "icon": "💶"
+      },
+      {
+        "label": "Min. Investment",
+        "value": "€20,000 net",
+        "icon": "📊"
+      },
+      {
+        "label": "Application Deadline",
+        "value": "30 April 2026",
+        "icon": "⏱"
+      },
+      {
+        "label": "Funding Type",
+        "value": "Investment Grant",
+        "icon": "✅"
+      },
+      {
+        "label": "Target Group",
+        "value": "Companies of all sectors",
+        "icon": "🏭"
+      }
     ],
     "content": [
       "Das Bundesamt für Wirtschaft und Ausfuhrkontrolle (BAFA) hat die neue Antragsrunde für das Programm 'Energie- und Ressourceneffizienz in der Wirtschaft' (EEW) geöffnet. Das EEW ist eines der wichtigsten Bundesförderprogramme für Unternehmen, die in Energieeffizienz und Ressourcenschonung investieren wollen — eine ausführliche Übersicht aller BAFA-Programme finden Sie in unserem [Überblick zur BAFA-Förderung](/bafa-foerderung). Förderfähig sind Investitionen in Prozesswärme, Abwärmenutzung, Druckluftanlagen, Beleuchtung, Kälte- und Klimatechnik und weitere Effizienzmaßnahmen. Das Programm steht Unternehmen aller Branchen und Größen offen — KMU profitieren jedoch von einem zusätzlichen Bonus auf die Förderquote.",
@@ -227,7 +545,13 @@
       "Energy-intensive sectors benefit most: metal processing, food production, paper manufacturing, plastics processing, mechanical engineering, chemicals, and the glass/ceramics industry. But craft businesses, hospitality, and retail with high energy consumption are also eligible. The most frequently approved measures are compressed air systems (Module 1), heat pumps for process heat (Module 2), and waste heat utilisation in production halls (Module 4). Companies that simultaneously introduce an energy management system (Module 3) and implement process optimisation (Module 4) can apply for both modules in parallel, maximising the overall benefit.",
       "See our [case study: 60% grant for energy research](/aktuell/referenz-300000-euro-energieforschung) for an example of successful funding support in practice. VO Sustain guides you from the initial energy audit through programme selection and application submission to the final financial report after project completion. Talk to us early — ideally before you obtain quotes, so that the prohibition on premature start is respected."
     ],
-    "tags": ["BAFA", "EEW", "Energieeffizienz", "Prozesswärme", "KMU-Bonus"],
+    "tags": [
+      "BAFA",
+      "EEW",
+      "Energieeffizienz",
+      "Prozesswärme",
+      "KMU-Bonus"
+    ],
     "source": "https://www.bafa.de/DE/Energie/Energieeffizienz/energieeffizienz_node.html"
   },
   {
@@ -242,20 +566,68 @@
     "teaser_en": "Omnibus I has massively raised CSRD thresholds: 1,000 employees and €450m turnover. 80% fewer companies affected. Plus: Stop-the-Clock shifts Waves 2 and 3, the Commission's Substance Proposal could further reduce scope. The VSME standard and Value Chain Cap protect SMEs — as a voluntary 'Safe Harbour'.",
     "image": "/images/aktuell/csrd-omnibus-i-kmu-maerz-2026.png",
     "facts": [
-      { "label": "Richtlinie",     "value": "Omnibus I (EU 2026/470)",          "icon": "📜" },
-      { "label": "Neue Schwelle",  "value": ">1.000 MA UND >450 Mio. EUR",      "icon": "📊" },
-      { "label": "Reduktion",      "value": "80% weniger betroffene Firmen",    "icon": "📉" },
-      { "label": "Zeitplan",       "value": "Welle 2→2027 · Welle 3→2028",     "icon": "⏱" },
-      { "label": "KMU-Schutz",     "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
-      { "label": "Standard",       "value": "VSME Basic + Comprehensive",       "icon": "📋" }
+      {
+        "label": "Richtlinie",
+        "value": "Omnibus I (EU 2026/470)",
+        "icon": "📜"
+      },
+      {
+        "label": "Neue Schwelle",
+        "value": ">1.000 MA UND >450 Mio. EUR",
+        "icon": "📊"
+      },
+      {
+        "label": "Reduktion",
+        "value": "80% weniger betroffene Firmen",
+        "icon": "📉"
+      },
+      {
+        "label": "Zeitplan",
+        "value": "Welle 2→2027 · Welle 3→2028",
+        "icon": "⏱"
+      },
+      {
+        "label": "KMU-Schutz",
+        "value": "Value Chain Cap (Art. 29c/29d)",
+        "icon": "🛡️"
+      },
+      {
+        "label": "Standard",
+        "value": "VSME Basic + Comprehensive",
+        "icon": "📋"
+      }
     ],
     "facts_en": [
-      { "label": "Directive",      "value": "Omnibus I (EU 2026/470)",          "icon": "📜" },
-      { "label": "New Threshold",  "value": ">1,000 employees AND >€450m",      "icon": "📊" },
-      { "label": "Reduction",      "value": "80% fewer companies affected",     "icon": "📉" },
-      { "label": "Timeline",       "value": "Wave 2→2027 · Wave 3→2028",       "icon": "⏱" },
-      { "label": "SME Protection", "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
-      { "label": "Standard",       "value": "VSME Basic + Comprehensive",       "icon": "📋" }
+      {
+        "label": "Directive",
+        "value": "Omnibus I (EU 2026/470)",
+        "icon": "📜"
+      },
+      {
+        "label": "New Threshold",
+        "value": ">1,000 employees AND >€450m",
+        "icon": "📊"
+      },
+      {
+        "label": "Reduction",
+        "value": "80% fewer companies affected",
+        "icon": "📉"
+      },
+      {
+        "label": "Timeline",
+        "value": "Wave 2→2027 · Wave 3→2028",
+        "icon": "⏱"
+      },
+      {
+        "label": "SME Protection",
+        "value": "Value Chain Cap (Art. 29c/29d)",
+        "icon": "🛡️"
+      },
+      {
+        "label": "Standard",
+        "value": "VSME Basic + Comprehensive",
+        "icon": "📋"
+      }
     ],
     "content": [
       "## Was Omnibus I für KMU verändert",
@@ -313,7 +685,16 @@
       "### 5. Monitor Legal Developments",
       "The transposition deadline for Directive 2026/470 into German law runs until 19 March 2027. Details in the national implementation may change until then. VO Sustain monitors developments and informs clients about relevant changes. Get in touch — we guide SMEs from the initial CSRD assessment through VSME implementation to the link with [funding programmes](/foerderberatung)."
     ],
-    "tags": ["CSRD", "Omnibus I", "VSME", "Value Chain Cap", "KMU", "ESG", "Stop-the-Clock", "LSME"],
+    "tags": [
+      "CSRD",
+      "Omnibus I",
+      "VSME",
+      "Value Chain Cap",
+      "KMU",
+      "ESG",
+      "Stop-the-Clock",
+      "LSME"
+    ],
     "source": "https://eur-lex.europa.eu/eli/dir/2026/470"
   },
   {
@@ -327,20 +708,68 @@
     "teaser": "KMU sind meist nicht direkt CSRD-pflichtig — aber Großkunden fragen ESG-Daten ab. Der VSME-Standard bietet einen schlanken, proportionalen Rahmen mit nur 11 Basis-Datenpunkten.",
     "teaser_en": "SMEs are mostly not directly subject to CSRD — but large customers request ESG data. The VSME standard offers a lean, proportionate framework with just 11 basic data points.",
     "facts": [
-      { "label": "Standard",     "value": "VSME (EFRAG, Jan. 2026)",          "icon": "📋" },
-      { "label": "Datenpunkte",  "value": "11 im Basismodul (B1–B11)",        "icon": "📊" },
-      { "label": "Pflicht?",     "value": "Nein — freiwillig für KMU",        "icon": "✅" },
-      { "label": "Prüfung",      "value": "Selbstdeklaration reicht",         "icon": "🔓" },
-      { "label": "Schutz",       "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
-      { "label": "Vorteil",      "value": "Wettbewerbsvorteil + Kreditfähigkeit", "icon": "🚀" }
+      {
+        "label": "Standard",
+        "value": "VSME (EFRAG, Jan. 2026)",
+        "icon": "📋"
+      },
+      {
+        "label": "Datenpunkte",
+        "value": "11 im Basismodul (B1–B11)",
+        "icon": "📊"
+      },
+      {
+        "label": "Pflicht?",
+        "value": "Nein — freiwillig für KMU",
+        "icon": "✅"
+      },
+      {
+        "label": "Prüfung",
+        "value": "Selbstdeklaration reicht",
+        "icon": "🔓"
+      },
+      {
+        "label": "Schutz",
+        "value": "Value Chain Cap (Art. 29c/29d)",
+        "icon": "🛡️"
+      },
+      {
+        "label": "Vorteil",
+        "value": "Wettbewerbsvorteil + Kreditfähigkeit",
+        "icon": "🚀"
+      }
     ],
     "facts_en": [
-      { "label": "Standard",     "value": "VSME (EFRAG, Jan. 2026)",          "icon": "📋" },
-      { "label": "Data Points",  "value": "11 in Basic Module (B1–B11)",      "icon": "📊" },
-      { "label": "Mandatory?",   "value": "No — voluntary for SMEs",          "icon": "✅" },
-      { "label": "Verification", "value": "Self-declaration sufficient",      "icon": "🔓" },
-      { "label": "Protection",   "value": "Value Chain Cap (Art. 29c/29d)",   "icon": "🛡️" },
-      { "label": "Benefit",      "value": "Competitive edge + creditworthiness", "icon": "🚀" }
+      {
+        "label": "Standard",
+        "value": "VSME (EFRAG, Jan. 2026)",
+        "icon": "📋"
+      },
+      {
+        "label": "Data Points",
+        "value": "11 in Basic Module (B1–B11)",
+        "icon": "📊"
+      },
+      {
+        "label": "Mandatory?",
+        "value": "No — voluntary for SMEs",
+        "icon": "✅"
+      },
+      {
+        "label": "Verification",
+        "value": "Self-declaration sufficient",
+        "icon": "🔓"
+      },
+      {
+        "label": "Protection",
+        "value": "Value Chain Cap (Art. 29c/29d)",
+        "icon": "🛡️"
+      },
+      {
+        "label": "Benefit",
+        "value": "Competitive edge + creditworthiness",
+        "icon": "🚀"
+      }
     ],
     "content": [
       "## Warum KMU den VSME kennen sollten",
@@ -390,7 +819,13 @@
       "## Why Act Anyway? Three Strategic Reasons",
       "First: those who have prepared VSME data answer supply chain questionnaires in hours rather than weeks. In practice, SMEs increasingly receive standardised ESG questionnaires from large customers — often with tight deadlines. A ready-made VSME profile dramatically reduces the effort. Second: banks and savings institutions increasingly assess ESG readiness when granting loans and setting conditions. The BaFin guidelines on integrating ESG risks into credit assessments (since 2024) mean that companies with demonstrable ESG documentation receive better terms. Third: sustainability investments — such as energy efficiency, renewable process heat or environmental management systems — are frequently eligible for funding. VO Sustain links [CSRD advisory](/csrd-beratung) with identifying suitable funding programmes at federal and state level and guides you from the initial stocktake to the finished self-declaration. Get in touch — we help SMEs meet ESG requirements efficiently while benefiting from [funding programmes](/foerderberatung)."
     ],
-    "tags": ["VSME", "ESG", "Value Chain Cap", "Nachhaltigkeit", "Lieferkette"],
+    "tags": [
+      "VSME",
+      "ESG",
+      "Value Chain Cap",
+      "Nachhaltigkeit",
+      "Lieferkette"
+    ],
     "source": "https://www.efrag.org/Activities/2010191062456827/VSME"
   },
   {
@@ -404,20 +839,68 @@
     "teaser": "Die neue ZIM-Richtlinie 2025 bringt verbesserte Konditionen für F&E-Kooperationen und Innovationsnetzwerke. Besonders KMU in strukturschwachen Regionen profitieren.",
     "teaser_en": "The new ZIM guidelines 2025 bring improved conditions for R&D collaborations and innovation networks. SMEs in structurally weak regions benefit most.",
     "facts": [
-      { "label": "Programm",         "value": "ZIM – Zentrales Innovationsprogramm Mittelstand", "icon": "🔬" },
-      { "label": "Fördersatz KU",    "value": "bis zu 55%",                                       "icon": "💶" },
-      { "label": "Fördersatz MU",    "value": "bis zu 45%",                                       "icon": "💶" },
-      { "label": "Regionalbonus",    "value": "+10 Prozentpunkte (GRW-Gebiet)",                   "icon": "📍" },
-      { "label": "Netzwerkgröße",    "value": "ab 6 Partnerunternehmen",                          "icon": "🤝" },
-      { "label": "Fokus",            "value": "F&E, Digitalisierung, Nachhaltigkeit",             "icon": "💡" }
+      {
+        "label": "Programm",
+        "value": "ZIM – Zentrales Innovationsprogramm Mittelstand",
+        "icon": "🔬"
+      },
+      {
+        "label": "Fördersatz KU",
+        "value": "bis zu 55%",
+        "icon": "💶"
+      },
+      {
+        "label": "Fördersatz MU",
+        "value": "bis zu 45%",
+        "icon": "💶"
+      },
+      {
+        "label": "Regionalbonus",
+        "value": "+10 Prozentpunkte (GRW-Gebiet)",
+        "icon": "📍"
+      },
+      {
+        "label": "Netzwerkgröße",
+        "value": "ab 6 Partnerunternehmen",
+        "icon": "🤝"
+      },
+      {
+        "label": "Fokus",
+        "value": "F&E, Digitalisierung, Nachhaltigkeit",
+        "icon": "💡"
+      }
     ],
     "facts_en": [
-      { "label": "Programme",        "value": "ZIM – Central Innovation Programme for SMEs",     "icon": "🔬" },
-      { "label": "Funding Rate SE",  "value": "up to 55%",                                        "icon": "💶" },
-      { "label": "Funding Rate ME",  "value": "up to 45%",                                        "icon": "💶" },
-      { "label": "Regional Bonus",   "value": "+10 percentage points (GRW area)",                 "icon": "📍" },
-      { "label": "Network Size",     "value": "from 6 partner companies",                         "icon": "🤝" },
-      { "label": "Focus",            "value": "R&D, Digitalisation, Sustainability",              "icon": "💡" }
+      {
+        "label": "Programme",
+        "value": "ZIM – Central Innovation Programme for SMEs",
+        "icon": "🔬"
+      },
+      {
+        "label": "Funding Rate SE",
+        "value": "up to 55%",
+        "icon": "💶"
+      },
+      {
+        "label": "Funding Rate ME",
+        "value": "up to 45%",
+        "icon": "💶"
+      },
+      {
+        "label": "Regional Bonus",
+        "value": "+10 percentage points (GRW area)",
+        "icon": "📍"
+      },
+      {
+        "label": "Network Size",
+        "value": "from 6 partner companies",
+        "icon": "🤝"
+      },
+      {
+        "label": "Focus",
+        "value": "R&D, Digitalisation, Sustainability",
+        "icon": "💡"
+      }
     ],
     "content": [
       "Das Zentrale Innovationsprogramm Mittelstand (ZIM) des Bundesministeriums für Wirtschaft und Klimaschutz (BMWK) ist das wichtigste technologieoffene Förderprogramm für forschende KMU in Deutschland. Eine detaillierte Übersicht bietet unsere [Seite zur ZIM-Förderung](/zim-foerderung). Seit der überarbeiteten Richtlinie vom 01.01.2025 bietet das ZIM verbesserte Konditionen für Kooperationsprojekte, eine vereinfachte Antragstellung und erweiterte Förderfähigkeit für Digitalisierungsvorhaben mit Nachhaltigkeitsbezug. Das Programm richtet sich an kleine und mittlere Unternehmen mit Sitz in Deutschland, die marktorientierte Forschungs- und Entwicklungsprojekte (F&E) durchführen wollen. Projektträger ist die AiF Projekt GmbH (Berlin) im Auftrag des BMWK.",
@@ -465,7 +948,15 @@
       "## Eligible Costs and Project Duration",
       "Eligible costs include project-related personnel costs (own R&D staff), costs for third-party contracts and research institutions, project-related material costs, and costs for instruments and equipment (proportionate to usage duration). The project duration is typically up to 24 months for individual projects and up to 36 months for cooperation projects. Not eligible are sales costs, serial production costs, and general operating expenses. VO Sustain supports with the assessment of eligibility, partner search for cooperation projects, and application preparation — from the initial project outline to the grant notification. Learn more about our consulting approach on our [funding advisory page](/foerderberatung)."
     ],
-    "tags": ["ZIM", "Innovation", "F&E", "Netzwerk", "BMWK", "Sachsen", "Thüringen"],
+    "tags": [
+      "ZIM",
+      "Innovation",
+      "F&E",
+      "Netzwerk",
+      "BMWK",
+      "Sachsen",
+      "Thüringen"
+    ],
     "source": "https://www.zim.de/ZIM/Navigation/DE/"
   },
   {
@@ -479,20 +970,68 @@
     "teaser": "Ein Forschungsunternehmen aus dem Bereich Energietechnologie erhielt 60 % Zuschuss für ein innovatives Dekarbonisierungsprojekt — begleitet von VO Sustain von der Konzeption bis zur Bewilligung.",
     "teaser_en": "An energy technology research company received a 60% grant for an innovative decarbonisation project — supported by VO Sustain from conception to approval.",
     "facts": [
-      { "label": "Förderquote",        "value": "60 %",               "icon": "🏆" },
-      { "label": "Bearbeitungszeit",   "value": "14 Wochen",                  "icon": "⚡" },
-      { "label": "Bewilligungsrunde",  "value": "1. Antragsrunde (sofort)",   "icon": "✅" },
-      { "label": "Förderlaufzeit",     "value": "24 Monate",                  "icon": "📅" },
-      { "label": "Sektor",             "value": "Energietechnologie / Dekarbonisierung", "icon": "🔋" },
-      { "label": "Nachforderungen",    "value": "Keine",                      "icon": "🎯" }
+      {
+        "label": "Förderquote",
+        "value": "60 %",
+        "icon": "🏆"
+      },
+      {
+        "label": "Bearbeitungszeit",
+        "value": "14 Wochen",
+        "icon": "⚡"
+      },
+      {
+        "label": "Bewilligungsrunde",
+        "value": "1. Antragsrunde (sofort)",
+        "icon": "✅"
+      },
+      {
+        "label": "Förderlaufzeit",
+        "value": "24 Monate",
+        "icon": "📅"
+      },
+      {
+        "label": "Sektor",
+        "value": "Energietechnologie / Dekarbonisierung",
+        "icon": "🔋"
+      },
+      {
+        "label": "Nachforderungen",
+        "value": "Keine",
+        "icon": "🎯"
+      }
     ],
     "facts_en": [
-      { "label": "Funding Rate",       "value": "60%",                        "icon": "🏆" },
-      { "label": "Processing Time",    "value": "14 weeks",                   "icon": "⚡" },
-      { "label": "Approval Round",     "value": "1st round (immediate)",      "icon": "✅" },
-      { "label": "Funding Duration",   "value": "24 months",                  "icon": "📅" },
-      { "label": "Sector",             "value": "Energy Technology / Decarbonisation", "icon": "🔋" },
-      { "label": "Add. Requests",      "value": "None",                       "icon": "🎯" }
+      {
+        "label": "Funding Rate",
+        "value": "60%",
+        "icon": "🏆"
+      },
+      {
+        "label": "Processing Time",
+        "value": "14 weeks",
+        "icon": "⚡"
+      },
+      {
+        "label": "Approval Round",
+        "value": "1st round (immediate)",
+        "icon": "✅"
+      },
+      {
+        "label": "Funding Duration",
+        "value": "24 months",
+        "icon": "📅"
+      },
+      {
+        "label": "Sector",
+        "value": "Energy Technology / Decarbonisation",
+        "icon": "🔋"
+      },
+      {
+        "label": "Add. Requests",
+        "value": "None",
+        "icon": "🎯"
+      }
     ],
     "content": [
       "Ein spezialisiertes Forschungsunternehmen aus dem Bereich Energietechnologie hat für ein innovatives Dekarbonisierungsprojekt einen Zuschuss von 60 % der förderfähigen Kosten erhalten. Das Fördervolumen lag im sechsstelligen Bereich. VO Sustain hat das Unternehmen von der ersten Potenzialanalyse über die Programmwahl bis zur vollständigen Bewilligung begleitet — ohne Nachforderungen, in der ersten Antragsrunde.",
@@ -540,7 +1079,13 @@
       "Fourth: early consultation maximises options. Companies that engage VO Sustain before obtaining quotes or signing supply contracts preserve the prohibition on premature start and can still adjust the project structure to meet funding requirements. Subsequent adjustments are possible but more effort-intensive. Particularly for R&D projects in the energy sector, where several federal and state programmes may be eligible simultaneously, a professional initial assessment saves considerable time and significantly increases the probability of approval.",
       "If you are planning an innovation, energy, or decarbonisation project and want to know which funding programmes are eligible — talk to us early. Visit our [funding advisory page](/foerderberatung) to learn how VO Sustain works. We assess eligibility and guide you from the potential analysis through application submission to the grant notification."
     ],
-    "tags": ["Referenz", "Energieforschung", "Dekarbonisierung", "Erfolg", "60 %"],
+    "tags": [
+      "Referenz",
+      "Energieforschung",
+      "Dekarbonisierung",
+      "Erfolg",
+      "60 %"
+    ],
     "source": null
   }
 ]
