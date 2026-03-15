@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/(.*)",
+        has: [{ type: "host", value: "vosustain.de" }],
+        destination: "https://www.vosustain.de/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

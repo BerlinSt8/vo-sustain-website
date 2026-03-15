@@ -18,11 +18,13 @@ export const metadata = {
     description: "KI-gestützte Förderberatung für Cleantech & Nachhaltigkeit KMU. ZIM bis 600.000 €, BAFA bis 55 %, Erfolgshonorar. Fertige Konzepte in 48h.",
     url: "https://www.vosustain.de",
     type: "website" as const,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "VO Sustain – Förderberatung für Cleantech KMU" }],
   },
   twitter: {
     card: "summary_large_image" as const,
     title: "Förderberatung Cleantech KMU: ZIM, BAFA & CSRD | VO Sustain",
     description: "KI-gestützte Förderberatung für Cleantech KMU. ZIM bis 600.000 €, BAFA bis 55 %. Quick-Check kostenlos.",
+    images: ["/og-image.jpg"],
   },
 };
 
